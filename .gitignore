@@ -8,7 +8,9 @@ __pycache__/
 
 # Distribution / packaging
 .Python
-build/
+# (was: build/) Python build dirs are excluded by their parents (dist/, eggs/);
+# our build/ directory holds GeoJSON / manifest artifacts and must be committed.
+!build/
 develop-eggs/
 dist/
 downloads/
