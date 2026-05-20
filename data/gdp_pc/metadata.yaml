@@ -1,0 +1,16 @@
+source: "Kummu et al. (2025) downscaled global GDP per capita (PPP), aggregated to DRC health zones"
+citation: "Kummu, M., Kosonen, M. & Masoumzadeh Sayyar, S. (2025). Downscaled gridded global dataset for gross domestic product (GDP) per capita PPP over 1990–2022. Scientific Data 12, 178. https://doi.org/10.1038/s41597-025-04487-x. Data: https://doi.org/10.5281/zenodo.10976733. Health-zone geometry: DRC_Health_zones.shp (see data/shapefiles/)."
+source_url: "https://doi.org/10.5281/zenodo.10976733"
+retrieved_on: "2026-05-20"
+license: "Creative Commons Attribution 4.0 International (CC BY 4.0); see Nature Scientific Data and Zenodo record terms"
+contact: "matti.kummu@aalto.fi"
+runtime: R
+period: "2022"
+notes: |
+  GDP per capita (PPP, 2017 international USD) for 519 DRC health zones, 2022 snapshot from
+  processed/COD-2022-gdp_pc.zs.nc (variable gdp_pc, region = ZSCode). Upstream gridded/
+  admin-2 product from Kummu et al. 2025; zonal aggregation via DARTS (planned; not yet
+  in-repo). data/gdp_pc/process.R joins to data/shapefiles/DRC_Health_zones.shp,
+  exports processed/gdp_pc__gdp_pc__static.csv (nom, gdp_pc), and
+  gdp_pc_processed_plot.png. DRC values rely on downscaled estimates (limited reported
+  subnational data in Africa). raw/ empty. See README.md for methodology summary.
