@@ -1,0 +1,120 @@
+{
+  "built_at": "2026-05-20T14:57:32+00:00",
+  "shapefile": "data/shapefiles/DRC_Health_zones.shp",
+  "n_features": 519,
+  "datasets": [
+    {
+      "folder": "ACLED_conflict",
+      "source": "Armed Conflict Location & Event Data (ACLED)",
+      "citation": "Raleigh, C., Linke, A., Hegre, H., & Karlsen, J. (2010). Introducing ACLED: An Armed Conflict Location and Event Dataset. Journal of Peace Research.",
+      "source_url": "https://acleddata.com",
+      "retrieved_on": "2026-05-02",
+      "license": "ACLED Terms of Use (academic / non-commercial). See https://acleddata.com/terms-of-use/",
+      "contact": "access@acleddata.com",
+      "status": "placeholder",
+      "outputs": []
+    },
+    {
+      "folder": "IDP",
+      "source": "International Organisation for Migration (IOM) Displacement Tracking Matrix (DTM) \u2014 DRC",
+      "citation": "IOM DTM (2026). Mobility Tracking Round 14 - Ituri (IOM_DRC_MT_BLA_Ituri_R14_Jan2026, public version 3).",
+      "source_url": "https://dtm.iom.int/drc",
+      "retrieved_on": "2026-01-31",
+      "license": "IOM DTM public release. Reuse with attribution per IOM data sharing terms.",
+      "contact": "DTMDRC@iom.int",
+      "status": "active",
+      "outputs": [
+        {
+          "file": "idp__individuals__monthly.matrix.csv",
+          "type": "matrix",
+          "dataset_token": "idp",
+          "metric": "individuals",
+          "resolution": "monthly",
+          "in_geojson": false,
+          "matrix_log": "qa/matrix_log.csv"
+        },
+        {
+          "file": "idp__individuals__static.matrix.csv",
+          "type": "matrix",
+          "dataset_token": "idp",
+          "metric": "individuals",
+          "resolution": "static",
+          "in_geojson": false,
+          "matrix_log": "qa/matrix_log.csv"
+        },
+        {
+          "file": "idp__individuals__weekly.matrix.csv",
+          "type": "matrix",
+          "dataset_token": "idp",
+          "metric": "individuals",
+          "resolution": "weekly",
+          "in_geojson": false,
+          "matrix_log": "qa/matrix_log.csv"
+        }
+      ]
+    },
+    {
+      "folder": "cross-border-movements",
+      "source": "Cross-border passenger volumes from sitreps cited in Imperial College report on the 2026 DRC Ebola outbreak",
+      "citation": "Imperial College London MRC GIDA. Report on the DRC Ebola outbreak, 18 May 2026.",
+      "source_url": "https://www.imperial.ac.uk/mrc-global-infectious-disease-analysis/research-themes/preparedness-and-response-to-emerging-threats/report-ebola-18-05-2026/",
+      "retrieved_on": "2026-05-18",
+      "license": "Imperial College report citing public sitrep data; reuse with attribution to the report and underlying observations.",
+      "contact": "mrc-gida@imperial.ac.uk",
+      "status": "active",
+      "outputs": [
+        {
+          "file": "cross_border__poe_passengers__static.csv",
+          "type": "vector",
+          "dataset_token": "cross_border",
+          "metric": "poe_passengers",
+          "resolution": "static",
+          "in_geojson": true,
+          "zones_with_values": 7,
+          "long_csv": "build/long/cross_border__poe_passengers.csv"
+        }
+      ]
+    },
+    {
+      "folder": "epi",
+      "source": "WHO Weekly External Situation Report 01",
+      "citation": "World Health Organization. Bundibugyo Ebola virus outbreak, DRC: Weekly External Situation Report 01, data as of 18 May 2026.",
+      "source_url": "https://iris.who.int/server/api/core/bitstreams/bb1d4668-04e0-4563-b7c4-d1bdefbc9f05/content",
+      "retrieved_on": "2026-05-18",
+      "license": "WHO open access. Reuse with attribution per https://www.who.int/about/policies/publishing/copyright",
+      "contact": "outbreak@who.int",
+      "status": "placeholder",
+      "outputs": []
+    },
+    {
+      "folder": "flowminder",
+      "source": "Flowminder.org mobility / population-displacement estimates from Vodacom RDC CDR data",
+      "citation": "Flowminder Foundation (2026). Estimations de population et mobilit\u00e9 \u2014 provincial reports for Ituri, Nord-Kivu, Haut-Uele, Tshopo, March 2026.",
+      "source_url": "https://www.flowminder.org/resources/publications-reports/drc-reports-publications",
+      "retrieved_on": "2026-05-20",
+      "license": "Flowminder reports are publicly released; cite the source organisation. See https://www.flowminder.org",
+      "contact": "rdc@flowminder.org",
+      "status": "active",
+      "outputs": [
+        {
+          "file": "flowminder__inflow__static.matrix.csv",
+          "type": "matrix",
+          "dataset_token": "flowminder",
+          "metric": "inflow",
+          "resolution": "static",
+          "in_geojson": false,
+          "matrix_log": "qa/matrix_log.csv"
+        },
+        {
+          "file": "flowminder__outflow__static.matrix.csv",
+          "type": "matrix",
+          "dataset_token": "flowminder",
+          "metric": "outflow",
+          "resolution": "static",
+          "in_geojson": false,
+          "matrix_log": "qa/matrix_log.csv"
+        }
+      ]
+    }
+  ]
+}

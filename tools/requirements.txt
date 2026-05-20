@@ -1,0 +1,3 @@
+pyshp>=2.3
+pyyaml>=6.0
+shapely>=2.0

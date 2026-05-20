@@ -1,0 +1,15 @@
+source: "Armed Conflict Location & Event Data (ACLED)"
+citation: "Raleigh, C., Linke, A., Hegre, H., & Karlsen, J. (2010). Introducing ACLED: An Armed Conflict Location and Event Dataset. Journal of Peace Research."
+source_url: "https://acleddata.com"
+retrieved_on: "2026-05-02"
+license: "ACLED Terms of Use (academic / non-commercial). See https://acleddata.com/terms-of-use/"
+contact: "access@acleddata.com"
+runtime: none
+status: placeholder
+notes: |
+  Raw file (data/ACLED_conflict/raw/ACLED_Africa_weekly_agregated_20250502.csv) is
+  weekly aggregates per province (ADMIN1), not per health zone. The CENTROID_LATITUDE
+  / CENTROID_LONGITUDE columns are province-level summary coordinates (three distinct
+  points total across 346 rows), so point-in-polygon would not produce real
+  zone-level event counts. Real aggregation requires event-level ACLED data
+  (a future PR).

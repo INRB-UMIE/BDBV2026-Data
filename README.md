@@ -14,6 +14,60 @@ This is work done in support of the current response led by colleagues in the De
 - **Health facilities**: [GRID3 COD Health Facilities v8.0](https://data.grid3.org/datasets/GRID3::grid3-cod-health-facilities-v8-0/about)
 - **Mobile phone-based internal displacement estimates:** [Flowminder.org](https://www.flowminder.org/resources/publications-reports/drc-reports-publications)
 
+# Repository layout
+
+```
+data/
+  shapefiles/                source of truth for health-zone boundaries
+  aliases.csv                observed_name -> canonical_nom mappings
+  <dataset>/                 one folder per source
+    raw/                     untouched source files
+    process.{py,R}           script that produces files in processed/
+    processed/               standardized contract-conformant outputs
+    metadata.yaml            source, citation, retrieved_on, license, contact, runtime
+    README.md                optional human notes
+tools/
+  lib/schema.py              canonical Noms, alias resolver, filename contract
+  qa.py                      walks data/, validates, writes qa/qa_log.csv & qa/matrix_log.csv
+  build_geojson.py           merges passing non-matrix outputs into build/drc_health_zones.geojson
+  requirements.txt           pyshp, pyyaml, shapely
+qa/
+  qa_log.csv                 per-artifact QA results (all statuses)
+  matrix_log.csv             catalog of QA-passing matrices
+  reports/<dataset>.md       per-folder human-readable report
+build/
+  drc_health_zones.geojson   shapefile + latest per-zone values
+  long/<dataset>__<metric>.csv  full long-format copy of each vector file
+  manifest.json              sources + build timestamp
+```
+
+# Data contract
+
+**Join key:** the canonical `Nom` from `data/shapefiles/DRC_Health_zones.shp`. The two natural collisions (`Bili`, `Lubunga`) are disambiguated with a province suffix, e.g. `Lubunga (Tshopo)`. Observed spellings that differ are listed in `data/aliases.csv`.
+
+**Processed-file naming:** `<dataset>__<metric>__<resolution>.{csv|matrix.csv}`
+- `<dataset>` and `<metric>` are lower_snake_case.
+- `<resolution>` ∈ {`static`, `daily`, `weekly`, `monthly`, `yearly`}.
+- Suffix is `.matrix.csv` for matrix outputs, `.csv` for vector (one-row-per-zone) outputs.
+
+**Vector files** carry a `nom` column. Non-static resolutions also carry a `date` column (ISO 8601).
+**Matrix files** layout: snapshot matrices have header `nom, <dest_nom_1>, ...`; time-series matrices have `date, nom, <dest_nom_1>, ...`. Cells are non-negative numeric.
+
+# Contributor flow
+
+1. Create `data/<your_dataset>/` with `raw/`, `metadata.yaml`, and (when you have outputs) `process.{py,R}` + `processed/`.
+2. Make sure your processed filenames match the contract above. Add any name aliases your data uses to `data/aliases.csv`.
+3. Run QA locally:
+   ```
+   python -m venv .venv && .venv/bin/pip install -r tools/requirements.txt
+   .venv/bin/python -m tools.qa
+   ```
+4. Rebuild the merged GeoJSON if you changed any vector data:
+   ```
+   .venv/bin/python -m tools.build_geojson
+   ```
+5. Open a PR. CI runs `tools.qa` and blocks merge on any failures. Merges to `main` are manual.
+
 # Citation
 Please cite the original data providers (links above) and this repository if any code or derived data is reused.
 

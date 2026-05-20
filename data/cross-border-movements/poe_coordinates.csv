@@ -1,0 +1,8 @@
+poe_name,latitude,longitude,side_of_border,source_url,notes
+Goli,2.3874268,31.0296457,Uganda,https://nominatim.openstreetmap.org/search?q=Goli%2C+Nebbi%2C+Uganda&format=json,"Goli village in Nebbi District, Uganda; opposite Mahagi territory, DRC"
+Ntoroko Main,0.9915740,30.3849572,Uganda,https://nominatim.openstreetmap.org/search?q=Ntoroko%2C+Uganda&format=json,"Ntoroko District HQ, Uganda; opposite western Lake Albert shore in Ituri, DRC"
+Odramacaku,3.1128037,30.8202923,Uganda,https://nominatim.openstreetmap.org/search?q=Odramacaku&format=json,"Locality in Ayivuni / Arua City, Uganda; opposite Aru territory, DRC"
+Vurra,2.7642396,30.8904716,Uganda,https://nominatim.openstreetmap.org/search?q=Vurra%2C+Uganda&format=json,"Vurra village in Logiri, Arua District, Uganda; opposite Aru territory, DRC"
+Busanza,-0.7383216,29.6429671,Uganda,https://nominatim.openstreetmap.org/search?q=Busanza%2C+Kanungu%2C+Uganda&format=json,"Busanza village in Nyaka, Kanungu District, Uganda; opposite Rutshuru area of Nord-Kivu, DRC"
+Busunga,0.6329540,29.9638950,Uganda,https://nominatim.openstreetmap.org/search?q=Busunga%2C+Bundibugyo%2C+Uganda&format=json,"Busunga village in Bubandi, Bundibugyo District, Uganda; opposite Beni territory, DRC"
+Mpondwe,0.0396318,29.7256531,Uganda,https://nominatim.openstreetmap.org/search?q=Mpondwe%2C+Kasese%2C+Uganda&format=json,"Mpondwe-Kasindi crossing; OSM point is Mpondwe village in Kasese, Uganda; DRC side is Kasindi in Beni territory"

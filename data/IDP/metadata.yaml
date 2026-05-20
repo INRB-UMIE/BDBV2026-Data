@@ -1,0 +1,15 @@
+source: "International Organisation for Migration (IOM) Displacement Tracking Matrix (DTM) — DRC"
+citation: "IOM DTM (2026). Mobility Tracking Round 14 - Ituri (IOM_DRC_MT_BLA_Ituri_R14_Jan2026, public version 3)."
+source_url: "https://dtm.iom.int/drc"
+retrieved_on: "2026-01-31"
+license: "IOM DTM public release. Reuse with attribution per IOM data sharing terms."
+contact: "DTMDRC@iom.int"
+runtime: python
+notes: |
+  Raw IOM workbook (raw/IOM_DRC_MT_BLA_Ituri_R14_Jan2026_vPub3.xlsx.zip) was
+  pre-processed upstream into three OD matrices stored in raw/ (all-time,
+  monthly, weekly). process.py rewrites those into contract-compliant outputs:
+    - Header/row labels of the form 'CD####ZS## | UPPER NAME' are mapped to
+      canonical Nom via ZSCode (authoritative; bypasses name spelling variants).
+    - 'origin_hz' is renamed to 'nom'; 'week_start' / 'month' is renamed to
+      'date'. Month values are normalised to ISO YYYY-MM-01.

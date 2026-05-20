@@ -1,0 +1,19 @@
+source: "Cross-border passenger volumes from sitreps cited in Imperial College report on the 2026 DRC Ebola outbreak"
+citation: "Imperial College London MRC GIDA. Report on the DRC Ebola outbreak, 18 May 2026."
+source_url: "https://www.imperial.ac.uk/mrc-global-infectious-disease-analysis/research-themes/preparedness-and-response-to-emerging-threats/report-ebola-18-05-2026/"
+retrieved_on: "2026-05-18"
+license: "Imperial College report citing public sitrep data; reuse with attribution to the report and underlying observations."
+contact: "mrc-gida@imperial.ac.uk"
+runtime: python
+notes: |
+  Raw file (raw/cross-border.csv) lists 7 named Points of Entry (PoEs) without
+  coordinates. poe_coordinates.csv was hand-curated using OpenStreetMap /
+  Nominatim lookups; coordinates are on the Uganda side of the border (the CSV
+  measures passengers entering Uganda). process.py maps each PoE to its
+  nearest DRC health zone (so border-side coords still resolve to the DRC zone
+  on the other side of the border) and aggregates passenger metrics per zone:
+    - n_poes
+    - mean_daily_passengers (sum across PoEs in zone)
+    - mean_weekly_passengers (sum across PoEs in zone)
+  Reviewers: please verify poe_coordinates.csv against authoritative sources;
+  coordinates should be considered approximate.

@@ -1,0 +1,15 @@
+source: "Flowminder.org mobility / population-displacement estimates from Vodacom RDC CDR data"
+citation: "Flowminder Foundation (2026). Estimations de population et mobilité — provincial reports for Ituri, Nord-Kivu, Haut-Uele, Tshopo, March 2026."
+source_url: "https://www.flowminder.org/resources/publications-reports/drc-reports-publications"
+retrieved_on: "2026-05-20"
+license: "Flowminder reports are publicly released; cite the source organisation. See https://www.flowminder.org"
+contact: "rdc@flowminder.org"
+runtime: python
+period: "2026-03"
+notes: |
+  Raw OD matrix CSVs (raw/mobilite_od_matrix_*_mar2026.csv) were extracted upstream
+  from Flowminder provincial PDF reports (workflow logged in README.md). process.py
+  in this folder rewrites them into the repo's contract: column 'origin' is renamed
+  'nom', alias-only names are normalised to canonical Nom, and the bare 'Lubunga'
+  label is disambiguated to 'Lubunga (Tshopo)' using the flowminder coverage area.
+  Coverage area: Ituri, Nord-Kivu, Haut-Uele, western Tshopo (per README.md).
