@@ -7,6 +7,7 @@ This is work done in support of the current response led by colleagues in the De
 - **DRC health zones:** [Humanitarian Data Exchange](https://data.humdata.org/dataset/drc-health-data) (MoH zones de santé shapefile)
 - **Epidemiological data:** [Weekly External Situation Report 01, Data as of 18 May 2026](https://iris.who.int/server/api/core/bitstreams/bb1d4668-04e0-4563-b7c4-d1bdefbc9f05/content) 
 - **Road travel times:** [OSRM](http://project-osrm.org/) public demo
+- **Cross-border travel**[Imperial College Report](https://www.imperial.ac.uk/mrc-global-infectious-disease-analysis/research-themes/preparedness-and-response-to-emerging-threats/report-ebola-18-05-2026/)
 - **Conflicts and acts of violence:** [ACLED](https://acleddata.com)
 - **Internal displacements:** International Organisation for Migrants ([IOM](https://dtm.iom.int))
 - **Population size rasters**: [GRID3 v4.4 gridded population](https://data.grid3.org/maps/a3db539c0fae4c05aed92ed67e11fe2b/about)
