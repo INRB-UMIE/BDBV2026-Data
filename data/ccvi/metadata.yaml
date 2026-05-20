@@ -1,0 +1,19 @@
+source: "Climate Conflict Vulnerability Index (CCVI) — socio-economic vulnerability indicators aggregated to DRC health zones"
+citation: "Climate Conflict Vulnerability Index (2024). climate-conflict.org. Commissioned by German Federal Foreign Office; University of the Bundeswehr Munich and Potsdam Institute for Climate Impact Research (PIK). Health-zone geometry: DRC_Health_zones.shp (see data/shapefiles/). Methodology: https://climate-conflict.org/www/index/methodology"
+source_url: "https://climate-conflict.org/www"
+retrieved_on: "2026-05-20"
+license: "CCVI data and documentation subject to terms at climate-conflict.org; processing code open source at https://github.com/ccew-unibw/ccvi-data"
+contact: "https://climate-conflict.org/www"
+runtime: R
+period: "2024"
+notes: |
+  Two CCVI vulnerability-pillar sub-indicators for 519 DRC health zones (2024 quarter,
+  time index 11 in COD-2022-2024-ccvi.zs.nc): VUL_socioeconomic_inequality,
+  VUL_socioeconomic_deprivation (scores 0–1, higher = more vulnerable). Upstream
+  0.5° quarterly CCVI grids aggregated via DARTS (planned; not yet in-repo).
+  data/ccvi/process.R joins to data/shapefiles/DRC_Health_zones.shp on ZSCode;
+  exports processed/ccvi__socioeconomic_inequality__static.csv and
+  processed/ccvi__socioeconomic_deprivation__static.csv; maps
+  socioeconomic_inequality_processed_plot.png and
+  socioeconomic_deprivation_processed_plot.png. NetCDF also holds other VUL_*
+  variables not exported. raw/ empty. See README.md for CCVI methodology summary.
