@@ -73,18 +73,48 @@ def _load_poe_coords() -> dict[str, tuple[float, float]]:
     return coords
 
 
+def _resolve_columns(fieldnames: list[str]) -> dict[str, str]:
+    """Map our internal keys to the real header names in raw/cross-border.csv.
+
+    Source headers have inconsistent casing, parenthesised tokens, and a
+    sentence-long passenger column. Match on a normalised (lowercased,
+    whitespace-collapsed) form so upstream cosmetic tweaks don't silently
+    break the build; if a column genuinely disappears, fail with a clear
+    message naming what we expected to find.
+    """
+    norm = {" ".join(h.lower().split()): h for h in fieldnames}
+    needed = {
+        "poe": "point of entry (poe)",
+        "weekly": "mean reported weekly passengers entering uganda through this poe",
+        "daily": "mean daily passengers",
+    }
+    resolved: dict[str, str] = {}
+    missing: list[str] = []
+    for key, normalised_name in needed.items():
+        if normalised_name in norm:
+            resolved[key] = norm[normalised_name]
+        else:
+            missing.append(normalised_name)
+    if missing:
+        raise KeyError(
+            f"cross-border: raw/cross-border.csv is missing expected columns "
+            f"(normalised): {missing}. Available: {list(fieldnames)}"
+        )
+    return resolved
+
+
 def _load_passengers() -> list[dict]:
     with RAW_CSV.open(newline="", encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
-        # Source headers contain spaces and parentheses; map to clean keys.
-        clean_rows = []
-        for r in reader:
-            clean_rows.append({
-                "poe": r["Point of Entry (PoE)"].strip(),
-                "weekly": float(r["mean reported weekly passengers entering uganda through this PoE"]),
-                "daily": float(r["Mean daily passengers"]),
-            })
-        return clean_rows
+        cols = _resolve_columns(reader.fieldnames or [])
+        return [
+            {
+                "poe": r[cols["poe"]].strip(),
+                "weekly": float(r[cols["weekly"]]),
+                "daily": float(r[cols["daily"]]),
+            }
+            for r in reader
+        ]
 
 
 def main() -> int:

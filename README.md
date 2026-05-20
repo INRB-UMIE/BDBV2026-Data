@@ -55,18 +55,24 @@ build/
 
 # Contributor flow
 
+0. One-time setup (anyone cloning):
+   ```
+   git lfs install
+   python -m venv .venv && .venv/bin/pip install -r tools/requirements.txt
+   ```
+   LFS is required because binary raw blobs (`*.xlsx`, `*.zip`, `*.pdf`, `*.tif`, etc.) under `data/*/raw/` are stored via Git LFS — see `.gitattributes`.
 1. Create `data/<your_dataset>/` with `raw/`, `metadata.yaml`, and (when you have outputs) `process.{py,R}` + `processed/`.
 2. Make sure your processed filenames match the contract above. Add any name aliases your data uses to `data/aliases.csv`.
-3. Run QA locally:
+3. Run unit tests + QA locally:
    ```
-   python -m venv .venv && .venv/bin/pip install -r tools/requirements.txt
+   .venv/bin/python -m pytest tests/
    .venv/bin/python -m tools.qa
    ```
 4. Rebuild the merged GeoJSON if you changed any vector data:
    ```
    .venv/bin/python -m tools.build_geojson
    ```
-5. Open a PR. CI runs `tools.qa` and blocks merge on any failures. Merges to `main` are manual.
+5. Open a PR. CI runs `pytest` + `tools.qa` and blocks merge on any failures. Merges to `main` are manual.
 
 # Citation
 Please cite the original data providers (links above) and this repository if any code or derived data is reused.

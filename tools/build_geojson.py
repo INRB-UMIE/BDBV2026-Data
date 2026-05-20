@@ -27,7 +27,6 @@ Run from repo root:
 from __future__ import annotations
 
 import csv
-import datetime as dt
 import json
 import sys
 from collections import defaultdict
@@ -120,6 +119,9 @@ def _attach_vector(folder: Path, file_name: str, parsed, features_by_nom: dict[s
             continue
         if date_col:
             existing = latest_per_nom.get(canonical)
+            # Lexical string comparison is safe here because the contract
+            # requires ISO 8601 dates (YYYY-MM-DD or YYYY), which sort
+            # correctly as strings. Don't relax this without parsing.
             if existing is None or r[date_col] > existing[date_col]:
                 latest_per_nom[canonical] = r
         else:
@@ -147,7 +149,6 @@ def _attach_vector(folder: Path, file_name: str, parsed, features_by_nom: dict[s
 
 
 def _build_manifest(qa_rows: list[dict], attached_counts: dict[tuple[str, str], int]) -> dict:
-    now = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
     # Include every folder that passed metadata QA so placeholders are visible
     # in the index, even when they have no outputs yet.
     by_folder: dict[str, list[dict]] = defaultdict(list)
@@ -200,7 +201,6 @@ def _build_manifest(qa_rows: list[dict], attached_counts: dict[tuple[str, str], 
             "outputs": outputs,
         })
     return {
-        "built_at": now,
         "shapefile": "data/shapefiles/DRC_Health_zones.shp",
         "n_features": len(load_zones()),
         "datasets": datasets,

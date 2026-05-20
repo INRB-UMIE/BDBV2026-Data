@@ -134,16 +134,19 @@ def qa_vector(dataset: str, path: Path, parsed) -> FileResult:
     unresolved: list[str] = []
     canonical_seen: set[str] = set()
     keys: list = []
-    for r in rows:
+    width_mismatches = 0
+    for ri, r in enumerate(rows, start=2):
         if len(r) != len(header):
-            reasons.append(f"row width mismatch (expected {len(header)}, got {len(r)})")
-            break
+            width_mismatches += 1
+            continue
         canonical = to_canonical(r[nom_i])
         if canonical is None:
             unresolved.append(r[nom_i])
         else:
             canonical_seen.add(canonical)
         keys.append((r[nom_i], r[date_i]) if date_i is not None else r[nom_i])
+    if width_mismatches:
+        reasons.append(f"{width_mismatches} rows with width mismatch (expected {len(header)} fields)")
 
     if unresolved:
         sample = sorted(set(unresolved))[:5]
@@ -237,7 +240,11 @@ def qa_matrix(dataset: str, path: Path, parsed) -> FileResult:
     ]
     status = "fail" if fatal else "pass"
 
-    square = (len(rows) == len(dest_headers)) if date_i is None else None
+    # "square" only meaningful for snapshot matrices. Compare unique canonical
+    # origins to destinations, not raw row count: a matrix with collapsible
+    # duplicate origin labels (e.g. IDP's legacy Bunia row) is still square
+    # after canonicalisation.
+    square = (len(canonical_seen) == len(dest_headers)) if date_i is None else None
     date_range = None
     if dates_seen:
         ds = sorted(dates_seen)
