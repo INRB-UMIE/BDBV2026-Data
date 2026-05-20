@@ -263,7 +263,8 @@ vignettes/*.pdf
 .Renviron
 
 # pkgdown site
-docs/
+docs/*
+!docs/superpowers/
 
 # translation temp files
 po/*~
