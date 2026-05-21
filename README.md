@@ -16,6 +16,38 @@ This is work done in support of the current response led by colleagues in the De
 
 For the latest BDBV genomic data, please visit [Pathoplexus](https://pathoplexus.org/ebola-bdbv/search).
 
+# Current build (2026-05-21)
+
+Snapshot of `build/drc_health_zones.geojson` (519 zones, ~36 MB) and the matrix catalogue, at commit `b1f6ad9`. Re-run `python -m tools.build_geojson` after pulling to regenerate locally; `build/manifest.json` carries the same information in machine-readable form.
+
+**Embedded in the GeoJSON** — each output appears under `feature.properties.<dataset>.<metric>`:
+
+| Folder | Output | Retrieved | Status |
+| --- | --- | --- | --- |
+| ccvi | `ccvi__socioeconomic_deprivation__static.csv` | 2026-05-20 | active |
+| ccvi | `ccvi__socioeconomic_inequality__static.csv` | 2026-05-20 | active |
+| cross-border-movements | `cross_border__poe_passengers__static.csv` | 2026-05-18 | active |
+| epi | `epi__cases__weekly.csv` | 2026-05-18 | active |
+| fao_lccs | `fao_lccs__urban_fraction__static.csv` | 2026-05-20 | active |
+| gdp_pc | `gdp_pc__gdp_pc__static.csv` | 2026-05-20 | active |
+| osrm | `osrm__road_distance__static.csv` | 2026-03-17 | active |
+| osrm | `osrm__travel_time__static.csv` | 2026-03-17 | active |
+| refugee_sites | `refugee_sites__sites__static.csv` | 2026-05-20 | active |
+| worldpop | `worldpop__pop_count__static.csv` | 2026-05-20 | active |
+| worldpop | `worldpop__pop_density__static.csv` | 2026-05-20 | active |
+
+**Matrix outputs** — not embedded (large, square OD-style); fetched as raw CSV and catalogued in `qa/matrix_log.csv`:
+
+| Folder | Output | Retrieved | Status |
+| --- | --- | --- | --- |
+| IDP | `idp__individuals__static.matrix.csv` | 2026-01-31 | active |
+| IDP | `idp__individuals__weekly.matrix.csv` | 2026-01-31 | active |
+| IDP | `idp__individuals__monthly.matrix.csv` | 2026-01-31 | active |
+| flowminder | `flowminder__inflow__static.matrix.csv` | 2026-05-20 | active |
+| flowminder | `flowminder__outflow__static.matrix.csv` | 2026-05-20 | active |
+
+**Not in build**: `ACLED_conflict` — province-grain placeholder, no QA-passing output yet.
+
 # Repository layout
 
 ```
