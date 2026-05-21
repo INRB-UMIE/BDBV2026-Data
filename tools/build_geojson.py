@@ -109,7 +109,9 @@ def _attach_vector(folder: Path, file_name: str, parsed, features_by_nom: dict[s
         fieldnames = reader.fieldnames or []
         rows = list(reader)
     date_col = next((c for c in DATE_COLUMN_CANDIDATES if c in fieldnames), None)
-    value_cols = [c for c in fieldnames if c != "nom" and c != date_col]
+    # Skip empty-header columns (R's write.csv row-index artifact) so they
+    # don't end up as stray "" keys in feature properties.
+    value_cols = [c for c in fieldnames if c and c != "nom" and c != date_col]
 
     # For time-series: pick latest row per canonical nom.
     latest_per_nom: dict[str, dict] = {}
@@ -154,9 +156,9 @@ def _build_manifest(qa_rows: list[dict], attached_counts: dict[tuple[str, str], 
     by_folder: dict[str, list[dict]] = defaultdict(list)
     folders_with_passing_meta: set[str] = set()
     for row in qa_rows:
-        if row["status"] != "pass":
+        if row["status"] == "fail":
             continue
-        if row["type"] == "metadata":
+        if row["type"] == "metadata" and row["status"] == "pass":
             folders_with_passing_meta.add(row["dataset"])
         elif row["type"] in ("vector", "matrix"):
             by_folder[row["dataset"]].append(row)
@@ -217,7 +219,7 @@ def main() -> int:
 
     attached_counts: dict[tuple[str, str], int] = {}
     for row in qa_rows:
-        if row["status"] != "pass" or row["type"] != "vector":
+        if row["status"] == "fail" or row["type"] != "vector":
             continue
         parsed = parse_filename(row["file"])
         if parsed is None:

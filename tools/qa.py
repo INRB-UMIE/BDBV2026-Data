@@ -123,6 +123,32 @@ def qa_vector(dataset: str, path: Path, parsed) -> FileResult:
         return FileResult(dataset, path.name, "vector", "fail", [f"CSV read error: {e}"])
 
     reasons: list[str] = []
+
+    # Defensive: empty column headers usually come from R's write.csv writing
+    # the row-index column without row.names=FALSE. Surfaced as a warn so the
+    # upstream process script gets cleaned up; the build script skips empty
+    # headers when attaching values so they don't leak into feature properties.
+    empty_header_count = sum(1 for h in header if h == "")
+    if empty_header_count:
+        reasons.append(
+            f"{empty_header_count} empty column header(s); likely R "
+            "write.csv without row.names=FALSE (warn)"
+        )
+
+    # Defensive: value-column headers that resolve to canonical zone names
+    # indicate a matrix posing as a vector (one column per destination zone).
+    # Real vector datasets use metric names, never zone names — fail hard so
+    # the OD matrix doesn't get embedded per-feature by the build script.
+    zone_headers = [h for h in header if h != "nom" and to_canonical(h) is not None]
+    if zone_headers:
+        return FileResult(
+            dataset, path.name, "vector", "fail",
+            [f"{len(zone_headers)} value column(s) resolve to canonical zone "
+             f"names (sample: {zone_headers[:5]}) — looks like a matrix "
+             "misnamed as vector"],
+            n_rows=len(rows),
+        )
+
     if "nom" not in header:
         return FileResult(
             dataset, path.name, "vector", "fail",
@@ -163,9 +189,10 @@ def qa_vector(dataset: str, path: Path, parsed) -> FileResult:
     if dup:
         reasons.append(f"{len(dup)} duplicate keys (sample: {dup[:3]})")
 
+    fatal = [r for r in reasons if not r.endswith("(warn)")]
+    status = "fail" if fatal else ("warn" if reasons else "pass")
     return FileResult(
-        dataset, path.name, "vector",
-        "fail" if reasons else "pass", reasons,
+        dataset, path.name, "vector", status, reasons,
         n_rows=len(rows), n_zones_covered=len(canonical_seen),
         resolution=parsed.resolution,
     )

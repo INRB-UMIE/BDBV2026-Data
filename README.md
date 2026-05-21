@@ -1,9 +1,15 @@
 # Bundibugyo Ebola virus outbreak 2026
-<img align="right" src="docs/inrb_logo.jpeg" width=170px>
 
 Data for the 2026 Bundibugyo Ebolavirus (BDBV) outbreak.
 
-This work is led by the Institut National de Recherche Biomédicale (INRB) Kinshasa (Dav Ebengo, Placide Mbala-Kingebeni and Tania Bishola) in collaboration with partners across the University of Oxford and Northeastern University; please contact m.davebengo@gmail.com for further information.
+<p align = "center">
+<img src="docs/inrb_logo_2.jpeg" width=24%>
+<img src="docs/inoha.jpeg" width=24%>
+<img src="docs/insp.jpeg" width=24%>
+<img src="docs/inrb_extra.jpeg" width=24%>
+</p>
+
+This work is led by the Institut National de Recherche Biomédicale (INRB) Kinshasa/One Health Institute for Africa (INOHA) Kinshasa (Dav Ebengo, Placide Mbala-Kingebeni and Tania Bishola), and the Institut National de Santé Publique (INSP) (Pierre Akilimali, Adelard Lofungola) in collaboration with partners across the University of Oxford and Northeastern University; please contact dav.ebengo@umie-inrb.org for further information.
 
 Last successful build: **21 May 2026, 10:43:55 (+01:00)** (commit `d8905f5`).
 
