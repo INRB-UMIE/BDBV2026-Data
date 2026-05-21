@@ -47,12 +47,11 @@ The index is organised in **three pillars**, each built from dimensions and indi
 |----|----|
 | `processed/ccvi__socioeconomic_inequality__static.csv` | Repo contract: `nom`, `socioeconomic_inequality` (519 rows) |
 | `processed/ccvi__socioeconomic_deprivation__static.csv` | Repo contract: `nom`, `socioeconomic_deprivation` (519 rows) |
-| `processed/COD-2022-2024-ccvi.zs.nc` | Intermediate NetCDF (quarterly 2022–2024; multiple `VUL_*` variables) |
+| `raw/COD-2022-2024-ccvi.zs.nc` | Intermediate NetCDF (quarterly 2022–2024; multiple `VUL_*` variables) |
 | `socioeconomic_inequality_processed_plot.png` | Choropleth of inequality |
 | `socioeconomic_deprivation_processed_plot.png` | Choropleth of deprivation |
 | `process.R` | Subset 2024 layer, join to shapefile, plot, write CSVs |
 | `metadata.yaml` | Provenance, licence, and pipeline notes |
-| `raw/` | Reserved for raw CCVI downloads (currently empty) |
 
 **Coverage:** 519 health zones (national).\
 **Temporal scope:** **2024** (latest quarter in the committed NetCDF range 2022–2024).
@@ -121,7 +120,6 @@ Overwrites:
 | **2024 snapshot** | One quarterly layer (index 11 in `COD-2022-2024-ccvi.zs.nc`); not a full 2022–2024 time series in the contract CSVs. |
 | **Grid → zone** | Values depend on zonal aggregation from 0.5° CCVI grids to health-zone polygons. |
 | **Global comparability** | Normalized scores aid cross-region comparison but require validation against local context (see CCVI methodology). |
-| **Duplicate `nom`** | Two zones named **Bili** and two **Lubunga**; use `ZSCode` for unambiguous joins. |
 | **Pipeline in flux** | Raw CCVI download and DARTS processing are not fully in-repo; NetCDF is the current source of truth. |
 
 ------------------------------------------------------------------------
