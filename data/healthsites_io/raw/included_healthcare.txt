@@ -1,0 +1,13 @@
+"x"
+"1" "doctor"
+"2" "clinic"
+"3" NA
+"4" "hospital"
+"5" "centre"
+"6" "nurse"
+"7" "alternative"
+"8" "nurse;vaccination_centre"
+"9" "yes"
+"10" "Post"
+"11" "Disp"
+"12" "la grace"

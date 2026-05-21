@@ -1,0 +1,6 @@
+"x"
+"1" "doctors"
+"2" "clinic"
+"3" NA
+"4" "hospital"
+"5" "health_post"

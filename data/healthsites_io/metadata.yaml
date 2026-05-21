@@ -1,0 +1,17 @@
+source: "Healthsites.io OpenStreetMap health-facility extract (DRC), aggregated to health zones"
+citation: "OpenStreetMap contributors; Healthsites.io (https://healthsites.io). Democratic Republic of the Congo node extract. Health-zone geometry: DRC_Health_zones.shp (see data/shapefiles/)."
+source_url: "https://healthsites.io/"
+retrieved_on: "2026-05-20"
+license: "Open Database License (ODbL) 1.0; © OpenStreetMap contributors — see raw/LICENSE.txt and raw/README.md"
+contact: "https://healthsites.io/contact"
+runtime: R
+period: "static"
+notes: |
+  Filtered OSM health-facility points (excludes pharmacy, dentist, school amenity types and
+  selected healthcare tags) intersected with 519 DRC health zones. data/healthsites_io/
+  process.R exports processed/healthsites_io__healthsite_count__static.csv and
+  processed/healthsites_io__healthsite_density__static.csv (nom with province suffix for
+  Bili and Lubunga duplicates); writes raw/healthsites_raw_filtered.shp and three PNG maps.
+  Upstream: raw/Democratic Republic of the Congo-node.shp. 2704 points after filter;
+  342 zones with zero mapped sites. Not a complete MoH facility list—OSM coverage varies.
+  See README.md for filters, regeneration, and limitations.

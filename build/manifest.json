@@ -203,6 +203,38 @@
       ]
     },
     {
+      "folder": "healthsites_io",
+      "source": "Healthsites.io OpenStreetMap health-facility extract (DRC), aggregated to health zones",
+      "citation": "OpenStreetMap contributors; Healthsites.io (https://healthsites.io). Democratic Republic of the Congo node extract. Health-zone geometry: DRC_Health_zones.shp (see data/shapefiles/).",
+      "source_url": "https://healthsites.io/",
+      "retrieved_on": "2026-05-20",
+      "license": "Open Database License (ODbL) 1.0; \u00a9 OpenStreetMap contributors \u2014 see raw/LICENSE.txt and raw/README.md",
+      "contact": "https://healthsites.io/contact",
+      "status": "active",
+      "outputs": [
+        {
+          "file": "healthsites_io__healthsite_count__static.csv",
+          "type": "vector",
+          "dataset_token": "healthsites_io",
+          "metric": "healthsite_count",
+          "resolution": "static",
+          "in_geojson": true,
+          "zones_with_values": 519,
+          "long_csv": "build/long/healthsites_io__healthsite_count.csv"
+        },
+        {
+          "file": "healthsites_io__healthsite_density__static.csv",
+          "type": "vector",
+          "dataset_token": "healthsites_io",
+          "metric": "healthsite_density",
+          "resolution": "static",
+          "in_geojson": true,
+          "zones_with_values": 519,
+          "long_csv": "build/long/healthsites_io__healthsite_density.csv"
+        }
+      ]
+    },
+    {
       "folder": "osrm",
       "source": "OSRM road-network routing (OpenStreetMap) applied to DRC health-zone polygons",
       "citation": "OpenStreetMap contributors (2026). Routing via Project OSRM. Health-zone geometry: DRC_Health_zones.shp (see data/shapefiles/).",
