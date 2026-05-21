@@ -243,28 +243,7 @@
       "license": "OpenStreetMap data \u00a9 OpenStreetMap contributors, ODbL 1.0 (https://www.openstreetmap.org/copyright). OSRM routing engine: BSD-2-Clause.",
       "contact": "https://github.com/Project-OSRM/osrm-backend/issues",
       "status": "active",
-      "outputs": [
-        {
-          "file": "osrm__road_distance__static.csv",
-          "type": "vector",
-          "dataset_token": "osrm",
-          "metric": "road_distance",
-          "resolution": "static",
-          "in_geojson": true,
-          "zones_with_values": 519,
-          "long_csv": "build/long/osrm__road_distance.csv"
-        },
-        {
-          "file": "osrm__travel_time__static.csv",
-          "type": "vector",
-          "dataset_token": "osrm",
-          "metric": "travel_time",
-          "resolution": "static",
-          "in_geojson": true,
-          "zones_with_values": 519,
-          "long_csv": "build/long/osrm__travel_time.csv"
-        }
-      ]
+      "outputs": []
     },
     {
       "folder": "refugee_sites",

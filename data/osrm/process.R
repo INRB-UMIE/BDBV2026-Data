@@ -129,8 +129,16 @@ message("Processing Complete. Preview of Duration Matrix:")
 print(full_dur_matrix[1:5, 1:5])
 
 # Save results
-write.csv(full_dur_matrix, "data/osrm/processed/osrm__travel_time__static.csv")
-write.csv(full_dist_matrix_km, "data/osrm/processed/osrm__road_distance__static.csv")
+# write_matrix_csv: converts named R matrix to the QA contract format:
+#   header = nom, dest1, dest2, ...  (spaces preserved, no row-index column)
+write_matrix_csv <- function(m, file) {
+  df <- as.data.frame(m, check.names = FALSE)
+  df <- cbind(nom = rownames(df), df)
+  write.csv(df, file, row.names = FALSE, quote = TRUE)
+}
+
+write_matrix_csv(full_dur_matrix, "data/osrm/processed/osrm__travel_time__static.matrix.csv")
+write_matrix_csv(full_dist_matrix_km, "data/osrm/processed/osrm__road_distance__static.matrix.csv")
 
 message("Files saved to working directory.")
 
