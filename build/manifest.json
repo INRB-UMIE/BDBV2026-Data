@@ -53,6 +53,38 @@
       ]
     },
     {
+      "folder": "ccvi",
+      "source": "Climate Conflict Vulnerability Index (CCVI) \u2014 socio-economic vulnerability indicators aggregated to DRC health zones",
+      "citation": "Climate Conflict Vulnerability Index (2024). climate-conflict.org. Commissioned by German Federal Foreign Office; University of the Bundeswehr Munich and Potsdam Institute for Climate Impact Research (PIK). Health-zone geometry: DRC_Health_zones.shp (see data/shapefiles/). Methodology: https://climate-conflict.org/www/index/methodology",
+      "source_url": "https://climate-conflict.org/www",
+      "retrieved_on": "2026-05-20",
+      "license": "CCVI data and documentation subject to terms at climate-conflict.org; processing code open source at https://github.com/ccew-unibw/ccvi-data",
+      "contact": "https://climate-conflict.org/www",
+      "status": "active",
+      "outputs": [
+        {
+          "file": "ccvi__socioeconomic_deprivation__static.csv",
+          "type": "vector",
+          "dataset_token": "ccvi",
+          "metric": "socioeconomic_deprivation",
+          "resolution": "static",
+          "in_geojson": true,
+          "zones_with_values": 519,
+          "long_csv": "build/long/ccvi__socioeconomic_deprivation.csv"
+        },
+        {
+          "file": "ccvi__socioeconomic_inequality__static.csv",
+          "type": "vector",
+          "dataset_token": "ccvi",
+          "metric": "socioeconomic_inequality",
+          "resolution": "static",
+          "in_geojson": true,
+          "zones_with_values": 519,
+          "long_csv": "build/long/ccvi__socioeconomic_inequality.csv"
+        }
+      ]
+    },
+    {
       "folder": "cross-border-movements",
       "source": "Cross-border passenger volumes from sitreps cited in Imperial College report on the 2026 DRC Ebola outbreak",
       "citation": "Imperial College London MRC GIDA. Report on the DRC Ebola outbreak, 18 May 2026.",
@@ -82,8 +114,41 @@
       "retrieved_on": "2026-05-18",
       "license": "WHO open access. Reuse with attribution per https://www.who.int/about/policies/publishing/copyright",
       "contact": "outbreak@who.int",
-      "status": "placeholder",
-      "outputs": []
+      "status": "active",
+      "outputs": [
+        {
+          "file": "epi__cases__weekly.csv",
+          "type": "vector",
+          "dataset_token": "epi",
+          "metric": "cases",
+          "resolution": "weekly",
+          "in_geojson": true,
+          "zones_with_values": 7,
+          "long_csv": "build/long/epi__cases.csv"
+        }
+      ]
+    },
+    {
+      "folder": "fao_lccs",
+      "source": "Copernicus CDS satellite-land-cover (UN FAO LCCS); urban class 190 aggregated to DRC health zones",
+      "citation": "Copernicus Climate Change Service (C3S) (2022). Land cover classification gridded maps from 1992 to present derived from satellite observations. Copernicus Climate Data Store (CDS). Health-zone geometry: DRC_Health_zones.shp (see data/shapefiles/).",
+      "source_url": "https://cds.climate.copernicus.eu/datasets/satellite-land-cover",
+      "retrieved_on": "2026-05-20",
+      "license": "Copernicus Licence; see https://cds.climate.copernicus.eu/datasets/satellite-land-cover?tab=licence",
+      "contact": "https://cds.climate.copernicus.eu",
+      "status": "active",
+      "outputs": [
+        {
+          "file": "fao_lccs__urban_fraction__static.csv",
+          "type": "vector",
+          "dataset_token": "fao_lccs",
+          "metric": "urban_fraction",
+          "resolution": "static",
+          "in_geojson": true,
+          "zones_with_values": 519,
+          "long_csv": "build/long/fao_lccs__urban_fraction.csv"
+        }
+      ]
     },
     {
       "folder": "flowminder",
@@ -112,6 +177,114 @@
           "resolution": "static",
           "in_geojson": false,
           "matrix_log": "qa/matrix_log.csv"
+        }
+      ]
+    },
+    {
+      "folder": "gdp_pc",
+      "source": "Kummu et al. (2025) downscaled global GDP per capita (PPP), aggregated to DRC health zones",
+      "citation": "Kummu, M., Kosonen, M. & Masoumzadeh Sayyar, S. (2025). Downscaled gridded global dataset for gross domestic product (GDP) per capita PPP over 1990\u20132022. Scientific Data 12, 178. https://doi.org/10.1038/s41597-025-04487-x. Data: https://doi.org/10.5281/zenodo.10976733. Health-zone geometry: DRC_Health_zones.shp (see data/shapefiles/).",
+      "source_url": "https://doi.org/10.5281/zenodo.10976733",
+      "retrieved_on": "2026-05-20",
+      "license": "Creative Commons Attribution 4.0 International (CC BY 4.0); see Nature Scientific Data and Zenodo record terms",
+      "contact": "matti.kummu@aalto.fi",
+      "status": "active",
+      "outputs": [
+        {
+          "file": "gdp_pc__gdp_pc__static.csv",
+          "type": "vector",
+          "dataset_token": "gdp_pc",
+          "metric": "gdp_pc",
+          "resolution": "static",
+          "in_geojson": true,
+          "zones_with_values": 519,
+          "long_csv": "build/long/gdp_pc__gdp_pc.csv"
+        }
+      ]
+    },
+    {
+      "folder": "osrm",
+      "source": "OSRM road-network routing (OpenStreetMap) applied to DRC health-zone polygons",
+      "citation": "OpenStreetMap contributors (2026). Routing via Project OSRM. Health-zone geometry: DRC_Health_zones.shp (see data/shapefiles/).",
+      "source_url": "http://project-osrm.org/",
+      "retrieved_on": "2026-03-17",
+      "license": "OpenStreetMap data \u00a9 OpenStreetMap contributors, ODbL 1.0 (https://www.openstreetmap.org/copyright). OSRM routing engine: BSD-2-Clause.",
+      "contact": "https://github.com/Project-OSRM/osrm-backend/issues",
+      "status": "active",
+      "outputs": [
+        {
+          "file": "osrm__road_distance__static.csv",
+          "type": "vector",
+          "dataset_token": "osrm",
+          "metric": "road_distance",
+          "resolution": "static",
+          "in_geojson": true,
+          "zones_with_values": 519,
+          "long_csv": "build/long/osrm__road_distance.csv"
+        },
+        {
+          "file": "osrm__travel_time__static.csv",
+          "type": "vector",
+          "dataset_token": "osrm",
+          "metric": "travel_time",
+          "resolution": "static",
+          "in_geojson": true,
+          "zones_with_values": 519,
+          "long_csv": "build/long/osrm__travel_time.csv"
+        }
+      ]
+    },
+    {
+      "folder": "refugee_sites",
+      "source": "OpenStreetMap",
+      "citation": "OpenStreetMap contributors",
+      "source_url": "https://www.openstreetmap.org/",
+      "retrieved_on": "2026-05-20",
+      "license": "Open Database License (ODbL) 1.0 \u2014 https://www.openstreetmap.org/copyright",
+      "contact": "team@openstreetmap.us",
+      "status": "active",
+      "outputs": [
+        {
+          "file": "refugee_sites__sites__static.csv",
+          "type": "vector",
+          "dataset_token": "refugee_sites",
+          "metric": "sites",
+          "resolution": "static",
+          "in_geojson": true,
+          "zones_with_values": 23,
+          "long_csv": "build/long/refugee_sites__sites.csv"
+        }
+      ]
+    },
+    {
+      "folder": "worldpop",
+      "source": "WorldPop gridded population estimates aggregated to DRC health zones",
+      "citation": "WorldPop (2025). Population counts and densities for Democratic Republic of the Congo health zones. University of Southampton. https://www.worldpop.org. Health-zone geometry: DRC_Health_zones.shp (see data/shapefiles/).",
+      "source_url": "https://www.worldpop.org/",
+      "retrieved_on": "2026-05-20",
+      "license": "Creative Commons Attribution 4.0 International (CC BY 4.0); see https://www.worldpop.org/geodata/licensing",
+      "contact": "info@worldpop.org",
+      "status": "active",
+      "outputs": [
+        {
+          "file": "worldpop__pop_count__static.csv",
+          "type": "vector",
+          "dataset_token": "worldpop",
+          "metric": "pop_count",
+          "resolution": "static",
+          "in_geojson": true,
+          "zones_with_values": 519,
+          "long_csv": "build/long/worldpop__pop_count.csv"
+        },
+        {
+          "file": "worldpop__pop_density__static.csv",
+          "type": "vector",
+          "dataset_token": "worldpop",
+          "metric": "pop_density",
+          "resolution": "static",
+          "in_geojson": true,
+          "zones_with_values": 519,
+          "long_csv": "build/long/worldpop__pop_density.csv"
         }
       ]
     }
