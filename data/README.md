@@ -13,6 +13,7 @@ Every dataset folder follows the same layout:
   metadata.yaml     # source, citation, license, retrieved_on, contact
   process.{py,R}    # optional; regenerates processed/
   README.md         # optional notes (provenance, quirks, plots)
+  README_FR.md      # optional French translation; link from README.md header
 ```
 
 **Join key:** canonical zone name `nom`, matching the shapefile attribute `Nom`. Spellings that differ from the shapefile are listed in [`aliases.csv`](aliases.csv) (including disambiguation of duplicate names such as `Bili` and `Lubunga` with a province suffix).
@@ -32,7 +33,7 @@ Every dataset folder follows the same layout:
 | [`worldpop/`](worldpop/) | vector | yes | GRID3/Kummu-style population count & density |
 | [`gdp_pc/`](gdp_pc/) | vector | yes | GDP per capita (PPP) |
 | [`ccvi/`](ccvi/) | vector | yes | Climate Conflict Vulnerability Index |
-| [`fao_lccs/`](fao_lccs/) | vector | yes | Urban land-cover fraction |
+| [`fao_lccs/`](fao_lccs/) | vector | yes | Urban land-cover fraction ([FR](fao_lccs/README_FR.md)) |
 | [`grid3_healthsites/`](grid3_healthsites/) | vector | yes | GRID3 COD health facilities v8.0 |
 | [`healthsites_io/`](healthsites_io/) | vector | yes | OSM / Healthsites.io subset |
 | [`refugee_sites/`](refugee_sites/) | vector | yes | UNHCR refugee sites per zone |
@@ -42,6 +43,8 @@ Every dataset folder follows the same layout:
 | [`ACLED_conflict/`](ACLED_conflict/) | — | no | Placeholder; province-level raw data only |
 
 Folders with a **README** go deeper on provenance and processing. `metadata.yaml` is the machine-readable record used by `tools.qa` and `tools.build_geojson`.
+
+**Bilingual docs:** GitHub only auto-renders `README.md` in a folder. Where `README_FR.md` exists (e.g. `fao_lccs/`), a **Language / Langue** line at the top of both files links between English and French — there is no built-in toggle on github.com.
 
 ## Working with this tree
 

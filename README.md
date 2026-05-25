@@ -37,10 +37,8 @@ We are tracking pending data sources over on the [issues tab](https://github.com
 Snapshot of `build/drc_health_zones.geojson` (519 zones, **25** embedded vector layers, \~26 MB) and the matrix catalogue. Built **22 May 2026, 18:27:39 (UTC)** from data at commit `493d506`; artifacts on `main` in [`235a3c3`](https://github.com/kraemer-lab/Ebola_DRC_2026/commit/235a3c34f97aeb54b48a9ea447ee21ed33057cb4) (*QA checks and new build for sitrep 007*), merged at [`3e1e714`](https://github.com/kraemer-lab/Ebola_DRC_2026/commit/3e1e714ad800d0002cb3a5d2e1c926a61105e61a). Re-run `python -m tools.build_geojson` after pulling to regenerate locally; `build/manifest.json` carries the same information in machine-readable form.
 
 <!-- whats-new:start -->
-**22 May 2026 (build `235a3c3`, data `493d506`)**
-- **`insp_sitrep`** — extended through **SitRep MVE 007** (nine–eleven outbreak-affected zones per metric in the GeoJSON snapshot; latest report `date` per zone).
-- **`grid3_healthsites`** — unchanged in this rebuild; national facility count and density (GRID3 COD v8.0). See [issue #14](https://github.com/kraemer-lab/Ebola_DRC_2026/issues/14) before using GRID3 aggregates.
-<!-- whats-new:end -->
+
+**22 May 2026 (build `235a3c3`, data `493d506`)** - **`insp_sitrep`** — extended through **SitRep MVE 007** (nine–eleven outbreak-affected zones per metric in the GeoJSON snapshot; latest report `date` per zone). - **`grid3_healthsites`** — unchanged in this rebuild; national facility count and density (GRID3 COD v8.0). See [issue #14](https://github.com/kraemer-lab/Ebola_DRC_2026/issues/14) before using GRID3 aggregates. <!-- whats-new:end -->
 
 **Embedded in the GeoJSON** — each per-zone vector output appears under `feature.properties.<dataset>.<metric>` (matrices are excluded; see below). Daily series use the latest `date` per zone in the build snapshot:
 
@@ -93,7 +91,7 @@ Snapshot of `build/drc_health_zones.geojson` (519 zones, **25** embedded vector 
 <!-- past-releases:start -->
 
 | Tag / ref | Date | Summary | Download |
-|-----------|------|---------|----------|
+|---------------------|-----------------|-----------------|-------------------|
 | [`build-2026-05-22-12db0c2`](https://github.com/kraemer-lab/Ebola_DRC_2026/releases/tag/build-2026-05-22-12db0c2) | 2026-05-22 | **Current build:** 25 vector layers; INSP through SitRep 007 + GRID3 health facilities | [release](https://github.com/kraemer-lab/Ebola_DRC_2026/releases/tag/build-2026-05-22-12db0c2) |
 | [`build-2026-05-22-9694d10`](https://github.com/kraemer-lab/Ebola_DRC_2026/releases/tag/build-2026-05-22-9694d10) | 2026-05-22 | First GitHub release (11 vector layers; pre-INSP / pre-GRID3) | [release](https://github.com/kraemer-lab/Ebola_DRC_2026/releases/tag/build-2026-05-22-9694d10) |
 
