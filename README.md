@@ -155,7 +155,7 @@ build/
 
 2.  Make sure your processed filenames match the contract above. Add any name aliases your data uses to `data/aliases.csv`.
 
-3.  Sync with main using `git merge origin`. This is important, as if anyone else has made changes (e.g. adding a dataset), their QA reports will reflect a different timestamp to what your current branch expects on main, resulting in a lot of conflicts after you run the QA tests in the next step.
+3.  Sync with main using `git merge origin/main`. This is important, as if anyone else has made changes (e.g. adding a dataset), their QA reports will reflect a different timestamp to what your current branch expects on main, resulting in a lot of conflicts after you run the QA tests in the next step.
 
 4.  Run unit tests + QA locally:
 
