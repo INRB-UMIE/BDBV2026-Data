@@ -46,7 +46,8 @@ These data complement WHO weekly external sitreps in `data/epi/` with **INSP-int
 | `raw/SitRep_MVE_*.pdf` | Source sitreps (Git LFS) |
 | `processed/insp_sitrep__*__daily.csv` | **28** contract tables (listed below) |
 | `process.R` | Map `nom` to canonical shapefile names |
-| `metadata.yaml` | Provenance and licence |
+| `provenance.csv` | Lightweight sidecar for source report / table / row / column review |
+| `metadata.yaml` | Provenance, licence, and pipeline notes |
 
 **Coverage (current processed commit):**
 
@@ -139,6 +140,8 @@ Per-site PoE breakdown in the PDFs is not exported.
 
 **Missing values:** treat `ND` as missing in analysis (`na.strings = "ND"` in R).
 
+**Source clocks:** `date` is the SitRep report date for the extracted table row, using the date representation already present in the referenced processed CSV. It is not onset date, specimen date, publication timestamp, retrieval date, or build timestamp. `metadata.yaml` records repository retrieval and folder-level period metadata.
+
 **Example (R):**
 
 ```r
@@ -148,7 +151,7 @@ cases <- read.csv(
   here("data/insp_sitrep/processed/insp_sitrep__cumulative_confirmed_cases__daily.csv"),
   na.strings = "ND"
 )
-cases[cases$date == "2026-05-24", c("nom", "cumulative_confirmed_cases")]
+cases[cases$date == "24/05/2026", c("nom", "cumulative_confirmed_cases")]
 ```
 
 ------------------------------------------------------------------------
@@ -159,7 +162,9 @@ cases[cases$date == "2026-05-24", c("nom", "cumulative_confirmed_cases")]
 
 1. Add `SitRep_MVE_###-2026.pdf` under `raw/` (use hyphen before `2026`; `012` is currently `SitRep_MVE_012_2026.pdf`).
 2. Append rows to the relevant `processed/*.csv` files using PDF zone labels in `nom`.
-3. Use **ISO dates** where possible.
+3. Add or update `provenance.csv` with the source report number, PDF filename, table/row/column reference when available, processed output file, metric, extracted value, and review status.
+4. Use **spellings as they appear in the PDF** in `nom` (e.g. `Mongbwalu`, `Nyankunde`). Excel exports may include a UTF-8 BOM; that is fine before running `process.R`.
+5. Use the same `date` value as the processed row when adding provenance entries, including the row's existing date format. Current processed SitRep CSVs contain mixed date formats; a full date-format normalisation should be handled as a separate data-cleanup change.
 
 ### 2. Name normalisation (`process.R`)
 
@@ -202,5 +207,6 @@ python -m tools.build_geojson   # if vectors pass QA
 - **Aliases:** `data/aliases.csv`
 - **Metadata:** `metadata.yaml`
 - **INSP contact:** [pierre.akilimali@insp.cd](mailto:pierre.akilimali@insp.cd)
+- **Extraction sidecar:** `provenance.csv` records source report references for selected transcribed rows and defines the schema for full backfill.
 
 See `data/README.md` for project-wide conventions.

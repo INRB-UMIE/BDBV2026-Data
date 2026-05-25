@@ -138,6 +138,10 @@ build/
 
 **Matrix files** (`.matrix.csv`): snapshot matrices have header `nom, <dest_nom_1>, ...`; time-series matrices have `date, nom, <dest_nom_1>, ...`. Present cells must be non-negative numeric; missing values may be empty or `NA` (e.g. unroutable OSRM pairs).
 
+**Source clocks:** treat source reporting dates, retrieval dates, and build timestamps as different things and keep them distinct. `date` in processed epidemiological or operational vectors is the source's report or reference date for that row. `data_as_of` in `metadata.yaml`, where set, is the source authority's own stated currency date for the snapshot, distinct from `retrieved_on`, which is when this repo obtained the source. `built_at` in `build/manifest.json` is when generated artifacts were rebuilt.
+
+**Excluded records:** if a source row is real but does not join to the 519 DRC health zones, record it in that dataset's excluded-record table rather than forcing a match into the DRC build.
+
 # Contributor flow
 
 Contributors add or update data. PRs touch `data/**` (and `tests/**` and unrelated docs only) — never `build/`, `qa/`, `dist/`, or `README.md`'s build/release sections.

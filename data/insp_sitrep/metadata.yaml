@@ -6,14 +6,19 @@ license: "INSP outbreak sitreps; reuse with attribution to INSP and citation of 
 contact: "pierre.akilimali@insp.cd"
 runtime: none
 period: "2026-05-14 to 2026-05-26 (processed extracts; see README)"
+provenance_sidecar: "provenance.csv"
+clock_notes: |
+  The processed date column is the INSP SitRep report date for that extract,
+  not onset date, specimen date, or repository build date. retrieved_on is when
+  this repository obtained the SitRep series used in this folder.
 notes: |
   Manually extracted from INSP SitRep MVE PDFs in raw/ (SitRep_MVE_001-2026.pdf
   through SitRep_MVE_011-2026.pdf and SitRep_MVE_012_2026.pdf; 003 not committed).
   Twenty-eight processed vectors: insp_sitrep__<metric>__daily.csv with nom, date,
   and one value column. Outbreak-zone tables (cases, deaths, contacts, hospitalisation
   from 2026-05-20, PoE from 2026-05-20) cover 21 canonical zones only. Four
-  national_cumulative_* files repeat republic-wide totals on all 519 zones (ISO
-  dates; currently 2026-05-26). All processed files use ISO dates in date. ND =
-  not reported.
+  national_cumulative_* files repeat republic-wide totals on all 519 zones
+  (currently 2026-05-26). Current processed SitRep files preserve their existing
+  date strings; see README for folder-specific clock notes. ND = not reported.
   Complements data/epi/.
   process.R normalises nom to canonical names; does not parse PDFs.

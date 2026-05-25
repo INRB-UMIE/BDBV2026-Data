@@ -1,10 +1,16 @@
 source: "WHO Weekly External Situation Report 01"
 citation: "World Health Organization. Bundibugyo Ebola virus outbreak, DRC: Weekly External Situation Report 01, data as of 18 May 2026."
 source_url: "https://iris.who.int/server/api/core/bitstreams/bb1d4668-04e0-4563-b7c4-d1bdefbc9f05/content"
+data_as_of: "2026-05-18"
 retrieved_on: "2026-05-18"
 license: "WHO open access. Reuse with attribution per https://www.who.int/about/policies/publishing/copyright"
 contact: "outbreak@who.int"
 runtime: none
+excluded_records: "excluded_records.csv"
+clock_notes: |
+  data_as_of is the date stated by the WHO report for the tabulated figures.
+  retrieved_on is the date this repository obtained the source. Rows that do
+  not map to the DRC health-zone contract are listed in excluded_records.csv.
 notes: |
   Weekly case and death counts (suspected and confirmed) per health zone from the WHO
   Bundibugyo Ebola virus outbreak Situation Reports. Output: epi__cases__weekly.csv

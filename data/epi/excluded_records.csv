@@ -1,0 +1,2 @@
+source_dataset,source_report,source_file,report_date,data_as_of,published_at,retrieved_on,source_row_label,reason,join_target,output_effect,review_status,notes
+epi,WHO Weekly External Situation Report 01,WHO Weekly External Situation Report 01 PDF,,2026-05-18,,2026-05-18,Uganda/Kampala,non_drc_health_zone,no_join,excluded_from_519_zone_build,documented,Real source row documented in metadata.yaml; not joined because this repository's build contract is DRC health zones.
