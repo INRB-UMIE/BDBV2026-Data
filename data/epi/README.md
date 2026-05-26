@@ -1,0 +1,3 @@
+# Epidemiological line list data
+
+**Disclaimer:** This folder is currently a **placeholder** for processed information from epidemiological line lists - a data type that contians information about indivisdual patients om individual lines in a table. The raw data from a line list usually contains sensitive information regarding patient privacy and will not be stored here under `raw`, but rather aggregated into daily counts by health zone will be found on this folder; there will be a `process.py` and wollow the usual QA checks `processed/`.
