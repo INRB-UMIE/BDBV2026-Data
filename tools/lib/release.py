@@ -192,3 +192,28 @@ def rewrite_readme(
         )
 
     return block_pattern.sub(_prepend_row, readme, count=1)
+
+
+WHATS_NEW_HEADER_RE = re.compile(r"^##\s+What's new\s*$", re.MULTILINE)
+NEXT_HEADER_RE = re.compile(r"^##\s+", re.MULTILINE)
+
+
+def extract_whats_new(pr_body: str) -> str:
+    """Return the trimmed content of the `## What's new` section of a PR body.
+
+    Strips HTML comments (`<!-- ... -->`) and surrounding whitespace. Raises
+    ValueError if the section header is missing or the resulting content is
+    empty after stripping comments and whitespace.
+    """
+    body = pr_body.replace("\r\n", "\n")
+    header = WHATS_NEW_HEADER_RE.search(body)
+    if header is None:
+        raise ValueError("PR body missing `## What's new` section")
+    after = body[header.end():]
+    next_header = NEXT_HEADER_RE.search(after)
+    section = after[: next_header.start()] if next_header else after
+    section = re.sub(r"<!--.*?-->", "", section, flags=re.DOTALL)
+    section = section.strip()
+    if not section:
+        raise ValueError("`## What's new` section is empty after stripping comments")
+    return section
