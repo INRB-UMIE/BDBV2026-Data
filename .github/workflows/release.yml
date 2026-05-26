@@ -1,0 +1,118 @@
+name: Release on data merge
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/**'
+  workflow_dispatch:
+    inputs:
+      description:
+        description: 'Short release description (one or more lines). Required for manual runs.'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-main
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check [skip release] marker
+        id: skip
+        run: |
+          msg=$(git log -1 --pretty=%B "${{ github.sha }}" 2>/dev/null || echo "")
+          if echo "$msg" | grep -qF "[skip release]"; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "Commit message contains [skip release]; exiting."
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Checkout
+        if: steps.skip.outputs.skip != 'true'
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        if: steps.skip.outputs.skip != 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+          cache-dependency-path: tools/requirements.txt
+
+      - name: Install Python dependencies
+        if: steps.skip.outputs.skip != 'true'
+        run: pip install -r tools/requirements.txt
+
+      - name: Resolve release description
+        if: steps.skip.outputs.skip != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            printf '%s\n' "${{ github.event.inputs.description }}" > /tmp/desc.md
+          else
+            gh api "repos/${{ github.repository }}/commits/${{ github.sha }}/pulls" \
+              -H "Accept: application/vnd.github+json" > /tmp/pulls.json
+            python - << 'PYEOF' > /tmp/desc.md
+          import json, sys
+          from tools.lib.release import extract_whats_new
+          pulls = json.load(open("/tmp/pulls.json"))
+          if not pulls:
+              print("No PR associated with commit ${{ github.sha }}", file=sys.stderr); sys.exit(2)
+          body = pulls[0].get("body") or ""
+          print(extract_whats_new(body))
+          PYEOF
+          fi
+          echo "---- description ----"
+          cat /tmp/desc.md
+          echo "---------------------"
+
+      - name: Run QA
+        if: steps.skip.outputs.skip != 'true'
+        run: python -m tools.qa
+
+      - name: Build GeoJSON
+        if: steps.skip.outputs.skip != 'true'
+        run: python -m tools.build_geojson
+
+      - name: Publish release
+        if: steps.skip.outputs.skip != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python -m tools.release \
+            --description-file /tmp/desc.md \
+            --non-interactive
+
+      - name: Commit build artifacts back to main
+        if: steps.skip.outputs.skip != 'true'
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add build/ qa/qa_log.csv qa/matrix_log.csv qa/reports/ README.md
+          if git diff --cached --quiet; then
+            echo "Nothing to commit."
+            exit 0
+          fi
+          tag=$(python - << 'PYEOF'
+          import json
+          m = json.load(open('build/manifest.json'))
+          date = m['built_at'].split('T',1)[0]
+          print(f"build-{date}-{m['commit']}")
+          PYEOF
+          )
+          git commit -m "CI: release ${tag} [skip release][skip ci]"
+          git push origin HEAD:main
