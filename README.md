@@ -6,7 +6,7 @@
 
 This work is led by the Institut National de Recherche Biomédicale (INRB) Kinshasa/One Health Institute for Africa (INOHA) Kinshasa (Dav Ebengo, Placide Mbala-Kingebeni and Tania Bishola), and the Institut National de Santé Publique (INSP) (Pierre Akilimali, Adelard Lofungola) in collaboration with partners across the University of Oxford and Northeastern University; please contact [dav.ebengo\@umie-inrb.org](mailto:dav.ebengo@umie-inrb.org) or [pierre.akilimali\@insp.cd](mailto:pierre.akilimali@insp.cd) for further information.
 
-Last successful build: **26 May 2026, 18:18:28 (UTC)** — `build/` on `main` at commit [`39f409e`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/39f409e3c1031806e26a465db9ebae8c8ea3e1a8) (data snapshot [`39f409e`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/39f409e), see `build/manifest.json`).
+Last successful build: **27 May 2026, 10:58:13 (UTC)** — `build/` on `main` at commit [`af1f2b5`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/af1f2b5c10c1fa3b24bc2614cebc708a10d65ae8) (data snapshot [`af1f2b5`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/af1f2b5), see `build/manifest.json`).
 
 # Data sources
 
@@ -28,14 +28,15 @@ For the latest BDBV genomic data, please visit [Pathoplexus](https://pathoplexus
 
 We are tracking pending data sources over on the [issues tab](https://github.com/kraemer-lab/Ebola_DRC_2026/issues). If you want to request a specific publicly available dataset, raise an issue (although raising an issue does not guarantee that we will incorporate a dataset).
 
-# Current build (2026-05-26)
+# Current build (2026-05-27)
 
 The current build is committed on `main` and refreshed automatically by CI on every merge that touches `data/**` — see [Release internals](#release-internals). Run `python -m tools.build_geojson` locally only if you're working on a branch with un-merged data changes.
 
 <!-- whats-new:start -->
-
-INSP Sitrep data through report 010
-
+- Added the updated DRC totals from SitRep 12 to a new metric for that dataset with prefix national_*
+- Sitrep 12 does not currently have healthzone level data, but it has been requested that the dashboard gets updated with the country totals
+- Perhaps not the ideal format (solution right now is that every healthzone has a metric called 'national' with the same national total per date, it's just the easiest way to get it on the dashboard at present
+- Also fixing a small discrepancy in SitRep 10 for cumulative suspected cases
 <!-- whats-new:end -->
 
 **Embedded in the GeoJSON** — each per-zone vector output appears under `feature.properties.<dataset>.<metric>` (matrices are excluded; see below). Daily series use the latest `date` per zone in the build snapshot:
@@ -89,13 +90,12 @@ INSP Sitrep data through report 010
 ## Past releases
 
 <!-- past-releases:start -->
-
 | Tag | Date | Summary | Download |
-|-----------------|-----------------|------------------|---------------------|
+|-----|------|---------|----------|
+| [`build-2026-05-27-af1f2b5`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-05-27-af1f2b5) | 2026-05-27 | - Added the updated DRC totals from SitRep 12 to a new metric for that dataset with prefix national_* | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-05-27-af1f2b5) |
 | build-2026-05-26-683a564 | 2026-05-26 | INSP Sitrep data through report 010 | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-05-26-683a564) |
 | [`build-2026-05-22-12db0c2`](https://github.com/kraemer-lab/Ebola_DRC_2026/releases/tag/build-2026-05-22-12db0c2) | 2026-05-22 | 25 vector layers; INSP through SitRep 007 + GRID3 health facilities | [release](https://github.com/kraemer-lab/Ebola_DRC_2026/releases/tag/build-2026-05-22-12db0c2) |
 | [`build-2026-05-22-9694d10`](https://github.com/kraemer-lab/Ebola_DRC_2026/releases/tag/build-2026-05-22-9694d10) | 2026-05-22 | First GitHub release (11 vector layers; pre-INSP / pre-GRID3) | [release](https://github.com/kraemer-lab/Ebola_DRC_2026/releases/tag/build-2026-05-22-9694d10) |
-
 <!-- past-releases:end -->
 
 # Repository layout
