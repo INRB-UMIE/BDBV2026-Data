@@ -32,6 +32,7 @@ We are tracking pending data sources over on the [issues tab](https://github.com
 
 The current build is committed on `main` and refreshed automatically by CI on every merge that touches `data/**` — see [Release internals](#release-internals). Run `python -m tools.build_geojson` locally only if you're working on a branch with un-merged data changes.
 
+### What's New
 <!-- whats-new:start -->
 - Healthzone level wpi data up to 26th May from INSP (The public sitrep did not have this data)
 - Testing capacity data from africa CDC
