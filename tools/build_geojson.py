@@ -119,11 +119,10 @@ def _attach_vector(folder: Path, file_name: str, parsed, features_by_nom: dict[s
     src = folder / "processed" / file_name
     with src.open(newline="", encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
-        fieldnames = reader.fieldnames or []
-        rows = list(reader)
+        rows = [{k: v for k,v in row.items() if k != ""} for row in reader]
+    
+    fieldnames = list(rows[0].keys())
     date_col = next((c for c in DATE_COLUMN_CANDIDATES if c in fieldnames), None)
-    # Skip empty-header columns (R's write.csv row-index artifact) so they
-    # don't end up as stray "" keys in feature properties.
     value_cols = [c for c in fieldnames if c and c != "nom" and c != date_col]
 
     # For time-series: pick latest row per canonical nom.
@@ -159,7 +158,11 @@ def _attach_vector(folder: Path, file_name: str, parsed, features_by_nom: dict[s
     # Long-format copy.
     LONG_DIR.mkdir(parents=True, exist_ok=True)
     dst = LONG_DIR / f"{dataset_token}__{metric}.csv"
-    dst.write_text(src.read_text(encoding="utf-8-sig"), encoding="utf-8")
+
+    with dst.open("w", encoding="utf-8-sig") as fp:
+        writer = csv.DictWriter(fp, fieldnames=fieldnames)
+        writer.writerows(rows)
+
     return attached
 
 
