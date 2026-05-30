@@ -8,7 +8,7 @@ These data complement WHO weekly external sitreps in `data/epi/` with **INSP-int
 
 ## Source documents
 
-**Publisher:** [Institut National de Santé Publique (INSP)](%5Bhttps://insp.cd/%5D(https://insp.cd/category/actualites/)), Democratic Republic of the Congo.
+**Publisher:** [Institut National de Santé Publique (INSP)]([https://insp.cd/](https://insp.cd/category/actualites/)), Democratic Republic of the Congo.
 
 **Series:** SitRep **MVE** (maladie à virus Ebola), 2026.
 
