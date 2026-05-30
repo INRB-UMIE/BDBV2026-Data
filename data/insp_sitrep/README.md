@@ -56,7 +56,7 @@ Health zone level information should match exactly to the latest version of each
 
 If a new SitRep disagrees with the previously reported values (i.e. reported cases decrease from report to report), we will report values exactly as is, with matching dates to track changes. While health zone level metrics may disagree with national values, we will report the tabular data verbatim.
 
-Occasionally, health zone level data may be sent directly from INRB to the organizers of the repo. We have clearance to report these values in our .csv files but will not upload raw tabular data.
+Occasionally, health zone level data may be sent directly from INSP to INRB. This data may not feature in the SitRep PDFs but will be included in the csv files on this repo.
 
 | Layer | Zones | Date range in CSVs |
 |----|----|----|
