@@ -11,6 +11,8 @@ What lives here:
     province (currently `Bili` and `Lubunga`).
   - `to_canonical(name)`: resolves an observed name (canonical, alias, or
     unknown) to the canonical `Nom`, using `data/aliases.csv`.
+  - `NON_GEOGRAPHIC_NOMS` / `resolve_vector_nom(name)`: sitrep labels that may
+    appear in vector `nom` but are not shapefile zones (excluded from GeoJSON).
   - `zscode_to_canonical(zscode)`: same idea, keyed by the shapefile's ZSCode.
   - `parse_filename(name)`: validates the contract for processed-file names of
     the form `<dataset>__<metric>__<resolution>[.matrix].csv`.
@@ -47,6 +49,13 @@ REQUIRED_METADATA_FIELDS: tuple[str, ...] = (
     "contact",
     "runtime",
 )
+
+# Vector `nom` values that are not MoH health zones (e.g. INSP sitrep roll-ups).
+# Allowed in processed CSVs; QA passes; GeoJSON build skips these rows.
+NON_GEOGRAPHIC_NOMS: frozenset[str] = frozenset({"Sans Fiche", "NA"})
+
+# Republic-wide roll-up row in `national_*` vector files (one row per date).
+NATIONAL_ROLLUP_NOM: str = "DRC"
 
 
 @dataclass(frozen=True)
@@ -137,6 +146,30 @@ def to_canonical(name: str | None) -> str | None:
     if name in canonical_noms():
         return name
     return _alias_index().get(name)
+
+
+def is_non_geographic_nom(name: str | None) -> bool:
+    """True if `name` is a permitted non-zone label (not embedded in GeoJSON)."""
+    if not name:
+        return False
+    return name.strip() in NON_GEOGRAPHIC_NOMS
+
+
+def is_national_rollup_nom(name: str | None) -> bool:
+    """True if `name` is the national roll-up label (`DRC`)."""
+    if not name:
+        return False
+    return name.strip() == NATIONAL_ROLLUP_NOM
+
+
+def resolve_vector_nom(name: str | None) -> str | None:
+    """Resolve `nom` for vector QA/build: canonical zone, roll-up label, or None."""
+    if not name:
+        return None
+    label = name.strip()
+    if label in NON_GEOGRAPHIC_NOMS or label == NATIONAL_ROLLUP_NOM:
+        return label
+    return to_canonical(label)
 
 
 def zscode_to_canonical(zscode: str | None) -> str | None:

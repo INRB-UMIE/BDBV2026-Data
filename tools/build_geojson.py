@@ -47,11 +47,13 @@ from tools.lib.release import (
     replace_last_build_line,
 )
 from tools.lib.schema import (
+    NATIONAL_ROLLUP_NOM,
     REPO_ROOT,
     SHAPEFILE,
+    is_non_geographic_nom,
     load_zones,
     parse_filename,
-    to_canonical,
+    resolve_vector_nom,
 )
 
 README = REPO_ROOT / "README.md"
@@ -128,8 +130,8 @@ def _attach_vector(folder: Path, file_name: str, parsed, features_by_nom: dict[s
     # For time-series: pick latest row per canonical nom.
     latest_per_nom: dict[str, dict] = {}
     for r in rows:
-        canonical = to_canonical(r["nom"])
-        if canonical is None:
+        canonical = resolve_vector_nom(r["nom"])
+        if canonical is None or is_non_geographic_nom(canonical):
             continue
         if date_col:
             existing = latest_per_nom.get(canonical)
@@ -144,16 +146,30 @@ def _attach_vector(folder: Path, file_name: str, parsed, features_by_nom: dict[s
     dataset_token = parsed.dataset
     metric = parsed.metric
     attached = 0
-    for nom, r in latest_per_nom.items():
+
+    def _apply_row(nom: str, r: dict) -> None:
+        nonlocal attached
         feat = features_by_nom.get(nom)
         if feat is None:
-            continue
+            return
         ds_bucket = feat["properties"].setdefault(dataset_token, {})
         value_obj = {c: _coerce(r[c]) for c in value_cols}
         if date_col:
             value_obj["_date"] = r[date_col]
         ds_bucket[metric] = value_obj
         attached += 1
+
+    national_row = latest_per_nom.pop(NATIONAL_ROLLUP_NOM, None)
+    for nom, r in latest_per_nom.items():
+        _apply_row(nom, r)
+    if national_row is not None:
+        value_obj = {c: _coerce(national_row[c]) for c in value_cols}
+        if date_col:
+            value_obj["_date"] = national_row[date_col]
+        for feat in features_by_nom.values():
+            ds_bucket = feat["properties"].setdefault(dataset_token, {})
+            ds_bucket[metric] = dict(value_obj)
+            attached += 1
 
     # Long-format copy.
     LONG_DIR.mkdir(parents=True, exist_ok=True)

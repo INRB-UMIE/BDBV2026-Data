@@ -5,10 +5,14 @@ from __future__ import annotations
 import pytest
 
 from tools.lib.schema import (
+    NATIONAL_ROLLUP_NOM,
+    NON_GEOGRAPHIC_NOMS,
     VALID_RESOLUTIONS,
     canonical_noms,
+    is_non_geographic_nom,
     load_zones,
     parse_filename,
+    resolve_vector_nom,
     to_canonical,
     zscode_to_canonical,
 )
@@ -59,6 +63,18 @@ def test_to_canonical_unknown_returns_none():
     assert to_canonical("NotAZone") is None
     assert to_canonical("") is None
     assert to_canonical(None) is None
+
+
+def test_non_geographic_noms():
+    assert NON_GEOGRAPHIC_NOMS == frozenset({"Sans Fiche", "NA"})
+    assert is_non_geographic_nom("Sans Fiche")
+    assert is_non_geographic_nom("NA")
+    assert not is_non_geographic_nom("Bunia")
+    assert resolve_vector_nom("Sans Fiche") == "Sans Fiche"
+    assert resolve_vector_nom("NA") == "NA"
+    assert resolve_vector_nom(NATIONAL_ROLLUP_NOM) == NATIONAL_ROLLUP_NOM
+    assert resolve_vector_nom("Bunia") == "Bunia"
+    assert resolve_vector_nom("NotAZone") is None
 
 
 def test_zscode_to_canonical_known_and_unknown():

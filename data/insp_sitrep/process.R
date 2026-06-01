@@ -26,6 +26,11 @@ PROCESSED_DIR <- file.path(DATA_DIR, "processed")
 SHAPEFILE <- file.path(repo_root, "data", "shapefiles", "DRC_Health_zones.shp")
 ALIASES_CSV <- file.path(repo_root, "data", "aliases.csv")
 
+# Not MoH health zones; kept in CSV nom but excluded from GeoJSON build.
+NON_GEOGRAPHIC_NOMS <- c("Sans Fiche", "NA")
+# National roll-up in national_* CSVs (one row per date; broadcast in GeoJSON build).
+NATIONAL_ROLLUP_NOM <- "DRC"
+
 
 # nom per shapefile dictionary
 build_canonical_nom_lookup <- function(zones) {
@@ -63,6 +68,9 @@ to_canonical <- function(name, canonical_noms, alias_index) {
     return(NA_character_)
   }
   name <- trimws(name)
+  if (name %in% NON_GEOGRAPHIC_NOMS || name == NATIONAL_ROLLUP_NOM) {
+    return(name)
+  }
   if (name %in% canonical_noms) {
     return(name)
   }
@@ -70,6 +78,33 @@ to_canonical <- function(name, canonical_noms, alias_index) {
     return(unname(alias_index[[name]]))
   }
   NA_character_
+}
+
+
+to_iso_date <- function(s) {
+  s <- trimws(s)
+  if (!nzchar(s)) {
+    return(s)
+  }
+  if (grepl("^\\d{4}-\\d{2}-\\d{2}$", s)) {
+    return(s)
+  }
+  for (fmt in c("%d/%m/%Y", "%m/%d/%y", "%m/%d/%Y", "%d/%m/%y")) {
+    parsed <- as.Date(s, format = fmt)
+    if (!is.na(parsed)) {
+      return(format(parsed, "%Y-%m-%d"))
+    }
+  }
+  stop("Unparseable date: ", s, " (use ISO YYYY-MM-DD)")
+}
+
+
+normalize_date_column <- function(df) {
+  if (!"date" %in% names(df)) {
+    return(df)
+  }
+  df$date <- vapply(df$date, to_iso_date, FUN.VALUE = character(1))
+  df
 }
 
 
@@ -84,7 +119,8 @@ normalize_nom_column <- function(df, canonical_noms, alias_index) {
     canonical_noms = canonical_noms,
     alias_index = alias_index
   )
-  unresolved <- sort(unique(df$nom[is.na(resolved)]))
+  allowed <- c(NON_GEOGRAPHIC_NOMS, NATIONAL_ROLLUP_NOM)
+  unresolved <- sort(unique(df$nom[is.na(resolved) & !(df$nom %in% allowed)]))
   if (length(unresolved)) {
     stop(
       "Unresolved zone name(s): ",
@@ -118,6 +154,7 @@ normalize_processed_csvs <- function(
     df <- read.csv(path, stringsAsFactors = FALSE, fileEncoding = "UTF-8-BOM")
     n_before <- nrow(df)
     df <- normalize_nom_column(df, canonical_noms, alias_index)
+    df <- normalize_date_column(df)
 
     # Per-PoE rows share (nom, date); include PoE when present.
     key_cols <- intersect(c("nom", "date", "PoE"), names(df))

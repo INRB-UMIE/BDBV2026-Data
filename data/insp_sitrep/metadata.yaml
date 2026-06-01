@@ -11,9 +11,8 @@ notes: |
   through SitRep_MVE_011-2026.pdf and SitRep_MVE_012_2026.pdf; 003 not committed).
   Twenty-eight processed vectors: insp_sitrep__<metric>__daily.csv with nom, date,
   and one value column. Outbreak-zone tables (cases, deaths, contacts, hospitalisation
-  from 2026-05-20, PoE from 2026-05-20) cover 21 canonical zones only. Four
-  national_cumulative_* files repeat republic-wide totals on all 519 zones (ISO
-  dates; currently 2026-05-26). All processed files use ISO dates in date. ND =
-  not reported.
+  from 2026-05-20, PoE from 2026-05-20) cover 21 canonical zones only.   Four national_cumulative_* files use nom = DRC with one row per report date;
+  GeoJSON build broadcasts the latest DRC row to all zones. nom may include
+  Sans Fiche and NA (excluded from GeoJSON). ND = not reported.
   Complements data/epi/.
   process.R normalises nom to canonical names; does not parse PDFs.

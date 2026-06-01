@@ -46,7 +46,9 @@ from tools.lib.schema import (
     REQUIRED_METADATA_FIELDS,
     VALID_RUNTIMES,
     canonical_noms,
+    is_non_geographic_nom,
     parse_filename,
+    resolve_vector_nom,
     to_canonical,
 )
 
@@ -172,11 +174,11 @@ def qa_vector(dataset: str, path: Path, parsed) -> FileResult:
         if len(r) != len(header):
             width_mismatches += 1
             continue
-        canonical = to_canonical(r[nom_i])
-        if canonical is None:
+        resolved = resolve_vector_nom(r[nom_i])
+        if resolved is None:
             unresolved.append(r[nom_i])
-        else:
-            canonical_seen.add(canonical)
+        elif not is_non_geographic_nom(resolved):
+            canonical_seen.add(resolved)
         keys.append((r[nom_i], r[date_i]) if date_i is not None else r[nom_i])
     if width_mismatches:
         reasons.append(f"{width_mismatches} rows with width mismatch (expected {len(header)} fields)")
