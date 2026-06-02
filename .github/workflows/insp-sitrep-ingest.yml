@@ -1,0 +1,197 @@
+name: INSP SitRep ingest
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Maximum INSP SitRep posts to scan"
+        required: false
+        default: 100
+        type: number
+  schedule:
+    - cron: "15 8 * * *"
+    - cron: "0 11 * * *"
+    - cron: "45 18 * * *"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: insp-sitrep-ingest-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: false
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+          cache-dependency-path: tools/requirements.txt
+
+      - name: Check for new or changed official INSP SitReps
+        id: source_preflight
+        run: |
+          set +e
+          limit="${{ github.event.inputs.limit }}"
+          if [ -z "${limit}" ]; then
+            limit=100
+          fi
+          python -m tools.insp_sitrep_sources \
+            --check-for-updates \
+            --min-report-number 13 \
+            --limit "${limit}"
+          status=$?
+          set -e
+
+          if [ "${status}" -eq 0 ]; then
+            echo "has_updates=false" >> "${GITHUB_OUTPUT}"
+            exit 0
+          fi
+          if [ "${status}" -eq 2 ]; then
+            echo "has_updates=true" >> "${GITHUB_OUTPUT}"
+            exit 0
+          fi
+          exit "${status}"
+
+      - name: Fetch Git LFS objects
+        if: steps.source_preflight.outputs.has_updates == 'true'
+        run: |
+          git lfs install --local
+          git lfs pull
+
+      - name: Install PDF text tools
+        if: steps.source_preflight.outputs.has_updates == 'true'
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+
+      - name: Install Python dependencies
+        if: steps.source_preflight.outputs.has_updates == 'true'
+        run: pip install -r tools/requirements.txt
+
+      - name: Sync official INSP SitRep sources
+        if: steps.source_preflight.outputs.has_updates == 'true'
+        run: |
+          set -euo pipefail
+          limit="${{ github.event.inputs.limit }}"
+          if [ -z "${limit}" ]; then
+            limit=100
+          fi
+          python -m tools.insp_sitrep_sources \
+            --sync-official-pdfs \
+            --parse-pdfs \
+            --extract-table-ii \
+            --write-processed-drafts \
+            --write-processed-candidates \
+            --compare-processed \
+            --min-report-number 13 \
+            --limit "${limit}"
+
+      - name: Run focused tests
+        if: steps.source_preflight.outputs.has_updates == 'true'
+        run: python -m pytest -q tests/test_insp_sitrep_sources.py
+
+      - name: Run INSP SitRep QA
+        if: steps.source_preflight.outputs.has_updates == 'true'
+        run: python -m tools.qa insp_sitrep
+
+      - name: Upload ingest review packet
+        if: always() && steps.source_preflight.outputs.has_updates == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: insp-sitrep-review-packet
+          path: |
+            data/insp_sitrep/source_reports.csv
+            data/insp_sitrep/extracted/
+            qa/
+          if-no-files-found: ignore
+
+      - name: Create draft data PR
+        if: steps.source_preflight.outputs.has_updates == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          durable_changes="$(git status --short -- data/insp_sitrep/raw data/insp_sitrep/processed data/insp_sitrep/source_reports.csv)"
+          if [ -z "${durable_changes}" ]; then
+            echo "No INSP SitRep data changes to propose."
+            exit 0
+          fi
+
+          branch="automation/insp-sitrep-latest"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "${branch}"
+          git add \
+            data/insp_sitrep/raw \
+            data/insp_sitrep/processed \
+            data/insp_sitrep/source_reports.csv
+          if git diff --cached --quiet; then
+            echo "No staged INSP SitRep data changes to propose."
+            exit 0
+          fi
+          git commit -m "Data: sync INSP SitRep sources"
+          git fetch origin "${branch}:refs/remotes/origin/${branch}" || true
+          git push --force-with-lease origin "${branch}"
+
+          {
+            echo "## Summary"
+            echo "This PR syncs newly available official INSP SitRep PDFs and proposes reviewable candidate updates for \`data/insp_sitrep\`."
+            echo
+            echo "## Reviewer Checklist"
+            echo "1. Open \`data/insp_sitrep/extracted/review_summary.md\`."
+            echo "2. Check **Reports Needing Review** first."
+            echo "3. If blockers are listed, compare the listed \`source_raw_path\` PDF against \`source_review_queue.csv\` and \`processed_draft_review.csv\` before merging."
+            echo "4. Review changed \`data/insp_sitrep/processed/*.csv\` rows against the official PDF."
+            echo "5. If cumulative values decrease, verify the decrease against the official PDF and keep the row when the SitRep reports it that way."
+            echo "6. Merge only after the candidate processed rows match the official PDF and no unresolved blockers remain."
+            echo
+            echo "## Safety Gates"
+            echo "- Official INSP source PDF fetched or verified, with URL/hash/timing recorded."
+            echo "- PDF layout classified before values are extracted."
+            echo "- Candidate rows written only for accepted evidence methods."
+            echo "- Unsupported layouts or ambiguous fields are surfaced as review blockers instead of silently becoming processed data."
+            echo "- Cumulative decreases are surfaced for reviewer attention and still included when they are present in the official SitRep, matching the dataset digitisation protocol."
+            echo
+            echo "## What this run does"
+            echo "- Syncs official INSP PDFs from SitRep 013 onward."
+            echo "- Records source timing, hashes, layout status, and extraction status in \`data/insp_sitrep/source_reports.csv\`."
+            echo "- Writes review packets under \`data/insp_sitrep/extracted/\`."
+            echo "- Writes processed CSV candidate rows only for source-gated Table II values with accepted evidence methods."
+            echo "- Records national headline values once in \`source_reports.csv\` instead of expanding repeated national totals across every health-zone row."
+            echo
+            echo "## Data Shape Note"
+            echo "This reduces manual PDF intake work, but the public SitRep PDF remains the source of truth for review. If INSP publishes a structured companion CSV in the future, this workflow can rely less on PDF layout parsing."
+            echo
+            echo "## Review summary"
+            echo
+            cat data/insp_sitrep/extracted/review_summary.md
+          } > /tmp/insp-sitrep-pr-body.md
+
+          existing_pr="$(
+            gh pr list \
+              --head "${branch}" \
+              --state open \
+              --json number \
+              --jq '.[0].number // empty'
+          )"
+          if [ -n "${existing_pr}" ]; then
+            gh pr edit "${existing_pr}" --body-file /tmp/insp-sitrep-pr-body.md
+            echo "Updated existing draft PR #${existing_pr}."
+          else
+            gh pr create \
+              --draft \
+              --base "${{ github.ref_name }}" \
+              --head "${branch}" \
+              --title "Data: sync INSP SitRep sources" \
+              --body-file /tmp/insp-sitrep-pr-body.md
+          fi

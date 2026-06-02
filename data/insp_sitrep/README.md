@@ -105,6 +105,7 @@ Occasionally, health zone level data may be sent directly from INSP to INRB. Thi
 | `SitRep_MVE_016_2026.pdf` | 016    |
 | `SitRep_MVE_017_2026.pdf` | 017    |
 | `SitRep_MVE_018_2026.pdf` | 018    |
+| `SitRep_MVE_019-2026.pdf` | 019    |
 
 **Not in repo:** `SitRep_MVE_003-2026.pdf` (gap between 002 and 004).
 
@@ -129,7 +130,7 @@ Occasionally, health zone level data may be sent directly from INSP to INRB. Thi
 | Layer | Zones | Date range in CSVs |
 |------------------------|------------------------|------------------------|
 | Outbreak-zone metrics | **21** canonical `nom` values (see list below) | Mostly **2026-05-14** – **2026-05-24** (ISO); hospitalisation and PoE from **2026-05-20**; PoE through **2026-05-23** |
-| National `national_*` metrics | **`nom` = `DRC`**, one row per date | **2026-05-14** – **2026-05-28** (ISO) |
+| National `national_*` metrics | **`nom` = `DRC`**, one row per date | **2026-05-14** – **2026-06-02** (ISO) |
 
 PDFs **011** and **012** are in `raw/`; zone-level processed tables may not yet include rows from those reports until they are transcribed.
 

@@ -5,10 +5,10 @@ retrieved_on: "2026-05-27"
 license: "INSP outbreak sitreps; reuse with attribution to INSP and citation of the specific report number and date. Confirm distribution terms with INSP before external republication."
 contact: "pierre.akilimali@insp.cd"
 runtime: none
-period: "2026-05-14 to 2026-05-26 (processed extracts; see README)"
+period: "2026-05-14 to 2026-06-02 (processed extracts; see README)"
 notes: |
   Manually extracted from INSP SitRep MVE PDFs in raw/ (SitRep_MVE_001-2026.pdf
-  through SitRep_MVE_011-2026.pdf and SitRep_MVE_012_2026.pdf; 003 not committed).
+  through SitRep_MVE_019-2026.pdf, with 003 not committed).
   Twenty-eight processed vectors: insp_sitrep__<metric>__daily.csv with nom, date,
   and one value column. Outbreak-zone tables (cases, deaths, contacts, hospitalisation
   from 2026-05-20, PoE from 2026-05-20) cover 21 canonical zones only.   Four national_cumulative_* files use nom = DRC with one row per report date;
