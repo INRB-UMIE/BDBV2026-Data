@@ -10,9 +10,16 @@ Outputs (static snapshot matrices, one per observation date):
   processed/flowminder_short_trips__outflow_20260521__static.matrix.csv  (D+28 / 21 May)
   processed/flowminder_short_trips__outflow_20260524__static.matrix.csv  (D+31 / 24 May)
 
-Each file has three origin rows (Bunia, Mongbalu, Rwampara) and destination columns taken
+Each matrix has three origin rows (Bunia, Mongbalu, Rwampara) and destination columns taken
 from the ranked health-zone list. Values are the cohort proportion (%) for that date;
 the three origin rows carry identical values (combined Bunia + Mongbwalu + Rwampara cohort).
+
+Long-format vectors (one per matrix; destination proportions for GeoJSON / dashboard):
+  processed/flowminder_short_trips__outflow_20260430__static.csv
+  … (same date tags as the matrices above)
+
+Each vector melts the matrix header into `nom` (destination zones) and uses the first
+origin data row for the metric column `outflow_<YYYYMMDD>` (identical across origins).
 
 Run from repo root:
     python data/flowminder_short_trips/extract_pdf_annex.py
@@ -206,7 +213,37 @@ def _write_matrix(
             w.writerow([origin] + [dest_values[d] for d in dest_order])
 
 
-def _assert_canonical(path: Path, canon: frozenset[str]) -> None:
+def _write_long_vector(matrix_path: Path, date_tag: str) -> Path:
+    """Melt a snapshot matrix to long format (destination nom + outflow_<date> column)."""
+    metric = f"outflow_{date_tag}"
+    out_path = matrix_path.with_name(
+        f"flowminder_short_trips__{metric}__static.csv"
+    )
+    with matrix_path.open(newline="", encoding="utf-8") as f:
+        reader = csv.reader(f)
+        header = next(reader)
+        if not header or header[0] != "nom":
+            raise ValueError(f"{matrix_path.name}: expected first column 'nom'")
+        destinations = header[1:]
+        first_data = next(reader, None)
+        if first_data is None:
+            raise ValueError(f"{matrix_path.name}: missing data rows")
+        values = first_data[1:]
+        if len(values) != len(destinations):
+            raise ValueError(
+                f"{matrix_path.name}: header has {len(destinations)} destinations "
+                f"but first row has {len(values)} values"
+            )
+
+    with out_path.open("w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        w.writerow(["nom", metric])
+        for dest, value in zip(destinations, values, strict=True):
+            w.writerow([dest, value])
+    return out_path
+
+
+def _assert_canonical_matrix(path: Path, canon: frozenset[str]) -> None:
     with path.open(newline="", encoding="utf-8") as f:
         reader = csv.reader(f)
         header = next(reader)
@@ -214,6 +251,16 @@ def _assert_canonical(path: Path, canon: frozenset[str]) -> None:
         for row in reader:
             if row and row[0] not in canon:
                 bad.append(row[0])
+    if bad:
+        sample = ", ".join(sorted(set(bad))[:10])
+        raise ValueError(f"{path.name}: non-canonical zone names: {sample}")
+
+
+def _assert_canonical_vector(path: Path, canon: frozenset[str]) -> None:
+    with path.open(newline="", encoding="utf-8") as f:
+        reader = csv.reader(f)
+        next(reader)  # nom, <metric>
+        bad = [row[0] for row in reader if row and row[0] not in canon]
     if bad:
         sample = ", ".join(sorted(set(bad))[:10])
         raise ValueError(f"{path.name}: non-canonical zone names: {sample}")
@@ -236,11 +283,17 @@ def main() -> int:
             raise RuntimeError(f"No destinations resolved for snapshot {date_tag}")
         out = PROCESSED / f"flowminder_short_trips__outflow_{date_tag}__static.matrix.csv"
         _write_matrix(dest_order, dest_values, out)
-        _assert_canonical(out, canon)
+        _assert_canonical_matrix(out, canon)
+        long_out = _write_long_vector(out, date_tag)
+        _assert_canonical_vector(long_out, canon)
         all_logs.extend({**entry, "snapshot": date_tag} for entry in log)
         print(
             f"wrote {out.relative_to(REPO_ROOT)} "
             f"({len(ORIGINS)} origins × {len(dest_order)} destinations)"
+        )
+        print(
+            f"wrote {long_out.relative_to(REPO_ROOT)} "
+            f"({len(dest_order)} destination rows)"
         )
 
     if all_logs:

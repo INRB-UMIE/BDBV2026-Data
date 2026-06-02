@@ -2,7 +2,7 @@
 
 Proportion of mobile subscribers observed in **Bunia, Mongbwalu, or Rwampara** during 3–23 April 2026 who were later seen in other DRC health zones, from Flowminder Annex A in the May 2026 Ebola movement brief.
 
-Unlike `data/flowminder/` (full provincial OD matrices in persons), this folder holds **five snapshot proportion matrices** at D+7 … D+31.
+Unlike `data/flowminder/` (full provincial OD matrices in persons), this folder holds **five snapshot proportion matrices** at D+7 … D+31, plus matching **long-format vector** files for dashboard / GeoJSON use.
 
 ------------------------------------------------------------------------
 
@@ -12,9 +12,10 @@ Unlike `data/flowminder/` (full provincial OD matrices in persons), this folder 
 |------|-------------|
 | `raw/Population_movements_Ebola_28_May_2026_Flowminder_Final.pdf` | Source report |
 | `raw/short_trips_destination_rankings.csv` | Extracted ranked table (pages 8–11) |
-| `processed/flowminder_short_trips__outflow_20260524__static.matrix.csv` | Example output (D+31 / 24 May); four other dates alongside |
+| `processed/flowminder_short_trips__outflow_20260524__static.matrix.csv` | Example matrix (D+31 / 24 May); four other dates alongside |
+| `processed/flowminder_short_trips__outflow_20260524__static.csv` | Example long vector (`nom`, `outflow_20260524`); one per snapshot |
 | `extract_pdf_annex.py` | PDF → raw CSV |
-| `process.py` | Raw CSV → contract matrices |
+| `process.py` | Raw CSV → matrices + long vectors |
 | `zone_resolution_log.csv` | Dropped / merged zone labels during canonicalisation |
 | `metadata.yaml` | Provenance |
 
@@ -23,6 +24,11 @@ Unlike `data/flowminder/` (full provincial OD matrices in persons), this folder 
 - First column: `nom` (origin) — only **Bunia**, **Mongbalu**, **Rwampara**
 - Remaining columns: canonical destination zone names from the annex table
 - Cell values: percentage proportion for that snapshot date (identical across the three origin rows)
+
+**Long vectors** (`flowminder_short_trips__outflow_<YYYYMMDD>__static.csv`):
+
+- `nom` — destination health zone (matrix column headers, excluding the origin `nom` column)
+- `outflow_<YYYYMMDD>` — proportion (%) from the first origin data row (cohort values are identical for Bunia, Mongbalu, Rwampara)
 
 **Snapshot files**
 

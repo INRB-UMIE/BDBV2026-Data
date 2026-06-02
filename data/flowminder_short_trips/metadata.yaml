@@ -13,8 +13,10 @@ notes: |
 
   Pipeline:
     1. extract_pdf_annex.py → raw/short_trips_destination_rankings.csv
-    2. process.py → five processed/*.matrix.csv snapshots (3×N each)
+    2. process.py → five processed/*.matrix.csv snapshots (3×N each) and five
+       matching long vectors (destination `nom` + `outflow_<YYYYMMDD>` column)
 
   Processed matrices use canonical destination `nom` column headers. Origin rows are
   Bunia, Mongbalu, Rwampara with identical destination proportions per snapshot
-  (combined cohort). Zone labels follow data/flowminder/process.py resolution rules.
+  (combined cohort). Long vectors melt each matrix for GeoJSON embedding. Zone labels
+  follow data/flowminder/process.py resolution rules.
