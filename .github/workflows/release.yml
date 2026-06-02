@@ -96,6 +96,7 @@ jobs:
 
       - name: Commit build artifacts back to main
         if: steps.skip.outputs.skip != 'true'
+        id: commit
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
@@ -103,6 +104,7 @@ jobs:
           git add build/ qa/qa_log.csv qa/matrix_log.csv qa/reports/ README.md
           if git diff --cached --quiet; then
             echo "Nothing to commit."
+            echo "data_ref=${{ github.sha }}" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           tag=$(python - << 'PYEOF'
@@ -114,6 +116,7 @@ jobs:
           )
           git commit -m "CI: release ${tag} [skip release][skip ci]"
           git push origin HEAD:main
+          echo "data_ref=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
       - name: Publish GitHub Release
         if: steps.skip.outputs.skip != 'true'
@@ -134,8 +137,8 @@ jobs:
             exit 0
           fi
           jq -n \
-            --arg data_ref "${{ github.sha }}" \
-            --arg sha "${{ github.sha }}" \
+            --arg data_ref "${{ steps.commit.outputs.data_ref }}" \
+            --arg sha "${{ steps.commit.outputs.data_ref }}" \
             --arg dashboard_branch "main" \
             '{event_type: "data-updated", client_payload: {data_ref: $data_ref, sha: $sha, dashboard_branch: $dashboard_branch}}' \
             | gh api --method POST "repos/${DASHBOARD_REPO}/dispatches" --input -

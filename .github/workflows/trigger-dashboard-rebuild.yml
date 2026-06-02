@@ -1,5 +1,5 @@
-# Notify the epidemic dashboard repo to rebuild after data/build updates.
-# For production, release.yml also dispatches after a successful data release on main.
+# Manual escape hatch: dispatch a dashboard rebuild without running a full data release.
+# Production path: release.yml dispatches after a successful release on main.
 
 name: Trigger dashboard rebuild
 
@@ -13,12 +13,6 @@ on:
       data_ref:
         description: "BDBV2026-Data git ref passed to the dashboard build (default: main)"
         required: false
-  push:
-    branches:
-      - main
-    paths:
-      - "build/**"
-      - "data/**"
 
 jobs:
   dispatch:
