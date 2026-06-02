@@ -6,7 +6,7 @@
 
 This work is led by the Institut National de Recherche Biomédicale (INRB) Kinshasa/One Health Institute for Africa (INOHA) Kinshasa (Dav Ebengo, Placide Mbala-Kingebeni and Tania Bishola), and the Institut National de Santé Publique (INSP) (Pierre Akilimali, Adelard Lofungola) in collaboration with partners across the University of Oxford and Northeastern University; please contact [dav.ebengo\@umie-inrb.org](mailto:dav.ebengo@umie-inrb.org) or [pierre.akilimali\@insp.cd](mailto:pierre.akilimali@insp.cd) for further information.
 
-Last successful build: **2 June 2026, 13:06:49 (UTC)** — `build/` on `main` at commit [`f3b3051`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/f3b30516f80cd340e4d137dadbd148f4b5ce0f18) (data snapshot [`f3b3051`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/f3b3051), see `build/manifest.json`).
+Last successful build: **2 June 2026, 20:19:35 (UTC)** — `build/` on `main` at commit [`32e9ebd`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/32e9ebd1f39511a60a9809f38595c3032d144e94) (data snapshot [`32e9ebd`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/32e9ebd), see `build/manifest.json`).
 
 # Data sources
 
@@ -35,8 +35,8 @@ The current build is committed on `main` and refreshed automatically by CI on ev
 ### What's New
 
 <!-- whats-new:start -->
-
-Flowminder short trip data is now formatted to be visualised in the dashboard. <!-- whats-new:end -->
+Sitrep 18 added, national counts updated and healthzone level counts where reported.
+<!-- whats-new:end -->
 
 **Embedded in the GeoJSON** — each per-zone vector output appears under `feature.properties.<dataset>.<metric>` (matrices are excluded; see below). Daily series use the latest `date` per zone in the build snapshot:
 
@@ -89,9 +89,9 @@ Flowminder short trip data is now formatted to be visualised in the dashboard. <
 ## Past releases
 
 <!-- past-releases:start -->
-
 | Tag | Date | Summary | Download |
-|------------------|------------------|------------------|------------------|
+|-----|------|---------|----------|
+| [`build-2026-06-02-32e9ebd`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-02-32e9ebd) | 2026-06-02 | Sitrep 18 added, national counts updated and healthzone level counts where reported. | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-02-32e9ebd) |
 | [`build-2026-06-02-f3b3051`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-02-f3b3051) | 2026-06-02 | Flowminder short trip data is now formatted to be visualised in the dashboard. | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-02-f3b3051) |
 | [`build-2026-06-02-125e4e0`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-02-125e4e0) | 2026-06-02 | Report added for Sitrep 17 describing digitisation process | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-02-125e4e0) |
 | [`build-2026-06-02-d1ceb9c`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-02-d1ceb9c) | 2026-06-02 | Sitrep 17 Added | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-02-d1ceb9c) |
@@ -108,7 +108,6 @@ Flowminder short trip data is now formatted to be visualised in the dashboard. <
 | build-2026-05-26-683a564 | 2026-05-26 | INSP Sitrep data through report 010 | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-05-26-683a564) |
 | [`build-2026-05-22-12db0c2`](https://github.com/kraemer-lab/Ebola_DRC_2026/releases/tag/build-2026-05-22-12db0c2) | 2026-05-22 | 25 vector layers; INSP through SitRep 007 + GRID3 health facilities | [release](https://github.com/kraemer-lab/Ebola_DRC_2026/releases/tag/build-2026-05-22-12db0c2) |
 | [`build-2026-05-22-9694d10`](https://github.com/kraemer-lab/Ebola_DRC_2026/releases/tag/build-2026-05-22-9694d10) | 2026-05-22 | First GitHub release (11 vector layers; pre-INSP / pre-GRID3) | [release](https://github.com/kraemer-lab/Ebola_DRC_2026/releases/tag/build-2026-05-22-9694d10) |
-
 <!-- past-releases:end -->
 
 # Repository layout
