@@ -5,7 +5,7 @@ Copy this file for each sitrep (e.g. `SitRep_MVE_015-2026.md`) and record any no
 | Field | Value |
 | --- | --- |
 | **Sitrep number** | 19 |
-| **Digitiser** | Onesime and Bernado |
+| **Digitiser** | Onesime and Bernardo |
 | **Report date** | 2 June 2026 |
 | **Digitising date** | 3 June 2026 |
 
@@ -41,7 +41,7 @@ For hospitalisations data we may need to examine another approach that doesn't r
 
 **Updated this sitrep?** x Yes · ☐ No
 
-**Decisions / notes:** Added 'We just done new line with ND, because suspected case under investigation was not reported '.
+**Decisions / notes:** SIngle line added with value `ND`, as the `Cas suspects en cours d'investigation` section of the banner (suspected cases under investigation) was not reported in the current SitRep.
 NOTE: 'patients in isolation' does not clearly mean suspected cases in isolation, as has been said in previous sitreps, but we are making this assumption.
 
 
