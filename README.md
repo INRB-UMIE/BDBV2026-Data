@@ -4,7 +4,19 @@
 
 ![Logos for Project Lead Organizations: Institute National de Recherche Biomedicale (INRB), One Health Institute for Africa (INOHA), Institut National de Santé Publique (INSP), and Unité de Modélisation et Intelligence Epidémique (UMIE)](https://github.com/INRB-UMIE/BDBV2026-Epidemic_Dashboard/blob/main/Data/Branding/all_logos.png)
 
-This work is led by the Institut National de Recherche Biomédicale (INRB) Kinshasa/One Health Institute for Africa (INOHA) Kinshasa (Dav Ebengo, Placide Mbala-Kingebeni and Tania Bishola), and the Institut National de Santé Publique (INSP) (Pierre Akilimali, Adelard Lofungola) in collaboration with partners across the University of Oxford and Northeastern University; please contact [dav.ebengo\@umie-inrb.org](mailto:dav.ebengo@umie-inrb.org) or [pierre.akilimali\@insp.cd](mailto:pierre.akilimali@insp.cd) for further information.
+This work is led by the Institut National de Recherche Biomédicale (INRB) Kinshasa/One Health Institute for Africa (INOHA) Kinshasa (Dav Ebengo, Placide Mbala-Kingebeni and Tania Bishola), and the Institut National de Santé Publique (INSP) (Pierre Akilimali, Adelard Lofungola).
+
+**Collaborating institutions and agencies**
+- Institut National de Santé Publique (INSP)
+- National Institute of Biomedical Research (INRB)
+- Africa Centres for Disease Control and Prevention, Addis Ababa, Ethiopia
+- World Health Organization, Geneva, Switzerland
+- World Health Organization Country Office, Kinshasa, Democratic Republic of the Congo
+- Northeastern University, United States
+- University of Oxford, United Kingdom
+
+# Statement on continuing work and analyses before publication
+Please note that the epidemiological data presented here is based on work in progress and should be considered preliminary. Our analyses are ongoing, and a publication communicating our findings is in preparation. Contextual data are publicly accessible; please refer to the original license when re-using these data. If you intend to use the epidemiological data prior to our publication, or have other enquiries, please contact [Prof. Placide Mbala-Kingebeni](mailto:placide.mbala@inrb.cd) (INRB, DRC), [Prof. Dav Ebengo](mailto:dav.ebengo@umie-inrb.org) (INRB, DRC), and [Pierre Akilimali](mailto:pierre.akilimali@insp.cd) (INSP).
 
 Last successful build: **3 June 2026, 16:21:59 (UTC)** — `build/` on `main` at commit [`ea78c16`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/ea78c169b20c9e674b0ec9806171500ed5d69f7a) (data snapshot [`ea78c16`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/ea78c16), see `build/manifest.json`).
 
