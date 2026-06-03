@@ -41,7 +41,7 @@ For hospitalisations data we may need to examine another approach that doesn't r
 
 **Updated this sitrep?** x Yes · ☐ No
 
-**Decisions / notes:** SIngle line added with value `ND`, as the `Cas suspects en cours d'investigation` section of the banner (suspected cases under investigation) was not reported in the current SitRep.
+**Decisions / notes:** The value from Suspected cases in isolation was copied here; In the previous SitRep, this file added up `Cas suspects en isolement` and `Cas suspects en cours d'investigation`, but the latter was not reported in the current SitRep. The current total therefore does not reflect any suspected cases under investigation that were being considered on the previous release.
 NOTE: 'patients in isolation' does not clearly mean suspected cases in isolation, as has been said in previous sitreps, but we are making this assumption.
 
 
@@ -60,9 +60,10 @@ NOTE: 'patients in isolation' does not clearly mean suspected cases in isolation
 
 ## insp_sitrep__national_cumulative_suspected_cases_under_investigation__daily.csv
 
-**Updated this sitrep?** ☐ Yes · x No
+**Updated this sitrep?** X Yes · ☐ No
 
-**Decisions / notes:** 
+**Decisions / notes:** Single line added with value `ND`, as the `Cas suspects en cours d'investigation` section of the banner (suspected cases under investigation) was not reported in the current SitRep.
+NOTE: 'patients in isolation' does not clearly mean suspected cases in isolation, as has been said in previous sitreps, but we are making this assumption.
 
 
 ---
