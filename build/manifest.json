@@ -1,8 +1,8 @@
 {
   "shapefile": "data/shapefiles/DRC_Health_zones.shp",
   "n_features": 519,
-  "built_at": "2026-06-03T16:21:59+00:00",
-  "commit": "ea78c16",
+  "built_at": "2026-06-03T21:01:35+00:00",
+  "commit": "06ffe1a",
   "datasets": [
     {
       "folder": "ACLED_conflict",
@@ -402,7 +402,7 @@
       "source": "Institut National de Sant\u00e9 Publique (INSP) Situation Reports \u2014 SitRep MVE series (2026 Bundibugyo Ebolavirus outbreak)",
       "citation": "Institut National de Sant\u00e9 Publique (INSP), Democratic Republic of the Congo. Situation reports on the 2026 Bundibugyo Ebolavirus outbreak (SitRep MVE 001, 002, 004\u2013012, 2026; report 003 not committed). Health-zone geometry: DRC_Health_zones.shp (see data/shapefiles/).",
       "source_url": "https://insp.cd/",
-      "retrieved_on": "2026-05-27",
+      "retrieved_on": "2026-06-03",
       "license": "INSP outbreak sitreps; reuse with attribution to INSP and citation of the specific report number and date. Confirm distribution terms with INSP before external republication.",
       "contact": "pierre.akilimali@insp.cd",
       "status": "active",
@@ -434,7 +434,7 @@
           "metric": "cumulative_confirmed_deaths",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 26,
+          "zones_with_values": 27,
           "long_csv": "build/long/insp_sitrep__cumulative_confirmed_deaths.csv"
         },
         {
@@ -756,7 +756,7 @@
           "metric": "epidemiological_community_engagement",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 5,
+          "zones_with_values": 15,
           "long_csv": "build/long/public_health_response__epidemiological_community_engagement.csv"
         },
         {
@@ -776,7 +776,7 @@
           "metric": "epidemiological_infection_prevention_controle",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 7,
+          "zones_with_values": 15,
           "long_csv": "build/long/public_health_response__epidemiological_infection_prevention_controle.csv"
         },
         {
@@ -786,7 +786,7 @@
           "metric": "epidemiological_laboratory",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 2,
+          "zones_with_values": 9,
           "long_csv": "build/long/public_health_response__epidemiological_laboratory.csv"
         },
         {
@@ -796,7 +796,7 @@
           "metric": "epidemiological_logistics",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 2,
+          "zones_with_values": 18,
           "long_csv": "build/long/public_health_response__epidemiological_logistics.csv"
         },
         {
@@ -806,7 +806,7 @@
           "metric": "epidemiological_management",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 22,
+          "zones_with_values": 25,
           "long_csv": "build/long/public_health_response__epidemiological_management.csv"
         },
         {
@@ -816,7 +816,7 @@
           "metric": "epidemiological_monitoring",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 24,
+          "zones_with_values": 25,
           "long_csv": "build/long/public_health_response__epidemiological_monitoring.csv"
         },
         {
@@ -826,7 +826,7 @@
           "metric": "epidemiological_protection_sexual_exploitation_abuse",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 3,
+          "zones_with_values": 18,
           "long_csv": "build/long/public_health_response__epidemiological_protection_sexual_exploitation_abuse.csv"
         },
         {
@@ -836,7 +836,7 @@
           "metric": "epidemiological_security",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 2,
+          "zones_with_values": 12,
           "long_csv": "build/long/public_health_response__epidemiological_security.csv"
         },
         {

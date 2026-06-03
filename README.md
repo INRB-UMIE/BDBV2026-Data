@@ -18,7 +18,7 @@ This work is led by the Institut National de Recherche Biomédicale (INRB) Kinsh
 # Statement on continuing work and analyses before publication
 Please note that the epidemiological data presented here is based on work in progress and should be considered preliminary. Our analyses are ongoing, and a publication communicating our findings is in preparation. Contextual data are publicly accessible; please refer to the original license when re-using these data. If you intend to use the epidemiological data prior to our publication, or have other enquiries, please contact [Prof. Placide Mbala-Kingebeni](mailto:placide.mbala@inrb.cd) (INRB, DRC), [Prof. Dav Ebengo](mailto:dav.ebengo@umie-inrb.org) (INRB, DRC), and [Pierre Akilimali](mailto:pierre.akilimali@insp.cd) (INSP).
 
-Last successful build: **3 June 2026, 16:21:59 (UTC)** — `build/` on `main` at commit [`ea78c16`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/ea78c169b20c9e674b0ec9806171500ed5d69f7a) (data snapshot [`ea78c16`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/ea78c16), see `build/manifest.json`).
+Last successful build: **3 June 2026, 21:01:35 (UTC)** — `build/` on `main` at commit [`06ffe1a`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/06ffe1a3bdb43232e0fab37e29485c4a5e8fce98) (data snapshot [`06ffe1a`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/06ffe1a), see `build/manifest.json`).
 
 # Data sources
 
@@ -47,7 +47,7 @@ The current build is committed on `main` and refreshed automatically by CI on ev
 ### What's New
 
 <!-- whats-new:start -->
-Added public health pillar data
+SitRep 19 data added and digitisation report updated.
 <!-- whats-new:end -->
 
 **Embedded in the GeoJSON** — each per-zone vector output appears under `feature.properties.<dataset>.<metric>` (matrices are excluded; see below). Daily series use the latest `date` per zone in the build snapshot:
@@ -103,6 +103,7 @@ Added public health pillar data
 <!-- past-releases:start -->
 | Tag | Date | Summary | Download |
 |-----|------|---------|----------|
+| [`build-2026-06-03-06ffe1a`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-03-06ffe1a) | 2026-06-03 | SitRep 19 data added and digitisation report updated. | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-03-06ffe1a) |
 | [`build-2026-06-03-ea78c16`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-03-ea78c16) | 2026-06-03 | Added public health pillar data | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-03-ea78c16) |
 | [`build-2026-06-02-32e9ebd`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-02-32e9ebd) | 2026-06-02 | Sitrep 18 added, national counts updated and healthzone level counts where reported. | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-02-32e9ebd) |
 | [`build-2026-06-02-f3b3051`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-02-f3b3051) | 2026-06-02 | Flowminder short trip data is now formatted to be visualised in the dashboard. | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-02-f3b3051) |
