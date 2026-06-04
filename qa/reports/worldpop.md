@@ -1,6 +1,6 @@
 # QA report: worldpop
 
-_Checked: 2026-06-03T21:17:18+00:00_
+_Checked: 2026-06-04T22:03:51+00:00_
 
 **Status counts:** {'pass': 1, 'warn': 2}
 
