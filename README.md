@@ -18,7 +18,7 @@ This work is led by the Institut National de Recherche Biomédicale (INRB) Kinsh
 # Statement on continuing work and analyses before publication
 Please note that the epidemiological data presented here is based on work in progress and should be considered preliminary. Our analyses are ongoing, and a publication communicating our findings is in preparation. Contextual data are publicly accessible; please refer to the original license when re-using these data. If you intend to use the epidemiological data prior to our publication, or have other enquiries, please contact [Prof. Placide Mbala-Kingebeni](mailto:placide.mbala@inrb.cd) (INRB, DRC), [Prof. Dav Ebengo](mailto:dav.ebengo@umie-inrb.org) (INRB, DRC), and [Pierre Akilimali](mailto:pierre.akilimali@insp.cd) (INSP).
 
-Last successful build: **4 June 2026, 22:03:53 (UTC)** — `build/` on `main` at commit [`169614d`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/169614da5353878882eeb459fa9a87986fb2860b) (data snapshot [`169614d`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/169614d), see `build/manifest.json`).
+Last successful build: **5 June 2026, 21:36:29 (UTC)** — `build/` on `main` at commit [`628c054`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/628c054d3b50277f67459b9da1c098c56e662e77) (data snapshot [`628c054`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/628c054), see `build/manifest.json`).
 
 # Data sources
 
@@ -40,14 +40,14 @@ For the latest BDBV genomic data, please visit [Pathoplexus](https://pathoplexus
 
 We are tracking pending data sources over on the [issues tab](https://github.com/kraemer-lab/Ebola_DRC_2026/issues). If you want to request a specific publicly available dataset, raise an issue (although raising an issue does not guarantee that we will incorporate a dataset).
 
-# Current build (2026-06-04)
+# Current build (2026-06-05)
 
 The current build is committed on `main` and refreshed automatically by CI on every merge that touches `data/**` — see [Release internals](#release-internals). Run `python -m tools.build_geojson` locally only if you're working on a branch with un-merged data changes.
 
 ### What's New
 
 <!-- whats-new:start -->
-Data sitrep020, updating for cumulative_confirme_cases, cumulative_confirme_deaths, Nation_cumulative_confirme_cases, Nation_cumulative_confirme_death, Nation_cumulative_isolation
+Sitrep 21 Adding
 <!-- whats-new:end -->
 
 **Embedded in the GeoJSON** — each per-zone vector output appears under `feature.properties.<dataset>.<metric>` (matrices are excluded; see below). Daily series use the latest `date` per zone in the build snapshot:
@@ -103,6 +103,7 @@ Data sitrep020, updating for cumulative_confirme_cases, cumulative_confirme_deat
 <!-- past-releases:start -->
 | Tag | Date | Summary | Download |
 |-----|------|---------|----------|
+| [`build-2026-06-05-628c054`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-05-628c054) | 2026-06-05 | Sitrep 21 Adding | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-05-628c054) |
 | [`build-2026-06-04-169614d`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-04-169614d) | 2026-06-04 | Data sitrep020, updating for cumulative_confirme_cases, cumulative_confirme_deaths, Nation_cumulative_confirme_cases, Nation_cumulative_confirme_death, Nation_cumulative_isolation | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-04-169614d) |
 | [`build-2026-06-03-8d24ff8`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-03-8d24ff8) | 2026-06-03 | Revised numbers of national cumulative suspected cases given latest reporting (see `data/insp_sitrep/reports/SitRep_MVE_019-2026.md`). | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-03-8d24ff8) |
 | [`build-2026-06-03-06ffe1a`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-03-06ffe1a) | 2026-06-03 | SitRep 19 data added and digitisation report updated. | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-03-06ffe1a) |
