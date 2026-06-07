@@ -1,8 +1,8 @@
 {
   "shapefile": "data/shapefiles/DRC_Health_zones.shp",
   "n_features": 519,
-  "built_at": "2026-06-06T21:24:53+00:00",
-  "commit": "39fc6f0",
+  "built_at": "2026-06-07T22:24:09+00:00",
+  "commit": "df291a5",
   "datasets": [
     {
       "folder": "ACLED_conflict",
@@ -796,7 +796,7 @@
           "metric": "epidemiological_logistics",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 19,
+          "zones_with_values": 20,
           "long_csv": "build/long/public_health_response__epidemiological_logistics.csv"
         },
         {
@@ -876,7 +876,7 @@
           "metric": "national_epidemiological_laboratory",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 0,
+          "zones_with_values": 519,
           "long_csv": "build/long/public_health_response__national_epidemiological_laboratory.csv"
         },
         {
