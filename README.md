@@ -15,24 +15,35 @@ This work is led by the Institut National de Recherche Biomédicale (INRB) Kinsh
 - Northeastern University, United States
 - University of Oxford, United Kingdom
 
-# Statement on continuing work and analyses before publication
+### Statement on continuing work and analyses before publication
 Please note that the epidemiological data presented here is based on work in progress and should be considered preliminary. Our analyses are ongoing, and a publication communicating our findings is in preparation. Contextual data are publicly accessible; please refer to the original license when re-using these data. If you intend to use the epidemiological data prior to our publication, or have other enquiries, please contact [Prof. Placide Mbala-Kingebeni](mailto:placide.mbala@inrb.cd) (INRB, DRC), [Prof. Dav Ebengo](mailto:dav.ebengo@umie-inrb.org) (INRB, DRC), and [Pierre Akilimali](mailto:pierre.akilimali@insp.cd) (INSP).
 
-Last successful build: **7 June 2026, 22:24:09 (UTC)** — `build/` on `main` at commit [`df291a5`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/df291a5fe342586e0d7bf6a9bd9a521da21da3a4) (data snapshot [`df291a5`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/df291a5), see `build/manifest.json`).
+Last successful build: **8 June 2026, 11:55:28 (UTC)** — `build/` on `main` at commit [`979a344`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/979a3444ec64e85f4f61bf8f0b484420a0c9685b) (data snapshot [`979a344`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/979a344), see `build/manifest.json`).
 
 # Data sources
-
+### Geospatial
 -   **DRC health zones:** [Humanitarian Data Exchange](https://data.humdata.org/dataset/drc-health-data) (MoH zones de santé shapefile)
--   **Epidemiological data (Processed Linelists, INSP):** Following establishment of an epi data collection pipeline by INSP and INRB, aggregated linelist data will be housed in (`data/epi/`) - ETA for this by Friday 29th
--   **Epidemiological & operational data (INSP):** [Institut National de Santé Publique (INSP)](https://insp.cd/) SitRep MVE PDF series (`data/insp_sitrep/`, currently through **SitRep 018**) — daily case, death, and contact-tracing indicators by health zone **manually transcribed from the sitreps**
+
+### Epidemiological
+-   **Epidemiological data (INSP):** [Institut National de Santé Publique (INSP)](https://insp.cd/) SitRep MVE PDF series (`data/insp_sitrep/`, currently through **SitRep 023**) — daily case, death, and contact-tracing indicators by health zone **manually transcribed from the sitreps**
+-   **Processed Linelists:** Following establishment of an epi data collection pipeline by INSP and INRB, aggregated linelist data will be housed in (`data/epi/`)
+-   **Operational data (INSP):** [Institut National de Santé Publique (INSP)](https://insp.cd/) Contextual data on the public health response transcribed from SitRep MVE PDF series (`data/insp_sitrep/`, currently for **SitReps 020-023**, but backfilling is in progress) (`data/public_health_response`)
+-   **Testing Capacity (AfricaCDC):** data on PCR machine and reagent availability (`data/testing_capacity`)
+
+### Mobility
 -   **Road travel times:** [OSRM](http://project-osrm.org/) public demo (`data/osrm/`, matrix outputs)
 -   **Cross-border travel:** [Imperial College Report](https://www.imperial.ac.uk/mrc-global-infectious-disease-analysis/research-themes/preparedness-and-response-to-emerging-threats/report-ebola-18-05-2026/)
--   **Conflicts and acts of violence:** [ACLED](https://acleddata.com)
 -   **Internal relocations:** International Organisation for Migrants ([IOM](https://dtm.iom.int))
--   **Population size rasters:** [GRID3 v4.4 gridded population](https://data.grid3.org/maps/a3db539c0fae4c05aed92ed67e11fe2b/about)
+-   **Mobile phone-based internal relocation estimates:** [Flowminder.org](https://www.flowminder.org/resources/publications-reports/drc-reports-publications) (`data/flowminder/` and `data/flowminder_short_trips/`)
+
+### Demographic
+-   **Conflicts and acts of violence:** [ACLED](https://acleddata.com) (`data/ACLED_conflict/`) - Not currently included in build 
+-   **Population counts:** [WorldPop](https://www.worldpop.org/) (`data/worldpop/`)
 -   **Health facilities (GRID3):** [GRID3 COD Health Facilities v8.0](https://data.grid3.org/datasets/GRID3::grid3-cod-health-facilities-v8-0/about) (`data/grid3_healthsites/`)
 -   **Health facilities (OSM / crowdsourced):** [Healthsites.io](https://healthsites.io/) (`data/healthsites_io/`)
--   **Mobile phone-based internal relocation estimates:** [Flowminder.org](https://www.flowminder.org/resources/publications-reports/drc-reports-publications)
+-   **Socioeconomic deprivation and inequality:** [Climate-Conflict Vulnerability Index](https://climate-conflict.org/www) (`data/ccvi/`)
+-   **Degree of Urbanisation:** [FAO Land Classification System](https://cds.climate.copernicus.eu/datasets/satellite-land-cover?tab=overview) (`data/fao_lccs/`)
+-   **GPD per capita:** [Kummu et. al](https://www.nature.com/articles/s41597-025-04487-x) (`data/gdp_pc/`)
 
 For the latest BDBV genomic data, please visit [Pathoplexus](https://pathoplexus.org/ebola-bdbv/search).
 
@@ -40,69 +51,33 @@ For the latest BDBV genomic data, please visit [Pathoplexus](https://pathoplexus
 
 We are tracking pending data sources over on the [issues tab](https://github.com/kraemer-lab/Ebola_DRC_2026/issues). If you want to request a specific publicly available dataset, raise an issue (although raising an issue does not guarantee that we will incorporate a dataset).
 
-# Current build (2026-06-07)
+# Current build (2026-06-08)
 
 The current build is committed on `main` and refreshed automatically by CI on every merge that touches `data/**` — see [Release internals](#release-internals). Run `python -m tools.build_geojson` locally only if you're working on a branch with un-merged data changes.
 
 ### What's New
 
 <!-- whats-new:start -->
-Update data of sitRep 23 from June 6, published on June 7
+Adding Pillars od sitrep 21
 <!-- whats-new:end -->
 
-**Embedded in the GeoJSON** — each per-zone vector output appears under `feature.properties.<dataset>.<metric>` (matrices are excluded; see below). Daily series use the latest `date` per zone in the build snapshot:
+### Build contents
 
-| Folder | Output | Retrieved | Status |
-|------------------|------------------|------------------|------------------|
-| ccvi | `ccvi__socioeconomic_deprivation__static.csv` | 2026-05-20 | active |
-| ccvi | `ccvi__socioeconomic_inequality__static.csv` | 2026-05-20 | active |
-| cross-border-movements | `cross_border__poe_passengers__static.csv` | 2026-05-18 | active |
-| epi | `epi__cases__weekly.csv` | 2026-05-18 | active |
-| fao_lccs | `fao_lccs__urban_fraction__static.csv` | 2026-05-20 | active |
-| gdp_pc | `gdp_pc__gdp_pc__static.csv` | 2026-05-20 | active |
-| grid3_healthsites | `grid3_healthsites__healthsite_count__static.csv` | 2026-05-20 | active |
-| grid3_healthsites | `grid3_healthsites__healthsite_density__static.csv` | 2026-05-20 | active |
-| healthsites_io | `healthsites_io__healthsite_count__static.csv` | 2026-05-20 | active |
-| healthsites_io | `healthsites_io__healthsite_density__static.csv` | 2026-05-20 | active |
-| insp_sitrep | `insp_sitrep__contacts_seen__daily.csv` | 2026-05-20 | active |
-| insp_sitrep | `insp_sitrep__cumulative_confirmed_cases__daily.csv` | 2026-05-20 | active |
-| insp_sitrep | `insp_sitrep__cumulative_confirmed_deaths__daily.csv` | 2026-05-20 | active |
-| insp_sitrep | `insp_sitrep__cumulative_contacts_isolated__daily.csv` | 2026-05-20 | active |
-| insp_sitrep | `insp_sitrep__cumulative_contacts_traced__daily.csv` | 2026-05-20 | active |
-| insp_sitrep | `insp_sitrep__cumulative_suspected_cases__daily.csv` | 2026-05-20 | active |
-| insp_sitrep | `insp_sitrep__cumulative_suspected_deaths__daily.csv` | 2026-05-20 | active |
-| insp_sitrep | `insp_sitrep__new_confirmed_cases__daily.csv` | 2026-05-20 | active |
-| insp_sitrep | `insp_sitrep__new_contacts_isolated__daily.csv` | 2026-05-20 | active |
-| insp_sitrep | `insp_sitrep__new_contacts_listed__daily.csv` | 2026-05-20 | active |
-| insp_sitrep | `insp_sitrep__new_suspected_cases__daily.csv` | 2026-05-20 | active |
-| insp_sitrep | `insp_sitrep__new_suspected_deaths__daily.csv` | 2026-05-20 | active |
-| refugee_sites | `refugee_sites__sites__static.csv` | 2026-05-20 | active |
-| worldpop | `worldpop__pop_count__static.csv` | 2026-05-20 | active |
-| worldpop | `worldpop__pop_density__static.csv` | 2026-05-20 | active |
+Per-layer catalogue for the current build:
 
-`build/manifest.json` carries the same information in machine-readable form.
+- [Embedded in the GeoJSON](data/README.md#embedded-in-the-geojson) — vector layers merged into `build/drc_health_zones.geojson`
+- [Matrix outputs](data/README.md#matrix-outputs) — origin–destination tables (not in the GeoJSON)
 
-**Matrix outputs** — large origin–destination tables (519×519 for national sources). Not merged into `build/drc_health_zones.geojson`; use the files under `data/<dataset>/processed/` or the catalogue in `qa/matrix_log.csv`.
+Full tables live in [`data/README.md`](data/README.md#current-build-outputs). Machine-readable index: `build/manifest.json`.
 
-| Folder     | Output                                   | Retrieved  | Status |
-|------------|------------------------------------------|------------|--------|
-| osrm       | `osrm__travel_time__static.matrix.csv`   | 2026-03-17 | active |
-| osrm       | `osrm__road_distance__static.matrix.csv` | 2026-03-17 | active |
-| IDP        | `idp__individuals__static.matrix.csv`    | 2026-01-31 | active |
-| IDP        | `idp__individuals__weekly.matrix.csv`    | 2026-01-31 | active |
-| IDP        | `idp__individuals__monthly.matrix.csv`   | 2026-01-31 | active |
-| flowminder | `flowminder__inflow__static.matrix.csv`  | 2026-05-20 | active |
-| flowminder | `flowminder__outflow__static.matrix.csv` | 2026-05-20 | active |
-
-**Notes:** \``grid3_healthsites` and `healthsites_io` both supply facility count/density — GRID3 is the MoH/partner master list. OSRM matrices may contain `NA` for unroutable pairs (QA warn). Dataset index: [`data/README.md`](data/README.md).
-
-**Not in build**: `ACLED_conflict` — province-grain placeholder, no QA-passing output yet.
+**Not in build:** `ACLED_conflict` — province-grain placeholder, no QA-passing output yet.
 
 ## Past releases
 
 <!-- past-releases:start -->
 | Tag | Date | Summary | Download |
 |-----|------|---------|----------|
+| [`build-2026-06-08-979a344`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-08-979a344) | 2026-06-08 | Adding Pillars od sitrep 21 | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-08-979a344) |
 | [`build-2026-06-07-df291a5`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-07-df291a5) | 2026-06-07 | Update data of sitRep 23 from June 6, published on June 7 | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-07-df291a5) |
 | [`build-2026-06-06-39fc6f0`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-06-39fc6f0) | 2026-06-06 | Addition of new data according to SitRep 22 | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-06-39fc6f0) |
 | [`build-2026-06-05-628c054`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-05-628c054) | 2026-06-05 | Sitrep 21 Adding | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-05-628c054) |
