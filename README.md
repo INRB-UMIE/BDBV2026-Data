@@ -18,8 +18,6 @@ This work is led by the Institut National de Recherche Biomédicale (INRB) Kinsh
 ### Statement on continuing work and analyses before publication
 Please note that the epidemiological data presented here is based on work in progress and should be considered preliminary. Our analyses are ongoing, and a publication communicating our findings is in preparation. Contextual data are publicly accessible; please refer to the original license when re-using these data. If you intend to use the epidemiological data prior to our publication, or have other enquiries, please contact [Prof. Placide Mbala-Kingebeni](mailto:placide.mbala@inrb.cd) (INRB, DRC), [Prof. Dav Ebengo](mailto:dav.ebengo@umie-inrb.org) (INRB, DRC), and [Pierre Akilimali](mailto:pierre.akilimali@insp.cd) (INSP).
 
-# Most recent build
-
 Last successful build: **8 June 2026, 11:55:28 (UTC)** — `build/` on `main` at commit [`979a344`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/979a3444ec64e85f4f61bf8f0b484420a0c9685b) (data snapshot [`979a344`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/979a344), see `build/manifest.json`).
 
 # Data sources
