@@ -1,8 +1,8 @@
 {
   "shapefile": "data/shapefiles/DRC_Health_zones.shp",
   "n_features": 519,
-  "built_at": "2026-06-09T07:35:06+00:00",
-  "commit": "60230f8",
+  "built_at": "2026-06-09T10:56:41+00:00",
+  "commit": "6bc4479",
   "datasets": [
     {
       "folder": "ACLED_conflict",
@@ -71,7 +71,7 @@
           "metric": "socioeconomic_deprivation",
           "resolution": "static",
           "in_geojson": true,
-          "zones_with_values": 519,
+          "zones_with_values": 587,
           "long_csv": "build/long/ccvi__socioeconomic_deprivation.csv"
         },
         {
@@ -81,7 +81,7 @@
           "metric": "socioeconomic_inequality",
           "resolution": "static",
           "in_geojson": true,
-          "zones_with_values": 519,
+          "zones_with_values": 587,
           "long_csv": "build/long/ccvi__socioeconomic_inequality.csv"
         }
       ]
@@ -169,7 +169,7 @@
           "metric": "urban_fraction",
           "resolution": "static",
           "in_geojson": true,
-          "zones_with_values": 519,
+          "zones_with_values": 587,
           "long_csv": "build/long/fao_lccs__urban_fraction.csv"
         }
       ]
@@ -221,7 +221,7 @@
           "metric": "outflow_20260430",
           "resolution": "static",
           "in_geojson": true,
-          "zones_with_values": 130,
+          "zones_with_values": 186,
           "long_csv": "build/long/flowminder_short_trips__outflow_20260430.csv"
         },
         {
@@ -240,7 +240,7 @@
           "metric": "outflow_20260507",
           "resolution": "static",
           "in_geojson": true,
-          "zones_with_values": 130,
+          "zones_with_values": 186,
           "long_csv": "build/long/flowminder_short_trips__outflow_20260507.csv"
         },
         {
@@ -259,7 +259,7 @@
           "metric": "outflow_20260514",
           "resolution": "static",
           "in_geojson": true,
-          "zones_with_values": 130,
+          "zones_with_values": 186,
           "long_csv": "build/long/flowminder_short_trips__outflow_20260514.csv"
         },
         {
@@ -278,7 +278,7 @@
           "metric": "outflow_20260521",
           "resolution": "static",
           "in_geojson": true,
-          "zones_with_values": 130,
+          "zones_with_values": 186,
           "long_csv": "build/long/flowminder_short_trips__outflow_20260521.csv"
         },
         {
@@ -297,7 +297,7 @@
           "metric": "outflow_20260524",
           "resolution": "static",
           "in_geojson": true,
-          "zones_with_values": 130,
+          "zones_with_values": 186,
           "long_csv": "build/long/flowminder_short_trips__outflow_20260524.csv"
         },
         {
@@ -328,7 +328,7 @@
           "metric": "gdp_pc",
           "resolution": "static",
           "in_geojson": true,
-          "zones_with_values": 519,
+          "zones_with_values": 587,
           "long_csv": "build/long/gdp_pc__gdp_pc.csv"
         }
       ]
@@ -350,7 +350,7 @@
           "metric": "healthsite_count",
           "resolution": "static",
           "in_geojson": true,
-          "zones_with_values": 519,
+          "zones_with_values": 587,
           "long_csv": "build/long/grid3_healthsites__healthsite_count.csv"
         },
         {
@@ -360,7 +360,7 @@
           "metric": "healthsite_density",
           "resolution": "static",
           "in_geojson": true,
-          "zones_with_values": 519,
+          "zones_with_values": 587,
           "long_csv": "build/long/grid3_healthsites__healthsite_density.csv"
         }
       ]
@@ -382,7 +382,7 @@
           "metric": "healthsite_count",
           "resolution": "static",
           "in_geojson": true,
-          "zones_with_values": 519,
+          "zones_with_values": 587,
           "long_csv": "build/long/healthsites_io__healthsite_count.csv"
         },
         {
@@ -392,7 +392,7 @@
           "metric": "healthsite_density",
           "resolution": "static",
           "in_geojson": true,
-          "zones_with_values": 519,
+          "zones_with_values": 587,
           "long_csv": "build/long/healthsites_io__healthsite_density.csv"
         }
       ]
@@ -928,6 +928,96 @@
           "in_geojson": true,
           "zones_with_values": 519,
           "long_csv": "build/long/public_health_response__national_epidemiological_security.csv"
+        },
+        {
+          "file": "public_health_response__provincial_epidemiological_community_engagement__daily.csv",
+          "type": "vector",
+          "dataset_token": "public_health_response",
+          "metric": "provincial_epidemiological_community_engagement",
+          "resolution": "daily",
+          "in_geojson": true,
+          "zones_with_values": 104,
+          "long_csv": "build/long/public_health_response__provincial_epidemiological_community_engagement.csv"
+        },
+        {
+          "file": "public_health_response__provincial_epidemiological_coordination__daily.csv",
+          "type": "vector",
+          "dataset_token": "public_health_response",
+          "metric": "provincial_epidemiological_coordination",
+          "resolution": "daily",
+          "in_geojson": true,
+          "zones_with_values": 104,
+          "long_csv": "build/long/public_health_response__provincial_epidemiological_coordination.csv"
+        },
+        {
+          "file": "public_health_response__provincial_epidemiological_infection_prevention_controle__daily.csv",
+          "type": "vector",
+          "dataset_token": "public_health_response",
+          "metric": "provincial_epidemiological_infection_prevention_controle",
+          "resolution": "daily",
+          "in_geojson": true,
+          "zones_with_values": 104,
+          "long_csv": "build/long/public_health_response__provincial_epidemiological_infection_prevention_controle.csv"
+        },
+        {
+          "file": "public_health_response__provincial_epidemiological_laboratory__daily.csv",
+          "type": "vector",
+          "dataset_token": "public_health_response",
+          "metric": "provincial_epidemiological_laboratory",
+          "resolution": "daily",
+          "in_geojson": true,
+          "zones_with_values": 104,
+          "long_csv": "build/long/public_health_response__provincial_epidemiological_laboratory.csv"
+        },
+        {
+          "file": "public_health_response__provincial_epidemiological_logistics__daily.csv",
+          "type": "vector",
+          "dataset_token": "public_health_response",
+          "metric": "provincial_epidemiological_logistics",
+          "resolution": "daily",
+          "in_geojson": true,
+          "zones_with_values": 70,
+          "long_csv": "build/long/public_health_response__provincial_epidemiological_logistics.csv"
+        },
+        {
+          "file": "public_health_response__provincial_epidemiological_management__daily.csv",
+          "type": "vector",
+          "dataset_token": "public_health_response",
+          "metric": "provincial_epidemiological_management",
+          "resolution": "daily",
+          "in_geojson": true,
+          "zones_with_values": 104,
+          "long_csv": "build/long/public_health_response__provincial_epidemiological_management.csv"
+        },
+        {
+          "file": "public_health_response__provincial_epidemiological_monitoring__daily.csv",
+          "type": "vector",
+          "dataset_token": "public_health_response",
+          "metric": "provincial_epidemiological_monitoring",
+          "resolution": "daily",
+          "in_geojson": true,
+          "zones_with_values": 104,
+          "long_csv": "build/long/public_health_response__provincial_epidemiological_monitoring.csv"
+        },
+        {
+          "file": "public_health_response__provincial_epidemiological_protection_sexual_exploitation_abuse__daily.csv",
+          "type": "vector",
+          "dataset_token": "public_health_response",
+          "metric": "provincial_epidemiological_protection_sexual_exploitation_abuse",
+          "resolution": "daily",
+          "in_geojson": true,
+          "zones_with_values": 0,
+          "long_csv": "build/long/public_health_response__provincial_epidemiological_protection_sexual_exploitation_abuse.csv"
+        },
+        {
+          "file": "public_health_response__provincial_epidemiological_security__daily.csv",
+          "type": "vector",
+          "dataset_token": "public_health_response",
+          "metric": "provincial_epidemiological_security",
+          "resolution": "daily",
+          "in_geojson": true,
+          "zones_with_values": 36,
+          "long_csv": "build/long/public_health_response__provincial_epidemiological_security.csv"
         }
       ]
     },
@@ -1002,7 +1092,7 @@
           "metric": "pop_count",
           "resolution": "static",
           "in_geojson": true,
-          "zones_with_values": 519,
+          "zones_with_values": 587,
           "long_csv": "build/long/worldpop__pop_count.csv"
         },
         {
@@ -1012,7 +1102,7 @@
           "metric": "pop_density",
           "resolution": "static",
           "in_geojson": true,
-          "zones_with_values": 519,
+          "zones_with_values": 587,
           "long_csv": "build/long/worldpop__pop_density.csv"
         }
       ]

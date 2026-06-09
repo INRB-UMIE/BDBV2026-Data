@@ -1,6 +1,6 @@
 # QA report: flowminder_short_trips
 
-_Checked: 2026-06-09T07:35:04+00:00_
+_Checked: 2026-06-09T10:56:39+00:00_
 
 **Status counts:** {'pass': 11}
 
@@ -8,7 +8,7 @@ _Checked: 2026-06-09T07:35:04+00:00_
 
 ## `flowminder_short_trips__outflow_20260430__static.csv` (vector) — **pass**
 - rows: 130
-- zones covered: 130 / 519
+- zones covered: 128 / 519
 - resolution: static
 
 ## `flowminder_short_trips__outflow_20260430__static.matrix.csv` (matrix) — **pass**
@@ -20,7 +20,7 @@ _Checked: 2026-06-09T07:35:04+00:00_
 
 ## `flowminder_short_trips__outflow_20260507__static.csv` (vector) — **pass**
 - rows: 130
-- zones covered: 130 / 519
+- zones covered: 128 / 519
 - resolution: static
 
 ## `flowminder_short_trips__outflow_20260507__static.matrix.csv` (matrix) — **pass**
@@ -32,7 +32,7 @@ _Checked: 2026-06-09T07:35:04+00:00_
 
 ## `flowminder_short_trips__outflow_20260514__static.csv` (vector) — **pass**
 - rows: 130
-- zones covered: 130 / 519
+- zones covered: 128 / 519
 - resolution: static
 
 ## `flowminder_short_trips__outflow_20260514__static.matrix.csv` (matrix) — **pass**
@@ -44,7 +44,7 @@ _Checked: 2026-06-09T07:35:04+00:00_
 
 ## `flowminder_short_trips__outflow_20260521__static.csv` (vector) — **pass**
 - rows: 130
-- zones covered: 130 / 519
+- zones covered: 128 / 519
 - resolution: static
 
 ## `flowminder_short_trips__outflow_20260521__static.matrix.csv` (matrix) — **pass**
@@ -56,7 +56,7 @@ _Checked: 2026-06-09T07:35:04+00:00_
 
 ## `flowminder_short_trips__outflow_20260524__static.csv` (vector) — **pass**
 - rows: 130
-- zones covered: 130 / 519
+- zones covered: 128 / 519
 - resolution: static
 
 ## `flowminder_short_trips__outflow_20260524__static.matrix.csv` (matrix) — **pass**
