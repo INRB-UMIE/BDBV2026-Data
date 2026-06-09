@@ -9,11 +9,15 @@ from tools.lib.schema import (
     NON_GEOGRAPHIC_NOMS,
     VALID_RESOLUTIONS,
     canonical_noms,
+    canonical_provinces,
     is_non_geographic_nom,
+    is_province_rollup_nom,
     load_zones,
     parse_filename,
     resolve_vector_nom,
     to_canonical,
+    to_canonical_province,
+    zones_by_province,
     zscode_to_canonical,
 )
 
@@ -75,6 +79,34 @@ def test_non_geographic_noms():
     assert resolve_vector_nom(NATIONAL_ROLLUP_NOM) == NATIONAL_ROLLUP_NOM
     assert resolve_vector_nom("Bunia") == "Bunia"
     assert resolve_vector_nom("NotAZone") is None
+
+
+def test_canonical_provinces_from_shapefile():
+    provinces = canonical_provinces()
+    assert len(provinces) == 26
+    assert "Ituri" in provinces
+    assert "Nord-Kivu" in provinces
+    assert "Sud-Kivu" in provinces
+
+
+def test_to_canonical_province_and_aliases():
+    assert to_canonical_province("Ituri") == "Ituri"
+    assert to_canonical_province("North-Kivu") == "Nord-Kivu"
+    assert to_canonical_province("North Kivu") == "Nord-Kivu"
+    assert to_canonical_province("South-Kivu") == "Sud-Kivu"
+    assert to_canonical_province("Fake Province") is None
+
+
+def test_resolve_vector_nom_province_before_zone():
+    assert resolve_vector_nom("North-Kivu") == "Nord-Kivu"
+    assert is_province_rollup_nom("Nord-Kivu")
+    assert not is_province_rollup_nom("North-Kivu")
+
+
+def test_zones_by_province_includes_bunia_in_ituri():
+    ituri = zones_by_province()["Ituri"]
+    assert "Bunia" in ituri
+    assert "Beni" in zones_by_province()["Nord-Kivu"]
 
 
 def test_zscode_to_canonical_known_and_unknown():

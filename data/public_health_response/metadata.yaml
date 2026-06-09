@@ -18,6 +18,10 @@ notes: |
   health zone, it is stored in the corresponding national_* file using
   nom = DRC. National records are subsequently available for country-level
   analysis and reporting.
+  Province-level pillar narratives use provincial_* files with nom set to the
+  shapefile PROVINCE name (English sitrep spellings may be mapped via
+  data/province_aliases.csv). The GeoJSON build broadcasts each provincial row
+  to every health zone in that province.
   Health zone names are normalised to canonical names during processing.
   nom may contain NA when no valid geographic assignment can be made.
   Data complements data/epi/.

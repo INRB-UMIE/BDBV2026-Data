@@ -14,7 +14,8 @@ CLI:
 Exit code is non-zero if any artifact failed (CI gate).
 
 Vector file contract:
-    Required column: 'nom' (canonical or alias-resolvable)
+    Required column: 'nom' (canonical zone, province roll-up, national `DRC`,
+    or alias-resolvable via aliases.csv / province_aliases.csv)
     For resolution != static: one of {date, week_start, month_start, year}
     Uniqueness: nom alone (static) or (nom, date) (time-series)
 
@@ -46,6 +47,7 @@ from tools.lib.schema import (
     REQUIRED_METADATA_FIELDS,
     VALID_RUNTIMES,
     canonical_noms,
+    counts_as_zone_coverage,
     is_non_geographic_nom,
     parse_filename,
     resolve_vector_nom,
@@ -177,7 +179,7 @@ def qa_vector(dataset: str, path: Path, parsed) -> FileResult:
         resolved = resolve_vector_nom(r[nom_i])
         if resolved is None:
             unresolved.append(r[nom_i])
-        elif not is_non_geographic_nom(resolved):
+        elif counts_as_zone_coverage(resolved):
             canonical_seen.add(resolved)
         keys.append((r[nom_i], r[date_i]) if date_i is not None else r[nom_i])
     if width_mismatches:

@@ -51,9 +51,11 @@ from tools.lib.schema import (
     REPO_ROOT,
     SHAPEFILE,
     is_non_geographic_nom,
+    is_province_rollup_nom,
     load_zones,
     parse_filename,
     resolve_vector_nom,
+    zones_by_province,
 )
 
 README = REPO_ROOT / "README.md"
@@ -170,8 +172,22 @@ def _attach_vector(folder: Path, file_name: str, parsed, features_by_nom: dict[s
         attached += 1
 
     national_row = latest_per_nom.pop(NATIONAL_ROLLUP_NOM, None)
+    province_rows: dict[str, dict] = {}
+    zone_rows: dict[str, dict] = {}
     for nom, r in latest_per_nom.items():
+        if is_province_rollup_nom(nom):
+            province_rows[nom] = r
+        else:
+            zone_rows[nom] = r
+
+    for nom, r in zone_rows.items():
         _apply_row(nom, r)
+
+    by_province = zones_by_province()
+    for prov, r in province_rows.items():
+        for zone_nom in by_province.get(prov, []):
+            _apply_row(zone_nom, r)
+
     if national_row is not None:
         value_obj = {c: _coerce(national_row[c]) for c in value_cols}
         if date_col:

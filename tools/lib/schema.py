@@ -13,6 +13,9 @@ What lives here:
     unknown) to the canonical `Nom`, using `data/aliases.csv`.
   - `NON_GEOGRAPHIC_NOMS` / `resolve_vector_nom(name)`: sitrep labels that may
     appear in vector `nom` but are not shapefile zones (excluded from GeoJSON).
+  - Province roll-ups: `nom` may be a canonical `PROVINCE` name (or alias in
+    `data/province_aliases.csv`). QA passes; GeoJSON build broadcasts to all
+    zones in that province (same pattern as national `DRC` rows).
   - `zscode_to_canonical(zscode)`: same idea, keyed by the shapefile's ZSCode.
   - `parse_filename(name)`: validates the contract for processed-file names of
     the form `<dataset>__<metric>__<resolution>[.matrix].csv`.
@@ -35,6 +38,7 @@ import shapefile  # pyshp
 REPO_ROOT = Path(__file__).resolve().parents[2]
 SHAPEFILE = REPO_ROOT / "data" / "shapefiles" / "DRC_Health_zones"
 ALIASES_CSV = REPO_ROOT / "data" / "aliases.csv"
+PROVINCE_ALIASES_CSV = REPO_ROOT / "data" / "province_aliases.csv"
 
 VALID_RESOLUTIONS: frozenset[str] = frozenset(
     {"static", "daily", "weekly", "monthly", "yearly"}
@@ -114,6 +118,20 @@ def canonical_noms() -> frozenset[str]:
 
 
 @functools.lru_cache(maxsize=1)
+def canonical_provinces() -> frozenset[str]:
+    return frozenset(z.province for z in load_zones())
+
+
+@functools.lru_cache(maxsize=1)
+def zones_by_province() -> dict[str, list[str]]:
+    """Map shapefile PROVINCE -> canonical zone noms in that province."""
+    by_prov: dict[str, list[str]] = {}
+    for z in load_zones():
+        by_prov.setdefault(z.province, []).append(z.canonical_nom)
+    return by_prov
+
+
+@functools.lru_cache(maxsize=1)
 def _zscode_index() -> dict[str, str]:
     return {z.zscode: z.canonical_nom for z in load_zones()}
 
@@ -139,6 +157,32 @@ def _alias_index() -> dict[str, str]:
     return index
 
 
+@functools.lru_cache(maxsize=1)
+def _province_alias_index() -> dict[str, str]:
+    """observed_name -> canonical PROVINCE, loaded from data/province_aliases.csv."""
+    canon = canonical_provinces()
+    index: dict[str, str] = {}
+    if not PROVINCE_ALIASES_CSV.exists():
+        return index
+    with PROVINCE_ALIASES_CSV.open(newline="", encoding="utf-8-sig") as f:
+        for row in csv.DictReader(f):
+            observed = (row.get("observed_name") or "").strip()
+            canonical = (row.get("canonical_province") or "").strip()
+            if observed and canonical and canonical in canon:
+                index[observed] = canonical
+    return index
+
+
+def to_canonical_province(name: str | None) -> str | None:
+    """Resolve an observed province label to shapefile PROVINCE, or None."""
+    if not name:
+        return None
+    label = name.strip()
+    if label in canonical_provinces():
+        return label
+    return _province_alias_index().get(label)
+
+
 def to_canonical(name: str | None) -> str | None:
     """Resolve an observed zone name to its canonical Nom, or None."""
     if not name:
@@ -162,13 +206,34 @@ def is_national_rollup_nom(name: str | None) -> bool:
     return name.strip() == NATIONAL_ROLLUP_NOM
 
 
+def is_province_rollup_nom(name: str | None) -> bool:
+    """True if `name` is a canonical shapefile PROVINCE (after alias resolution)."""
+    if not name:
+        return False
+    return name.strip() in canonical_provinces()
+
+
+def counts_as_zone_coverage(resolved: str | None) -> bool:
+    """True when a resolved vector `nom` is a health zone (for QA zone counts)."""
+    if not resolved:
+        return False
+    return (
+        not is_non_geographic_nom(resolved)
+        and not is_national_rollup_nom(resolved)
+        and not is_province_rollup_nom(resolved)
+    )
+
+
 def resolve_vector_nom(name: str | None) -> str | None:
-    """Resolve `nom` for vector QA/build: canonical zone, roll-up label, or None."""
+    """Resolve `nom` for vector QA/build: zone, roll-up label, or None."""
     if not name:
         return None
     label = name.strip()
     if label in NON_GEOGRAPHIC_NOMS or label == NATIONAL_ROLLUP_NOM:
         return label
+    province = to_canonical_province(label)
+    if province is not None:
+        return province
     return to_canonical(label)
 
 

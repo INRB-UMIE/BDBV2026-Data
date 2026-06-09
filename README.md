@@ -135,7 +135,7 @@ build/
 
 # Data contract
 
-**Join key:** the canonical `Nom` from `data/shapefiles/DRC_Health_zones.shp`. The two natural collisions (`Bili`, `Lubunga`) are disambiguated with a province suffix, e.g. `Lubunga (Tshopo)`. Observed spellings that differ are listed in `data/aliases.csv`.
+**Join key:** the canonical `Nom` from `data/shapefiles/DRC_Health_zones.shp`. The two natural collisions (`Bili`, `Lubunga`) are disambiguated with a province suffix, e.g. `Lubunga (Tshopo)`. Observed spellings that differ are listed in `data/aliases.csv`. Province roll-ups use `nom` = shapefile `PROVINCE` (aliases in `data/province_aliases.csv`); national roll-ups use `nom = DRC`.
 
 **Processed-file naming:** `<dataset>__<metric>__<resolution>.{csv|matrix.csv}` - `<dataset>` and `<metric>` are lower_snake_case. - `<resolution>` ∈ {`static`, `daily`, `weekly`, `monthly`, `yearly`}. - Suffix is `.matrix.csv` for matrix outputs, `.csv` for vector (one-row-per-zone) outputs.
 
@@ -158,7 +158,7 @@ Contributors add or update data. PRs touch `data/**` (and `tests/**` and unrelat
 
 1.  Create `data/<your_dataset>/` with `raw/`, `metadata.yaml`, and (when you have outputs) `process.{py,R}` + `processed/`.
 
-2.  Make sure your processed filenames match the contract above. Add any name aliases your data uses to `data/aliases.csv`.
+2.  Make sure your processed filenames match the contract above. Add zone aliases to `data/aliases.csv` and province aliases to `data/province_aliases.csv` when needed.
 
 3.  Sync with main:
 
