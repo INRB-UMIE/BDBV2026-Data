@@ -1,0 +1,14 @@
+source: "World Health Organization — Weekly External Situation Reports (2026 Bundibugyo Ebola virus outbreak, DRC)"
+citation: "World Health Organization. Bundibugyo Ebola virus outbreak, Democratic Republic of the Congo: Weekly External Situation Reports (SitRep 01–04, May–June 2026)."
+source_url: "https://www.who.int"
+retrieved_on: "2026-06-07"
+license: "WHO open access. Reuse with attribution per https://www.who.int/about/policies/publishing/copyright"
+contact: "outbreak@who.int"
+runtime: none
+status: archive
+notes: |
+  Archive of publicly facing WHO weekly external situation report PDFs in raw/.
+  No process.py and no processed/ outputs — documents are kept for posterity only
+  and are not integrated into the GeoJSON build or QA contract pipeline.
+  Current files: WHO_Wk_Ext_SitRep01_18_05_2026.pdf through
+  WHO_Wk_Ext_SitRep04_07_06_2026.pdf.
