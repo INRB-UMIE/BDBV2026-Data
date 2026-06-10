@@ -1,0 +1,16 @@
+source: "INSP/DHIS2 MVE epidemic line list — province-level onset aggregates"
+citation: "Institut National de Santé Publique (INSP) and Institut National de Recherche Biomedicale (INRB), Democratic Republic of the Congo. Aggregated confirmed cases by province and date of symptom onset from the DHIS2 MVE line list export."
+source_url: "internal://insp-dhis2-linelist-aggregate"
+retrieved_on: "2026-06-09"
+license: "Internal operational data; redistribution subject to INSP/INRB approval."
+contact: "pierre.akilimali@insp.cd"
+runtime: R
+notes: |
+  Raw input:
+    - raw/province_aggregated.csv (columns: province, date_of_symptom_onset, total_positive)
+  process.R maps province -> canonical shapefile PROVINCE via data/province_aliases.csv,
+  normalises dates to ISO YYYY-MM-DD, and writes:
+    - processed/aggregated_insp_linelist__confirmed_cases_onset__daily.csv
+    - processed/aggregated_insp_linelist__national_confirmed_cases_onset__daily.csv
+  Province-level rows are broadcast to all health zones in that province during GeoJSON build.
+  National rows use nom = DRC (one row per onset date).
