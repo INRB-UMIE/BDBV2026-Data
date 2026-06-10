@@ -1,8 +1,8 @@
 {
   "shapefile": "data/shapefiles/DRC_Health_zones.shp",
   "n_features": 519,
-  "built_at": "2026-06-10T09:07:54+00:00",
-  "commit": "690016b",
+  "built_at": "2026-06-10T15:16:53+00:00",
+  "commit": "10d11cb",
   "datasets": [
     {
       "folder": "ACLED_conflict",
@@ -53,6 +53,17 @@
           "matrix_log": "qa/matrix_log.csv"
         }
       ]
+    },
+    {
+      "folder": "archive",
+      "source": "World Health Organization \u2014 Weekly External Situation Reports (2026 Bundibugyo Ebola virus outbreak, DRC)",
+      "citation": "World Health Organization. Bundibugyo Ebola virus outbreak, Democratic Republic of the Congo: Weekly External Situation Reports (SitRep 01\u201304, May\u2013June 2026).",
+      "source_url": "https://www.who.int",
+      "retrieved_on": "2026-06-07",
+      "license": "WHO open access. Reuse with attribution per https://www.who.int/about/policies/publishing/copyright",
+      "contact": "outbreak@who.int",
+      "status": "archive",
+      "outputs": []
     },
     {
       "folder": "ccvi",
