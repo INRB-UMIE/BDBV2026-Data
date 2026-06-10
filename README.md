@@ -18,7 +18,7 @@ This work is led by the Institut National de Recherche Biomédicale (INRB) Kinsh
 ### Statement on continuing work and analyses before publication
 Please note that the epidemiological data presented here is based on work in progress and should be considered preliminary. Our analyses are ongoing, and a publication communicating our findings is in preparation. Contextual data are publicly accessible; please refer to the original license when re-using these data. If you intend to use the epidemiological data prior to our publication, or have other enquiries, please contact [Prof. Placide Mbala-Kingebeni](mailto:placide.mbala@inrb.cd) (INRB, DRC), [Prof. Dav Ebengo](mailto:dav.ebengo@umie-inrb.org) (INRB, DRC), and [Pierre Akilimali](mailto:pierre.akilimali@insp.cd) (INSP).
 
-Last successful build: **10 June 2026, 15:41:36 (UTC)** — `build/` on `main` at commit [`1b71e8e`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/1b71e8ea54303a65d812c0686dbacf155b3ac509) (data snapshot [`1b71e8e`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/1b71e8e), see `build/manifest.json`).
+Last successful build: **10 June 2026, 22:53:38 (UTC)** — `build/` on `main` at commit [`8645bde`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/8645bdebeb67f6ab1ae7e3c29a15745dd30e94d3) (data snapshot [`8645bde`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/8645bde), see `build/manifest.json`).
 
 # Data sources
 ### Geospatial
@@ -58,7 +58,7 @@ The current build is committed on `main` and refreshed automatically by CI on ev
 ### What's New
 
 <!-- whats-new:start -->
-Aggregated confirmed positives from the INSP linelist are now included in data/aggregated_insp_linelist. At present these are aggregated to the province level.
+Adding New sitrep_026
 <!-- whats-new:end -->
 
 ### Build contents
@@ -77,6 +77,7 @@ Full tables live in [`data/README.md`](data/README.md#current-build-outputs). Ma
 <!-- past-releases:start -->
 | Tag | Date | Summary | Download |
 |-----|------|---------|----------|
+| [`build-2026-06-10-8645bde`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-10-8645bde) | 2026-06-10 | Adding New sitrep_026 | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-10-8645bde) |
 | [`build-2026-06-10-1b71e8e`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-10-1b71e8e) | 2026-06-10 | Aggregated confirmed positives from the INSP linelist are now included in data/aggregated_insp_linelist. At present these are aggregated to the province level. | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-10-1b71e8e) |
 | [`build-2026-06-10-10d11cb`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-10-10d11cb) | 2026-06-10 | - Create a folder for archived weekly WHO reports (unprocessed) to serve as a digital record | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-10-10d11cb) |
 | [`build-2026-06-10-690016b`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-10-690016b) | 2026-06-10 | New sitrep Adding | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-10-690016b) |
