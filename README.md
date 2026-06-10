@@ -18,7 +18,7 @@ This work is led by the Institut National de Recherche Biomédicale (INRB) Kinsh
 ### Statement on continuing work and analyses before publication
 Please note that the epidemiological data presented here is based on work in progress and should be considered preliminary. Our analyses are ongoing, and a publication communicating our findings is in preparation. Contextual data are publicly accessible; please refer to the original license when re-using these data. If you intend to use the epidemiological data prior to our publication, or have other enquiries, please contact [Prof. Placide Mbala-Kingebeni](mailto:placide.mbala@inrb.cd) (INRB, DRC), [Prof. Dav Ebengo](mailto:dav.ebengo@umie-inrb.org) (INRB, DRC), and [Pierre Akilimali](mailto:pierre.akilimali@insp.cd) (INSP).
 
-Last successful build: **9 June 2026, 10:56:41 (UTC)** — `build/` on `main` at commit [`6bc4479`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/6bc4479500b4b823e7a2e915a519eeb525bda57d) (data snapshot [`6bc4479`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/6bc4479), see `build/manifest.json`).
+Last successful build: **10 June 2026, 09:07:54 (UTC)** — `build/` on `main` at commit [`690016b`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/690016bfd9fee0b54c5b80ccc2e4f8136f1298e5) (data snapshot [`690016b`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/690016b), see `build/manifest.json`).
 
 # Data sources
 ### Geospatial
@@ -51,14 +51,14 @@ For the latest BDBV genomic data, please visit [Pathoplexus](https://pathoplexus
 
 We are tracking pending data sources over on the [issues tab](https://github.com/kraemer-lab/Ebola_DRC_2026/issues). If you want to request a specific publicly available dataset, raise an issue (although raising an issue does not guarantee that we will incorporate a dataset).
 
-# Current build (2026-06-09)
+# Current build (2026-06-10)
 
 The current build is committed on `main` and refreshed automatically by CI on every merge that touches `data/**` — see [Release internals](#release-internals). Run `python -m tools.build_geojson` locally only if you're working on a branch with un-merged data changes.
 
 ### What's New
 
 <!-- whats-new:start -->
-Update to the public health context section, where province level actions are now stored separately. In general, we have adjusted the QA and build process to allow province level info, which just gets broadcast to each included healthzone during the build. This will be relevant for many datasets, but should obviously be used carefully (e.g. a numeric metric such as total hospitalised on the province level, broadcast to health zone level, may be misinterpreted as overreporting that metric for the healthzone).
+New sitrep Adding
 <!-- whats-new:end -->
 
 ### Build contents
@@ -77,6 +77,7 @@ Full tables live in [`data/README.md`](data/README.md#current-build-outputs). Ma
 <!-- past-releases:start -->
 | Tag | Date | Summary | Download |
 |-----|------|---------|----------|
+| [`build-2026-06-10-690016b`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-10-690016b) | 2026-06-10 | New sitrep Adding | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-10-690016b) |
 | [`build-2026-06-09-6bc4479`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-09-6bc4479) | 2026-06-09 | Update to the public health context section, where province level actions are now stored separately. In general, we have adjusted the QA and build process to allow province level info, which just gets broadcast to each included healthzone during the build. This will be relevant for many datasets, but should obviously be used carefully (e.g. a numeric metric such as total hospitalised on the province level, broadcast to health zone level, may be misinterpreted as overreporting that metric for the healthzone). | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-09-6bc4479) |
 | [`build-2026-06-09-60230f8`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-09-60230f8) | 2026-06-09 | Integration of SITREP 24 data | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-09-60230f8) |
 | [`build-2026-06-08-979a344`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-08-979a344) | 2026-06-08 | Adding Pillars od sitrep 21 | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-08-979a344) |
