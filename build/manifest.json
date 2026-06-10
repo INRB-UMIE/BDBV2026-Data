@@ -1,8 +1,8 @@
 {
   "shapefile": "data/shapefiles/DRC_Health_zones.shp",
   "n_features": 519,
-  "built_at": "2026-06-10T15:16:53+00:00",
-  "commit": "10d11cb",
+  "built_at": "2026-06-10T15:41:36+00:00",
+  "commit": "1b71e8e",
   "datasets": [
     {
       "folder": "ACLED_conflict",
@@ -51,6 +51,38 @@
           "resolution": "weekly",
           "in_geojson": false,
           "matrix_log": "qa/matrix_log.csv"
+        }
+      ]
+    },
+    {
+      "folder": "aggregated_insp_linelist",
+      "source": "INSP/DHIS2 MVE epidemic line list \u2014 province-level onset aggregates",
+      "citation": "Institut National de Sant\u00e9 Publique (INSP) and Institut National de Recherche Biomedicale (INRB), Democratic Republic of the Congo. Aggregated confirmed cases by province and date of symptom onset from the DHIS2 MVE line list export.",
+      "source_url": "internal://insp-dhis2-linelist-aggregate",
+      "retrieved_on": "2026-06-09",
+      "license": "Internal operational data; redistribution subject to INSP/INRB approval.",
+      "contact": "pierre.akilimali@insp.cd",
+      "status": "active",
+      "outputs": [
+        {
+          "file": "aggregated_insp_linelist__national_confirmed_cases_onset__daily.csv",
+          "type": "vector",
+          "dataset_token": "aggregated_insp_linelist",
+          "metric": "national_confirmed_cases_onset",
+          "resolution": "daily",
+          "in_geojson": true,
+          "zones_with_values": 519,
+          "long_csv": "build/long/aggregated_insp_linelist__national_confirmed_cases_onset.csv"
+        },
+        {
+          "file": "aggregated_insp_linelist__provincial_confirmed_cases_onset__daily.csv",
+          "type": "vector",
+          "dataset_token": "aggregated_insp_linelist",
+          "metric": "provincial_confirmed_cases_onset",
+          "resolution": "daily",
+          "in_geojson": true,
+          "zones_with_values": 104,
+          "long_csv": "build/long/aggregated_insp_linelist__provincial_confirmed_cases_onset.csv"
         }
       ]
     },
