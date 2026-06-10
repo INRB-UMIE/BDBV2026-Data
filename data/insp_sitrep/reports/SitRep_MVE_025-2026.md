@@ -4,14 +4,14 @@ Copy this file for each sitrep (e.g. `SitRep_MVE_015-2026.md`) and record any no
 
 | Field | Value |
 | --- | --- |
-| **Sitrep number** | 21 |
-| **Digitiser** | Onesime, Patrick and Ellie |
-| **Report date** | 4 June 2026 |
-| **Digitising date** | 5 June 2026 |
+| **Sitrep number** | 25 |
+| **Digitiser** | Onesime and Patrick |
+| **Report date** | 8 June 2026 |
+| **Digitising date** | 9 June 2026 |
 
 
 ## General Note
-For hospitalisations data we may need to examine another approach that doesn't require healthzone tables (e.g. can be done by province)
+I have notice in the sitRep a national data for recovered cases from Ebola but nowhere to put the data
 
 
 
@@ -41,8 +41,7 @@ For hospitalisations data we may need to examine another approach that doesn't r
 
 **Updated this sitrep?** x Yes · ☐ No
 
-**Decisions / notes:** The value from Suspected cases in isolation was copied here; In the previous SitRep, this file added up `Cas suspects en isolement` and `Cas suspects en cours d'investigation`, but the latter was not reported in the current SitRep. The current total therefore does not reflect any suspected cases under investigation that were being considered on the previous release.
-NOTE: 'patients in isolation' does not clearly mean suspected cases in isolation, as has been said in previous sitreps, but we are making this assumption.
+**Decisions / notes:** copied straight from the banner with this label "Cumul cas confirmés pour les 3 provinces"
 
 
 
@@ -52,7 +51,7 @@ NOTE: 'patients in isolation' does not clearly mean suspected cases in isolation
 
 **Updated this sitrep?** x Yes · ☐ No
 
-**Decisions / notes:** NOTE: 'patients in isolation' does not clearly mean suspected cases in isolation, as has been said in previous sitreps, but we are making this assumption. We take it from the banner (173).
+**Decisions / notes:** NOTE: copied straight from the banner with this label "Patients en isolement-hospitalisation"
 
 
 
@@ -62,8 +61,7 @@ NOTE: 'patients in isolation' does not clearly mean suspected cases in isolation
 
 **Updated this sitrep?** ☐ Yes · x No
 
-**Decisions / notes:** Single line added with value `ND`, as the `Cas suspects en cours d'investigation` section of the banner (suspected cases under investigation) was not reported in the current SitRep.
-NOTE: 'patients in isolation' does not clearly mean suspected cases in isolation, as has been said in previous sitreps, but we are making this assumption.
+**Decisions / notes:** 
 
 
 ---
