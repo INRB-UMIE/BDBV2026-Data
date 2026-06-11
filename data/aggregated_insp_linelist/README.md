@@ -1,5 +1,11 @@
 # Aggregated INSP / INRB line list — province-level onset counts
 
+
+
+# Currently moved to private again for now
+
+
+
 Daily **confirmed-case counts by province and date of symptom onset**, derived from the operational MVE epidemic line list maintained jointly by the **Institut National de Santé Publique (INSP)** and the **Institut National de Recherche Biomédicale (INRB)**.
 
 The underlying line list is **private and confidential**: it contains individual case reports and is not stored in this repository. Only **aggregated totals** are committed here, to support outbreak mapping and analytics without exposing patient-level data.
