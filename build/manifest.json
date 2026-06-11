@@ -1,8 +1,8 @@
 {
   "shapefile": "data/shapefiles/DRC_Health_zones.shp",
   "n_features": 519,
-  "built_at": "2026-06-11T16:43:44+00:00",
-  "commit": "1499e80",
+  "built_at": "2026-06-11T18:01:20+00:00",
+  "commit": "e1e67f3",
   "datasets": [
     {
       "folder": "ACLED_conflict",
@@ -81,7 +81,7 @@
           "metric": "provincial_confirmed_cases_onset",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 104,
+          "zones_with_values": 36,
           "long_csv": "build/long/aggregated_insp_linelist__provincial_confirmed_cases_onset.csv"
         }
       ]
