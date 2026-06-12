@@ -10,7 +10,7 @@ Copy this file for each sitrep (e.g. `SitRep_MVE_015-2026.md`) and record any no
 | **Digitising date** | 12 June 2026 |
 
 ## General Note
-I haven't record the metic "Nombre cumulé des guéris" because there is no csv file for it.  Three health zones added compare to the last sitrep : Kambala, Masereka and Vuhovi
+I haven't record the metic "Nombre cumulé des guéris" because there is no csv file for it.  
 
 ---
 
