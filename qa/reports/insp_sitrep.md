@@ -1,6 +1,6 @@
 # QA report: insp_sitrep
 
-_Checked: 2026-06-11T18:07:01+00:00_
+_Checked: 2026-06-12T20:45:15+00:00_
 
 **Status counts:** {'pass': 31}
 
@@ -12,12 +12,12 @@ _Checked: 2026-06-11T18:07:01+00:00_
 - resolution: daily
 
 ## `insp_sitrep__cumulative_confirmed_cases__daily.csv` (vector) — **pass**
-- rows: 470
+- rows: 500
 - zones covered: 33 / 519
 - resolution: daily
 
 ## `insp_sitrep__cumulative_confirmed_deaths__daily.csv` (vector) — **pass**
-- rows: 442
+- rows: 472
 - zones covered: 31 / 519
 - resolution: daily
 
@@ -57,27 +57,27 @@ _Checked: 2026-06-11T18:07:01+00:00_
 - resolution: daily
 
 ## `insp_sitrep__national_cumulative_confirmed_cases__daily.csv` (vector) — **pass**
-- rows: 26
+- rows: 27
 - zones covered: 0 / 519
 - resolution: daily
 
 ## `insp_sitrep__national_cumulative_confirmed_deaths__daily.csv` (vector) — **pass**
-- rows: 26
+- rows: 27
 - zones covered: 0 / 519
 - resolution: daily
 
 ## `insp_sitrep__national_cumulative_suspected_cases__daily.csv` (vector) — **pass**
-- rows: 25
+- rows: 26
 - zones covered: 0 / 519
 - resolution: daily
 
 ## `insp_sitrep__national_cumulative_suspected_deaths__daily.csv` (vector) — **pass**
-- rows: 16
+- rows: 17
 - zones covered: 0 / 519
 - resolution: daily
 
 ## `insp_sitrep__national_suspected_cases_in_isolation__daily.csv` (vector) — **pass**
-- rows: 12
+- rows: 13
 - zones covered: 0 / 519
 - resolution: daily
 
