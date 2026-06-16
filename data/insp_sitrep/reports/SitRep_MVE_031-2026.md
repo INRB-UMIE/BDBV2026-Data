@@ -5,9 +5,9 @@ Copy this file for each sitrep (e.g. `SitRep_MVE_015-2026.md`) and record any no
 | Field | Value |
 | --- | --- |
 | **Sitrep number** | 31 |
-| **Digitiser** | Patrick |
-| **Report date** | 14 June 2026 |
-| **Digitising date** | 15 June 2026 |
+| **Digitiser** | Onesime and Bernardo |
+| **Report date** | 15 June 2026 |
+| **Digitising date** | 16 June 2026 |
 
 
 ## General Note
