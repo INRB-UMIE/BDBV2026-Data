@@ -12,6 +12,7 @@ Copy this file for each sitrep (e.g. `SitRep_MVE_015-2026.md`) and record any no
 
 ## General Note
 Still no where to report recovered cases on the dashboard
+Also fix confirmed cases on 30-05-2026 which was 238 instead of 282
 
 ---
 
