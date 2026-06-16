@@ -18,7 +18,7 @@ This work is led by the Institut National de Recherche Biomédicale (INRB) Kinsh
 ### Statement on continuing work and analyses before publication
 Please note that the epidemiological data presented here is based on work in progress and should be considered preliminary. Our analyses are ongoing, and a publication communicating our findings is in preparation. Contextual data are publicly accessible; please refer to the original license when re-using these data. If you intend to use the epidemiological data prior to our publication, or have other enquiries, please contact [Prof. Placide Mbala-Kingebeni](mailto:placide.mbala@inrb.cd) (INRB, DRC), [Prof. Dav Ebengo](mailto:dav.ebengo@umie-inrb.org) (INRB, DRC), and [Pierre Akilimali](mailto:pierre.akilimali@insp.cd) (INSP).
 
-Last successful build: **16 June 2026, 10:07:48 (UTC)** — `build/` on `main` at commit [`4c30cd1`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/4c30cd1ae070d874c447e99bf27b476e15471029) (data snapshot [`4c30cd1`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/4c30cd1), see `build/manifest.json`).
+Last successful build: **16 June 2026, 22:15:59 (UTC)** — `build/` on `main` at commit [`1228f3c`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/1228f3c49de5e77ee6e466c071c39b671c4c3fe4) (data snapshot [`1228f3c`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/1228f3c), see `build/manifest.json`).
 
 # Data sources
 ### Geospatial
@@ -58,8 +58,7 @@ The current build is committed on `main` and refreshed automatically by CI on ev
 ### What's New
 
 <!-- whats-new:start -->
-update dashbord with datas from sitRep 31
-Also fix confirmed cases on 30-05-2026 which was 238 instead of 282
+Adding sitrep 032 for cummulatives data and pillars
 <!-- whats-new:end -->
 
 ### Build contents
@@ -78,6 +77,7 @@ Full tables live in [`data/README.md`](data/README.md#current-build-outputs). Ma
 <!-- past-releases:start -->
 | Tag | Date | Summary | Download |
 |-----|------|---------|----------|
+| [`build-2026-06-16-1228f3c`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-16-1228f3c) | 2026-06-16 | Adding sitrep 032 for cummulatives data and pillars | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-16-1228f3c) |
 | [`build-2026-06-16-4c30cd1`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-16-4c30cd1) | 2026-06-16 | update dashbord with datas from sitRep 31 | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-16-4c30cd1) |
 | [`build-2026-06-14-69477ea`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-14-69477ea) | 2026-06-14 | updating data from sitRep 30 in insp_sitrep folder | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-14-69477ea) |
 | [`build-2026-06-12-1dfdf1e`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-12-1dfdf1e) | 2026-06-12 | Adding sitrep 28 data | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-12-1dfdf1e) |

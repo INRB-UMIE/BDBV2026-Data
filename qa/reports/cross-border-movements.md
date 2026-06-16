@@ -1,6 +1,6 @@
 # QA report: cross-border-movements
 
-_Checked: 2026-06-16T10:07:46+00:00_
+_Checked: 2026-06-16T22:15:58+00:00_
 
 **Status counts:** {'pass': 2}
 

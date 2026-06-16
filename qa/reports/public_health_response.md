@@ -1,6 +1,6 @@
 # QA report: public_health_response
 
-_Checked: 2026-06-16T10:07:46+00:00_
+_Checked: 2026-06-16T22:15:58+00:00_
 
 **Status counts:** {'pass': 28}
 
@@ -17,8 +17,8 @@ _Checked: 2026-06-16T10:07:46+00:00_
 - resolution: daily
 
 ## `public_health_response__epidemiological_infection_prevention_controle__daily.csv` (vector) — **pass**
-- rows: 68
-- zones covered: 18 / 519
+- rows: 73
+- zones covered: 19 / 519
 - resolution: daily
 
 ## `public_health_response__epidemiological_laboratory__daily.csv` (vector) — **pass**
@@ -27,12 +27,12 @@ _Checked: 2026-06-16T10:07:46+00:00_
 - resolution: daily
 
 ## `public_health_response__epidemiological_logistics__daily.csv` (vector) — **pass**
-- rows: 37
+- rows: 39
 - zones covered: 23 / 519
 - resolution: daily
 
 ## `public_health_response__epidemiological_management__daily.csv` (vector) — **pass**
-- rows: 96
+- rows: 97
 - zones covered: 26 / 519
 - resolution: daily
 
@@ -47,7 +47,7 @@ _Checked: 2026-06-16T10:07:46+00:00_
 - resolution: daily
 
 ## `public_health_response__epidemiological_security__daily.csv` (vector) — **pass**
-- rows: 39
+- rows: 41
 - zones covered: 13 / 519
 - resolution: daily
 
@@ -82,7 +82,7 @@ _Checked: 2026-06-16T10:07:46+00:00_
 - resolution: daily
 
 ## `public_health_response__national_epidemiological_monitoring__daily.csv` (vector) — **pass**
-- rows: 1
+- rows: 2
 - zones covered: 0 / 519
 - resolution: daily
 
@@ -97,22 +97,22 @@ _Checked: 2026-06-16T10:07:46+00:00_
 - resolution: daily
 
 ## `public_health_response__provincial_epidemiological_community_engagement__daily.csv` (vector) — **pass**
-- rows: 22
+- rows: 25
 - zones covered: 0 / 519
 - resolution: daily
 
 ## `public_health_response__provincial_epidemiological_coordination__daily.csv` (vector) — **pass**
-- rows: 12
+- rows: 13
 - zones covered: 0 / 519
 - resolution: daily
 
 ## `public_health_response__provincial_epidemiological_infection_prevention_controle__daily.csv` (vector) — **pass**
-- rows: 16
+- rows: 18
 - zones covered: 0 / 519
 - resolution: daily
 
 ## `public_health_response__provincial_epidemiological_laboratory__daily.csv` (vector) — **pass**
-- rows: 23
+- rows: 25
 - zones covered: 0 / 519
 - resolution: daily
 
@@ -122,17 +122,17 @@ _Checked: 2026-06-16T10:07:46+00:00_
 - resolution: daily
 
 ## `public_health_response__provincial_epidemiological_management__daily.csv` (vector) — **pass**
-- rows: 15
+- rows: 18
 - zones covered: 0 / 519
 - resolution: daily
 
 ## `public_health_response__provincial_epidemiological_monitoring__daily.csv` (vector) — **pass**
-- rows: 21
+- rows: 24
 - zones covered: 0 / 519
 - resolution: daily
 
 ## `public_health_response__provincial_epidemiological_protection_sexual_exploitation_abuse__daily.csv` (vector) — **pass**
-- rows: 4
+- rows: 7
 - zones covered: 0 / 519
 - resolution: daily
 
