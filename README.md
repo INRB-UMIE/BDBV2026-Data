@@ -171,15 +171,15 @@ Contributors add or update data. PRs touch `data/**` (and `tests/**` and unrelat
 
     LFS is required because binary raw blobs (`*.xlsx`, `*.zip`, `*.pdf`, `*.tif`, etc.) under `data/*/raw/` are stored via Git LFS — see `.gitattributes`.
 
-1.  Create `data/<your_dataset>/` with `raw/`, `metadata.yaml`, and (when you have outputs) `process.{py,R}` + `processed/`.
-
-2.  Make sure your processed filenames match the contract above. Add zone aliases to `data/aliases.csv` and province aliases to `data/province_aliases.csv` when needed.
-
-3.  Sync with main:
+1.  Locally sync with main to ensure files are up to date:
 
     ```         
-    git merge origin/main
+    git pull origin main
     ```
+
+2.  Create `data/<your_dataset>/` with `raw/`, `metadata.yaml`, and (when you have outputs) `process.{py,R}` + `processed/`.
+
+3.  Make sure your processed filenames match the contract above. Add zone aliases to `data/aliases.csv` and province aliases to `data/province_aliases.csv` when needed.
 
 4.  Run unit tests + QA locally:
 
@@ -196,9 +196,18 @@ Contributors add or update data. PRs touch `data/**` (and `tests/**` and unrelat
 
     **Do not commit the resulting `build/`, `qa/qa_log.csv`, `qa/matrix_log.csv`, `qa/reports/`, or `README.md` updates.** Those land on `main` automatically when an admin merges your PR; including them in your PR causes merge conflicts and gets flagged in review.
 
-6.  Open a PR. **Fill in the `## What's new` section** in the PR body (template provided) — that text becomes the GitHub Release description and the README "what's new" block when this PR is released. CI runs `pytest` + `tools.qa` and blocks merge on any failures.
+6.  Push your edits to a new branch (label the branch in relation to the changes being proposed):
 
-7.  Wait for admin review and merge. You don't run a release — CI does that automatically.
+    ```         
+    git switch -c name-of-your-branch
+    git add .
+    git commit -m "Message for your edits"
+    git push origin name-of-your-branch
+    ```
+
+7.  Open a PR. **Fill in the `## What's new` section** in the PR body (template provided) — that text becomes the GitHub Release description and the README "what's new" block when this PR is released. CI runs `pytest` + `tools.qa` and blocks merge on any failures.
+
+8.  Wait for admin review and merge. You don't run a release — CI does that automatically.
 
 # Admin flow
 
