@@ -4,10 +4,10 @@ Copy this file for each sitrep (e.g. `SitRep_MVE_015-2026.md`) and record any no
 
 | Field | Value |
 | --- | --- |
-| **Sitrep number** | 35 |
-| **Digitiser** | Onesime & Bernardo|
-| **Report date** | 18 June 2026 |
-| **Digitising date** | 20 June 2026 |
+| **Sitrep number** | 36 |
+| **Digitiser** | Onesime & al|
+| **Report date** | 19 June 2026 |
+| **Digitising date** | 21 June 2026 |
 
 ## General Note
 A new health zone added : Drodro in Ituri
