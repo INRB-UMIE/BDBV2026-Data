@@ -39,7 +39,7 @@ Every dataset folder follows the same layout:
 | [`refugee_sites/`](refugee_sites/) | vector | yes | UNHCR refugee sites per zone |
 | [`osrm/`](osrm/) | matrix | no | Car travel time & road distance (OSRM) |
 | [`IDP/`](IDP/) | matrix | no | IOM DTM displacement flows (Ituri round) |
-| [`flowminder/`](flowminder/) | matrix | no | Phone-based inflow/outflow estimates |
+| [`flowminder/`](flowminder/) | matrix | no | Phone-based pairwise relocation estimates (HDX) |
 | [`ACLED_conflict/`](ACLED_conflict/) | — | no | Placeholder; province-level raw data only |
 
 Folders with a **README** go deeper on provenance and processing. `metadata.yaml` is the machine-readable record used by `tools.qa` and `tools.build_geojson`.
@@ -137,8 +137,7 @@ Large origin–destination tables (519×519 for national sources). Not merged in
 | IDP | `idp__individuals__static.matrix.csv` | 2026-01-31 | active |
 | IDP | `idp__individuals__weekly.matrix.csv` | 2026-01-31 | active |
 | IDP | `idp__individuals__monthly.matrix.csv` | 2026-01-31 | active |
-| flowminder | `flowminder__inflow__static.matrix.csv` | 2026-05-20 | active |
-| flowminder | `flowminder__outflow__static.matrix.csv` | 2026-05-20 | active |
+| flowminder | `flowminder__relocations__static.matrix.csv` | 2026-06-16 | active |
 | flowminder_short_trips | `flowminder_short_trips__outflow_20260430__static.matrix.csv` | 2026-05-28 | active |
 | flowminder_short_trips | `flowminder_short_trips__outflow_20260507__static.matrix.csv` | 2026-05-28 | active |
 | flowminder_short_trips | `flowminder_short_trips__outflow_20260514__static.matrix.csv` | 2026-05-28 | active |

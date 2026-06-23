@@ -1,15 +1,14 @@
-source: "Flowminder.org mobility / population-displacement estimates from Vodacom RDC CDR data"
-citation: "Flowminder Foundation (2026). Estimations de population et mobilité — provincial reports for Ituri, Nord-Kivu, Haut-Uele, Tshopo, March 2026."
-source_url: "https://www.flowminder.org/resources/publications-reports/drc-reports-publications"
-retrieved_on: "2026-05-20"
-license: "Flowminder reports are publicly released; cite the source organisation. See https://www.flowminder.org"
+source: "Flowminder Foundation / Vodacom RDC CDR data — HDX relocation estimates"
+citation: "Flowminder Foundation (2026). Democratic Republic of the Congo - Population and Relocation Estimates. Humanitarian Data Exchange."
+source_url: "https://data.humdata.org/dataset/democratic-republic-of-congo-population-and-relocation-estimates"
+retrieved_on: "2026-06-16"
+license: "Flowminder data on HDX; cite Flowminder Foundation. See dataset page for terms."
 contact: "rdc@flowminder.org"
 runtime: python
-period: "2026-03"
+period: "2026-04"
 notes: |
-  Raw OD matrix CSVs (raw/mobilite_od_matrix_*_mar2026.csv) were extracted upstream
-  from Flowminder provincial PDF reports (workflow logged in README.md). process.py
-  in this folder rewrites them into the repo's contract: column 'origin' is renamed
-  'nom', alias-only names are normalised to canonical Nom, and the bare 'Lubunga'
-  label is disambiguated to 'Lubunga (Tshopo)' using the flowminder coverage area.
-  Coverage area: Ituri, Nord-Kivu, Haut-Uele, western Tshopo (per README.md).
+  Raw pairwise OD table: raw/hdx_flowminder_relocations_march2026.csv (HDX, March 2026 release).
+  process.py builds one static matrix from est_flows_2026_04 (relocations 2026-03 to 2026-04).
+  Zone names are stripped of HDX prefixes/suffixes and mapped to canonical DRC_Health_zones Nom.
+  Redacted cells (<15 persons) are treated as missing. Legacy PDF-extracted inflow/outflow
+  matrices in raw/ are superseded by this HDX export.

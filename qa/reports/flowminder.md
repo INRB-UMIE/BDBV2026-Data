@@ -1,21 +1,14 @@
 # QA report: flowminder
 
-_Checked: 2026-06-21T12:03:10+00:00_
+_Checked: 2026-06-22T12:19:06+00:00_
 
-**Status counts:** {'pass': 3}
+**Status counts:** {'pass': 2}
 
 ## `metadata.yaml` (metadata) — **pass**
 
-## `flowminder__inflow__static.matrix.csv` (matrix) — **pass**
-- rows: 437
-- cols: 437
-- zones covered: 437 / 519
+## `flowminder__relocations__static.matrix.csv` (matrix) — **pass**
+- rows: 436
+- cols: 449
+- zones covered: 436 / 519
 - resolution: static
-- square: True
-
-## `flowminder__outflow__static.matrix.csv` (matrix) — **pass**
-- rows: 437
-- cols: 437
-- zones covered: 437 / 519
-- resolution: static
-- square: True
+- square: False

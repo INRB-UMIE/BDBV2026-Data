@@ -19,7 +19,7 @@ Unlike `data/flowminder/` (full provincial OD matrices in persons), this folder 
 | `zone_resolution_log.csv` | Dropped / merged zone labels during canonicalisation |
 | `metadata.yaml` | Provenance |
 
-**Processed layout** (same pattern as `flowminder__outflow__static.matrix.csv`):
+**Processed layout** (same pattern as `flowminder__relocations__static.matrix.csv`):
 
 - First column: `nom` (origin) — only **Bunia**, **Mongbalu**, **Rwampara**
 - Remaining columns: canonical destination zone names from the annex table

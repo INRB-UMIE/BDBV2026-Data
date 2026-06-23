@@ -36,7 +36,9 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DATA_DIR = REPO_ROOT / "data"
 ALIASES_CSV = DATA_DIR / "aliases.csv"
-FLOWMINDER_OUTFLOW = DATA_DIR / "flowminder" / "processed" / "flowminder__outflow__static.matrix.csv"
+FLOWMINDER_RELOCATIONS = (
+    DATA_DIR / "flowminder" / "processed" / "flowminder__relocations__static.matrix.csv"
+)
 
 HERE = Path(__file__).resolve().parent
 RAW_CSV = HERE / "raw" / "short_trips_destination_rankings.csv"
@@ -91,13 +93,13 @@ _ROMAN_RE = re.compile(r"^(.*) ([12])$")
 
 
 def _load_canonical_noms() -> frozenset[str]:
-    if not FLOWMINDER_OUTFLOW.exists():
+    if not FLOWMINDER_RELOCATIONS.exists():
         raise FileNotFoundError(
-            f"Need canonical zone list from {FLOWMINDER_OUTFLOW} "
+            f"Need canonical zone list from {FLOWMINDER_RELOCATIONS} "
             "(run data/flowminder/process.py first)."
         )
     names: set[str] = set()
-    with FLOWMINDER_OUTFLOW.open(newline="", encoding="utf-8") as f:
+    with FLOWMINDER_RELOCATIONS.open(newline="", encoding="utf-8") as f:
         reader = csv.reader(f)
         header = next(reader)
         names.update(h for h in header if h != "nom")

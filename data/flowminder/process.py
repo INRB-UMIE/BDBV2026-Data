@@ -1,4 +1,4 @@
-"""Rewrite the raw Flowminder OD matrices into contract-compliant snapshot matrices.
+"""Build a pairwise relocation matrix from the HDX Flowminder OD export.
 
 Convention
 ----------
@@ -12,19 +12,23 @@ Processed row/column labels MUST match the canonical health-zone names defined b
 
 Resolution order for each raw Flowminder label:
 
-  1. ``data/aliases.csv`` (via ``to_canonical``) — shared repo aliases
-  2. Structural variants — roman numerals (``Kalamu 1`` → ``Kalamu I``) and
+  1. Strip HDX prefixes/suffixes (``kn Bunia Zone de Santé`` → ``Bunia``)
+  2. ``data/aliases.csv`` (via ``to_canonical``) — shared repo aliases
+  3. Structural variants — roman numerals (``Kalamu 1`` → ``Kalamu I``) and
      spaces → hyphens (``Kasa Vubu`` → ``Kasa-Vubu``)
-  3. ``LOCAL_FIXUPS`` below — Flowminder HDX typos / province disambiguation,
+  4. ``LOCAL_FIXUPS`` below — Flowminder typos / province disambiguation,
      each target verified against the shapefile at import time
 
 Labels that still do not resolve are dropped; see ``zone_resolution_log.csv``.
 
-Inputs (``raw/``):
-  mobilite_od_matrix_{inflow,outflow}_mar2026_flowminder.csv
+Input (``raw/``):
+  hdx_flowminder_relocations_march2026.csv
 
-Outputs (``processed/``):
-  flowminder__{inflow,outflow}__static.matrix.csv  (first column header ``nom``)
+Output (``processed/``):
+  flowminder__relocations__static.matrix.csv  (first column header ``nom``)
+
+The matrix uses ``est_flows_2026_04`` — estimated relocations from 2026-03 to
+2026-04 (latest month available in the HDX file at time of processing).
 
 Run from the data repository root:
     python -m data.flowminder.process
@@ -49,6 +53,10 @@ HERE = Path(__file__).resolve().parent
 RAW = HERE / "raw"
 PROCESSED = HERE / "processed"
 
+RAW_CSV = RAW / "hdx_flowminder_relocations_march2026.csv"
+FLOW_COLUMN = "est_flows_2026_04"
+OUTPUT_MATRIX = PROCESSED / "flowminder__relocations__static.matrix.csv"
+
 # Province disambiguation for bare labels that collide in the shapefile.
 DISAMBIGUATION: dict[str, str] = {
     "Lubunga": "Lubunga (Tshopo)",
@@ -70,11 +78,28 @@ TYPO_FIXUPS: dict[str, str] = {
     "Muanda": "Moanda",
     "Mweneditu": "Mwene Ditu",
     "Ruashi": "Rwashi",
+    "Mongbwalu": "Mongbalu",
+    "Makiso Kisangani": "Makiso-Kisangani",
+    "Nia Nia": "Nia-Nia",
+    "Kasa Vubu": "Kasa-Vubu",
+    "Mont Ngafula 1": "Mont Ngafula I",
+    "Mont Ngafula 2": "Mont Ngafula II",
+    "Masina 1": "Masina I",
+    "Masina 2": "Masina II",
+    "Kalamu 1": "Kalamu I",
+    "Kalamu 2": "Kalamu II",
+    "Maluku 1": "Maluku I",
+    "Maluku 2": "Maluku II",
+    "Ngiri Ngiri": "Ngiri-Ngiri",
 }
 
 LOCAL_FIXUPS: dict[str, str] = {**DISAMBIGUATION, **TYPO_FIXUPS}
 
 _ROMAN_RE = re.compile(r"^(.*) ([12])$")
+_HDX_PREFIX_RE = re.compile(r"^[a-z]{2,3}\s+", re.IGNORECASE)
+_HDX_SUFFIX_RE = re.compile(r"\s+Zone de Sant[eé]\s*$", re.IGNORECASE)
+_HDX_DIGIT_ROMAN_RE = re.compile(r"\s+(\d)\s*$")
+_REDACTED_RE = re.compile(r"^redacted\b", re.IGNORECASE)
 
 
 def _validate_fixup_targets() -> None:
@@ -85,6 +110,19 @@ def _validate_fixup_targets() -> None:
                 f"flowminder LOCAL_FIXUPS[{observed!r}] -> {target!r} "
                 f"is not a canonical shapefile Nom (see {SHAPEFILE})"
             )
+
+
+def strip_hdx_name(raw: str) -> str:
+    """Normalize HDX health-zone labels to a bare zone name."""
+    name = raw.strip()
+    name = name.replace("Zone de SantÃ©", "Zone de Santé")
+    name = _HDX_PREFIX_RE.sub("", name)
+    name = _HDX_SUFFIX_RE.sub("", name)
+    name = _HDX_DIGIT_ROMAN_RE.sub(
+        lambda m: " " + ("I" if m.group(1) == "1" else "II"),
+        name,
+    )
+    return name.strip()
 
 
 def _structural_variants(label: str) -> list[str]:
@@ -105,10 +143,13 @@ def _resolve(label: str) -> str | None:
     if not stripped:
         return None
 
-    candidates = [stripped]
+    bare = strip_hdx_name(stripped)
+    candidates = [bare, stripped]
+    if bare in LOCAL_FIXUPS:
+        candidates.insert(0, LOCAL_FIXUPS[bare])
     if stripped in LOCAL_FIXUPS:
         candidates.insert(0, LOCAL_FIXUPS[stripped])
-    candidates.extend(_structural_variants(stripped))
+    candidates.extend(_structural_variants(bare))
 
     seen: set[str] = set()
     for candidate in candidates:
@@ -121,92 +162,86 @@ def _resolve(label: str) -> str | None:
     return None
 
 
-def _parse_flow(value: str) -> float:
+def _parse_flow(value: str) -> float | None:
+    text = value.strip()
+    if not text or _REDACTED_RE.match(text):
+        return None
     try:
-        return float(value)
+        parsed = float(text)
     except ValueError:
-        return 0.0
+        return None
+    return parsed if parsed > 0 else None
 
 
-def rewrite(direction: str) -> tuple[Path, list[dict[str, str]]]:
-    src = RAW / f"mobilite_od_matrix_{direction}_mar2026_flowminder.csv"
-    dst = PROCESSED / f"flowminder__{direction}__static.matrix.csv"
+def build_matrix() -> tuple[Path, list[dict[str, str]]]:
+    if not RAW_CSV.exists():
+        raise FileNotFoundError(f"flowminder: raw input not found: {RAW_CSV}")
+
     log: list[dict[str, str]] = []
-
-    with src.open(newline="", encoding="utf-8-sig") as f_in:
-        reader = csv.reader(f_in)
-        header = next(reader)
-        rows = list(reader)
-
-    if header[0] != "origin":
-        raise ValueError(f"flowminder: expected first header 'origin', got {header[0]!r}")
-
-    dest_raw = header[1:]
-    dest_canon: list[str | None] = []
-    dest_order: list[str] = []
-    dest_seen: set[str] = set()
-    for raw in dest_raw:
-        canon = _resolve(raw)
-        dest_canon.append(canon)
-        if canon is None:
-            log.append(
-                {
-                    "direction": direction,
-                    "raw_label": raw,
-                    "role": "destination",
-                    "action": "dropped",
-                    "reason": "no shapefile Nom or alias match",
-                }
-            )
-            continue
-        if canon in dest_seen:
-            log.append(
-                {
-                    "direction": direction,
-                    "raw_label": raw,
-                    "role": "destination",
-                    "action": "merged",
-                    "reason": f"duplicate of {canon!r}",
-                }
-            )
-            continue
-        dest_seen.add(canon)
-        dest_order.append(canon)
-
     agg: dict[str, dict[str, float]] = {}
-    for row in rows:
-        if len(row) != len(header):
-            raise ValueError(f"flowminder: row width {len(row)} != header {len(header)}")
-        origin_raw = row[0]
-        origin_canon = _resolve(origin_raw)
-        if origin_canon is None:
-            log.append(
-                {
-                    "direction": direction,
-                    "raw_label": origin_raw,
-                    "role": "origin",
-                    "action": "dropped",
-                    "reason": "no shapefile Nom or alias match",
-                }
-            )
-            continue
-        if origin_canon not in agg:
-            agg[origin_canon] = {d: 0.0 for d in dest_order}
-        for raw_dest, canon, value in zip(dest_raw, dest_canon, row[1:]):
-            if canon is None or canon not in agg[origin_canon]:
+    zone_seen: set[str] = set()
+
+    with RAW_CSV.open(newline="", encoding="utf-8-sig") as f_in:
+        reader = csv.DictReader(f_in)
+        if FLOW_COLUMN not in (reader.fieldnames or []):
+            raise ValueError(f"flowminder: missing column {FLOW_COLUMN!r} in {RAW_CSV.name}")
+
+        for row in reader:
+            flow = _parse_flow(row.get(FLOW_COLUMN, ""))
+            if flow is None:
                 continue
-            agg[origin_canon][canon] += _parse_flow(value)
 
-    origin_order = sorted(agg.keys())
-    dst.parent.mkdir(exist_ok=True)
-    with dst.open("w", newline="", encoding="utf-8") as f_out:
-        w = csv.writer(f_out)
-        w.writerow(["nom"] + dest_order)
-        for origin in origin_order:
-            w.writerow([origin] + [agg[origin][d] for d in dest_order])
+            origin_raw = row.get("from_hz_name", "")
+            dest_raw = row.get("to_hz_name", "")
+            origin = _resolve(origin_raw)
+            dest = _resolve(dest_raw)
 
-    _assert_shapefile_convention(dst)
-    return dst, log
+            if origin is None:
+                log.append(
+                    {
+                        "raw_label": origin_raw,
+                        "role": "origin",
+                        "action": "dropped",
+                        "reason": "no shapefile Nom or alias match",
+                    }
+                )
+                continue
+            if dest is None:
+                log.append(
+                    {
+                        "raw_label": dest_raw,
+                        "role": "destination",
+                        "action": "dropped",
+                        "reason": "no shapefile Nom or alias match",
+                    }
+                )
+                continue
+
+            zone_seen.add(origin)
+            zone_seen.add(dest)
+
+            if origin not in agg:
+                agg[origin] = {}
+            agg[origin][dest] = agg[origin].get(dest, 0.0) + flow
+
+    if not zone_seen:
+        raise ValueError(f"flowminder: no relocations resolved from {RAW_CSV.name}")
+
+    zone_order = sorted(zone_seen)
+    for origin in list(agg.keys()):
+        for zone in zone_order:
+            agg[origin].setdefault(zone, 0.0)
+
+    PROCESSED.mkdir(exist_ok=True)
+    with OUTPUT_MATRIX.open("w", newline="", encoding="utf-8") as f_out:
+        writer = csv.writer(f_out)
+        writer.writerow(["nom"] + zone_order)
+        for origin in zone_order:
+            row = agg.get(origin, {zone: 0.0 for zone in zone_order})
+            writer.writerow([origin] + [row.get(dest, 0.0) for dest in zone_order])
+
+    _assert_shapefile_convention(OUTPUT_MATRIX)
+    return OUTPUT_MATRIX, log
 
 
 def _assert_shapefile_convention(path: Path) -> None:
@@ -228,24 +263,21 @@ def _assert_shapefile_convention(path: Path) -> None:
 
 def write_resolution_log(logs: list[dict[str, str]]) -> Path:
     path = HERE / "zone_resolution_log.csv"
-    fields = ["direction", "raw_label", "role", "action", "reason"]
+    fields = ["raw_label", "role", "action", "reason"]
     with path.open("w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=fields)
-        w.writeheader()
-        w.writerows(logs)
+        writer = csv.DictWriter(f, fieldnames=fields)
+        writer.writeheader()
+        writer.writerows(logs)
     return path
 
 
 def main() -> int:
     _validate_fixup_targets()
-    all_logs: list[dict[str, str]] = []
-    for direction in ("inflow", "outflow"):
-        out, log = rewrite(direction)
-        all_logs.extend(log)
-        print(f"wrote {out.relative_to(REPO_ROOT)} ({out.stat().st_size} bytes)")
-    if all_logs:
-        log_path = write_resolution_log(all_logs)
-        print(f"wrote {log_path.relative_to(REPO_ROOT)} ({len(all_logs)} resolution events)")
+    out, log = build_matrix()
+    print(f"wrote {out.relative_to(REPO_ROOT)} ({out.stat().st_size} bytes)")
+    if log:
+        log_path = write_resolution_log(log)
+        print(f"wrote {log_path.relative_to(REPO_ROOT)} ({len(log)} resolution events)")
     else:
         print("all raw labels resolved to shapefile canonical Nom")
     return 0
