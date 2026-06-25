@@ -1,13 +1,8 @@
 {
   "shapefile": "data/shapefiles/DRC_Health_zones.shp",
   "n_features": 519,
-<<<<<<< HEAD
-  "built_at": "2026-06-25T11:22:42+00:00",
-  "commit": "7b80fff",
-=======
-  "built_at": "2026-06-24T09:54:14+00:00",
-  "commit": "6e84828",
->>>>>>> main
+  "built_at": "2026-06-25T11:56:32+00:00",
+  "commit": "796e18c",
   "datasets": [
     {
       "folder": "ACLED_conflict",
@@ -808,278 +803,544 @@
       "status": "active",
       "outputs": [
         {
-          "file": "public_health_response__epidemiological_community_engagement__daily.csv",
+          "file": "public_health_response__epidemiological_community_engagement_en__daily.csv",
           "type": "vector",
           "dataset_token": "public_health_response",
-          "metric": "epidemiological_community_engagement",
+          "metric": "epidemiological_community_engagement_en",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 30,
-          "long_csv": "build/long/public_health_response__epidemiological_community_engagement.csv"
+          "zones_with_values": 15,
+          "long_csv": "build/long/public_health_response__epidemiological_community_engagement_en.csv"
         },
         {
-          "file": "public_health_response__epidemiological_coordination__daily.csv",
+          "file": "public_health_response__epidemiological_community_engagement_fr__daily.csv",
           "type": "vector",
           "dataset_token": "public_health_response",
-          "metric": "epidemiological_coordination",
+          "metric": "epidemiological_community_engagement_fr",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 42,
-          "long_csv": "build/long/public_health_response__epidemiological_coordination.csv"
+          "zones_with_values": 15,
+          "long_csv": "build/long/public_health_response__epidemiological_community_engagement_fr.csv"
         },
         {
-          "file": "public_health_response__epidemiological_infection_prevention_controle__daily.csv",
+          "file": "public_health_response__epidemiological_coordination_en__daily.csv",
           "type": "vector",
           "dataset_token": "public_health_response",
-          "metric": "epidemiological_infection_prevention_controle",
+          "metric": "epidemiological_coordination_en",
           "resolution": "daily",
           "in_geojson": true,
-<<<<<<< HEAD
-          "zones_with_values": 38,
-=======
+          "zones_with_values": 21,
+          "long_csv": "build/long/public_health_response__epidemiological_coordination_en.csv"
+        },
+        {
+          "file": "public_health_response__epidemiological_coordination_fr__daily.csv",
+          "type": "vector",
+          "dataset_token": "public_health_response",
+          "metric": "epidemiological_coordination_fr",
+          "resolution": "daily",
+          "in_geojson": true,
+          "zones_with_values": 21,
+          "long_csv": "build/long/public_health_response__epidemiological_coordination_fr.csv"
+        },
+        {
+          "file": "public_health_response__epidemiological_infection_prevention_controle_en__daily.csv",
+          "type": "vector",
+          "dataset_token": "public_health_response",
+          "metric": "epidemiological_infection_prevention_controle_en",
+          "resolution": "daily",
+          "in_geojson": true,
           "zones_with_values": 20,
->>>>>>> main
-          "long_csv": "build/long/public_health_response__epidemiological_infection_prevention_controle.csv"
+          "long_csv": "build/long/public_health_response__epidemiological_infection_prevention_controle_en.csv"
         },
         {
-          "file": "public_health_response__epidemiological_laboratory__daily.csv",
+          "file": "public_health_response__epidemiological_infection_prevention_controle_fr__daily.csv",
           "type": "vector",
           "dataset_token": "public_health_response",
-          "metric": "epidemiological_laboratory",
+          "metric": "epidemiological_infection_prevention_controle_fr",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 20,
-          "long_csv": "build/long/public_health_response__epidemiological_laboratory.csv"
+          "zones_with_values": 19,
+          "long_csv": "build/long/public_health_response__epidemiological_infection_prevention_controle_fr.csv"
         },
         {
-          "file": "public_health_response__epidemiological_logistics__daily.csv",
+          "file": "public_health_response__epidemiological_laboratory_en__daily.csv",
           "type": "vector",
           "dataset_token": "public_health_response",
-          "metric": "epidemiological_logistics",
+          "metric": "epidemiological_laboratory_en",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 50,
-          "long_csv": "build/long/public_health_response__epidemiological_logistics.csv"
+          "zones_with_values": 10,
+          "long_csv": "build/long/public_health_response__epidemiological_laboratory_en.csv"
         },
         {
-          "file": "public_health_response__epidemiological_management__daily.csv",
+          "file": "public_health_response__epidemiological_laboratory_fr__daily.csv",
           "type": "vector",
           "dataset_token": "public_health_response",
-          "metric": "epidemiological_management",
+          "metric": "epidemiological_laboratory_fr",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 52,
-          "long_csv": "build/long/public_health_response__epidemiological_management.csv"
+          "zones_with_values": 10,
+          "long_csv": "build/long/public_health_response__epidemiological_laboratory_fr.csv"
         },
         {
-          "file": "public_health_response__epidemiological_monitoring__daily.csv",
+          "file": "public_health_response__epidemiological_logistics_en__daily.csv",
           "type": "vector",
           "dataset_token": "public_health_response",
-          "metric": "epidemiological_monitoring",
+          "metric": "epidemiological_logistics_en",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 52,
-          "long_csv": "build/long/public_health_response__epidemiological_monitoring.csv"
+          "zones_with_values": 25,
+          "long_csv": "build/long/public_health_response__epidemiological_logistics_en.csv"
         },
         {
-          "file": "public_health_response__epidemiological_protection_sexual_exploitation_abuse__daily.csv",
+          "file": "public_health_response__epidemiological_logistics_fr__daily.csv",
           "type": "vector",
           "dataset_token": "public_health_response",
-          "metric": "epidemiological_protection_sexual_exploitation_abuse",
+          "metric": "epidemiological_logistics_fr",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 110,
-          "long_csv": "build/long/public_health_response__epidemiological_protection_sexual_exploitation_abuse.csv"
+          "zones_with_values": 25,
+          "long_csv": "build/long/public_health_response__epidemiological_logistics_fr.csv"
         },
         {
-          "file": "public_health_response__epidemiological_security__daily.csv",
+          "file": "public_health_response__epidemiological_management_en__daily.csv",
           "type": "vector",
           "dataset_token": "public_health_response",
-          "metric": "epidemiological_security",
+          "metric": "epidemiological_management_en",
           "resolution": "daily",
           "in_geojson": true,
           "zones_with_values": 26,
-          "long_csv": "build/long/public_health_response__epidemiological_security.csv"
+          "long_csv": "build/long/public_health_response__epidemiological_management_en.csv"
         },
         {
-          "file": "public_health_response__national_epidemiological_community_engagement__daily.csv",
+          "file": "public_health_response__epidemiological_management_fr__daily.csv",
           "type": "vector",
           "dataset_token": "public_health_response",
-          "metric": "national_epidemiological_community_engagement",
+          "metric": "epidemiological_management_fr",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 1038,
-          "long_csv": "build/long/public_health_response__national_epidemiological_community_engagement.csv"
+          "zones_with_values": 26,
+          "long_csv": "build/long/public_health_response__epidemiological_management_fr.csv"
         },
         {
-          "file": "public_health_response__national_epidemiological_coordination__daily.csv",
+          "file": "public_health_response__epidemiological_monitoring_en__daily.csv",
           "type": "vector",
           "dataset_token": "public_health_response",
-          "metric": "national_epidemiological_coordination",
+          "metric": "epidemiological_monitoring_en",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 1038,
-          "long_csv": "build/long/public_health_response__national_epidemiological_coordination.csv"
+          "zones_with_values": 26,
+          "long_csv": "build/long/public_health_response__epidemiological_monitoring_en.csv"
         },
         {
-          "file": "public_health_response__national_epidemiological_infection_prevention_controle__daily.csv",
+          "file": "public_health_response__epidemiological_monitoring_fr__daily.csv",
           "type": "vector",
           "dataset_token": "public_health_response",
-          "metric": "national_epidemiological_infection_prevention_controle",
+          "metric": "epidemiological_monitoring_fr",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 1038,
-          "long_csv": "build/long/public_health_response__national_epidemiological_infection_prevention_controle.csv"
+          "zones_with_values": 26,
+          "long_csv": "build/long/public_health_response__epidemiological_monitoring_fr.csv"
         },
         {
-          "file": "public_health_response__national_epidemiological_laboratory__daily.csv",
+          "file": "public_health_response__epidemiological_protection_sexual_exploitation_abuse_en__daily.csv",
           "type": "vector",
           "dataset_token": "public_health_response",
-          "metric": "national_epidemiological_laboratory",
+          "metric": "epidemiological_protection_sexual_exploitation_abuse_en",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 1038,
-          "long_csv": "build/long/public_health_response__national_epidemiological_laboratory.csv"
+          "zones_with_values": 55,
+          "long_csv": "build/long/public_health_response__epidemiological_protection_sexual_exploitation_abuse_en.csv"
         },
         {
-          "file": "public_health_response__national_epidemiological_logistics__daily.csv",
+          "file": "public_health_response__epidemiological_protection_sexual_exploitation_abuse_fr__daily.csv",
           "type": "vector",
           "dataset_token": "public_health_response",
-          "metric": "national_epidemiological_logistics",
+          "metric": "epidemiological_protection_sexual_exploitation_abuse_fr",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 1038,
-          "long_csv": "build/long/public_health_response__national_epidemiological_logistics.csv"
+          "zones_with_values": 55,
+          "long_csv": "build/long/public_health_response__epidemiological_protection_sexual_exploitation_abuse_fr.csv"
         },
         {
-          "file": "public_health_response__national_epidemiological_management__daily.csv",
+          "file": "public_health_response__epidemiological_security_en__daily.csv",
           "type": "vector",
           "dataset_token": "public_health_response",
-          "metric": "national_epidemiological_management",
+          "metric": "epidemiological_security_en",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 1038,
-          "long_csv": "build/long/public_health_response__national_epidemiological_management.csv"
+          "zones_with_values": 13,
+          "long_csv": "build/long/public_health_response__epidemiological_security_en.csv"
         },
         {
-          "file": "public_health_response__national_epidemiological_monitoring__daily.csv",
+          "file": "public_health_response__epidemiological_security_fr__daily.csv",
           "type": "vector",
           "dataset_token": "public_health_response",
-          "metric": "national_epidemiological_monitoring",
+          "metric": "epidemiological_security_fr",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 1038,
-          "long_csv": "build/long/public_health_response__national_epidemiological_monitoring.csv"
+          "zones_with_values": 13,
+          "long_csv": "build/long/public_health_response__epidemiological_security_fr.csv"
         },
         {
-          "file": "public_health_response__national_epidemiological_protection_sexual_exploitation_abuse__daily.csv",
+          "file": "public_health_response__national_epidemiological_community_engagement_en__daily.csv",
           "type": "vector",
           "dataset_token": "public_health_response",
-          "metric": "national_epidemiological_protection_sexual_exploitation_abuse",
+          "metric": "national_epidemiological_community_engagement_en",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 1038,
-          "long_csv": "build/long/public_health_response__national_epidemiological_protection_sexual_exploitation_abuse.csv"
+          "zones_with_values": 519,
+          "long_csv": "build/long/public_health_response__national_epidemiological_community_engagement_en.csv"
         },
         {
-          "file": "public_health_response__national_epidemiological_security__daily.csv",
+          "file": "public_health_response__national_epidemiological_community_engagement_fr__daily.csv",
           "type": "vector",
           "dataset_token": "public_health_response",
-          "metric": "national_epidemiological_security",
+          "metric": "national_epidemiological_community_engagement_fr",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 1038,
-          "long_csv": "build/long/public_health_response__national_epidemiological_security.csv"
+          "zones_with_values": 519,
+          "long_csv": "build/long/public_health_response__national_epidemiological_community_engagement_fr.csv"
         },
         {
-          "file": "public_health_response__provincial_epidemiological_community_engagement__daily.csv",
+          "file": "public_health_response__national_epidemiological_coordination_en__daily.csv",
           "type": "vector",
           "dataset_token": "public_health_response",
-          "metric": "provincial_epidemiological_community_engagement",
+          "metric": "national_epidemiological_coordination_en",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 208,
-          "long_csv": "build/long/public_health_response__provincial_epidemiological_community_engagement.csv"
+          "zones_with_values": 519,
+          "long_csv": "build/long/public_health_response__national_epidemiological_coordination_en.csv"
         },
         {
-          "file": "public_health_response__provincial_epidemiological_coordination__daily.csv",
+          "file": "public_health_response__national_epidemiological_coordination_fr__daily.csv",
           "type": "vector",
           "dataset_token": "public_health_response",
-          "metric": "provincial_epidemiological_coordination",
+          "metric": "national_epidemiological_coordination_fr",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 208,
-          "long_csv": "build/long/public_health_response__provincial_epidemiological_coordination.csv"
+          "zones_with_values": 519,
+          "long_csv": "build/long/public_health_response__national_epidemiological_coordination_fr.csv"
         },
         {
-          "file": "public_health_response__provincial_epidemiological_infection_prevention_controle__daily.csv",
+          "file": "public_health_response__national_epidemiological_infection_prevention_controle_en__daily.csv",
           "type": "vector",
           "dataset_token": "public_health_response",
-          "metric": "provincial_epidemiological_infection_prevention_controle",
+          "metric": "national_epidemiological_infection_prevention_controle_en",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 208,
-          "long_csv": "build/long/public_health_response__provincial_epidemiological_infection_prevention_controle.csv"
+          "zones_with_values": 519,
+          "long_csv": "build/long/public_health_response__national_epidemiological_infection_prevention_controle_en.csv"
         },
         {
-          "file": "public_health_response__provincial_epidemiological_laboratory__daily.csv",
+          "file": "public_health_response__national_epidemiological_infection_prevention_controle_fr__daily.csv",
           "type": "vector",
           "dataset_token": "public_health_response",
-          "metric": "provincial_epidemiological_laboratory",
+          "metric": "national_epidemiological_infection_prevention_controle_fr",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 208,
-          "long_csv": "build/long/public_health_response__provincial_epidemiological_laboratory.csv"
+          "zones_with_values": 519,
+          "long_csv": "build/long/public_health_response__national_epidemiological_infection_prevention_controle_fr.csv"
         },
         {
-          "file": "public_health_response__provincial_epidemiological_logistics__daily.csv",
+          "file": "public_health_response__national_epidemiological_laboratory_en__daily.csv",
           "type": "vector",
           "dataset_token": "public_health_response",
-          "metric": "provincial_epidemiological_logistics",
+          "metric": "national_epidemiological_laboratory_en",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 140,
-          "long_csv": "build/long/public_health_response__provincial_epidemiological_logistics.csv"
+          "zones_with_values": 519,
+          "long_csv": "build/long/public_health_response__national_epidemiological_laboratory_en.csv"
         },
         {
-          "file": "public_health_response__provincial_epidemiological_management__daily.csv",
+          "file": "public_health_response__national_epidemiological_laboratory_fr__daily.csv",
           "type": "vector",
           "dataset_token": "public_health_response",
-          "metric": "provincial_epidemiological_management",
+          "metric": "national_epidemiological_laboratory_fr",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 208,
-          "long_csv": "build/long/public_health_response__provincial_epidemiological_management.csv"
+          "zones_with_values": 519,
+          "long_csv": "build/long/public_health_response__national_epidemiological_laboratory_fr.csv"
         },
         {
-          "file": "public_health_response__provincial_epidemiological_monitoring__daily.csv",
+          "file": "public_health_response__national_epidemiological_logistics_en__daily.csv",
           "type": "vector",
           "dataset_token": "public_health_response",
-          "metric": "provincial_epidemiological_monitoring",
+          "metric": "national_epidemiological_logistics_en",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 208,
-          "long_csv": "build/long/public_health_response__provincial_epidemiological_monitoring.csv"
+          "zones_with_values": 519,
+          "long_csv": "build/long/public_health_response__national_epidemiological_logistics_en.csv"
         },
         {
-          "file": "public_health_response__provincial_epidemiological_protection_sexual_exploitation_abuse__daily.csv",
+          "file": "public_health_response__national_epidemiological_logistics_fr__daily.csv",
           "type": "vector",
           "dataset_token": "public_health_response",
-          "metric": "provincial_epidemiological_protection_sexual_exploitation_abuse",
+          "metric": "national_epidemiological_logistics_fr",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 208,
-          "long_csv": "build/long/public_health_response__provincial_epidemiological_protection_sexual_exploitation_abuse.csv"
+          "zones_with_values": 519,
+          "long_csv": "build/long/public_health_response__national_epidemiological_logistics_fr.csv"
         },
         {
-          "file": "public_health_response__provincial_epidemiological_security__daily.csv",
+          "file": "public_health_response__national_epidemiological_management_en__daily.csv",
           "type": "vector",
           "dataset_token": "public_health_response",
-          "metric": "provincial_epidemiological_security",
+          "metric": "national_epidemiological_management_en",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 208,
-          "long_csv": "build/long/public_health_response__provincial_epidemiological_security.csv"
+          "zones_with_values": 519,
+          "long_csv": "build/long/public_health_response__national_epidemiological_management_en.csv"
+        },
+        {
+          "file": "public_health_response__national_epidemiological_management_fr__daily.csv",
+          "type": "vector",
+          "dataset_token": "public_health_response",
+          "metric": "national_epidemiological_management_fr",
+          "resolution": "daily",
+          "in_geojson": true,
+          "zones_with_values": 519,
+          "long_csv": "build/long/public_health_response__national_epidemiological_management_fr.csv"
+        },
+        {
+          "file": "public_health_response__national_epidemiological_monitoring_en__daily.csv",
+          "type": "vector",
+          "dataset_token": "public_health_response",
+          "metric": "national_epidemiological_monitoring_en",
+          "resolution": "daily",
+          "in_geojson": true,
+          "zones_with_values": 519,
+          "long_csv": "build/long/public_health_response__national_epidemiological_monitoring_en.csv"
+        },
+        {
+          "file": "public_health_response__national_epidemiological_monitoring_fr__daily.csv",
+          "type": "vector",
+          "dataset_token": "public_health_response",
+          "metric": "national_epidemiological_monitoring_fr",
+          "resolution": "daily",
+          "in_geojson": true,
+          "zones_with_values": 519,
+          "long_csv": "build/long/public_health_response__national_epidemiological_monitoring_fr.csv"
+        },
+        {
+          "file": "public_health_response__national_epidemiological_protection_sexual_exploitation_abuse_en__daily.csv",
+          "type": "vector",
+          "dataset_token": "public_health_response",
+          "metric": "national_epidemiological_protection_sexual_exploitation_abuse_en",
+          "resolution": "daily",
+          "in_geojson": true,
+          "zones_with_values": 519,
+          "long_csv": "build/long/public_health_response__national_epidemiological_protection_sexual_exploitation_abuse_en.csv"
+        },
+        {
+          "file": "public_health_response__national_epidemiological_protection_sexual_exploitation_abuse_fr__daily.csv",
+          "type": "vector",
+          "dataset_token": "public_health_response",
+          "metric": "national_epidemiological_protection_sexual_exploitation_abuse_fr",
+          "resolution": "daily",
+          "in_geojson": true,
+          "zones_with_values": 519,
+          "long_csv": "build/long/public_health_response__national_epidemiological_protection_sexual_exploitation_abuse_fr.csv"
+        },
+        {
+          "file": "public_health_response__national_epidemiological_security_en__daily.csv",
+          "type": "vector",
+          "dataset_token": "public_health_response",
+          "metric": "national_epidemiological_security_en",
+          "resolution": "daily",
+          "in_geojson": true,
+          "zones_with_values": 519,
+          "long_csv": "build/long/public_health_response__national_epidemiological_security_en.csv"
+        },
+        {
+          "file": "public_health_response__national_epidemiological_security_fr__daily.csv",
+          "type": "vector",
+          "dataset_token": "public_health_response",
+          "metric": "national_epidemiological_security_fr",
+          "resolution": "daily",
+          "in_geojson": true,
+          "zones_with_values": 519,
+          "long_csv": "build/long/public_health_response__national_epidemiological_security_fr.csv"
+        },
+        {
+          "file": "public_health_response__provincial_epidemiological_community_engagement_en__daily.csv",
+          "type": "vector",
+          "dataset_token": "public_health_response",
+          "metric": "provincial_epidemiological_community_engagement_en",
+          "resolution": "daily",
+          "in_geojson": true,
+          "zones_with_values": 104,
+          "long_csv": "build/long/public_health_response__provincial_epidemiological_community_engagement_en.csv"
+        },
+        {
+          "file": "public_health_response__provincial_epidemiological_community_engagement_fr__daily.csv",
+          "type": "vector",
+          "dataset_token": "public_health_response",
+          "metric": "provincial_epidemiological_community_engagement_fr",
+          "resolution": "daily",
+          "in_geojson": true,
+          "zones_with_values": 104,
+          "long_csv": "build/long/public_health_response__provincial_epidemiological_community_engagement_fr.csv"
+        },
+        {
+          "file": "public_health_response__provincial_epidemiological_coordination_en__daily.csv",
+          "type": "vector",
+          "dataset_token": "public_health_response",
+          "metric": "provincial_epidemiological_coordination_en",
+          "resolution": "daily",
+          "in_geojson": true,
+          "zones_with_values": 104,
+          "long_csv": "build/long/public_health_response__provincial_epidemiological_coordination_en.csv"
+        },
+        {
+          "file": "public_health_response__provincial_epidemiological_coordination_fr__daily.csv",
+          "type": "vector",
+          "dataset_token": "public_health_response",
+          "metric": "provincial_epidemiological_coordination_fr",
+          "resolution": "daily",
+          "in_geojson": true,
+          "zones_with_values": 104,
+          "long_csv": "build/long/public_health_response__provincial_epidemiological_coordination_fr.csv"
+        },
+        {
+          "file": "public_health_response__provincial_epidemiological_infection_prevention_controle_en__daily.csv",
+          "type": "vector",
+          "dataset_token": "public_health_response",
+          "metric": "provincial_epidemiological_infection_prevention_controle_en",
+          "resolution": "daily",
+          "in_geojson": true,
+          "zones_with_values": 104,
+          "long_csv": "build/long/public_health_response__provincial_epidemiological_infection_prevention_controle_en.csv"
+        },
+        {
+          "file": "public_health_response__provincial_epidemiological_infection_prevention_controle_fr__daily.csv",
+          "type": "vector",
+          "dataset_token": "public_health_response",
+          "metric": "provincial_epidemiological_infection_prevention_controle_fr",
+          "resolution": "daily",
+          "in_geojson": true,
+          "zones_with_values": 104,
+          "long_csv": "build/long/public_health_response__provincial_epidemiological_infection_prevention_controle_fr.csv"
+        },
+        {
+          "file": "public_health_response__provincial_epidemiological_laboratory_en__daily.csv",
+          "type": "vector",
+          "dataset_token": "public_health_response",
+          "metric": "provincial_epidemiological_laboratory_en",
+          "resolution": "daily",
+          "in_geojson": true,
+          "zones_with_values": 104,
+          "long_csv": "build/long/public_health_response__provincial_epidemiological_laboratory_en.csv"
+        },
+        {
+          "file": "public_health_response__provincial_epidemiological_laboratory_fr__daily.csv",
+          "type": "vector",
+          "dataset_token": "public_health_response",
+          "metric": "provincial_epidemiological_laboratory_fr",
+          "resolution": "daily",
+          "in_geojson": true,
+          "zones_with_values": 104,
+          "long_csv": "build/long/public_health_response__provincial_epidemiological_laboratory_fr.csv"
+        },
+        {
+          "file": "public_health_response__provincial_epidemiological_logistics_en__daily.csv",
+          "type": "vector",
+          "dataset_token": "public_health_response",
+          "metric": "provincial_epidemiological_logistics_en",
+          "resolution": "daily",
+          "in_geojson": true,
+          "zones_with_values": 70,
+          "long_csv": "build/long/public_health_response__provincial_epidemiological_logistics_en.csv"
+        },
+        {
+          "file": "public_health_response__provincial_epidemiological_logistics_fr__daily.csv",
+          "type": "vector",
+          "dataset_token": "public_health_response",
+          "metric": "provincial_epidemiological_logistics_fr",
+          "resolution": "daily",
+          "in_geojson": true,
+          "zones_with_values": 70,
+          "long_csv": "build/long/public_health_response__provincial_epidemiological_logistics_fr.csv"
+        },
+        {
+          "file": "public_health_response__provincial_epidemiological_management_en__daily.csv",
+          "type": "vector",
+          "dataset_token": "public_health_response",
+          "metric": "provincial_epidemiological_management_en",
+          "resolution": "daily",
+          "in_geojson": true,
+          "zones_with_values": 104,
+          "long_csv": "build/long/public_health_response__provincial_epidemiological_management_en.csv"
+        },
+        {
+          "file": "public_health_response__provincial_epidemiological_management_fr__daily.csv",
+          "type": "vector",
+          "dataset_token": "public_health_response",
+          "metric": "provincial_epidemiological_management_fr",
+          "resolution": "daily",
+          "in_geojson": true,
+          "zones_with_values": 104,
+          "long_csv": "build/long/public_health_response__provincial_epidemiological_management_fr.csv"
+        },
+        {
+          "file": "public_health_response__provincial_epidemiological_monitoring_en__daily.csv",
+          "type": "vector",
+          "dataset_token": "public_health_response",
+          "metric": "provincial_epidemiological_monitoring_en",
+          "resolution": "daily",
+          "in_geojson": true,
+          "zones_with_values": 104,
+          "long_csv": "build/long/public_health_response__provincial_epidemiological_monitoring_en.csv"
+        },
+        {
+          "file": "public_health_response__provincial_epidemiological_monitoring_fr__daily.csv",
+          "type": "vector",
+          "dataset_token": "public_health_response",
+          "metric": "provincial_epidemiological_monitoring_fr",
+          "resolution": "daily",
+          "in_geojson": true,
+          "zones_with_values": 104,
+          "long_csv": "build/long/public_health_response__provincial_epidemiological_monitoring_fr.csv"
+        },
+        {
+          "file": "public_health_response__provincial_epidemiological_protection_sexual_exploitation_abuse_en__daily.csv",
+          "type": "vector",
+          "dataset_token": "public_health_response",
+          "metric": "provincial_epidemiological_protection_sexual_exploitation_abuse_en",
+          "resolution": "daily",
+          "in_geojson": true,
+          "zones_with_values": 104,
+          "long_csv": "build/long/public_health_response__provincial_epidemiological_protection_sexual_exploitation_abuse_en.csv"
+        },
+        {
+          "file": "public_health_response__provincial_epidemiological_protection_sexual_exploitation_abuse_fr__daily.csv",
+          "type": "vector",
+          "dataset_token": "public_health_response",
+          "metric": "provincial_epidemiological_protection_sexual_exploitation_abuse_fr",
+          "resolution": "daily",
+          "in_geojson": true,
+          "zones_with_values": 104,
+          "long_csv": "build/long/public_health_response__provincial_epidemiological_protection_sexual_exploitation_abuse_fr.csv"
+        },
+        {
+          "file": "public_health_response__provincial_epidemiological_security_en__daily.csv",
+          "type": "vector",
+          "dataset_token": "public_health_response",
+          "metric": "provincial_epidemiological_security_en",
+          "resolution": "daily",
+          "in_geojson": true,
+          "zones_with_values": 104,
+          "long_csv": "build/long/public_health_response__provincial_epidemiological_security_en.csv"
+        },
+        {
+          "file": "public_health_response__provincial_epidemiological_security_fr__daily.csv",
+          "type": "vector",
+          "dataset_token": "public_health_response",
+          "metric": "provincial_epidemiological_security_fr",
+          "resolution": "daily",
+          "in_geojson": true,
+          "zones_with_values": 104,
+          "long_csv": "build/long/public_health_response__provincial_epidemiological_security_fr.csv"
         }
       ]
     },
