@@ -54,6 +54,7 @@ from tools.lib.schema import (
     is_province_rollup_nom,
     load_zones,
     parse_filename,
+    resolve_processed_paths,
     resolve_vector_nom,
     zones_by_province,
 )
@@ -119,8 +120,12 @@ def _load_features() -> tuple[list[dict], dict[str, dict]]:
     return features, by_nom
 
 
-def _attach_vector(folder: Path, file_name: str, parsed, features_by_nom: dict[str, dict]) -> int:
-    src = folder / "processed" / file_name
+def _attach_vector(
+    src: Path,
+    file_name: str,
+    parsed,
+    features_by_nom: dict[str, dict],
+) -> int:
     with src.open(newline="", encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
         fieldnames = [k for k in (reader.fieldnames or []) if k != ""]
@@ -342,9 +347,22 @@ def main(argv: list[str] | None = None) -> int:
         if parsed is None:
             continue
         folder = DATA_DIR / row["dataset"]
-        count = _attach_vector(folder, row["file"], parsed, features_by_nom)
-        attached_counts[(row["dataset"], row["file"])] = count
-        print(f"attached {row['file']}: {count} zones")
+        resolved = resolve_processed_paths(folder, row["file"])
+        if not resolved:
+            print(
+                f"skip {row['file']}: no matching processed file "
+                f"(checked language variants)",
+                file=sys.stderr,
+            )
+            continue
+        total = 0
+        for src, resolved_name in resolved:
+            resolved_parsed = parse_filename(resolved_name) or parsed
+            count = _attach_vector(src, resolved_name, resolved_parsed, features_by_nom)
+            attached_counts[(row["dataset"], resolved_name)] = count
+            total += count
+            print(f"attached {resolved_name}: {count} zones")
+        attached_counts[(row["dataset"], row["file"])] = total
 
     BUILD_DIR.mkdir(exist_ok=True)
     geo = {"type": "FeatureCollection", "features": features}

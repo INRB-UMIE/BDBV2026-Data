@@ -43,6 +43,7 @@ PROVINCE_ALIASES_CSV = REPO_ROOT / "data" / "province_aliases.csv"
 VALID_RESOLUTIONS: frozenset[str] = frozenset(
     {"static", "daily", "weekly", "monthly", "yearly"}
 )
+LANGUAGE_SUFFIXES: tuple[str, ...] = ("_en", "_fr")
 VALID_RUNTIMES: frozenset[str] = frozenset({"none", "python", "R"})
 REQUIRED_METADATA_FIELDS: tuple[str, ...] = (
     "source",
@@ -253,3 +254,64 @@ def parse_filename(name: str) -> ParsedFilename | None:
         resolution=m.group("resolution"),
         kind="matrix" if m.group("matrix") else "vector",
     )
+
+
+def split_language_suffix(metric: str) -> tuple[str, str | None]:
+    """Return (base_metric, language) where language is 'en'/'fr' or None."""
+    for suffix in LANGUAGE_SUFFIXES:
+        if metric.endswith(suffix):
+            return metric[: -len(suffix)], suffix[1:]
+    return metric, None
+
+
+def build_processed_filename(
+    dataset: str,
+    metric: str,
+    resolution: str,
+    *,
+    kind: Literal["vector", "matrix"] = "vector",
+    language: str | None = None,
+) -> str:
+    """Contract filename for a processed CSV (optional ``_en``/``_fr`` on metric)."""
+    metric_part = f"{metric}_{language}" if language else metric
+    matrix_part = ".matrix" if kind == "matrix" else ""
+    return f"{dataset}__{metric_part}__{resolution}{matrix_part}.csv"
+
+
+def language_variant_filenames(file_name: str) -> list[str]:
+    """If ``file_name`` has no language suffix, return ``_en``/``_fr`` variants."""
+    parsed = parse_filename(file_name)
+    if parsed is None:
+        return []
+    base_metric, language = split_language_suffix(parsed.metric)
+    if language is not None:
+        return []
+    return [
+        build_processed_filename(
+            parsed.dataset,
+            base_metric,
+            parsed.resolution,
+            kind=parsed.kind,
+            language=lang,
+        )
+        for lang in ("en", "fr")
+    ]
+
+
+def resolve_processed_paths(folder: Path, file_name: str) -> list[tuple[Path, str]]:
+    """Resolve a QA-log filename to on-disk processed CSV(s).
+
+    Returns one or more ``(path, filename)`` pairs. When the requested name is
+    missing but ``_en``/``_fr`` suffixed siblings exist, both are returned so
+    bilingual outputs can be embedded in GeoJSON.
+    """
+    processed = folder / "processed"
+    exact = processed / file_name
+    if exact.is_file():
+        return [(exact, file_name)]
+    found: list[tuple[Path, str]] = []
+    for variant in language_variant_filenames(file_name):
+        candidate = processed / variant
+        if candidate.is_file():
+            found.append((candidate, variant))
+    return found
