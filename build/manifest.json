@@ -1,8 +1,8 @@
 {
   "shapefile": "data/shapefiles/DRC_Health_zones.shp",
   "n_features": 519,
-  "built_at": "2026-06-21T12:03:12+00:00",
-  "commit": "de19d3b",
+  "built_at": "2026-06-25T11:22:42+00:00",
+  "commit": "7b80fff",
   "datasets": [
     {
       "folder": "ACLED_conflict",
@@ -809,7 +809,7 @@
           "metric": "epidemiological_community_engagement",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 15,
+          "zones_with_values": 30,
           "long_csv": "build/long/public_health_response__epidemiological_community_engagement.csv"
         },
         {
@@ -819,7 +819,7 @@
           "metric": "epidemiological_coordination",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 21,
+          "zones_with_values": 42,
           "long_csv": "build/long/public_health_response__epidemiological_coordination.csv"
         },
         {
@@ -829,7 +829,7 @@
           "metric": "epidemiological_infection_prevention_controle",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 19,
+          "zones_with_values": 38,
           "long_csv": "build/long/public_health_response__epidemiological_infection_prevention_controle.csv"
         },
         {
@@ -839,7 +839,7 @@
           "metric": "epidemiological_laboratory",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 10,
+          "zones_with_values": 20,
           "long_csv": "build/long/public_health_response__epidemiological_laboratory.csv"
         },
         {
@@ -849,7 +849,7 @@
           "metric": "epidemiological_logistics",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 25,
+          "zones_with_values": 50,
           "long_csv": "build/long/public_health_response__epidemiological_logistics.csv"
         },
         {
@@ -859,7 +859,7 @@
           "metric": "epidemiological_management",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 26,
+          "zones_with_values": 52,
           "long_csv": "build/long/public_health_response__epidemiological_management.csv"
         },
         {
@@ -869,7 +869,7 @@
           "metric": "epidemiological_monitoring",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 26,
+          "zones_with_values": 52,
           "long_csv": "build/long/public_health_response__epidemiological_monitoring.csv"
         },
         {
@@ -879,7 +879,7 @@
           "metric": "epidemiological_protection_sexual_exploitation_abuse",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 55,
+          "zones_with_values": 110,
           "long_csv": "build/long/public_health_response__epidemiological_protection_sexual_exploitation_abuse.csv"
         },
         {
@@ -889,7 +889,7 @@
           "metric": "epidemiological_security",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 13,
+          "zones_with_values": 26,
           "long_csv": "build/long/public_health_response__epidemiological_security.csv"
         },
         {
@@ -899,7 +899,7 @@
           "metric": "national_epidemiological_community_engagement",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 519,
+          "zones_with_values": 1038,
           "long_csv": "build/long/public_health_response__national_epidemiological_community_engagement.csv"
         },
         {
@@ -909,7 +909,7 @@
           "metric": "national_epidemiological_coordination",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 519,
+          "zones_with_values": 1038,
           "long_csv": "build/long/public_health_response__national_epidemiological_coordination.csv"
         },
         {
@@ -919,7 +919,7 @@
           "metric": "national_epidemiological_infection_prevention_controle",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 519,
+          "zones_with_values": 1038,
           "long_csv": "build/long/public_health_response__national_epidemiological_infection_prevention_controle.csv"
         },
         {
@@ -929,7 +929,7 @@
           "metric": "national_epidemiological_laboratory",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 519,
+          "zones_with_values": 1038,
           "long_csv": "build/long/public_health_response__national_epidemiological_laboratory.csv"
         },
         {
@@ -939,7 +939,7 @@
           "metric": "national_epidemiological_logistics",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 519,
+          "zones_with_values": 1038,
           "long_csv": "build/long/public_health_response__national_epidemiological_logistics.csv"
         },
         {
@@ -949,7 +949,7 @@
           "metric": "national_epidemiological_management",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 519,
+          "zones_with_values": 1038,
           "long_csv": "build/long/public_health_response__national_epidemiological_management.csv"
         },
         {
@@ -959,7 +959,7 @@
           "metric": "national_epidemiological_monitoring",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 519,
+          "zones_with_values": 1038,
           "long_csv": "build/long/public_health_response__national_epidemiological_monitoring.csv"
         },
         {
@@ -969,7 +969,7 @@
           "metric": "national_epidemiological_protection_sexual_exploitation_abuse",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 519,
+          "zones_with_values": 1038,
           "long_csv": "build/long/public_health_response__national_epidemiological_protection_sexual_exploitation_abuse.csv"
         },
         {
@@ -979,7 +979,7 @@
           "metric": "national_epidemiological_security",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 519,
+          "zones_with_values": 1038,
           "long_csv": "build/long/public_health_response__national_epidemiological_security.csv"
         },
         {
@@ -989,7 +989,7 @@
           "metric": "provincial_epidemiological_community_engagement",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 104,
+          "zones_with_values": 208,
           "long_csv": "build/long/public_health_response__provincial_epidemiological_community_engagement.csv"
         },
         {
@@ -999,7 +999,7 @@
           "metric": "provincial_epidemiological_coordination",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 104,
+          "zones_with_values": 208,
           "long_csv": "build/long/public_health_response__provincial_epidemiological_coordination.csv"
         },
         {
@@ -1009,7 +1009,7 @@
           "metric": "provincial_epidemiological_infection_prevention_controle",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 104,
+          "zones_with_values": 208,
           "long_csv": "build/long/public_health_response__provincial_epidemiological_infection_prevention_controle.csv"
         },
         {
@@ -1019,7 +1019,7 @@
           "metric": "provincial_epidemiological_laboratory",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 104,
+          "zones_with_values": 208,
           "long_csv": "build/long/public_health_response__provincial_epidemiological_laboratory.csv"
         },
         {
@@ -1029,7 +1029,7 @@
           "metric": "provincial_epidemiological_logistics",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 70,
+          "zones_with_values": 140,
           "long_csv": "build/long/public_health_response__provincial_epidemiological_logistics.csv"
         },
         {
@@ -1039,7 +1039,7 @@
           "metric": "provincial_epidemiological_management",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 104,
+          "zones_with_values": 208,
           "long_csv": "build/long/public_health_response__provincial_epidemiological_management.csv"
         },
         {
@@ -1049,7 +1049,7 @@
           "metric": "provincial_epidemiological_monitoring",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 104,
+          "zones_with_values": 208,
           "long_csv": "build/long/public_health_response__provincial_epidemiological_monitoring.csv"
         },
         {
@@ -1059,7 +1059,7 @@
           "metric": "provincial_epidemiological_protection_sexual_exploitation_abuse",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 104,
+          "zones_with_values": 208,
           "long_csv": "build/long/public_health_response__provincial_epidemiological_protection_sexual_exploitation_abuse.csv"
         },
         {
@@ -1069,7 +1069,7 @@
           "metric": "provincial_epidemiological_security",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 104,
+          "zones_with_values": 208,
           "long_csv": "build/long/public_health_response__provincial_epidemiological_security.csv"
         }
       ]
