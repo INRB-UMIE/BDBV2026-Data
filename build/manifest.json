@@ -1,8 +1,8 @@
 {
   "shapefile": "data/shapefiles/DRC_Health_zones.shp",
   "n_features": 519,
-  "built_at": "2026-06-25T13:09:11+00:00",
-  "commit": "d02fc55",
+  "built_at": "2026-06-25T17:34:22+00:00",
+  "commit": "9243cc1",
   "datasets": [
     {
       "folder": "ACLED_conflict",
@@ -445,7 +445,7 @@
       "source": "Institut National de Sant\u00e9 Publique (INSP) Situation Reports \u2014 SitRep MVE series (2026 Bundibugyo Ebolavirus outbreak)",
       "citation": "Institut National de Sant\u00e9 Publique (INSP), Democratic Republic of the Congo. Situation reports on the 2026 Bundibugyo Ebolavirus outbreak (SitRep MVE 001, 002, 004\u2013012, 2026; report 003 not committed). Health-zone geometry: DRC_Health_zones.shp (see data/shapefiles/).",
       "source_url": "https://insp.cd/",
-      "retrieved_on": "2026-06-24",
+      "retrieved_on": "2026-06-25",
       "license": "INSP outbreak sitreps; reuse with attribution to INSP and citation of the specific report number and date. Confirm distribution terms with INSP before external republication.",
       "contact": "pierre.akilimali@insp.cd",
       "status": "active",
@@ -859,7 +859,7 @@
           "metric": "epidemiological_infection_prevention_controle_fr",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 19,
+          "zones_with_values": 20,
           "long_csv": "build/long/public_health_response__epidemiological_infection_prevention_controle_fr.csv"
         },
         {
@@ -959,7 +959,7 @@
           "metric": "epidemiological_protection_sexual_exploitation_abuse_fr",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 55,
+          "zones_with_values": 89,
           "long_csv": "build/long/public_health_response__epidemiological_protection_sexual_exploitation_abuse_fr.csv"
         },
         {
@@ -1109,7 +1109,7 @@
           "metric": "national_epidemiological_monitoring_en",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 519,
+          "zones_with_values": 623,
           "long_csv": "build/long/public_health_response__national_epidemiological_monitoring_en.csv"
         },
         {
