@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/1243481305.svg)](https://doi.org/10.5281/zenodo.20922946)
+
 # Bundibugyo Ebola virus outbreak 2026
 
 ### Data for the 2026 Bundibugyo Ebolavirus (BDBV) outbreak.
