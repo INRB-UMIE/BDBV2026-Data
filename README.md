@@ -20,7 +20,7 @@ This work is led by the Institut National de Recherche Biomédicale (INRB) Kinsh
 ### Statement on continuing work and analyses before publication
 Please note that the epidemiological data presented here is based on work in progress and should be considered preliminary. Our analyses are ongoing, and a publication communicating our findings is in preparation. Contextual data are publicly accessible; please refer to the original license when re-using these data. If you intend to use the epidemiological data prior to our publication, or have other enquiries, please contact [Prof. Placide Mbala-Kingebeni](mailto:placide.mbala@inrb.cd) (INRB, DRC), [Prof. Dav Ebengo](mailto:dav.ebengo@umie-inrb.org) (INRB, DRC), and [Pierre Akilimali](mailto:pierre.akilimali@insp.cd) (INSP).
 
-Last successful build: **26 June 2026, 09:35:58 (UTC)** — `build/` on `main` at commit [`22ae1a1`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/22ae1a1e99a3bbce381bed59f519d92fbb361bff) (data snapshot [`22ae1a1`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/22ae1a1), see `build/manifest.json`).
+Last successful build: **26 June 2026, 10:14:38 (UTC)** — `build/` on `main` at commit [`db6470f`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/db6470ff1672c585954fb04040cf549a3e16be80) (data snapshot [`db6470f`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/db6470f), see `build/manifest.json`).
 
 # Data sources
 ### Geospatial
@@ -60,7 +60,7 @@ The current build is committed on `main` and refreshed automatically by CI on ev
 ### What's New
 
 <!-- whats-new:start -->
-Zenodo ID link-up.
+Adding sitrep 41
 <!-- whats-new:end -->
 
 ### Build contents
@@ -79,6 +79,7 @@ Full tables live in [`data/README.md`](data/README.md#current-build-outputs). Ma
 <!-- past-releases:start -->
 | Tag | Date | Summary | Download |
 |-----|------|---------|----------|
+| [`build-2026-06-26-db6470f`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-26-db6470f) | 2026-06-26 | Adding sitrep 41 | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-26-db6470f) |
 | [`build-2026-06-26-22ae1a1`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-26-22ae1a1) | 2026-06-26 | Zenodo ID link-up. | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-26-22ae1a1) |
 | [`build-2026-06-25-9243cc1`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-25-9243cc1) | 2026-06-25 | Adding Sitrep 40 | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-25-9243cc1) |
 | [`build-2026-06-25-d02fc55`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-25-d02fc55) | 2026-06-25 | This version incorporates bilingual (EN/FR) entries for the public health response data layer. | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-06-25-d02fc55) |
