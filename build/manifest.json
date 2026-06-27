@@ -1,8 +1,8 @@
 {
   "shapefile": "data/shapefiles/DRC_Health_zones.shp",
   "n_features": 519,
-  "built_at": "2026-06-26T10:14:38+00:00",
-  "commit": "db6470f",
+  "built_at": "2026-06-27T20:48:22+00:00",
+  "commit": "fe31989",
   "datasets": [
     {
       "folder": "ACLED_conflict",
@@ -1339,7 +1339,7 @@
           "metric": "provincial_epidemiological_security_fr",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 104,
+          "zones_with_values": 105,
           "long_csv": "build/long/public_health_response__provincial_epidemiological_security_fr.csv"
         }
       ]

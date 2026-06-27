@@ -1,6 +1,6 @@
 # QA report: ACLED_conflict
 
-_Checked: 2026-06-26T10:14:36+00:00_
+_Checked: 2026-06-27T20:48:21+00:00_
 
 **Status counts:** {'pass': 1, 'warn': 1}
 
