@@ -1,6 +1,6 @@
 # QA report: grid3_healthsites
 
-_Checked: 2026-07-05T19:39:28+00:00_
+_Checked: 2026-07-06T15:16:10+00:00_
 
 **Status counts:** {'pass': 1, 'warn': 2}
 
