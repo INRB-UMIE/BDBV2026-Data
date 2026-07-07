@@ -2,3 +2,4 @@ pyshp>=2.3
 pyyaml>=6.0
 shapely>=2.0
 pytest>=8.0
+geopandas>=1.1
