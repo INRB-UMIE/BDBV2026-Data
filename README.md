@@ -281,7 +281,7 @@ The pre-existing `qa.yml` workflow runs `pytest` + `tools.qa` on PRs as the merg
 
 # Citation
 
-You can reference this repository by its [Zeondo DOI](https://doi.org/10.5281/zenodo.20922946) and the accompannying publication on [Lancet Infectious Diseases by Mbulayi et al](https://www.thelancet.com/journals/laninf/article/PIIS1473-3099(26)00330-0/fulltext). Please cite the original data providers (links above) if any code or derived data is reused.
+You can reference this repository by its [Zenodo DOI](https://doi.org/10.5281/zenodo.20922946) and the accompannying publication on [Lancet Infectious Diseases by Mbulayi et al](https://www.thelancet.com/journals/laninf/article/PIIS1473-3099(26)00330-0/fulltext). Please cite the original data providers (links above) if any code or derived data is reused.
 
 # License and warranty
 
