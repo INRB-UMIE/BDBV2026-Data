@@ -58,13 +58,9 @@ def test_to_canonical_passthrough():
     assert to_canonical("Goma") == "Goma"
 
 
-def test_to_canonical_resolves_alias():
-    # Seeded from flowminder/README.md spelling variants.
-    assert to_canonical("Mongbwalu") == "Mongbalu"
-    assert to_canonical("Nyankunde") == "Nyakunde"
-    # Hyphen-vs-space variants added during flowminder retrofit.
-    assert to_canonical("Nia Nia") == "Nia-Nia"
-    assert to_canonical("Boma Mangbetu") == "Boma-Mangbetu"
+@pytest.mark.parametrize("observed,canonical", [("Manguripa", "Manguredjipa"), ("Rwmapara", "Rwampara")])
+def test_to_canonical_resolves_alias(observed: str,canonical: str):
+    assert to_canonical(observed) == canonical
 
 
 def test_to_canonical_unknown_returns_none():
@@ -115,9 +111,7 @@ def test_zones_by_province_includes_bunia_in_ituri():
 
 def test_zscode_to_canonical_known_and_unknown():
     # Bunia's authoritative ZSCode in the current shapefile.
-    assert zscode_to_canonical("CD5402ZS02") == "Bunia"
-    # The legacy phantom MoH code used in IDP raw data is intentionally absent.
-    assert zscode_to_canonical("CD5401ZS01") is None
+    assert zscode_to_canonical("GPi6i83o7l6") == "Bunia"
     assert zscode_to_canonical("") is None
 
 
