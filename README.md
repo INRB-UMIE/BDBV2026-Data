@@ -1,5 +1,4 @@
-[[![DOI](https://zenodo.org/badge/1243481305.svg)](https://doi.org/10.5281/zenodo.20922946)
-](https://doi.org/10.5281/zenodo.21223302)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21223302.svg)](https://doi.org/10.5281/zenodo.21223302)
 
 # Bundibugyo Ebola virus outbreak 2026
 
