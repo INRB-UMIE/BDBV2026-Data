@@ -1,6 +1,6 @@
 # QA report: flowminder_short_trips
 
-_Checked: 2026-07-08T08:11:38+00:00_
+_Checked: 2026-07-08T14:22:29+00:00_
 
 **Status counts:** {'pass': 11}
 
