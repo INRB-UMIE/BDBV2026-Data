@@ -20,7 +20,7 @@ This work is led by the Institut National de Recherche Biomédicale (INRB) Kinsh
 ### Statement on continuing work and analyses before publication
 Please note that the epidemiological data presented here is based on work in progress and should be considered preliminary. Our analyses are ongoing, and a publication communicating our findings is in preparation. Contextual data are publicly accessible; please refer to the original license when re-using these data. If you intend to use the epidemiological data prior to our publication, or have other enquiries, please contact [Prof. Placide Mbala-Kingebeni](mailto:placide.mbala@inrb.cd) (INRB, DRC), [Prof. Dav Ebengo](mailto:dav.ebengo@umie-inrb.org) (INRB, DRC), and [Pierre Akilimali](mailto:pierre.akilimali@insp.cd) (INSP).
 
-Last successful build: **8 July 2026, 17:45:39 (UTC)** — `build/` on `main` at commit [`332b133`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/332b133a18715a16de248f732a6b2061340a51f0) (data snapshot [`332b133`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/332b133), see `build/manifest.json`).
+Last successful build: **8 July 2026, 20:27:59 (UTC)** — `build/` on `main` at commit [`5ba894f`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/5ba894fcaf86798f3cbd562e166bf06638dd358d) (data snapshot [`5ba894f`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/5ba894f), see `build/manifest.json`).
 
 # Data sources
 ### Geospatial
@@ -60,7 +60,7 @@ The current build is committed on `main` and refreshed automatically by CI on ev
 ### What's New
 
 <!-- whats-new:start -->
-Included new genomic surveillance data folder which contains numbers of sequences collected by health zone
+Including and processing Flowminder data for May-June 2026.
 <!-- whats-new:end -->
 
 ### Build contents
@@ -79,6 +79,7 @@ Full tables live in [`data/README.md`](data/README.md#current-build-outputs). Ma
 <!-- past-releases:start -->
 | Tag | Date | Summary | Download |
 |-----|------|---------|----------|
+| [`build-2026-07-08-5ba894f`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-07-08-5ba894f) | 2026-07-08 | Including and processing Flowminder data for May-June 2026. | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-07-08-5ba894f) |
 | [`build-2026-07-08-332b133`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-07-08-332b133) | 2026-07-08 | Included new genomic surveillance data folder which contains numbers of sequences collected by health zone | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-07-08-332b133) |
 | [`build-2026-07-08-5c8c1fc`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-07-08-5c8c1fc) | 2026-07-08 | Update with data from sitRep 53 | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-07-08-5c8c1fc) |
 | [`build-2026-07-08-62a00e5`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-07-08-62a00e5) | 2026-07-08 | Update SitRep with data from SitRep 52 | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-07-08-62a00e5) |

@@ -1,8 +1,8 @@
 {
   "shapefile": "data/shapefiles/DRC_Health_zones.shp",
   "n_features": 519,
-  "built_at": "2026-07-08T17:45:39+00:00",
-  "commit": "332b133",
+  "built_at": "2026-07-08T20:27:59+00:00",
+  "commit": "5ba894f",
   "datasets": [
     {
       "folder": "ACLED_conflict",
@@ -249,14 +249,90 @@
     },
     {
       "folder": "flowminder_short_trips",
-      "source": "Flowminder Foundation \u2014 DRC Ebola Bundibugyo short-trip cohort (May 2026)",
-      "citation": "Flowminder Foundation (2026). Population movements from Bunia, Mongbwalu and Rwampara \u2014 Annex A ranked destination proportions. Report: Population_movements_Ebola_28_May_2026_Flowminder_Final.pdf.",
+      "source": "Flowminder Foundation \u2014 DRC Ebola Bundibugyo short-trip cohort (May\u2013June 2026)",
+      "citation": "Flowminder Foundation (2026). Population movements from Bunia, Mongbwalu and Rwampara \u2014 Annex A ranked destination proportions. Report: Population_movements_Ebola_28_May_2026_Flowminder_Final.pdf; HDX cohort subscriber-day extracts (Ituri and Nord-Kivu, v1.0, 8 Jun 2026).",
       "source_url": "https://www.flowminder.org/resources/publications-reports/drc-reports-publications",
-      "retrieved_on": "2026-05-28",
+      "retrieved_on": "2026-06-08",
       "license": "Flowminder reports are publicly released; cite the source organisation.",
       "contact": "rdc@flowminder.org",
       "status": "active",
       "outputs": [
+        {
+          "file": "flowminder_short_trips__ituri_subscriber_days_followup_20260608__static.csv",
+          "type": "vector",
+          "dataset_token": "flowminder_short_trips",
+          "metric": "ituri_subscriber_days_followup_20260608",
+          "resolution": "static",
+          "in_geojson": true,
+          "zones_with_values": 484,
+          "long_csv": "build/long/flowminder_short_trips__ituri_subscriber_days_followup_20260608.csv"
+        },
+        {
+          "file": "flowminder_short_trips__ituri_subscriber_days_followup_20260608__static.matrix.csv",
+          "type": "matrix",
+          "dataset_token": "flowminder_short_trips",
+          "metric": "ituri_subscriber_days_followup_20260608",
+          "resolution": "static",
+          "in_geojson": false,
+          "matrix_log": "qa/matrix_log.csv"
+        },
+        {
+          "file": "flowminder_short_trips__ituri_subscriber_days_prior_20260503__static.csv",
+          "type": "vector",
+          "dataset_token": "flowminder_short_trips",
+          "metric": "ituri_subscriber_days_prior_20260503",
+          "resolution": "static",
+          "in_geojson": true,
+          "zones_with_values": 484,
+          "long_csv": "build/long/flowminder_short_trips__ituri_subscriber_days_prior_20260503.csv"
+        },
+        {
+          "file": "flowminder_short_trips__ituri_subscriber_days_prior_20260503__static.matrix.csv",
+          "type": "matrix",
+          "dataset_token": "flowminder_short_trips",
+          "metric": "ituri_subscriber_days_prior_20260503",
+          "resolution": "static",
+          "in_geojson": false,
+          "matrix_log": "qa/matrix_log.csv"
+        },
+        {
+          "file": "flowminder_short_trips__nk_subscriber_days_followup_20260608__static.csv",
+          "type": "vector",
+          "dataset_token": "flowminder_short_trips",
+          "metric": "nk_subscriber_days_followup_20260608",
+          "resolution": "static",
+          "in_geojson": true,
+          "zones_with_values": 485,
+          "long_csv": "build/long/flowminder_short_trips__nk_subscriber_days_followup_20260608.csv"
+        },
+        {
+          "file": "flowminder_short_trips__nk_subscriber_days_followup_20260608__static.matrix.csv",
+          "type": "matrix",
+          "dataset_token": "flowminder_short_trips",
+          "metric": "nk_subscriber_days_followup_20260608",
+          "resolution": "static",
+          "in_geojson": false,
+          "matrix_log": "qa/matrix_log.csv"
+        },
+        {
+          "file": "flowminder_short_trips__nk_subscriber_days_prior_20260503__static.csv",
+          "type": "vector",
+          "dataset_token": "flowminder_short_trips",
+          "metric": "nk_subscriber_days_prior_20260503",
+          "resolution": "static",
+          "in_geojson": true,
+          "zones_with_values": 485,
+          "long_csv": "build/long/flowminder_short_trips__nk_subscriber_days_prior_20260503.csv"
+        },
+        {
+          "file": "flowminder_short_trips__nk_subscriber_days_prior_20260503__static.matrix.csv",
+          "type": "matrix",
+          "dataset_token": "flowminder_short_trips",
+          "metric": "nk_subscriber_days_prior_20260503",
+          "resolution": "static",
+          "in_geojson": false,
+          "matrix_log": "qa/matrix_log.csv"
+        },
         {
           "file": "flowminder_short_trips__outflow_20260430__static.csv",
           "type": "vector",
