@@ -1,8 +1,8 @@
 {
   "shapefile": "data/shapefiles/DRC_Health_zones.shp",
   "n_features": 519,
-  "built_at": "2026-07-07T16:30:08+00:00",
-  "commit": "b64e42a",
+  "built_at": "2026-07-06T15:16:12+00:00",
+  "commit": "fb3eca2",
   "datasets": [
     {
       "folder": "ACLED_conflict",
@@ -373,28 +373,6 @@
           "in_geojson": true,
           "zones_with_values": 587,
           "long_csv": "build/long/gdp_pc__gdp_pc.csv"
-        }
-      ]
-    },
-    {
-      "folder": "genomic_surveillance",
-      "source": "INRB/INOHA BDBV 2026 genomic surveillance (whole-genome sequencing consensus metadata)",
-      "citation": "Institut National de Recherche Biom\u00e9dicale (INRB) / One Health Institute for Africa (INOHA), Kinshasa. Bundibugyo ebolavirus (BDBV) 2026 genomic surveillance. Consensus sequence metadata reconciled from FASTA headers, laboratory linelists (Bunia, Kinshasa) and the DHIS2 alert linelist (BDBV2026-Phylogenetic-analyses). Health-zone geometry: DRC_Health_zones.shp (see data/shapefiles/).",
-      "source_url": "https://pathoplexus.org/ebola-bdbv/search",
-      "retrieved_on": "2026-07-07",
-      "license": "Preliminary outbreak data \u2014 see repository root README statement on continuing work before publication; contact INRB before reuse.",
-      "contact": "placide.mbala@inrb.cd",
-      "status": "active",
-      "outputs": [
-        {
-          "file": "genomic_surveillance__sequence_count__static.csv",
-          "type": "vector",
-          "dataset_token": "genomic_surveillance",
-          "metric": "sequence_count",
-          "resolution": "static",
-          "in_geojson": true,
-          "zones_with_values": 16,
-          "long_csv": "build/long/genomic_surveillance__sequence_count.csv"
         }
       ]
     },
