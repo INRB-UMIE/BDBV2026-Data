@@ -1,25 +1,17 @@
-"""Build short-trip outflow proportion matrices from Annex A extract.
+"""Build short-trip mobility outputs from Flowminder annex and HDX cohort extracts.
 
 Inputs:
-  raw/short_trips_destination_rankings.csv  (from extract_pdf_annex.py)
+  raw/short_trips_destination_rankings.csv
+      Annex A ranked destination proportions (from extract_pdf_annex.py)
+  raw/drc-bvd_ituri-cohort_subscriber-days-2026_06_08-v1.0-external.csv
+  raw/drc-bvd_nk-cohort_subscriber-days-2026_06_08-v1.0-external.csv
+      HDX cohort subscriber-day averages (look-back and follow-up windows)
 
-Outputs (static snapshot matrices, one per observation date):
-  processed/flowminder_short_trips__outflow_20260430__static.matrix.csv  (D+7 / 30 Apr)
-  processed/flowminder_short_trips__outflow_20260507__static.matrix.csv  (D+14 / 7 May)
-  processed/flowminder_short_trips__outflow_20260514__static.matrix.csv  (D+21 / 14 May)
-  processed/flowminder_short_trips__outflow_20260521__static.matrix.csv  (D+28 / 21 May)
-  processed/flowminder_short_trips__outflow_20260524__static.matrix.csv  (D+31 / 24 May)
-
-Each matrix has three origin rows (Bunia, Mongbalu, Rwampara) and destination columns taken
-from the ranked health-zone list. Values are the cohort proportion (%) for that date;
-the three origin rows carry identical values (combined Bunia + Mongbwalu + Rwampara cohort).
-
-Long-format vectors (one per matrix; destination proportions for GeoJSON / dashboard):
-  processed/flowminder_short_trips__outflow_20260430__static.csv
-  … (same date tags as the matrices above)
-
-Each vector melts the matrix header into `nom` (destination zones) and uses the first
-origin data row for the metric column `outflow_<YYYYMMDD>` (identical across origins).
+Outputs (static snapshot matrices + matching long vectors):
+  processed/flowminder_short_trips__outflow_<YYYYMMDD>__static.matrix.csv
+  processed/flowminder_short_trips__outflow_<YYYYMMDD>__static.csv
+  processed/flowminder_short_trips__<cohort>_subscriber_days_<period>_<YYYYMMDD>__static.matrix.csv
+  processed/flowminder_short_trips__<cohort>_subscriber_days_<period>_<YYYYMMDD>__static.csv
 
 Run from repo root:
     python data/flowminder_short_trips/extract_pdf_annex.py
@@ -39,18 +31,42 @@ ALIASES_CSV = DATA_DIR / "aliases.csv"
 FLOWMINDER_OUTFLOW = DATA_DIR / "flowminder" / "processed" / "flowminder__outflow__static.matrix.csv"
 
 HERE = Path(__file__).resolve().parent
-RAW_CSV = HERE / "raw" / "short_trips_destination_rankings.csv"
+RAW_DIR = HERE / "raw"
+RAW_CSV = RAW_DIR / "short_trips_destination_rankings.csv"
 PROCESSED = HERE / "processed"
 LOG_CSV = HERE / "zone_resolution_log.csv"
 
-ORIGINS = ("Bunia", "Mongbalu", "Rwampara")
+ANNEX_ORIGINS = ("Bunia", "Mongbalu", "Rwampara")
 
-SNAPSHOTS: tuple[tuple[str, str, str], ...] = (
+ANNEX_SNAPSHOTS: tuple[tuple[str, str, str], ...] = (
     ("d7", "date_d7", "20260430"),
     ("d14", "date_d14", "20260507"),
     ("d21", "date_d21", "20260514"),
     ("d28", "date_d28", "20260521"),
     ("d31", "date_d31", "20260524"),
+)
+
+COHORT_SOURCES: tuple[dict[str, object], ...] = (
+    {
+        "id": "ituri",
+        "raw_csv": RAW_DIR
+        / "drc-bvd_ituri-cohort_subscriber-days-2026_06_08-v1.0-external.csv",
+        "origin_labels": ("Bunia", "Mongbalu", "Rwampara", "Nyankunde"),
+        "snapshots": (
+            ("Avg days (prior)", "ituri_subscriber_days_prior_20260503"),
+            ("Avg days (follow-up)", "ituri_subscriber_days_followup_20260608"),
+        ),
+    },
+    {
+        "id": "nk",
+        "raw_csv": RAW_DIR
+        / "drc-bvd_nk-cohort_subscriber-days-2026_06_08-v1.0-external.csv",
+        "origin_labels": ("Beni", "Butembo", "Katwa"),
+        "snapshots": (
+            ("Avg days (prior)", "nk_subscriber_days_prior_20260503"),
+            ("Avg days (follow-up)", "nk_subscriber_days_followup_20260608"),
+        ),
+    },
 )
 
 # Mirrors data/flowminder/process.py (verified against shapefile Nom).
@@ -74,6 +90,7 @@ TYPO_FIXUPS: dict[str, str] = {
     "Ruashi": "Rwashi",
     "Mongbwalu": "Mongbalu",
     "Makiso Kisangani": "Makiso-Kisangani",
+    "Makiso Kisangan": "Makiso-Kisangani",
     "Nia Nia": "Nia-Nia",
     "Kasa Vubu": "Kasa-Vubu",
     "Mont Ngafula 1": "Mont Ngafula I",
@@ -153,12 +170,12 @@ def _resolve(label: str, canon: frozenset[str], aliases: dict[str, str]) -> str 
     return None
 
 
-def _read_extract(path: Path) -> list[dict[str, str]]:
+def _read_csv(path: Path) -> list[dict[str, str]]:
     with path.open(newline="", encoding="utf-8-sig") as f:
         return list(csv.DictReader(f))
 
 
-def _build_snapshot(
+def _build_annex_snapshot(
     rows: list[dict[str, str]],
     value_col: str,
     canon: frozenset[str],
@@ -171,7 +188,6 @@ def _build_snapshot(
 
     for row in rows:
         raw_zone = (row.get("health_zone") or "").strip()
-        label = f"{row.get('province', '').strip()} {raw_zone}".strip()
         canonical = _resolve(raw_zone, canon, aliases)
         if canonical is None:
             log.append(
@@ -200,22 +216,87 @@ def _build_snapshot(
     return dest_order, dest_values, log
 
 
+def _build_cohort_snapshot(
+    rows: list[dict[str, str]],
+    value_col: str,
+    canon: frozenset[str],
+    aliases: dict[str, str],
+) -> tuple[list[str], dict[str, float], list[dict[str, str]]]:
+    candidates: list[tuple[str, str, float]] = []
+    log: list[dict[str, str]] = []
+
+    for row in rows:
+        flag = (row.get("Flag") or "").strip()
+        if flag in {"Origin", "No data"}:
+            continue
+        raw_value = (row.get(value_col) or "").strip()
+        if not raw_value:
+            continue
+        raw_zone = (row.get("Health Zone") or row.get("health_zone") or "").strip()
+        province = (row.get("Province") or row.get("province") or "").strip()
+        canonical = _resolve(raw_zone, canon, aliases)
+        if canonical is None:
+            log.append(
+                {
+                    "raw_label": raw_zone,
+                    "province": province,
+                    "action": "dropped",
+                    "reason": "no shapefile Nom or alias match",
+                }
+            )
+            continue
+        candidates.append((canonical, raw_zone, float(raw_value)))
+
+    dest_values: dict[str, float] = {}
+    for canonical, raw_zone, value in candidates:
+        if canonical in dest_values:
+            if value > dest_values[canonical]:
+                dest_values[canonical] = value
+            log.append(
+                {
+                    "raw_label": raw_zone,
+                    "province": "",
+                    "action": "merged",
+                    "reason": f"duplicate canonical {canonical!r}",
+                }
+            )
+            continue
+        dest_values[canonical] = value
+
+    dest_order = sorted(dest_values, key=lambda z: dest_values[z], reverse=True)
+    return dest_order, dest_values, log
+
+
+def _resolve_origin_labels(
+    origin_labels: tuple[str, ...],
+    canon: frozenset[str],
+    aliases: dict[str, str],
+) -> list[str]:
+    origins: list[str] = []
+    for label in origin_labels:
+        canonical = _resolve(label, canon, aliases)
+        if canonical is None:
+            raise ValueError(f"Origin zone {label!r} did not resolve to a canonical nom")
+        origins.append(canonical)
+    return origins
+
+
 def _write_matrix(
     dest_order: list[str],
     dest_values: dict[str, float],
+    origins: list[str],
     out_path: Path,
 ) -> None:
     out_path.parent.mkdir(parents=True, exist_ok=True)
     with out_path.open("w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
         w.writerow(["nom"] + dest_order)
-        for origin in ORIGINS:
+        for origin in origins:
             w.writerow([origin] + [dest_values[d] for d in dest_order])
 
 
-def _write_long_vector(matrix_path: Path, date_tag: str) -> Path:
-    """Melt a snapshot matrix to long format (destination nom + outflow_<date> column)."""
-    metric = f"outflow_{date_tag}"
+def _write_long_vector(matrix_path: Path, metric: str) -> Path:
+    """Melt a snapshot matrix to long format (destination nom + metric column)."""
     out_path = matrix_path.with_name(
         f"flowminder_short_trips__{metric}__static.csv"
     )
@@ -266,35 +347,103 @@ def _assert_canonical_vector(path: Path, canon: frozenset[str]) -> None:
         raise ValueError(f"{path.name}: non-canonical zone names: {sample}")
 
 
-def main() -> int:
+def _write_outputs(
+    *,
+    dest_order: list[str],
+    dest_values: dict[str, float],
+    origins: list[str],
+    metric: str,
+    canon: frozenset[str],
+    log: list[dict[str, str]],
+    snapshot_label: str,
+) -> list[dict[str, str]]:
+    out = PROCESSED / f"flowminder_short_trips__{metric}__static.matrix.csv"
+    _write_matrix(dest_order, dest_values, origins, out)
+    _assert_canonical_matrix(out, canon)
+    long_out = _write_long_vector(out, metric)
+    _assert_canonical_vector(long_out, canon)
+    print(
+        f"wrote {out.relative_to(REPO_ROOT)} "
+        f"({len(origins)} origins × {len(dest_order)} destinations)"
+    )
+    print(
+        f"wrote {long_out.relative_to(REPO_ROOT)} "
+        f"({len(dest_order)} destination rows)"
+    )
+    return [{**entry, "snapshot": snapshot_label} for entry in log]
+
+
+def _process_annex(canon: frozenset[str], aliases: dict[str, str]) -> list[dict[str, str]]:
     if not RAW_CSV.exists():
         raise FileNotFoundError(
             f"Missing {RAW_CSV.name}; run extract_pdf_annex.py first."
         )
 
-    canon = _load_canonical_noms()
-    aliases = _load_alias_index(canon)
-    rows = _read_extract(RAW_CSV)
+    rows = _read_csv(RAW_CSV)
+    origins = _resolve_origin_labels(ANNEX_ORIGINS, canon, aliases)
     all_logs: list[dict[str, str]] = []
 
-    for value_col, _date_col, date_tag in SNAPSHOTS:
-        dest_order, dest_values, log = _build_snapshot(rows, value_col, canon, aliases)
+    for value_col, _date_col, date_tag in ANNEX_SNAPSHOTS:
+        metric = f"outflow_{date_tag}"
+        dest_order, dest_values, log = _build_annex_snapshot(
+            rows, value_col, canon, aliases
+        )
         if not dest_order:
-            raise RuntimeError(f"No destinations resolved for snapshot {date_tag}")
-        out = PROCESSED / f"flowminder_short_trips__outflow_{date_tag}__static.matrix.csv"
-        _write_matrix(dest_order, dest_values, out)
-        _assert_canonical_matrix(out, canon)
-        long_out = _write_long_vector(out, date_tag)
-        _assert_canonical_vector(long_out, canon)
-        all_logs.extend({**entry, "snapshot": date_tag} for entry in log)
-        print(
-            f"wrote {out.relative_to(REPO_ROOT)} "
-            f"({len(ORIGINS)} origins × {len(dest_order)} destinations)"
+            raise RuntimeError(f"No destinations resolved for annex snapshot {date_tag}")
+        all_logs.extend(
+            _write_outputs(
+                dest_order=dest_order,
+                dest_values=dest_values,
+                origins=origins,
+                metric=metric,
+                canon=canon,
+                log=log,
+                snapshot_label=date_tag,
+            )
         )
-        print(
-            f"wrote {long_out.relative_to(REPO_ROOT)} "
-            f"({len(dest_order)} destination rows)"
-        )
+
+    return all_logs
+
+
+def _process_cohorts(canon: frozenset[str], aliases: dict[str, str]) -> list[dict[str, str]]:
+    all_logs: list[dict[str, str]] = []
+
+    for source in COHORT_SOURCES:
+        raw_csv = source["raw_csv"]
+        if not raw_csv.exists():
+            raise FileNotFoundError(f"Missing cohort raw file: {raw_csv.name}")
+
+        rows = _read_csv(raw_csv)
+        origins = _resolve_origin_labels(source["origin_labels"], canon, aliases)
+        cohort_id = source["id"]
+
+        for value_col, metric in source["snapshots"]:
+            dest_order, dest_values, log = _build_cohort_snapshot(
+                rows, value_col, canon, aliases
+            )
+            if not dest_order:
+                raise RuntimeError(
+                    f"No destinations resolved for cohort {cohort_id} snapshot {metric}"
+                )
+            all_logs.extend(
+                _write_outputs(
+                    dest_order=dest_order,
+                    dest_values=dest_values,
+                    origins=origins,
+                    metric=metric,
+                    canon=canon,
+                    log=log,
+                    snapshot_label=f"{cohort_id}:{metric}",
+                )
+            )
+
+    return all_logs
+
+
+def main() -> int:
+    canon = _load_canonical_noms()
+    aliases = _load_alias_index(canon)
+    all_logs = _process_annex(canon, aliases) + _process_cohorts(canon, aliases)
 
     if all_logs:
         with LOG_CSV.open("w", newline="", encoding="utf-8") as f:

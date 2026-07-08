@@ -1,10 +1,58 @@
 # QA report: flowminder_short_trips
 
-_Checked: 2026-07-06T15:16:10+00:00_
+_Checked: 2026-07-08T18:05:18+00:00_
 
-**Status counts:** {'pass': 11}
+**Status counts:** {'pass': 19}
 
 ## `metadata.yaml` (metadata) — **pass**
+
+## `flowminder_short_trips__ituri_subscriber_days_followup_20260608__static.csv` (vector) — **pass**
+- rows: 428
+- zones covered: 426 / 519
+- resolution: static
+
+## `flowminder_short_trips__ituri_subscriber_days_followup_20260608__static.matrix.csv` (matrix) — **pass**
+- rows: 4
+- cols: 428
+- zones covered: 4 / 519
+- resolution: static
+- square: False
+
+## `flowminder_short_trips__ituri_subscriber_days_prior_20260503__static.csv` (vector) — **pass**
+- rows: 428
+- zones covered: 426 / 519
+- resolution: static
+
+## `flowminder_short_trips__ituri_subscriber_days_prior_20260503__static.matrix.csv` (matrix) — **pass**
+- rows: 4
+- cols: 428
+- zones covered: 4 / 519
+- resolution: static
+- square: False
+
+## `flowminder_short_trips__nk_subscriber_days_followup_20260608__static.csv` (vector) — **pass**
+- rows: 429
+- zones covered: 427 / 519
+- resolution: static
+
+## `flowminder_short_trips__nk_subscriber_days_followup_20260608__static.matrix.csv` (matrix) — **pass**
+- rows: 3
+- cols: 429
+- zones covered: 3 / 519
+- resolution: static
+- square: False
+
+## `flowminder_short_trips__nk_subscriber_days_prior_20260503__static.csv` (vector) — **pass**
+- rows: 429
+- zones covered: 427 / 519
+- resolution: static
+
+## `flowminder_short_trips__nk_subscriber_days_prior_20260503__static.matrix.csv` (matrix) — **pass**
+- rows: 3
+- cols: 429
+- zones covered: 3 / 519
+- resolution: static
+- square: False
 
 ## `flowminder_short_trips__outflow_20260430__static.csv` (vector) — **pass**
 - rows: 130

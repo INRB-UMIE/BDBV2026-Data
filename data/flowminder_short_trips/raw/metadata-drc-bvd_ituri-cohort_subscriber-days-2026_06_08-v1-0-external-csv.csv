@@ -1,0 +1,14 @@
+Field,Label,Value
+created,Created,2026-07-01T13:29:58.446987
+description,Description,"Average presence days per cohort member across DRC health zones, for an anonymised mobile subscriber cohort defined by presence in Bunia, Mongbwalu, Nyankunde or Rwampara health zones (Ituri Province) for at least 2 days during 4–17 May 2026. Values are given separately for a 21-day look-back period (12 April – 3 May 2026) and a 21-day follow-up period (18 May – 8 June 2026). A continuity model (gap tolerance: 3 days; location look-back: 7 days) is applied to attribute short silent periods to the most likely zone.  Health zones with insufficient data are excluded and carry no value (flag = ""No data""). The four origin health zones (Bunia, Mongbwalu, Nyankunde, Rwampara) are flagged ""Origin""; movements within and between those zones are not captured here."
+format,File Format,CSV
+download_url,Download URL,https://data.humdata.org/dataset/86326534-8dea-4c8b-aca2-13c3e6d386ac/resource/bc4fd5fa-14cc-45ed-84ba-b711b296dcec/download/drc-bvd_ituri-cohort_subscriber-days-2026_06_08-v1.0-external.csv
+id,Resource ID,bc4fd5fa-14cc-45ed-84ba-b711b296dcec
+last_modified,Updated,2026-07-01T13:29:58.316251
+metadata_modified,Metadata Updated,2026-07-01T13:30:11.801972
+microdata,Microdata,False
+dataset_id,Dataset ID,86326534-8dea-4c8b-aca2-13c3e6d386ac
+resource_type,Resource Type,file.upload
+name,Resource Name,drc-bvd_ituri-cohort_subscriber-days-2026_06_08-v1.0-external.csv
+mimetype,MIME Type,text/csv
+size,Size,22.6K

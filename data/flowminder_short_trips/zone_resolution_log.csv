@@ -59,3 +59,87 @@ snapshot,raw_label,province,action,reason
 20260524,Walungu,Sud-Kivu,dropped,no shapefile Nom or alias match
 20260524,Central Lukonga,Kasaï,dropped,no shapefile Nom or alias match
 20260524,Central Kisantu,Kongo,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_prior_20260503,Kilo,Ituri,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_prior_20260503,Rutshuru,Nord-Kivu,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_prior_20260503,Minova,Sud-Kivu,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_prior_20260503,Bagira,Sud-Kivu,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_prior_20260503,Mwana,Sud-Kivu,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_prior_20260503,Miti Murhesa,Sud-Kivu,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_prior_20260503,Mweso,Nord-Kivu,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_prior_20260503,Kirotshe,Nord-Kivu,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_prior_20260503,Idjwi,Sud-Kivu,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_prior_20260503,Binza,Nord-Kivu,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_prior_20260503,Walungu,Sud-Kivu,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_prior_20260503,Mubumbano,Sud-Kivu,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_prior_20260503,Lemera,Sud-Kivu,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_prior_20260503,Vangu,Haut-Katanga,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_prior_20260503,Citenge,Kasaï Oriental,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_prior_20260503,Haut Plateau,Sud-Kivu,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_prior_20260503,Itombwe,Sud-Kivu,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_prior_20260503,Kalambayi Kaban,Lomami,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_prior_20260503,Kaniola,Sud-Kivu,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_prior_20260503,Kiambi,Tanganyika,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_prior_20260503,Kibirizi,Nord-Kivu,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_followup_20260608,Kilo,Ituri,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_followup_20260608,Rutshuru,Nord-Kivu,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_followup_20260608,Minova,Sud-Kivu,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_followup_20260608,Bagira,Sud-Kivu,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_followup_20260608,Mwana,Sud-Kivu,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_followup_20260608,Miti Murhesa,Sud-Kivu,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_followup_20260608,Mweso,Nord-Kivu,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_followup_20260608,Kirotshe,Nord-Kivu,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_followup_20260608,Idjwi,Sud-Kivu,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_followup_20260608,Binza,Nord-Kivu,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_followup_20260608,Walungu,Sud-Kivu,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_followup_20260608,Mubumbano,Sud-Kivu,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_followup_20260608,Lemera,Sud-Kivu,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_followup_20260608,Vangu,Haut-Katanga,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_followup_20260608,Citenge,Kasaï Oriental,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_followup_20260608,Haut Plateau,Sud-Kivu,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_followup_20260608,Itombwe,Sud-Kivu,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_followup_20260608,Kalambayi Kaban,Lomami,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_followup_20260608,Kaniola,Sud-Kivu,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_followup_20260608,Kiambi,Tanganyika,dropped,no shapefile Nom or alias match
+ituri:ituri_subscriber_days_followup_20260608,Kibirizi,Nord-Kivu,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_prior_20260503,Rutshuru,Nord-Kivu,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_prior_20260503,Kilo,Ituri,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_prior_20260503,Minova,Sud-Kivu,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_prior_20260503,Binza,Nord-Kivu,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_prior_20260503,Bagira,Sud-Kivu,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_prior_20260503,Mweso,Nord-Kivu,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_prior_20260503,Walungu,Sud-Kivu,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_prior_20260503,Kirotshe,Nord-Kivu,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_prior_20260503,Mwana,Sud-Kivu,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_prior_20260503,Mubumbano,Sud-Kivu,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_prior_20260503,Miti Murhesa,Sud-Kivu,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_prior_20260503,Idjwi,Sud-Kivu,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_prior_20260503,Kibirizi,Nord-Kivu,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_prior_20260503,Lemera,Sud-Kivu,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_prior_20260503,Kaniola,Sud-Kivu,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_prior_20260503,Vangu,Haut-Katanga,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_prior_20260503,Citenge,Kasaï Oriental,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_prior_20260503,Haut Plateau,Sud-Kivu,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_prior_20260503,Kiambi,Tanganyika,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_prior_20260503,Itombwe,Sud-Kivu,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_prior_20260503,Kalambayi Kaban,Lomami,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_followup_20260608,Rutshuru,Nord-Kivu,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_followup_20260608,Kilo,Ituri,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_followup_20260608,Minova,Sud-Kivu,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_followup_20260608,Binza,Nord-Kivu,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_followup_20260608,Bagira,Sud-Kivu,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_followup_20260608,Mweso,Nord-Kivu,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_followup_20260608,Walungu,Sud-Kivu,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_followup_20260608,Kirotshe,Nord-Kivu,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_followup_20260608,Mwana,Sud-Kivu,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_followup_20260608,Mubumbano,Sud-Kivu,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_followup_20260608,Miti Murhesa,Sud-Kivu,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_followup_20260608,Idjwi,Sud-Kivu,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_followup_20260608,Kibirizi,Nord-Kivu,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_followup_20260608,Lemera,Sud-Kivu,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_followup_20260608,Kaniola,Sud-Kivu,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_followup_20260608,Vangu,Haut-Katanga,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_followup_20260608,Citenge,Kasaï Oriental,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_followup_20260608,Haut Plateau,Sud-Kivu,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_followup_20260608,Kiambi,Tanganyika,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_followup_20260608,Itombwe,Sud-Kivu,dropped,no shapefile Nom or alias match
+nk:nk_subscriber_days_followup_20260608,Kalambayi Kaban,Lomami,dropped,no shapefile Nom or alias match
