@@ -1,0 +1,140 @@
+taxa	lab_location	match_scope	province	health_zone	collection_date	linelist_collection_date	symptom_onset_date	case_status	ct	ct_source	sex	age
+26FHV0069|PP_0075YWS.1|DRC|Ituri|Rwampara|2026-05	Kinshasa	none	Ituri	Rwampara	2026-05							
+26FHV0071|PP_0075YXQ.1|DRC|Ituri|Rwampara|2026-05	Kinshasa	none	Ituri	Rwampara	2026-05							
+26FHV0074|PP_0075YYN.1|DRC|Ituri|Mongwalu|2026-05-15	Kinshasa	none	Ituri	Mongbalu	2026-05-15							
+26FHV0076|PP_0075YZL.1|DRC|Ituri|Mongwalu|2026-05-13	Kinshasa	none	Ituri	Mongbalu	2026-05-13							
+26FHV0080|PP_0075Z0J.1|DRC|Ituri|Rwampara|2026-05-15	Kinshasa	none	Ituri	Rwampara	2026-05-15							
+26FHV0084|PP_0075Z1G.1|DRC|Ituri|Bunia|2026-05-15	Kinshasa	none	Ituri	Bunia	2026-05-15							
+26FHV0085|PP_0075Z2E.1|DRC|Ituri|Bunia|2026-05	Kinshasa	none	Ituri	Bunia	2026-05							
+26FHV0096|PP_0075Z3C.1|DRC|Ituri|Rwampara|2026-05-16	Kinshasa	none	Ituri	Rwampara	2026-05-16							
+26FHV0103|PP_0075Z4A.1|DRC|Ituri|Nyakunde|2026-05-16	Kinshasa	none	Ituri	Nyakunde	2026-05-16							
+26FHV0109|PP_0075Z58.1|DRC|Ituri|Bunia|2026-05	Kinshasa	none	Ituri	Bunia	2026-05							
+26FHV0168|PP_0075ZCU.1|DRC|Ituri|Rwampara|2026-05	Kinshasa	none	Ituri	Rwampara	2026-05							
+26FHV0224|PP_0075Z66.1|DRC|Ituri|Mongbwalu|2026-05-17	Kinshasa	none	Ituri	Mongbalu	2026-05-17							
+26FHV0225|PP_0075ZDS.1|DRC|Ituri|Aungba|2026-05	Kinshasa	none	Ituri	Aungba	2026-05							
+26FHV0227|PP_0075Z74.1|DRC|Ituri|Aru|2026-05	Kinshasa	none	Ituri	Aru	2026-05							
+26FHV0232|PP_0075Z82.1|DRC|Ituri|Nyakunde|2026-05-21	Kinshasa	none	Ituri	Nyakunde	2026-05-21							
+26FHV0256|PP_0075ZEQ.1|DRC|Ituri|Rwampara|2026-05-21	Kinshasa	none	Ituri	Rwampara	2026-05-21							
+26FHV0271|PP_0075ZFN.1|DRC|Ituri|Rwampara|2026-05	Kinshasa	none	Ituri	Rwampara	2026-05							
+26FHV0272|PP_0075Z90.1|DRC|Ituri|Rwampara|2026-05	Kinshasa	none	Ituri	Rwampara	2026-05							
+26FHV0325|PP_0075ZAY.1|DRC|Ituri|Rwampara|2026-05	Kinshasa	none	Ituri	Rwampara	2026-05							
+26FHV0327|PP_0075ZBW.1|DRC|Ituri|Rwampara|2026-05	Kinshasa	none	Ituri	Rwampara	2026-05							
+26FHV044|PP_00712Q8.2|DRC|Ituri|Rwampara|2026-05-03	Kinshasa	both	Ituri	Rwampara	2026-05-03	2026-05-03	TBD				Female	25
+26FHV045|PP_006XHKB.2|DRC|Ituri|Bunia|2026-05-03	Kinshasa	both	Ituri	Bunia	2026-05-03	2026-05-03	2026-05-03	Deceased	25.78	lab:RadiOne (Ct GP)	Male	2
+26FHV046|PP_00711R7.2|DRC|Ituri|Rwampara|2026-05-03	Kinshasa	lab_only	Ituri	Rwampara	2026-05-03	2026-05-03	2026-04-25		31.74	lab:RadiOne (Ct GP)	Female	30
+26FHV047|PP_00711S5.2|DRC|Ituri|Rwampara|2026-05-03	Kinshasa	lab_only	Ituri	Rwampara	2026-05-03	2026-05-03	2026-05-02				Female	31
+26FHV051|PP_00711T3.2|DRC|Ituri|Rwampara|2026-05-03	Kinshasa	lab_only	Ituri	Rwampara	2026-05-03	2026-05-03	2026-04-28				Female	26
+26FHV053|PP_00711U1.2|DRC|Ituri|Rwampara|2026-05-03	Kinshasa	both	Ituri	Rwampara	2026-05-03	2026-05-07	2026-05-05		24.53	lab:RadiOne (Ct GP)	Female	32
+26FHV054|PP_006XHL9.3|DRC|Ituri|Bunia|2026-05-07	Kinshasa	lab_only	Ituri	Bunia	2026-05-07	2026-05-07	2026-05-05		17.27	lab:RadiOne (Ct GP)	Female	30
+26FHV056|PP_00711VZ.2|DRC|Ituri|Nyankunde|2026-05-03	Kinshasa	lab_only	Ituri	Nyakunde	2026-05-03	2026-05-07	2026-05-03		27.33	lab:RadiOne (Ct GP)	Female	36
+26FHV058|PP_006Y8ME.2|DRC|Ituri|Katwa|2026-05-06	Kinshasa	none	Nord-Kivu	Katwa	2026-05-06							
+26FHV061|PP_006Y8NC.3|DRC|Ituri|Bunia|2026-05-15	Kinshasa	lab_only	Ituri	Bunia	2026-05-15						Male	0
+26FHV062|PP_006Y8PA.3|DRC|Ituri|Bunia|2026-05-15	Kinshasa	lab_only	Ituri	Bunia	2026-05-15							36
+26FHV063|PP_006Y8Q8.3|DRC|Ituri|Bunia|2026-05-15	Kinshasa	lab_only	Ituri	Bunia	2026-05-15						Female	56
+26FHV064|PP_006Y8R6.2|DRC|Ituri|Bunia|2026-05-16	Kinshasa	lab_only	Ituri	Bunia	2026-05-16			Deceased			Male	39
+26FHV065|PP_006Y8S4.2|DRC|Ituri|Bunia|2026-05-16	Kinshasa	none	Ituri	Bunia	2026-05-16							
+26FHV309|PP_0076SU0.1|DRC|Ituri|Rwampara|2026-05-20	Kinshasa	none	Ituri	Rwampara	2026-05-20							
+26FHV314|PP_0076SVY.1|DRC|Ituri|Komanda|2026-05-19	Kinshasa	none	Ituri	Komanda	2026-05-19							
+26FHV317|PP_0076SWW.1|DRC|Ituri|Bunia|2026-05-19	Kinshasa	none	Ituri	Bunia	2026-05-19							
+26FHV318|PP_0076SXU.1|DRC|Ituri|Mongbwalu|2026-05-20	Kinshasa	none	Ituri	Mongbalu	2026-05-20							
+26FHV319|PP_0076SYS.1|DRC|Ituri|Bunia|2026-05-19	Kinshasa	none	Ituri	Bunia	2026-05-19							
+26FHV323|PP_0076SZQ.1|DRC|Ituri|Bunia|2026-05-20	Kinshasa	none	Ituri	Bunia	2026-05-20							
+26FHV327|PP_0076T0N.1|DRC|Ituri|Bunia|2026-05-19	Kinshasa	none	Ituri	Bunia	2026-05-19							
+26FHV329|PP_0076T1L.1|DRC|Ituri|Bunia|2026-05-20	Kinshasa	none	Ituri	Bunia	2026-05-20							
+26FHV333|PP_0076T2J.1|DRC|Ituri|Gety|2026-05-21	Kinshasa	none	Ituri	Gethy	2026-05-21							
+26FHV334|PP_0076T3G.1|DRC|Ituri|Gety|2026-05-22	Kinshasa	none	Ituri	Gethy	2026-05-22							
+26FHV354|PP_0076T4E.1|DRC|Ituri|Rwampara|2026-05-21	Kinshasa	none	Ituri	Rwampara	2026-05-21							
+26FHV366|PP_0076T5C.1|DRC|Ituri|Bunia|2026-05-22	Kinshasa	none	Ituri	Bunia	2026-05-22							
+26FHV379|PP_0076T6A.1|DRC|Ituri|Bunia|2026-05-21	Kinshasa	none	Ituri	Bunia	2026-05-21							
+26FHV380|PP_0076T78.1|DRC|Ituri|Rwampara|2026-05-21	Kinshasa	none	Ituri	Rwampara	2026-05-21							
+26FHV407|PP_0076T86.1|DRC|Ituri|Mongbwalu|2026-05-22	Kinshasa	none	Ituri	Mongbalu	2026-05-22							
+26FHV472|PP_0076T94.1|DRC|Ituri|Nyankunde|2026-05-20	Kinshasa	none	Ituri	Nyakunde	2026-05-20							
+26FHV479|PP_0076TA2.1|DRC|Ituri|Rwampara|2026-05-24	Kinshasa	none	Ituri	Rwampara	2026-05-24							
+26FHV486|PP_0076TB0.1|DRC|Ituri|Rwampara|2026-05-24	Kinshasa	none	Ituri	Rwampara	2026-05-24							
+BIA-1031|PP_00764J8.1|DRC|Ituri|Rwampara|2026-05-02	Bunia	lab_only	Ituri	Rwampara	2026-05-02	2026-06-01			21.39	lab:Altona (FAM-EBOLA)	Female	28
+BIA-1034|PP_00764K6.1|DRC|Ituri|Bunia|2026-06-01	Bunia	lab_only	Ituri	Bunia	2026-06-01	2026-06-01			25.6	lab:Altona (FAM-EBOLA)	Male	27
+BIA-1085|PP_00764AR.1|DRC|Ituri|Bunia|2026-06-03	Bunia	lab_only	Ituri	Bunia	2026-06-03	2026-06-02	2026-05-29		29.33	lab:RadiOne (Ct GP)	Female	28
+BIA-1182|PP_00764L4.1|DRC|Ituri|Rwampara|2026-06-03	Bunia	lab_only	Ituri	Rwampara	2026-06-03		2026-05-29		22.97	lab:Altona (FAM-EBOLA)	Male	50
+BIA-1189|PP_00764M2.1|DRC|Ituri|Rwampara|2026-06-03	Bunia	both	Ituri	Rwampara	2026-06-03	2026-06-03	2026-05-30	Deceased	17.62	lab:Altona (FAM-EBOLA)	Male	30
+BIA-1210|PP_007649T.1|DRC|Ituri|Bunia|2026-06-03	Bunia	lab_only	Ituri	Bunia	2026-06-03		2026-05-24		30.25	lab:RadiOne (Ct GP)	Female	21
+BIA-1218|PP_007648V.1|DRC|Ituri|Bunia|2026-06-03	Bunia	lab_only	Ituri	Bunia	2026-06-03	2026-06-03	2026-06-02	Deceased	20.72	lab:RadiOne (Ct GP)	Female	
+BIA-1229|PP_00764N0.1|DRC|Ituri|Nizi|2026-06-03	Bunia	both	Ituri	Nizi	2026-06-03	2026-06-03	2026-05-31	Alive	18.54	lab:Altona (FAM-EBOLA)	Female	25
+BIA-1230|PP_00764PY.1|DRC|Ituri|Bunia|2026-06-03	Bunia	lab_only	Ituri	Bunia	2026-06-03	2026-06-03	2026-05-31		21.67	lab:Altona (FAM-EBOLA)	Female	16
+BIA-1265|PP_007647X.1|DRC|Ituri|Bunia|2026-06-02	Bunia	lab_only	Ituri	Bunia	2026-06-02		2026-05-18		24.8	lab:RadiOne (Ct GP)	Female	17
+BIA-1272|PP_00764BP.1|DRC|Ituri|Aru|2026-05-31	Bunia	lab_only	Ituri	Aru	2026-05-31	2026-05-31	2026-05-23		29.27	lab:RadiOne (Ct GP)	Female	30
+BIA-1287|PP_00764CM.1|DRC|Ituri|Rwampara|2026-06-04	Bunia	both	Ituri	Rwampara	2026-06-04	2026-06-04	2026-06-01		30.27	dhis:radi_one_ebola_valeur_ct_fam_ebov	Male	62
+BIA-1299|PP_00764QW.1|DRC|Ituri|Rwampara|2026-06-04	Bunia	lab_only	Ituri	Rwampara	2026-06-04	2026-06-04	2026-06-04		23.18	lab:Altona (FAM-EBOLA)	Male	35
+BIA-1308|PP_00764RU.1|DRC|Ituri|Rwampara|2026-06-04	Bunia	lab_only	Ituri	Rwampara	2026-06-04	2026-06-04	2026-06-03	Deceased	28.3	lab:Altona (FAM-EBOLA)	Female	20
+BIA-1320|PP_00764SS.1|DRC|Ituri|Bunia|2026-06-05	Bunia	lab_only	Ituri	Bunia	2026-06-05	2026-06-04			23.56	lab:Altona (FAM-EBOLA)	Female	38
+BIA-1345|PP_00764TQ.1|DRC|Ituri|Bunia|2026-05-05	Bunia	lab_only	Ituri	Bunia	2026-05-05	2026-06-04	2026-06-04		25	lab:Altona (FAM-EBOLA)	Female	37
+BIA-1420|PP_00765RT.1|DRC|Ituri|Kilo|2026-06-06	Bunia	none	Ituri	Kilo	2026-06-06							
+BIA-1614|PP_00765SR.1|DRC|Ituri|Bunia|2026-06-08	Bunia	none	Ituri	Bunia	2026-06-08							
+BIA-1616|PP_00765TP.1|DRC|Ituri|Bunia|2026-06-08	Bunia	none	Ituri	Bunia	2026-06-08							
+BIA-1617|PP_00765UM.1|DRC|Ituri|Rwampara|2026-06-08	Bunia	none	Ituri	Rwampara	2026-06-08							
+BIA-1621|PP_00765FE.1|DRC|Ituri|Rwampara|2026-06-08	Bunia	dhis_only	Ituri	Rwampara	2026-06-08	2026-06-09	2026-06-07	Alive			Male	4
+BIA-1629|PP_00765GC.1|DRC|Ituri|Bunia|2026-06-08	Bunia	dhis_only	Ituri	Bunia	2026-06-08	2026-06-09	2026-06-05	Alive	24.88	dhis:radi_one_ebola_valeur_ct_fam_ebov	Male	41
+BIA-1640|PP_00765H9.1|DRC|Ituri|Bunia|2026-06-08	Bunia	none	Ituri	Bunia	2026-06-08							
+BIA-1732|PP_00765J7.1|DRC|Ituri|Bunia|2026-06-10	Bunia	none	Ituri	Bunia	2026-06-10							
+BIA-1734|PP_0076550.1|DRC|Ituri|Rwampara|2026-06-09	Bunia	none	Ituri	Rwampara	2026-06-09							
+BIA-1747|PP_00765K5.1|DRC|Ituri|Bunia|2026-06-10	Bunia	none	Ituri	Bunia	2026-06-10							
+BIA-1749|PP_00765L3.1|DRC|Ituri|Bunia|2026-06-10	Bunia	none	Ituri	Bunia	2026-06-10							
+BIA-1751|PP_00765M1.1|DRC|Ituri|Bunia|2026-06-10	Bunia	none	Ituri	Bunia	2026-06-10							
+BIA-1755|PP_00765NZ.1|DRC|Ituri|Bunia|2026-06-10	Bunia	none	Ituri	Bunia	2026-06-10							
+BIA-1764|PP_007656Y.1|DRC|Ituri|Bunia|2026-06-09	Bunia	none	Ituri	Bunia	2026-06-09							
+BIA-1776|PP_00765VK.1|DRC|Ituri|Bunia|2026-06-10	Bunia	none	Ituri	Bunia	2026-06-10							
+BIA-1777|PP_00765WH.1|DRC|Ituri|Rwampara|2026-06-10	Bunia	dhis_only	Ituri	Rwampara	2026-06-10	2026-06-10	2026-06-08		27.53	dhis:altona_valeur_ct_hex	Female	13
+BIA-1781|PP_00765XF.1|DRC|Ituri|Rwampara|2026-06-10	Bunia	dhis_only	Ituri	Rwampara	2026-06-10	2026-06-10	2026-05-27	Alive	24.74	dhis:altona_valeur_ct_hex	Male	27
+BIA-1782|PP_00765YD.1|DRC|Ituri|Bunia|2026-06-10	Bunia	dhis_only	Ituri	Bunia	2026-06-10	2026-06-10	2026-06-10		26.37	dhis:altona_valeur_ct_hex	Female	56
+BIA-1783|PP_00765ZB.1|DRC|Ituri|Rwampara|2026-06-10	Bunia	none	Ituri	Rwampara	2026-06-10							
+BIA-1785|PP_0076609.1|DRC|Ituri|Rwampara|2026-06-10	Bunia	none	Ituri	Rwampara	2026-06-10							
+BIA-1792|PP_0076617.1|DRC|Ituri|Bunia|2026-06-10	Bunia	dhis_only	Ituri	Bunia	2026-06-10	2026-06-11	2026-06-09	Alive	22.79	dhis:altona_valeur_ct_hex	Female	30
+BIA-1794|PP_0076625.1|DRC|Ituri|Rwampara|2026-06-10	Bunia	dhis_only	Ituri	Rwampara	2026-06-10	2026-06-10	2026-06-06		29.44	dhis:altona_valeur_ct_hex	Female	54
+BIA-1817|PP_00765PX.1|DRC|Ituri|Nizi|2026-06-10	Bunia	none	Ituri	Nizi	2026-06-10							
+BIA-1821|PP_00765QV.1|DRC|Ituri|Bunia|2026-06-10	Bunia	dhis_only	Ituri	Bunia	2026-06-10	2026-06-09	2026-06-04		22.61	dhis:radi_one_ebola_valeur_ct_fam_ebov	Male	48
+BIA-1849|PP_007657W.1|DRC|Ituri|Mangala|2026-06-11	Bunia	dhis_only	Ituri	Mangala	2026-06-11	2026-06-11	2026-06-11		24.11	dhis:radi_one_ebola_valeur_ct_fam_ebov	Female	1
+BIA-1889|PP_007658U.1|DRC|Ituri|Mambasa|2026-06-10	Bunia	none	Ituri	Mambasa	2026-06-10							
+BIA-1898|PP_007659S.1|DRC|Ituri|Lita|2026-06-11	Bunia	dhis_only	Ituri	Lita	2026-06-11	2026-06-11	2026-06-09	Alive	27.2	dhis:radi_one_ebola_valeur_ct_fam_ebov	Female	63
+BIA-1911|PP_00765AQ.1|DRC|Ituri|Rwampara|2026-06-11	Bunia	dhis_only	Ituri	Rwampara	2026-06-11	2026-06-12	2026-06-03	Alive	27.3	dhis:radi_one_ebola_valeur_ct_fam_ebov	Male	2
+BIA-1972|PP_00764YE.1|DRC|Ituri|Bunia|2026-06-13	Bunia	dhis_only	Ituri	Bunia	2026-06-13	2026-06-13	2026-06-05		21.01	dhis:radi_one_ebola_valeur_ct_fam_ebov	Male	3
+BIA-1978|PP_00765BN.1|DRC|Ituri|Lita|2026-06-12	Bunia	none	Ituri	Lita	2026-06-12							
+BIA-1981|PP_00765CL.1|DRC|Ituri|Nizi|2026-06-13	Bunia	dhis_only	Ituri	Nizi	2026-06-13	2026-06-13	2026-06-09		27.2	dhis:radi_one_ebola_valeur_ct_fam_ebov	Female	33
+BIA-2054|PP_00764ZC.1|DRC|Ituri|Bunia|2026-06-14	Bunia	none	Ituri	Bunia	2026-06-14							
+BIA-2056|PP_00765DJ.1|DRC|Ituri|Bunia|2026-06-14	Bunia	none	Ituri	Bunia	2026-06-14							
+BIA-2059|PP_00765EG.1|DRC|Ituri|Mungwalu|2026-06-13	Bunia	none	Ituri	Mongbalu	2026-06-13							
+BIA-2064|PP_007650A.1|DRC|Ituri|Nizi|2026-06-13	Bunia	none	Ituri	Nizi	2026-06-13							
+BIA-2075|PP_0076518.1|DRC|Ituri|Lita|2026-06-13	Bunia	none	Ituri	Lita	2026-06-13							
+BIA-2076|PP_0076526.1|DRC|Ituri|Nizi|2026-06-13	Bunia	none	Ituri	Nizi	2026-06-13							
+BIA-2261|PP_0076534.1|DRC|Ituri|Bunia|2026-06-15	Bunia	none	Ituri	Bunia	2026-06-15							
+BIA-2281|PP_0076542.1|DRC|Ituri|Rwampara|2026-06-16	Bunia	dhis_only	Ituri	Rwampara	2026-06-16	2026-06-15	2026-06-06		28.11	dhis:radi_one_ebola_valeur_ct_fam_ebov	Male	32
+BIA-478|PP_007646Z.1|DRC|Ituri|Rwampara|2026-05-24	Bunia	lab_only	Ituri	Rwampara	2026-05-24	2026-05-24	2026-05-24		24.92	lab:RadiOne (Ct GP)	Female	60
+BIA-494|PP_0076451.1|DRC|Ituri|Bunia|2026-05-23	Bunia	lab_only	Ituri	Bunia	2026-05-23		2026-05-10	Deceased	20.16	lab:RadiOne (Ct GP)	Female	42
+BIA-526|PP_0076443.1|DRC|Ituri|Bunia|2026-05-24	Bunia	lab_only	Ituri	Bunia	2026-05-24		2026-05-18	Deceased	23.18	lab:RadiOne (Ct GP)	Female	32
+BIA-532|PP_0076435.1|DRC|Ituri|Mungwalu|2026-05-20	Bunia	lab_only	Ituri	Mongbalu	2026-05-20	2026-05-20	2026-05-17				Male	60
+BIA-534|PP_0076427.1|DRC|Ituri|Bunia|2026-05-25	Bunia	lab_only	Ituri	Bunia	2026-05-25	2026-05-25	2026-05-23				Male	11
+BIA-538|PP_0076419.1|DRC|Ituri|Bunia|2026-05-24	Bunia	lab_only	Ituri	Bunia	2026-05-24	2026-05-24	2026-05-20		25.18	lab:Altona (FAM-EBOLA)	Female	22
+BIA-552|PP_007640B.1|DRC|Ituri|Nyankunde|2026-05-25	Bunia	lab_only	Ituri	Nyakunde	2026-05-25	2026-05-25	2026-05-20	Deceased	20.81	lab:Altona (FAM-EBOLA)	Female	59
+BIA-567|PP_00763ZD.1|DRC|Ituri|Bunia|2026-05-26	Bunia	lab_only	Ituri	Bunia	2026-05-26	2026-05-26	2026-05-24				Female	58
+BIA-582|PP_00763YF.1|DRC|Ituri|Bunia|2026-05-26	Bunia	both	Ituri	Bunia	2026-05-26	2026-05-26	2026-05-23	Deceased	26.89	lab:RadiOne (Ct GP)	Female	8
+BIA-615|PP_00763XH.1|DRC|Ituri|Rwampara|2026-05-25	Bunia	lab_only	Ituri	Rwampara	2026-05-25				19.12	lab:RadiOne (Ct GP)	Male	72
+BIA-619|PP_00763WK.1|DRC|Ituri|Rwampara|2026-05-26	Bunia	none	Ituri	Rwampara	2026-05-26							
+BIA-631|PP_00763VM.1|DRC|Ituri|Rimba|2026-06-23	Bunia	lab_only	Ituri	Rimba	2026-06-23	2026-05-23	2026-05-17		30.79	lab:RadiOne (Ct GP)	Male	26
+BIA-642|PP_00763UP.1|DRC|Ituri|Sota|2026-05-27	Bunia	lab_only	Ituri	Nyakunde	2026-05-27	2026-05-27					Male	65
+BIA-644|PP_00763TR.1|DRC|Ituri|Rwampara|2026-05-27	Bunia	lab_only	Ituri	Rwampara	2026-05-27		2026-05-14	Deceased			Female	25
+BIA-654|PP_00763ST.1|DRC|Ituri|Kilo|2026-05-25	Bunia	lab_only	Ituri	Kilo	2026-05-25	2026-05-25	2026-05-25				Male	65
+BIA-660|PP_00763RV.1|DRC|Ituri|Rwampara|2026-05-27	Bunia	both	Ituri	Rwampara	2026-05-27	2026-05-27	2026-05-26	Alive			Female	57
+BIA-665|PP_00763QX.1|DRC|Ituri|Bunia|2026-05-27	Bunia	lab_only	Ituri	Bunia	2026-05-27	2026-05-25	2026-05-14	Deceased			Male	19
+BIA-672|PP_00763PZ.1|DRC|Ituri|Bunia|2026-05-27	Bunia	lab_only	Ituri	Bunia	2026-05-27	2026-05-27	2026-05-25	Deceased	27.42	lab:Altona (FAM-EBOLA)	Female	51
+BIA-701|PP_00763N1.1|DRC|Ituri|Mungwalu|2026-05-26	Bunia	lab_only	Ituri	Mongbalu	2026-05-26	2026-05-26			30.07	lab:RadiOne (Ct GP)	Male	49
+BIA-709|PP_00763M3.1|DRC|Ituri|Rwampara|2026-05-26	Bunia	lab_only	Ituri	Rwampara	2026-05-26	2026-05-28	2026-05-18	Deceased	25.33	lab:RadiOne (Ct GP)	Male	
+BIA-712|PP_00763L5.1|DRC|Ituri|Rwampara|2026-05-25	Bunia	lab_only	Ituri	Rwampara	2026-05-25	2026-05-28			24.51	lab:RadiOne (Ct GP)	Male	10
+BIA-764|PP_00763K7.1|DRC|Ituri|Lita|2026-05-29	Bunia	both	Ituri	Lita	2026-05-29	2026-05-29	2026-05-29	Alive	24.15	lab:Altona (FAM-EBOLA)	Female	35
+BIA-793|PP_00764DK.1|DRC|Ituri|Rwampara|2026-05-29	Bunia	lab_only	Ituri	Rwampara	2026-05-29	2026-05-29	2026-05-26		31.07	lab:RadiOne (Ct GP)	Male	20
+BIA-807|PP_00764EH.1|DRC|Ituri|Bunia|2026-05-30	Bunia	lab_only	Ituri	Bunia	2026-05-30	2026-05-30	2026-05-27		27.56	lab:RadiOne (Ct GP)	Male	48
+BIA-820|PP_00763J9.1|DRC|Ituri|Nizi|2026-05-29	Bunia	lab_only	Ituri	Nizi	2026-05-29	2026-05-29	2026-05-22		24.02	lab:RadiOne (Ct GP)	Male	72
+BIA-836|PP_00764FF.1|DRC|Ituri|Nizi|2026-05-29	Bunia	lab_only	Ituri	Nizi	2026-05-29	2026-05-29	2026-05-21	Deceased	27.66	lab:Altona (FAM-EBOLA)	Male	4
+BIA-839|PP_00764UN.1|DRC|Ituri|Bambu|2026-05-28	Bunia	lab_only	Ituri	Bambu	2026-05-28	2026-05-28	2026-05-26		30.19	lab:Altona (FAM-EBOLA)	Female	36
+BIA-842|PP_00764VL.1|DRC|Ituri|Nizi|2026-05-29	Bunia	lab_only	Ituri	Nizi	2026-05-29	2026-05-29	2026-05-23		25.56	lab:Altona (FAM-EBOLA)	Female	35
+BIA-843|PP_00764WJ.1|DRC|Ituri|Nizi|2026-05-30	Bunia	both	Ituri	Nizi	2026-05-30	2026-05-30	2026-05-30	Alive	25.66	lab:Altona (FAM-EBOLA)	TBD	37
+BIA-848|PP_00764XG.1|DRC|Ituri|Rwampara|2026-05-30	Bunia	lab_only	Ituri	Rwampara	2026-05-30	2026-05-30	2026-05-22		22.75	lab:Altona (FAM-EBOLA)	Female	37
+BIA-901|PP_00764GD.1|DRC|Ituri|Bambu|2026-05-30	Bunia	both	Ituri	Bambu	2026-05-30	2026-05-30	2026-05-21	Deceased	25.13	lab:RadiOne (Ct GP)	Male	10
+BIA-903|PP_00764HA.1|DRC|Ituri|Mungwalu|2026-05-30	Bunia	lab_only	Ituri	Mongbalu	2026-05-30	2026-05-29		Deceased	30.24	lab:RadiOne (Ct GP)	Female	30

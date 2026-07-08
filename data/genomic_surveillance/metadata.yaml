@@ -1,0 +1,19 @@
+source: "INRB/INOHA BDBV 2026 genomic surveillance (whole-genome sequencing consensus metadata)"
+citation: "Institut National de Recherche Biomédicale (INRB) / One Health Institute for Africa (INOHA), Kinshasa. Bundibugyo ebolavirus (BDBV) 2026 genomic surveillance. Consensus sequence metadata reconciled from FASTA headers, laboratory linelists (Bunia, Kinshasa) and the DHIS2 alert linelist (BDBV2026-Phylogenetic-analyses). Health-zone geometry: DRC_Health_zones.shp (see data/shapefiles/)."
+source_url: "https://pathoplexus.org/ebola-bdbv/search"
+retrieved_on: "2026-07-07"
+license: "Preliminary outbreak data — see repository root README statement on continuing work before publication; contact INRB before reuse."
+contact: "placide.mbala@inrb.cd"
+runtime: python
+period: "2026"
+notes: |
+  Per-health-zone count of BDBV whole-genome sequences from the 2026 outbreak.
+  raw/bia_fasta_metadata_consensus_v0.1.tsv is the consensus metadata table
+  produced by BDBV2026-Phylogenetic-analyses (one row per sequenced genome),
+  where each genome's health_zone was reconciled across the FASTA header, the
+  lab linelist and the DHIS2 linelist, with ambiguous zones resolved to the
+  FASTA header value. data/genomic_surveillance/process.py resolves each
+  consensus health_zone to a canonical shapefile Nom (via data/aliases.csv) and
+  aggregates to processed/genomic_surveillance__sequence_count__static.csv
+  (nom, sequence_count). Per-sequence assignment audit in process_log.csv.
+  Coverage: 139 sequences across 16 health zones in Ituri and Nord-Kivu.
