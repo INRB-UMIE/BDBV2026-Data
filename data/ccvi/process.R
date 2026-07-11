@@ -46,7 +46,7 @@ setwd(wd)
 # to geoJSON
 
 # Read ncdf
-ncdf_raw <- nc_open("data/ccvi/raw/COD-2022-2024-ccvi.zs.nc")
+ncdf_raw <- nc_open("data/ccvi/raw/COD-2022-2025-ccvi.zs.nc")
 names(ncdf_raw$var)
 names(ncdf_raw$dim)
 
