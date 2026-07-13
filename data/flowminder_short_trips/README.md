@@ -1,4 +1,4 @@
-# Flowminder short-trip destination mobility (Bunia / Mongbalu / Rwampara and NK cohorts)
+# Flowminder short-trip destination mobility (Bunia / Mongbwalu / Rwampara and NK cohorts)
 
 Mobile-subscriber mobility snapshots for the BDBV 2026 outbreak area, from Flowminder Annex A (May 2026 report) and HDX cohort subscriber-day extracts (8 Jun 2026).
 
@@ -46,7 +46,7 @@ Unlike `data/flowminder/` (full provincial OD matrices in persons), this folder 
 | `_outflow_20260521` | D+28 | 21 May 2026 |
 | `_outflow_20260524` | D+31 | 24 May 2026 |
 
-Origins: **Bunia**, **Mongbalu**, **Rwampara**.
+Origins: **Bunia**, **Mongbwalu**, **Rwampara**.
 
 ------------------------------------------------------------------------
 
@@ -54,8 +54,8 @@ Origins: **Bunia**, **Mongbalu**, **Rwampara**.
 
 | Metric suffix | Window | End date | Origins |
 |---------------|--------|----------|---------|
-| `ituri_subscriber_days_prior_20260503` | 21-day look-back | 3 May 2026 | Bunia, Mongbalu, Rwampara, Nyankunde |
-| `ituri_subscriber_days_followup_20260608` | 21-day follow-up | 8 Jun 2026 | Bunia, Mongbalu, Rwampara, Nyankunde |
+| `ituri_subscriber_days_prior_20260503` | 21-day look-back | 3 May 2026 | Bunia, Mongbwalu, Rwampara, Nyankunde |
+| `ituri_subscriber_days_followup_20260608` | 21-day follow-up | 8 Jun 2026 | Bunia, Mongbwalu, Rwampara, Nyankunde |
 | `nk_subscriber_days_prior_20260503` | 21-day look-back | 3 May 2026 | Beni, Butembo, Katwa |
 | `nk_subscriber_days_followup_20260608` | 21-day follow-up | 8 Jun 2026 | Beni, Butembo, Katwa |
 
