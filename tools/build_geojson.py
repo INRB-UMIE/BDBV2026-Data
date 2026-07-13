@@ -54,6 +54,7 @@ from tools.lib.schema import (
     is_province_rollup_nom,
     load_zones,
     parse_filename,
+    province_name_from_rollup_nom,
     resolve_processed_paths,
     resolve_vector_nom,
     zones_by_province,
@@ -190,7 +191,11 @@ def _attach_vector(
 
     by_province = zones_by_province()
     for prov, r in province_rows.items():
-        for zone_nom in by_province.get(prov, []):
+        # `prov` may carry the "(province)" disambiguation marker (see
+        # PROVINCE_ROLLUP_SUFFIX) — strip it to get the bare shapefile
+        # PROVINCE key that zones_by_province() is keyed by.
+        bare_prov = province_name_from_rollup_nom(prov)
+        for zone_nom in by_province.get(bare_prov, []):
             _apply_row(zone_nom, r)
 
     if national_row is not None:

@@ -18,6 +18,8 @@ Every dataset folder follows the same layout:
 
 **Join key:** canonical zone name `nom`, matching the shapefile attribute `Nom`. Spellings that differ from the shapefile are listed in [`aliases.csv`](aliases.csv) (including disambiguation of duplicate names such as `Bili` and `Lubunga` with a province suffix).
 
+**Province roll-ups:** a vector row's `nom` may instead be a canonical `PROVINCE` name (or alias in [`province_aliases.csv`](province_aliases.csv)) — QA passes and `tools.build_geojson` broadcasts that row's value to every zone in the province (same pattern as the national `DRC` roll-up). **Kinshasa, Lualaba, and Tshopo are each both a province *and* a health zone of the same name.** Zone identity always wins on that collision: a bare `Tshopo` row is read as the specific health zone, never the province. If you need a genuine province-wide roll-up for one of those three, the `nom` value must be `"<Province> (province)"` — e.g. `Tshopo (province)` — or it will silently attach to the wrong zone instead of broadcasting. Any other province can use this same `"<Province> (province)"` form too, but it's optional there since there's no collision to resolve.
+
 **Filenames:** `<dataset>__<metric>__<resolution>.csv` for per-zone tables, or `.matrix.csv` for origin–destination tables between zones. Full rules are in the root README *Data contract* section.
 
 **Vectors vs matrices:** vector files have one row per zone (plus `date` for daily/weekly series). Matrix files are zone×zone tables (OSRM, IOM IDP, Flowminder); they are QA-catalogued but not embedded in the GeoJSON.

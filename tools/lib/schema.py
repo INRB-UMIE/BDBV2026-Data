@@ -16,6 +16,11 @@ What lives here:
   - Province roll-ups: `nom` may be a canonical `PROVINCE` name (or alias in
     `data/province_aliases.csv`). QA passes; GeoJSON build broadcasts to all
     zones in that province (same pattern as national `DRC` rows).
+    Three provinces — Kinshasa, Lualaba, Tshopo — share a name with one of
+    their own health zones. Zone identity always wins on that collision, so a
+    genuine province-wide roll-up for one of those three MUST use the
+    `"<Province> (province)"` form (see `PROVINCE_ROLLUP_SUFFIX`) — a bare
+    `"Tshopo"` always resolves to the health zone, never the province.
   - `zscode_to_canonical(zscode)`: same idea, keyed by the shapefile's ZSCode.
   - `parse_filename(name)`: validates the contract for processed-file names of
     the form `<dataset>__<metric>__<resolution>[.matrix].csv`.
@@ -61,6 +66,12 @@ NON_GEOGRAPHIC_NOMS: frozenset[str] = frozenset({"Sans Fiche", "NA"})
 
 # Republic-wide roll-up row in `national_*` vector files (one row per date).
 NATIONAL_ROLLUP_NOM: str = "DRC"
+
+# Required for a province-wide roll-up whose province name collides with a
+# health zone Nom (currently Kinshasa, Lualaba, Tshopo): write the `nom` value
+# as f"{province}{PROVINCE_ROLLUP_SUFFIX}", e.g. "Tshopo (province)". Optional
+# (but harmless) on any other province. See resolve_vector_nom.
+PROVINCE_ROLLUP_SUFFIX: str = " (province)"
 
 
 @dataclass(frozen=True)
@@ -207,11 +218,45 @@ def is_national_rollup_nom(name: str | None) -> bool:
     return name.strip() == NATIONAL_ROLLUP_NOM
 
 
+def _province_rollup_candidate(label: str) -> str | None:
+    """If `label` uses the explicit "<Province>{PROVINCE_ROLLUP_SUFFIX}" form,
+    return the bit before the suffix (unresolved), else None."""
+    if not label.endswith(PROVINCE_ROLLUP_SUFFIX):
+        return None
+    return label[: -len(PROVINCE_ROLLUP_SUFFIX)].strip()
+
+
 def is_province_rollup_nom(name: str | None) -> bool:
-    """True if `name` is a canonical shapefile PROVINCE (after alias resolution)."""
+    """True if `name` is a province-wide roll-up label.
+
+    Two forms:
+      - A canonical shapefile PROVINCE that is NOT also a canonical zone Nom
+        (the common case — e.g. "Ituri", "Nord-Kivu").
+      - The explicit "<Province> (province)" disambiguation form, required
+        when the province name collides with a zone Nom (Kinshasa, Lualaba,
+        Tshopo — see resolve_vector_nom / PROVINCE_ROLLUP_SUFFIX).
+
+    Zone identity wins on an unmarked collision — otherwise a dataset's
+    per-zone row for e.g. the "Tshopo" health zone gets misread as a
+    province-wide roll-up and its value is broadcast over every zone in
+    Tshopo province, clobbering their real per-zone values.
+    """
     if not name:
         return False
-    return name.strip() in canonical_provinces()
+    label = name.strip()
+    candidate = _province_rollup_candidate(label)
+    if candidate is not None:
+        return to_canonical_province(candidate) is not None
+    return label in canonical_provinces() and label not in canonical_noms()
+
+
+def province_name_from_rollup_nom(name: str) -> str | None:
+    """Bare shapefile PROVINCE for a name that is_province_rollup_nom() has
+    already confirmed is a roll-up (strips the disambiguation marker, and
+    resolves province aliases, if present)."""
+    label = name.strip()
+    candidate = _province_rollup_candidate(label)
+    return to_canonical_province(candidate if candidate is not None else label)
 
 
 def counts_as_zone_coverage(resolved: str | None) -> bool:
@@ -226,16 +271,27 @@ def counts_as_zone_coverage(resolved: str | None) -> bool:
 
 
 def resolve_vector_nom(name: str | None) -> str | None:
-    """Resolve `nom` for vector QA/build: zone, roll-up label, or None."""
+    """Resolve `nom` for vector QA/build: zone, roll-up label, or None.
+
+    The explicit "<Province> (province)" form is checked first and always
+    resolves to a province roll-up (see PROVINCE_ROLLUP_SUFFIX). Otherwise,
+    zone identity is checked before province: Kinshasa, Lualaba, and Tshopo
+    are each both a health zone and their own province's name, so a bare
+    occurrence of one of those strings resolves to the specific zone, not a
+    province-wide roll-up (see is_province_rollup_nom)."""
     if not name:
         return None
     label = name.strip()
     if label in NON_GEOGRAPHIC_NOMS or label == NATIONAL_ROLLUP_NOM:
         return label
-    province = to_canonical_province(label)
-    if province is not None:
-        return province
-    return to_canonical(label)
+    candidate = _province_rollup_candidate(label)
+    if candidate is not None:
+        province = to_canonical_province(candidate)
+        return f"{province}{PROVINCE_ROLLUP_SUFFIX}" if province is not None else None
+    zone = to_canonical(label)
+    if zone is not None:
+        return zone
+    return to_canonical_province(label)
 
 
 def zscode_to_canonical(zscode: str | None) -> str | None:

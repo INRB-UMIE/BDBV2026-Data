@@ -44,6 +44,8 @@ Rscript data/aggregated_insp_linelist/process.R
 
 `process.R` maps province names to canonical shapefile `PROVINCE` values (via `data/province_aliases.csv`), normalises dates to ISO `YYYY-MM-DD`, and writes the two processed files.
 
+**Kinshasa, Lualaba, and Tshopo are each both a province and a health zone of the same name.** Because this dataset is entirely province-grain, a plain `nom = Tshopo` (etc.) row would now be read as the *health zone*, not the province, and would attach only to that one zone instead of broadcasting. If `province_aggregated.csv` ever has a row for one of these three provinces, `process.R` must write `nom` as `"<Province> (province)"` — e.g. `Tshopo (province)` — to disambiguate. See `data/README.md` § *Province roll-ups*.
+
 Then validate and rebuild:
 
 ``` bash

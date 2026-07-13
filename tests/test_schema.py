@@ -7,6 +7,7 @@ import pytest
 from tools.lib.schema import (
     NATIONAL_ROLLUP_NOM,
     NON_GEOGRAPHIC_NOMS,
+    PROVINCE_ROLLUP_SUFFIX,
     VALID_RESOLUTIONS,
     build_processed_filename,
     canonical_noms,
@@ -16,6 +17,7 @@ from tools.lib.schema import (
     language_variant_filenames,
     load_zones,
     parse_filename,
+    province_name_from_rollup_nom,
     resolve_processed_paths,
     resolve_vector_nom,
     split_language_suffix,
@@ -97,10 +99,53 @@ def test_to_canonical_province_and_aliases():
     assert to_canonical_province("Fake Province") is None
 
 
-def test_resolve_vector_nom_province_before_zone():
+def test_resolve_vector_nom_province_alias_with_no_zone_collision():
     assert resolve_vector_nom("North-Kivu") == "Nord-Kivu"
     assert is_province_rollup_nom("Nord-Kivu")
     assert not is_province_rollup_nom("North-Kivu")
+
+
+@pytest.mark.parametrize("name", ["Kinshasa", "Lualaba", "Tshopo"])
+def test_zone_province_name_collision_resolves_to_zone(name: str):
+    # Kinshasa, Lualaba, and Tshopo are each both a health zone Nom and their
+    # own province's name. Zone identity must win: a per-zone dataset row for
+    # e.g. "Tshopo" should never be broadcast over every zone in Tshopo
+    # province (which is what happens if it's misread as a province roll-up).
+    assert name in canonical_noms()
+    assert name in canonical_provinces()
+    assert resolve_vector_nom(name) == name
+    assert not is_province_rollup_nom(name)
+
+
+@pytest.mark.parametrize("province", ["Kinshasa", "Lualaba", "Tshopo"])
+def test_province_rollup_marker_disambiguates_collision(province: str):
+    # A genuine province-wide roll-up for one of the three colliding
+    # provinces must use the explicit "<Province> (province)" form.
+    marked = f"{province}{PROVINCE_ROLLUP_SUFFIX}"
+    resolved = resolve_vector_nom(marked)
+    assert resolved == marked
+    assert is_province_rollup_nom(resolved)
+    assert province_name_from_rollup_nom(resolved) == province
+
+
+def test_province_rollup_marker_optional_on_non_colliding_province():
+    # The marker also works on provinces with no zone-name collision, and is
+    # equivalent to the bare form there — it's only *required* for the three
+    # collision cases above.
+    assert resolve_vector_nom("Ituri (province)") == "Ituri (province)"
+    assert is_province_rollup_nom("Ituri (province)")
+    assert province_name_from_rollup_nom("Ituri (province)") == "Ituri"
+
+
+def test_province_rollup_marker_resolves_province_alias():
+    assert resolve_vector_nom("North-Kivu (province)") == "Nord-Kivu (province)"
+    assert is_province_rollup_nom("Nord-Kivu (province)")
+    assert province_name_from_rollup_nom("Nord-Kivu (province)") == "Nord-Kivu"
+
+
+def test_province_rollup_marker_unknown_province_rejected():
+    assert resolve_vector_nom("Fake Province (province)") is None
+    assert not is_province_rollup_nom("Fake Province (province)")
 
 
 def test_zones_by_province_includes_bunia_in_ituri():

@@ -188,6 +188,89 @@ def test_attach_vector_broadcasts_province_to_zones_in_province(tmp_path, monkey
     assert beni_val["_date"] == "2026-06-06"
 
 
+def test_attach_vector_broadcasts_marked_province_rollup_for_colliding_province(
+    tmp_path, monkeypatch
+):
+    """A genuine province-wide roll-up for Tshopo (which collides with the
+    Tshopo health zone) must use the "Tshopo (province)" marker to broadcast,
+    since a bare "Tshopo" now always means the specific zone."""
+    folder = tmp_path / "public_health_response"
+    processed = folder / "processed"
+    long_dir = tmp_path / "long"
+    processed.mkdir(parents=True)
+
+    with open(
+        processed / "public_health_response__provincial_epidemiological_coordination__daily.csv",
+        "w",
+        encoding="utf-8",
+    ) as fp:
+        fp.write(
+            "nom,date,provincial_coordination\n"
+            "Tshopo (province),2026-06-06,tshopo province update\n"
+        )
+
+    monkeypatch.setattr(build_geojson, "LONG_DIR", long_dir)
+
+    tshopo_zone_feat = {"properties": {}}  # the "Tshopo" health zone itself
+    other_zone_feat = {"properties": {}}   # another zone in Tshopo province
+    attached = build_geojson._attach_vector(
+        processed / "public_health_response__provincial_epidemiological_coordination__daily.csv",
+        "public_health_response__provincial_epidemiological_coordination__daily.csv",
+        SimpleNamespace(
+            dataset="public_health_response",
+            metric="provincial_epidemiological_coordination",
+        ),
+        {"Tshopo": tshopo_zone_feat, "Bafwagbogbo": other_zone_feat},
+    )
+
+    assert attached == 2
+    for feat in (tshopo_zone_feat, other_zone_feat):
+        val = feat["properties"]["public_health_response"][
+            "provincial_epidemiological_coordination"
+        ]
+        assert val["provincial_coordination"] == "tshopo province update"
+
+
+def test_attach_vector_zone_province_collision_not_broadcast(tmp_path, monkeypatch):
+    """Tshopo is both a health zone and its own province's name. A per-zone row
+    for "Tshopo" must attach only to the Tshopo zone feature, not broadcast to
+    every zone in Tshopo province (regression test for that exact bug)."""
+    folder = tmp_path / "ccvi"
+    processed = folder / "processed"
+    long_dir = tmp_path / "long"
+    processed.mkdir(parents=True)
+
+    with open(
+        processed / "ccvi__socioeconomic_deprivation__static.csv",
+        "w",
+        encoding="utf-8",
+    ) as fp:
+        fp.write(
+            "nom,socioeconomic_deprivation\n"
+            "Tshopo,0.5\n"
+            "Bafwagbogbo,0.9\n"
+        )
+
+    monkeypatch.setattr(build_geojson, "LONG_DIR", long_dir)
+
+    tshopo_feat = {"properties": {}}
+    other_zone_feat = {"properties": {}}
+    attached = build_geojson._attach_vector(
+        processed / "ccvi__socioeconomic_deprivation__static.csv",
+        "ccvi__socioeconomic_deprivation__static.csv",
+        SimpleNamespace(dataset="ccvi", metric="socioeconomic_deprivation"),
+        {"Tshopo": tshopo_feat, "Bafwagbogbo": other_zone_feat},
+    )
+
+    assert attached == 2
+    assert tshopo_feat["properties"]["ccvi"]["socioeconomic_deprivation"] == {
+        "socioeconomic_deprivation": 0.5
+    }
+    assert other_zone_feat["properties"]["ccvi"]["socioeconomic_deprivation"] == {
+        "socioeconomic_deprivation": 0.9
+    }
+
+
 def test_attach_vector_resolves_language_variants(tmp_path, monkeypatch):
     folder = tmp_path / "public_health_response"
     processed = folder / "processed"
