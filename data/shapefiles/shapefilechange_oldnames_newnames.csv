@@ -1,0 +1,520 @@
+old_nom,new_nom,perfect_match
+Aba,Aba,1
+Abuzi,Abuzi,1
+Adi,Adi,1
+Adja,Adja,1
+Aketi,Aketi,1
+Alimbongo,Alimbongo,1
+Alunguli,Alunguli,1
+Ango,Ango,1
+Angumu,Angumu,1
+Ankoro,Ankoro,1
+Ariwara,Ariwara,1
+Aru,Aru,1
+Aungba,Aungba,1
+Bafwagbogbo,Bafwagbogbo,1
+Bafwasende,Bafwasende,1
+Bagata,Bagata,1
+Bagira,Bagira,1
+Baka,Baka,1
+Bambo,Bambo,1
+Bambu,Bambu,1
+Banalia,Banalia,1
+Bandalungwa,Bandalungwa,1
+Bandundu,Bandundu,1
+Banga Lubaka,Banga Lubaka,1
+Bangabola,Bangabola,1
+Banjow Moke,Banzow Moke,0
+Barumbu,Barumbu,1
+Basali,Basali,1
+Basankusu,Basankusu,1
+Basoko,Basoko,1
+Befale,Befale,1
+Bena Dibele,Bena Dibele,1
+Bena Leka,Bena Leka,1
+Bena Tshiadi,Bena Tshadi,0
+Bengamisa,Bengamisa,1
+Beni,Beni,1
+Bibanga,Bibanga,1
+Biena,Biena,1
+Bikoro,Bikoro,1
+Bili (Bas-Uele),Bili (Bas-Uele),0
+Bili (Nord-Ubangi),Bili (Nord-Ubangi),0
+Bilomba,Bilomba,1
+Binga,Binga,1
+Binza,Binza,1
+Binza Meteo,Binza Meteo,1
+Binza Ozone,Binza Ozone,1
+Bipemba,Bipemba,1
+Birambizo,Birambizo,1
+Biringi,Biringi,1
+Biyela,Biyela,1
+Bobozo,Bobozo,1
+Boende,Boende,1
+Boga,Boga,1
+Bogosenubia,Bogosenubea,0
+Boko,Boko,1
+Boko-Kivulu,Boko Kivulu,0
+Bokonzi,Bokonzi,1
+Bokoro,Bokoro,1
+Bokungu,Bokungu,1
+Bolenge,Bolenge,1
+Bolobo,Bolobo,1
+Bolomba,Bolomba,1
+Boma,Boma,1
+Boma Bungu,Boma Bungu,1
+Boma-Mangbetu,Boma Mangbetu,0
+Bominenge,Bominenge,1
+Bomongo,Bomongo,1
+Bondo,Bondo,1
+Bongandanga,Bongandanga,1
+Bonzola,Bonzola,1
+Bosanga,Busanga,0
+Boso Manzi,Boso Manzi,1
+Boso Mondanda,Boso Mondanda,1
+Bosobe,Bosobe,1
+Bosobolo,Bosobolo,1
+Bosondjo,Bosondjo,1
+Boto,Boto,1
+Budjala,Budjala,1
+Bukama,Bukama,1
+Bulape,Bulape,1
+Bulu,Bulu,1
+Bulungu,Bulungu,1
+Bumba,Bumba,1
+Bumbu,Bumbu,1
+Bunia,Bunia,1
+Bunkeya,Bunkeya,1
+Bunkonde,Bunkonde,1
+Bunyakiri,Bunyakiri,1
+Businga,Businga,1
+Buta,Buta,1
+Butembo,Butembo,1
+Butumba,Butumba,1
+Bwamanda,Bwamanda,1
+Cilundu,Cilundu,1
+Damas,Damas,1
+Dekese,Dekese,1
+Demba,Demba,1
+Dibaya,Dibaya,1
+Dibindi,Dibindi,1
+Dikungu,Dikungu,1
+Dilala,Dilala,1
+Dilolo,Dilolo,1
+Diulu,Diulu,1
+Djalo Djeka,Djalo Ndjeka,0
+Djolu,Djolu,1
+Djombo,Djombo,1
+Djuma,Djuma,1
+Doruma,Doruma,1
+Drodro,Drodro,1
+Dungu,Dungu,1
+Faradje,Faradje,1
+Fataki,Fataki,1
+Ferekeni,Ferekeni,1
+Feshi,Feshi,1
+Fizi,Fizi,1
+Fungurume,Fungurume,1
+Ganga,Ganga,1
+Gbadolite,Gbadolite,1
+Gemena,Gemena,1
+Gethy,Gety,0
+Goma,Goma,1
+Gombari,Gombari,1
+Gombe,Gombe,1
+Gombe-Matadi,Gombe Matadi,0
+Gungu,Gungu,1
+Hauts-Plateaux,Haut Plateau,0
+Ibanda,Ibanda,1
+Iboko,Iboko,1
+Idiofa,Idiofa,1
+Idjwi,Idjwi,1
+Ikela,Ikela,1
+Ilebo,Ilebo,1
+Inga,Inga,1
+Ingende,Ingende,1
+Inongo,Inongo,1
+Ipamu,Ipamu,1
+Irebu,Irebu,1
+Isangi,Isangi,1
+Isiro,Isiro,1
+Itebero,Itebero,1
+Itombwe,Itombwe,1
+Jiba,Jiba,1
+Kabalo,Kabalo,1
+Kabambare,Kabambare,1
+Kabare,Kabare,1
+Kabeya Kamuanga,Kabeya Kamwanga,0
+Kabinda,Kabinda,1
+Kabondo,Kabondo,1
+Kabondo Dianda,Kabondo Dianda,1
+Kabongo,Kabongo,1
+Kadutu,Kadutu,1
+Kafakumba,Kafakumba,1
+Kafubu,Kafubu,1
+Kahemba,Kahemba,1
+Kailo,Kailo,1
+Kajiji,Kajiji,1
+Kakenge,Kakenge,1
+Kalamba,Kalamba,1
+Kalambayi Kabanga,Kalambayi Kabanga,1
+Kalamu I,Kalamu 1,0
+Kalamu II,Kalamu 2,0
+Kalehe,Kalehe,1
+Kalemie,Kalemie,1
+Kalenda,Kalenda,1
+Kalima,Kalima,1
+Kalole,Kalole,1
+Kalomba,Kalomba,1
+Kalonda Est,Kalonda Est,1
+Kalonda Ouest,Kalonda Ouest,1
+Kalonge,Kalonge,1
+Kalunguta,Kalunguta,1
+Kamalondo,Kamalondo,1
+Kamana,Kamana,1
+Kamango,Kamango,1
+Kambala,Kambala,1
+Kambove,Kambove,1
+Kamiji,Kamiji,1
+Kamina,Kamina,1
+Kamituga,Kamituga,1
+Kamonia,Kamonia,1
+Kampemba,Kampemba,1
+Kampene,Kampene,1
+Kamwesha,Kamwesha,1
+Kananga,Kananga,1
+Kanda Kanda,Kanda Kanda,1
+Kangu,Kangu,1
+Kaniama,Kaniama,1
+Kaniola,Kaniola,1
+Kansele,Kansele,1
+Kansimba,Kansimba,1
+Kanzala,Kanzala,1
+Kanzenze,Kanzenze,1
+Kapanga,Kapanga,1
+Kapolowe,Kapolowe,1
+Karawa,Karawa,1
+Karisimbi,Karisimbi,1
+Kasa-Vubu,Kasa Vubu,0
+Kasaji,Kasaji,1
+Kasansa,Kasansa,1
+Kasenga,Kasenga,1
+Kashobwe,Kashobwe,1
+Kasongo,Kasongo,1
+Kasongo Lunda,Kasongo Lunda,1
+Katako Kombe,Katako Kombe,1
+Katana,Katana,1
+Katende,Katende,1
+Katoka,Katoka,1
+Katoyi,Katoyi,1
+Katuba,Katuba,1
+Katwa,Katwa,1
+Kayamba,Kayamba,1
+Kayna,Kayna,1
+Kaziba,Kaziba,1
+Kenge,Kenge,1
+Kenya,Kenya,1
+Kibirizi,Kibirizi,1
+Kibombo,Kibombo,1
+Kibua,Kibua,1
+Kibunzi,Kibunzi,1
+Kikimi,Kikimi,1
+Kikongo,Kikongo,1
+Kikula,Kikula,1
+Kikwit-Nord,Kikwit Nord,0
+Kikwit-Sud,Kikwit Sud,0
+Kilela Balanda,Kilela Balanda,1
+Kilo,Kilo,1
+Kilwa,Kilwa,1
+Kimbanseke,Kimbanseke,1
+Kimbau,Kimbao,0
+Kimbi Lulenge,Kimbi Lulenge,1
+Kimpangu,Kimpangu,1
+Kimpese,Kimpese,1
+Kimputu,Kimputu,1
+Kimvula,Kimvula,1
+Kinda,Kinda,1
+Kindu,Kindu,1
+Kingabwa,Kingabwa,1
+Kingandu,Kingandu,1
+Kingasani,Kingasani,1
+Kinkondja,Kinkondja,1
+Kinkonzi,Kinkonzi,1
+Kinshasa,Kinshasa,1
+Kintambo,Kintambo,1
+Kipushi,Kipushi,1
+Kiri,Kiri,1
+Kirotshe,Kirotshe,1
+Kisanga,Kisanga,1
+Kisanji,Kisanji,1
+Kisantu,Kisantu,1
+Kisenso,Kisenso,1
+Kitangwa,Kitangwa,1
+Kitenda,Kitenda,1
+Kitenge,Kitenge,1
+Kitona,Kitona,1
+Kitutu,Kitutu,1
+Kiyambi,Kiambi,0
+Kizu,Kizu,1
+Kokolo,Kokolo,1
+Kole,Kole,1
+Komanda,Komanda,1
+Kongolo,Kongolo,1
+Koshibanda,Koshibanda,1
+Kowe,Kowe,1
+Kuimba,Kuimba,1
+Kunda,Kunda,1
+Kungu,Kungu,1
+Kwamouth,Kwamouth,1
+Kwilu-Ngongo,Kwilu Ngongo,0
+Kyondo,Kyondo,1
+Laybo,Laybo,1
+Lemba,Lemba,1
+Lemera,Lemera,1
+Libenge,Libenge,1
+Likasi,Likasi,1
+Likati,Likati,1
+Lilanga Bobangi,Lilanga Bobangi,1
+Limete,Limete,1
+Linga,Linga,1
+Lingomo,Lingomo,1
+Lingwala,Lingwala,1
+Lisala,Lisala,1
+Lita,Lita,1
+Lodja,Lodja,1
+Logo,Logo,1
+Loko,Loko,1
+Lolanga Mampoko,Mampoko,0
+Lolo,Lolo,1
+Lolwa,Lolwa,1
+Lomela,Lomela,1
+Lotumbe,Lotumbe,1
+Lowa,Lowa,1
+Lualaba,Lualaba,1
+Luambo,Luambo,1
+Lubao,Lubao,1
+Lubero,Lubero,1
+Lubilanji,Lubilanji,1
+Lubondaie,Lubondaie,1
+Lubudi,Lubudi,1
+Lubumbashi,Lubumbashi,1
+Lubunga (Kasaï-Central),Lubunga (Kasaï-Central),0
+Lubunga (Tshopo),Lubunga (Tshopo),0
+Lubutu,Lubutu,1
+Ludimbi Lukula,Ludimbi Lukula,1
+Luebo,Luebo,1
+Luiza,Luiza,1
+Lukafu,Lukafu,1
+Lukelenge,Lukelenge,1
+Lukolela,Lukolela,1
+Lukonga,Lukonga,1
+Lukula,Lukula,1
+Lulingu,Lulingu,1
+Luozi,Luozi,1
+Luputa,Luputa,1
+Lusambo,Lusambo,1
+Lusanga,Lusanga,1
+Lusangi,Lusangi,1
+Lwamba,Lwamba,1
+Mabalako,Mabalako,1
+Mahagi,Mahagi,1
+Makala,Makala,1
+Makanza,Makanza,1
+Makiso-Kisangani,Makiso Kisangani,0
+Makoro,Makoro,1
+Makota,Makota,1
+Malemba,Malemba Nkulu,0
+Maluku I,Maluku 1,0
+Maluku II,Maluku 2,0
+Mambasa,Mambasa,1
+Mandima,Mandima,1
+Mangala,Mangala,1
+Mangembo,Mangembo,1
+Mangobo,Mangobo,1
+Manguredjipa,Manguredjipa,1
+Manika,Manika,1
+Manono,Manono,1
+Masa,Massa,0
+Masereka,Masereka,1
+Masi-Manimba,Masi Manimba,0
+Masina I,Masina 1,0
+Masina II,Masina 2,0
+Masisi,Masisi,1
+Masuika,Masuika,1
+Matadi,Matadi,1
+Matete,Matete,1
+Mawuya,Mawuya,1
+Mbandaka,Mbandaka,1
+Mbanza-Ngungu,Mbanza Ngungu,0
+Mbaya,Mbaya,1
+Mbulula,Mbulula,1
+Miabi,Miabi,1
+Mikalayi,Mikalayi,1
+Mikope,Mikope,1
+Mimia,Mimia,1
+Minembwe,Minembwe,1
+Minga,Minga,1
+Minova,Minova,1
+Miti-Murhesa,Miti Murhesa,0
+Mitwaba,Mitwaba,1
+Moanda,Muanda,0
+Moanza,Moanza,1
+Moba,Moba,1
+Mobayi Mbongo,Mobayi Mbongo,1
+Mokala,Mokala,1
+Mompono,Mompono,1
+Mondombe,Mondombe,1
+Monga,Monga,1
+Mongbalu,Mongbwalu,0
+Monieka,Monieka,1
+Monkoto,Monkoto,1
+Mont Ngafula I,Mont Ngafula 1,0
+Mont Ngafula II,Mont Ngafula 2,0
+Mosango,Mosango,1
+Mpokolo,Mpokolo,1
+Mubumbano,Mubumbano,1
+Muetshi,Muetshi,1
+Mufunga Sampwe,Mufunga Sampwe,1
+Mukanga,Mukanga,1
+Mukedi,Mukedi,1
+Mukumbi,Mukumbi,1
+Mulongo,Mulongo,1
+Mulumba,Mulumba,1
+Mulungu,Mulungu,1
+Mumbunda,Mumbunda,1
+Mungindu,Mungindu,1
+Mushenge,Mushenge,1
+Mushie,Mushie,1
+Musienene,Musienene,1
+Mutena,Mutena,1
+Mutoto,Mutoto,1
+Mutshatsha,Mutshatsha,1
+Mutwanga,Mutwanga,1
+Muya,Muya,1
+Mwana,Mwana,1
+Mweka,Mweka,1
+Mwela Lembwa,Mwela Lembwa,1
+Mwene Ditu,Mweneditu,0
+Mwenga,Mwenga,1
+Mweso,Mweso,1
+Ndage,Ndage,1
+Ndekesha,Ndekesha,1
+Ndesha,Ndesha,1
+Ndjili,Ndjili,1
+Ndjoko-Mpunda,Ndjoko Mpunda,0
+Ngaba,Ngaba,1
+Ngandajika,Ngandajika,1
+Ngidinga,Ngidinga,1
+Ngiri-Ngiri,Ngiri Ngiri,0
+Nia-Nia,Nia Nia,0
+Niangara,Niangara,1
+Nioki,Nioki,1
+Nizi,Nizi,1
+Nsele,Nsele,1
+Nselo,Nselo,1
+Nsona-Mpangu,Nsona Mpangu,0
+Ntandembelo,Ntandembelo,1
+Ntondo,Ntondo,1
+Nundu,Nundu,1
+Nyakunde,Nyankunde,0
+Nyanga,Nyanga,1
+Nyangezi,Nyangezi,1
+Nyantende,Nyantende,1
+Nyarambe,Nyarambe,1
+Nyemba,Nyemba,1
+Nyiragongo,Nyiragongo,1
+Nyunzu,Nyunzu,1
+Nzaba,Nzaba,1
+Nzanza,Nzanza,1
+Obokote,Obokote,1
+Oicha,Oicha,1
+Omendjadi,Omendjadi,1
+Opala,Opala,1
+Opienge,Opienge,1
+Oshwe,Oshwe,1
+Ototo,Ototo,1
+Panda,Panda,1
+Pangi,Pangi,1
+Pania Mutombo,Pania Mutombo,1
+Panzi,Panzi,1
+Pawa,Pawa,1
+Pay Kongila,Pay Kongila,1
+Penjwa,Pendjwa,0
+Pimu,Pimu,1
+Pinga,Pinga,1
+Poko,Poko,1
+Police,Police,1
+Popokabaka,Popokabaka,1
+Punia,Punia,1
+Pweto,Pweto,1
+Rethy,Rethy,1
+Rimba,Rimba,1
+Rungu,Rungu,1
+Rutshuru,Rutshuru,1
+Ruzizi,Ruzizi,1
+Rwampara,Rwampara,1
+Rwanguba,Rwanguba,1
+Rwashi,Ruashi,0
+Sakania,Sakania,1
+Samba,Samba,1
+Sandoa,Sandoa,1
+Saramabila,Saramabila,1
+Seke-Banza,Seke Banza,0
+Selembao,Selembao,1
+Shabunda,Shabunda,1
+Sia,Sia,1
+Sona-Bata,Sona Bata,0
+Songa,Songa,1
+Tandala,Tandala,1
+Tchomia,Tchomia,1
+Tembo,Tembo,1
+Titule,Titule,1
+Tshamilemba,Tshamilemba,1
+Tshela,Tshela,1
+Tshibala,Tshibala,1
+Tshikaji,Tshikaji,1
+Tshikapa,Tshikapa,1
+Tshikula,Tshikula,1
+Tshilenge,Tshilenge,1
+Tshishimbi,Tshishimbi,1
+Tshitenge,Citenge,0
+Tshofa,Tshofa,1
+Tshopo,Tshopo,1
+Tshudi Loto,Tshudi Loto,1
+Tshumbe,Tshumbe,1
+Tunda,Tunda,1
+Ubundu,Ubundu,1
+Uvira,Uvira,1
+Vaku,Vaku,1
+Vanga,Vanga,1
+Vanga Kete,Vanga Kete,1
+Vangu,Vangu,1
+Viadana,Viadana,1
+Vuhovi,Vuhovi,1
+Walikale,Walikale,1
+Walungu,Walungu,1
+Wamba,Wamba,1
+Wamba Lwadi,Wamba Lwadi,1
+Wangata,Wangata,1
+Wanierukula,Wanierukula,1
+Wapinda,Wapinda,1
+Wasolo,Wasolo,1
+Watsa,Watsa,1
+Wema,Wema,1
+Wembo Nyama,Wembo Nyama,1
+Wikong,Wikong,1
+Yabaondo,Yabaondo,1
+Yahisuli,Yahisuli,1
+Yahuma,Yahuma,1
+Yakoma,Yakoma,1
+Yakusu,Yakusu,1
+Yaleko,Yaleko,1
+Yalifafo,Yalifafu,0
+Yalimbongo,Yalimbongo,1
+Yamaluka,Yamaluka,1
+Yambuku,Yambuku,1
+Yamongili,Yamongili,1
+Yangala,Yangala,1
+Yasa-Bonga,Yasa Bonga,0
+Yumbi,Yumbi,1
+Zongo,Zongo,1
