@@ -20,6 +20,10 @@ Outputs:
 Matrices are deliberately NOT embedded; consumers fetch them as raw CSVs using
 qa/matrix_log.csv as the catalog.
 
+Geometry is simplified (shapely, tolerance SIMPLIFY_TOL) and coordinates
+rounded (COORD_DECIMALS) before being embedded, regardless of the source
+shapefile's own vertex density — see the comment above SIMPLIFY_TOL for why.
+
 Run from repo root:
     python -m tools.build_geojson
 
@@ -40,6 +44,8 @@ from pathlib import Path
 
 import shapefile  # pyshp
 import yaml
+from shapely.geometry import mapping, shape
+from shapely.validation import make_valid
 
 from tools.lib.release import (
     format_last_build_line,
@@ -70,6 +76,50 @@ GEOJSON_OUT = BUILD_DIR / "drc_health_zones.geojson"
 MANIFEST_OUT = BUILD_DIR / "manifest.json"
 
 DATE_COLUMN_CANDIDATES = ("date", "week_start", "month_start", "year")
+
+# Geometry simplification applied to every shapefile feature before it's
+# embedded in GeoJSON. Matches the tolerance the dashboard build already
+# applies on its own end (Scripts/build_dashboard_public.py's SIMPLIFY_TOL),
+# so this isn't introducing a new visual fidelity trade-off — it's just
+# doing, once, at the source, the same simplification every downstream
+# consumer already needs and was previously repeating (or, in this build's
+# own case, not doing at all). Shapefiles vary wildly in vertex density
+# depending on how they were digitized; without this, a swap to a more
+# detailed source shapefile silently balloons build/drc_health_zones.geojson
+# (a 2026-07 shapefile update took it from ~31 MB to ~170 MB with no change
+# in the underlying data, only in coordinate precision nobody downstream
+# uses). Simplifying here keeps output size stable and predictable no
+# matter how detailed the source shapefile is.
+SIMPLIFY_TOL = 0.001  # ~110 m at the equator; ~10x fewer vertices than raw
+COORD_DECIMALS = 5  # ~1 m precision at the equator; plenty for zone polygons
+
+
+def _round_coords(coords):
+    """Recursively round a GeoJSON coordinate array to COORD_DECIMALS."""
+    if not coords:
+        return coords
+    if isinstance(coords[0], (int, float)):
+        return [round(c, COORD_DECIMALS) for c in coords]
+    return [_round_coords(c) for c in coords]
+
+
+def _simplify_geometry(geo_interface: dict) -> dict:
+    """Simplify + round a raw shapefile geometry for GeoJSON output.
+
+    Falls back to the unsimplified (but still rounded) geometry if
+    simplification collapses a feature to nothing, so no zone can ever be
+    silently dropped from the build.
+    """
+    geom = make_valid(shape(geo_interface))
+    if SIMPLIFY_TOL > 0:
+        simplified = geom.simplify(SIMPLIFY_TOL, preserve_topology=True)
+        if not simplified.is_empty:
+            geom = simplified
+    gdict = mapping(geom)
+    coords = gdict.get("coordinates")
+    if coords:
+        gdict["coordinates"] = _round_coords(list(coords))
+    return gdict
 
 
 def _coerce(value: str):
@@ -105,7 +155,7 @@ def _load_features() -> tuple[list[dict], dict[str, dict]]:
     for zone, sh in zip(zones, reader.shapes()):
         feat = {
             "type": "Feature",
-            "geometry": sh.__geo_interface__,
+            "geometry": _simplify_geometry(sh.__geo_interface__),
             "properties": {
                 "nom": zone.canonical_nom,
                 "zscode": zone.zscode,
