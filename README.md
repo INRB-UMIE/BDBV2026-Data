@@ -27,9 +27,9 @@ Last successful build: **13 July 2026, 10:21:16 (UTC)** — `build/` on `main` a
 -   **DRC health zones:** [Humanitarian Data Exchange](https://data.humdata.org/dataset/drc-health-data) (MoH zones de santé shapefile)
 
 ### Epidemiological
--   **Epidemiological data (INSP):** [Institut National de Santé Publique (INSP)](https://insp.cd/) SitRep MVE PDF series (`data/insp_sitrep/`, currently through **SitRep 023**) — daily case, death, and contact-tracing indicators by health zone **manually transcribed from the sitreps**
+-   **Epidemiological data (INSP):** [Institut National de Santé Publique (INSP)](https://insp.cd/) SitRep MVE PDF series (`data/insp_sitrep/`) — daily case, death, and contact-tracing indicators by health zone **manually transcribed from the sitreps**
 -   **Processed Linelists:** Following establishment of an epi data collection pipeline by INSP and INRB, aggregated linelist data will be housed in (`data/epi/`)
--   **Operational data (INSP):** [Institut National de Santé Publique (INSP)](https://insp.cd/) Contextual data on the public health response transcribed from SitRep MVE PDF series (`data/insp_sitrep/`, currently for **SitReps 020-023**, but backfilling is in progress) (`data/public_health_response`)
+-   **Operational data (INSP):** [Institut National de Santé Publique (INSP)](https://insp.cd/) Contextual data on the public health response transcribed from SitRep MVE PDF series (`data/insp_sitrep/`) (`data/public_health_response`)
 -   **Testing Capacity (AfricaCDC):** data on PCR machine and reagent availability (`data/testing_capacity`)
 
 ### Mobility
