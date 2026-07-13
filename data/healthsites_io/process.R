@@ -31,7 +31,7 @@ remaining_healthcares <- unique(healthsites_shapefile$healthcare)
 write.table(remaining_amenities, "data/healthsites_io/raw/included_amenities.txt")
 write.table(remaining_healthcares, "data/healthsites_io/raw/included_healthcare.txt")
 
-st_write(healthsites_shapefile, "data/healthsites_io/raw/healthsites_raw_filtered.shp")
+st_write(healthsites_shapefile, "data/healthsites_io/raw/healthsites_raw_filtered.shp", append = FALSE)
 
 # ---------------------- 3. Process with MoH shapefile -------------------------
 
