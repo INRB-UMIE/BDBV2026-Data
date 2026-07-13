@@ -20,7 +20,7 @@ This work is led by the Institut National de Recherche Biomédicale (INRB) Kinsh
 ### Statement on continuing work and analyses before publication
 Please note that the epidemiological data presented here is based on work in progress and should be considered preliminary. Our analyses are ongoing, and a publication communicating our findings is in preparation. Contextual data are publicly accessible; please refer to the original license when re-using these data. If you intend to use the epidemiological data prior to our publication, or have other enquiries, please contact [Prof. Placide Mbala-Kingebeni](mailto:placide.mbala@inrb.cd) (INRB, DRC), [Prof. Dav Ebengo](mailto:dav.ebengo@umie-inrb.org) (INRB, DRC), and [Pierre Akilimali](mailto:pierre.akilimali@insp.cd) (INSP).
 
-Last successful build: **13 July 2026, 17:18:20 (UTC)** — `build/` on `main` at commit [`3e8de4f`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/3e8de4f9c98da62627beeb96d9901ef4cfce839c) (data snapshot [`3e8de4f`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/3e8de4f), see `build/manifest.json`).
+Last successful build: **13 July 2026, 21:30:18 (UTC)** — `build/` on `main` at commit [`f4aa1e8`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/f4aa1e823cf012addaff67b00112c7d8cd3ae7be) (data snapshot [`f4aa1e8`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/f4aa1e8), see `build/manifest.json`).
 
 # Data sources
 ### Geospatial
@@ -60,12 +60,7 @@ The current build is committed on `main` and refreshed automatically by CI on ev
 ### What's New
 
 <!-- whats-new:start -->
-#MAJOR UPDATE
-This PR converts the geoJSON build, repo architecture, and much of the data to match a new shapefile from GRID3: https://data.grid3.org/datasets/GRID3::grid3-cod-health-zones-v8-0/explore?location=1.709967%2C29.613338%2C8
-
-To ensure backward compatibility, any discrepancies in 'nom' between the healthzones in the old and new shapefile have been added to aliases.Resultingly, any health zone names from the old shapefile will be automatically converted and won't crash the build. We've gone back and updated much of the data to reflect the new names anyway, so there won't be strange behaviour from the same health zone being called by different names in the same file. In addition, in data/shapefiles there is a file calls shapefilechange_oldnames_newnames.csv with a full old to new dictionary.
-
-Necessary changes on the dashboard repo end have also been implemented.
+Adding Sitrep 58
 <!-- whats-new:end -->
 
 ### Build contents
@@ -84,6 +79,7 @@ Full tables live in [`data/README.md`](data/README.md#current-build-outputs). Ma
 <!-- past-releases:start -->
 | Tag | Date | Summary | Download |
 |-----|------|---------|----------|
+| [`build-2026-07-13-f4aa1e8`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-07-13-f4aa1e8) | 2026-07-13 | Adding Sitrep 58 | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-07-13-f4aa1e8) |
 | [`build-2026-07-13-3e8de4f`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-07-13-3e8de4f) | 2026-07-13 | #MAJOR UPDATE | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-07-13-3e8de4f) |
 | [`build-2026-07-13-957b5ad`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-07-13-957b5ad) | 2026-07-13 | Adding sitrep 57 | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-07-13-957b5ad) |
 | [`build-2026-07-12-93e2735`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-07-12-93e2735) | 2026-07-12 | Adding sitrep 56 | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-07-12-93e2735) |
