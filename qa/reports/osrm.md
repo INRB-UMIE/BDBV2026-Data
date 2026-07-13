@@ -1,6 +1,6 @@
 # QA report: osrm
 
-_Checked: 2026-07-13T10:21:15+00:00_
+_Checked: 2026-07-13T17:18:10+00:00_
 
 **Status counts:** {'pass': 1, 'warn': 2}
 
@@ -13,7 +13,7 @@ _Checked: 2026-07-13T10:21:15+00:00_
 - resolution: static
 - square: True
 - reasons:
-  - 1036 missing cells (empty/NA) (warn)
+  - 2070 missing cells (empty/NA) (warn)
 
 ## `osrm__travel_time__static.matrix.csv` (matrix) — **warn**
 - rows: 519
@@ -22,4 +22,4 @@ _Checked: 2026-07-13T10:21:15+00:00_
 - resolution: static
 - square: True
 - reasons:
-  - 1036 missing cells (empty/NA) (warn)
+  - 2070 missing cells (empty/NA) (warn)

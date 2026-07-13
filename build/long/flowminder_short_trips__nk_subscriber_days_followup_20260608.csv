@@ -11,10 +11,10 @@ Mambasa,0.08711
 Bunia,0.08423
 Lubero,0.07361
 Rwampara,0.07158
-Nia-Nia,0.06208
+Nia Nia,0.06208
 Watsa,0.04705
-Mongbalu,0.03859
-Makiso-Kisangani,0.03533
+Mongbwalu,0.03859
+Makiso Kisangani,0.03533
 Manguredjipa,0.03436
 Kayna,0.02999
 Karisimbi,0.02799
@@ -30,7 +30,7 @@ Lolwa,0.01324
 Kamango,0.01242
 Alimbongo,0.01056
 Ibanda,0.01033
-Nyakunde,0.00953
+Nyankunde,0.00953
 Dungu,0.00938
 Walikale,0.007987
 Kadutu,0.007888
@@ -52,7 +52,7 @@ Tchomia,0.003251
 Bambu,0.003188
 Bondo,0.002967
 Aungba,0.002858
-Gethy,0.002639
+Gety,0.002639
 Lubunga (Tshopo),0.002339
 Limete,0.002298
 Lingwala,0.002275
@@ -78,10 +78,10 @@ Uvira,0.001294
 Kambala,0.001276
 Buta,0.001273
 Boga,0.001244
-Kasa-Vubu,0.00124
+Kasa Vubu,0.00124
 Mumbunda,0.001231
 Kalehe,0.001222
-Kalamu I,0.001183
+Kalamu 1,0.001183
 Binza Meteo,0.001097
 Nyemba,0.001054
 Pinga,0.001028
@@ -91,10 +91,10 @@ Kalima,0.0009774
 Yamaluka,0.0008998
 Bandalungwa,0.0008944
 Punia,0.0008178
-Mont Ngafula II,0.0007742
-Masina I,0.0007707
+Mont Ngafula 2,0.0007742
+Masina 1,0.0007707
 Basoko,0.0007643
-Mont Ngafula I,0.0007458
+Mont Ngafula 1,0.0007458
 Poko,0.0007197
 Masisi,0.0006849
 Tshamilemba,0.0006645
@@ -106,7 +106,7 @@ Lisala,0.0005874
 Likati,0.0005329
 Kingabwa,0.0005246
 Niangara,0.0005239
-Ngiri-Ngiri,0.000488
+Ngiri Ngiri,0.000488
 Matete,0.0004852
 Kenya,0.0004514
 Alunguli,0.0004303
@@ -126,18 +126,18 @@ Ganga,0.0002875
 Bambo,0.0002728
 Nyantende,0.0002686
 Isangi,0.0002651
-Maluku I,0.000256
+Maluku 1,0.000256
 Aba,0.0002419
 Kailo,0.0002363
 Gemena,0.000225
 Kikimi,0.000225
 Rethy,0.000225
-Masina II,0.0002222
+Masina 2,0.0002222
 Kalonge,0.0002194
 Makala,0.0002138
 Kanzala,0.0002067
 Kampene,0.0002053
-Kalamu II,0.0002039
+Kalamu 2,0.0002039
 Nyangezi,0.0001969
 Bengamisa,0.0001927
 Titule,0.000172
@@ -152,11 +152,11 @@ Fizi,0.0001406
 Kisenso,0.0001364
 Bumbu,0.000135
 Kipushi,0.0001308
-Rwashi,0.0001294
+Ruashi,0.0001294
 Kafubu,0.0001216
 Kingasani,0.0001195
 Kasongo,0.0001069
-Boma-Mangbetu,0.0001059
+Boma Mangbetu,0.0001059
 Katoka,0.0001055
 Kalonda Ouest,0.0001041
 Ngaba,0.0001013
@@ -167,23 +167,23 @@ Yalimbongo,9.844e-05
 Lukonga,9.422e-05
 Itebero,9.001e-05
 Wapinda,9.001e-05
-Kikwit-Nord,8.86e-05
+Kikwit Nord,8.86e-05
 Wangata,8.719e-05
-Nsona-Mpangu,8.649e-05
+Nsona Mpangu,8.649e-05
 Kimbi Lulenge,8.559e-05
 Kisanga,8.438e-05
 Kambove,8.157e-05
 Kisantu,8.157e-05
-Moanda,8.157e-05
+Muanda,8.157e-05
 Lomela,7.875e-05
-Masa,7.875e-05
+Massa,7.875e-05
 Tshikapa,7.875e-05
 Mbandaka,7.641e-05
-Mbanza-Ngungu,7.594e-05
+Mbanza Ngungu,7.594e-05
 Kitona,7.313e-05
-Kwilu-Ngongo,7.032e-05
+Kwilu Ngongo,7.032e-05
 Katoyi,6.891e-05
-Mwene Ditu,6.403e-05
+Mweneditu,6.403e-05
 Kongolo,6.328e-05
 Dilala,5.907e-05
 Kimpese,5.907e-05
@@ -194,11 +194,11 @@ Kibombo,5.625e-05
 Nundu,5.625e-05
 Sakania,5.555e-05
 Diulu,5.203e-05
-Gombe-Matadi,4.782e-05
-Maluku II,4.782e-05
-Sona-Bata,4.782e-05
+Gombe Matadi,4.782e-05
+Maluku 2,4.782e-05
+Sona Bata,4.782e-05
 Yahuma,4.711e-05
-Boko-Kivulu,4.5e-05
+Boko Kivulu,4.5e-05
 Fungurume,4.5e-05
 Panda,4.5e-05
 Kimbanseke,4.219e-05
@@ -223,7 +223,7 @@ Bolobo,2.953e-05
 Luiza,2.953e-05
 Biyela,2.813e-05
 Boma Bungu,2.813e-05
-Kikwit-Sud,2.813e-05
+Kikwit Sud,2.813e-05
 Djolu,2.531e-05
 Lolo,2.531e-05
 Mweka,2.531e-05
@@ -233,7 +233,7 @@ Kapanga,2.25e-05
 Nzanza,2.25e-05
 Adja,1.969e-05
 Binga,1.969e-05
-Kabeya Kamuanga,1.969e-05
+Kabeya Kamwanga,1.969e-05
 Kansele,1.969e-05
 Kansimba,1.969e-05
 Lusanga,1.969e-05
@@ -242,7 +242,7 @@ Kalole,1.688e-05
 Kananga,1.688e-05
 Mikalayi,1.688e-05
 Yakoma,1.688e-05
-Lolanga Mampoko,1.547e-05
+Mampoko,1.547e-05
 Boko,1.406e-05
 Yumbi,1.406e-05
 Irebu,1.313e-05
@@ -250,7 +250,7 @@ Nyunzu,1.266e-05
 Birambizo,1.125e-05
 Kangu,1.125e-05
 Kwamouth,1.125e-05
-Masi-Manimba,1.125e-05
+Masi Manimba,1.125e-05
 Mosango,1.125e-05
 Pangi,1.125e-05
 Dibindi,8.438e-06
@@ -258,7 +258,7 @@ Katuba,8.438e-06
 Lukafu,8.438e-06
 Samba,8.438e-06
 Sandoa,8.438e-06
-Seke-Banza,8.438e-06
+Seke Banza,8.438e-06
 Boso Manzi,5.625e-06
 Bulu,5.625e-06
 Idiofa,5.625e-06
@@ -297,17 +297,17 @@ Ankoro,0.0
 Baka,0.0
 Banga Lubaka,0.0
 Bangabola,0.0
-Banjow Moke,0.0
+Banzow Moke,0.0
 Basankusu,0.0
 Befale,0.0
 Bena Dibele,0.0
 Bena Leka,0.0
-Bena Tshiadi,0.0
+Bena Tshadi,0.0
 Bibanga,0.0
 Bikoro,0.0
 Bili (Bas-Uele),0.0
 Boende,0.0
-Bogosenubia,0.0
+Bogosenubea,0.0
 Bokonzi,0.0
 Bokoro,0.0
 Bolomba,0.0
@@ -319,10 +319,10 @@ Bosondjo,0.0
 Boto,0.0
 Budjala,0.0
 Bukama,0.0
-Bosanga,0.0
+Busanga,0.0
 Bwamanda,0.0
 Dekese,0.0
-Djalo Djeka,0.0
+Djalo Ndjeka,0.0
 Djuma,0.0
 Doruma,0.0
 Feshi,0.0
@@ -354,7 +354,7 @@ Kayamba,0.0
 Kibunzi,0.0
 Kikongo,0.0
 Kilela Balanda,0.0
-Kimbau,0.0
+Kimbao,0.0
 Kimpangu,0.0
 Kinda,0.0
 Kingandu,0.0
@@ -380,7 +380,7 @@ Lukelenge,0.0
 Luputa,0.0
 Lusambo,0.0
 Lusangi,0.0
-Malemba,0.0
+Malemba Nkulu,0.0
 Mbulula,0.0
 Miabi,0.0
 Mikope,0.0
@@ -425,5 +425,5 @@ Vanga Kete,0.0
 Wamba Lwadi,0.0
 Wema,0.0
 Wikong,0.0
-Yasa-Bonga,0.0
+Yasa Bonga,0.0
 Zongo,0.0
