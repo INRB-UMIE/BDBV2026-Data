@@ -284,3 +284,5 @@ output/*
 
 secrets/*
 data/shapefiles.zip
+
+*.bak

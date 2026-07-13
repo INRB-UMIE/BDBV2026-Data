@@ -320,7 +320,10 @@ def qa_folder(folder: Path) -> list[FileResult]:
         ))
         return results
 
-    files = sorted(p for p in processed.iterdir() if p.is_file())
+    files = sorted(
+        p for p in processed.iterdir()
+        if p.is_file() and not p.name.endswith(".bak")
+    )
     if not files:
         results.append(FileResult(
             dataset, "processed/", "structure", "warn",
