@@ -75,7 +75,7 @@ gdp_pc_table <- data.frame(ZSCode = regions,
                            gdp_pc = vals)
 
 joined_shapefile_gdp_pc <- healthzone_shapefile |>
-  dplyr::left_join(gdp_pc)
+  dplyr::left_join(gdp_pc_table)
 
 p <- ggplot(joined_shapefile_gdp_pc) +
   geom_sf(aes(fill = gdp_pc), col = NA) +

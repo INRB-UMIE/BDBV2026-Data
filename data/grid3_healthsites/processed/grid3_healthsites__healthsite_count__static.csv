@@ -1,520 +1,520 @@
 "","nom","healthsite_count"
-"1","Wembo Nyama",101
-"2","Kole",37
-"3","Pania Mutombo",54
-"4","Minga",47
-"5","Lusambo",52
-"6","Dikungu",63
-"7","Vanga Kete",119
-"8","Lodja",143
-"9","Omendjadi",43
-"10","Djalo Djeka",227
-"11","Katako Kombe",73
-"12","Bena Dibele",135
-"13","Kamiji",62
-"14","Tshitenge",64
-"15","Miabi",47
-"16","Ngandajika",93
-"17","Mulumba",115
-"18","Tshilenge",72
-"19","Cilundu",99
-"20","Lubao",103
-"21","Kalonda Est",77
-"22","Kabinda",121
-"23","Ludimbi Lukula",59
-"24","Kalambayi Kabanga",94
-"25","Makota",45
-"26","Mwene Ditu",124
-"27","Wikong",40
-"28","Luputa",144
-"29","Kanda Kanda",106
-"30","Bonzola",65
-"31","Dibindi",73
-"32","Kansele",46
-"33","Muya",48
-"34","Diulu",62
-"35","Bipemba",91
-"36","Mpokolo",16
-"37","Nzaba",65
-"38","Kabeya Kamuanga",78
-"39","Mukumbi",112
-"40","Lukelenge",73
-"41","Tshishimbi",88
-"42","Lubilanji",63
-"43","Kamana",145
-"44","Kasansa",82
-"45","Bibanga",71
-"46","Kalenda",133
-"47","Tshofa",71
-"48","Pimu",100
-"49","Nyanga",75
-"50","Kalonda Ouest",149
-"51","Kamonia",157
-"52","Mutena",110
-"53","Banga Lubaka",72
-"54","Kamwesha",188
-"55","Mweka",68
-"56","Moba",196
-"57","Bogosenubia",47
-"58","Moanda",19
-"59","Kitona",3
-"60","Boma",55
-"61","Boma Bungu",26
-"62","Seke-Banza",26
-"63","Inga",31
-"64","Lukula",45
-"65","Tshela",8
-"66","Vaku",26
-"67","Kizu",15
-"68","Kibunzi",28
-"69","Luozi",29
-"70","Kimpangu",16
-"71","Ngidinga",32
-"72","Boko-Kivulu",43
-"73","Mbanza-Ngungu",17
-"74","Kwilu-Ngongo",42
-"75","Kisantu",42
-"76","Mikope",127
-"77","Oshwe",79
-"78","Bosobe",43
-"79","Bokoro",165
-"80","Masi-Manimba",115
-"81","Yasa-Bonga",141
-"82","Idiofa",141
-"83","Ipamu",78
-"84","Koshibanda",88
-"85","Kingandu",32
-"86","Bulungu",107
-"87","Bagata",109
-"88","Bandundu",57
-"89","Kajiji",53
-"90","Kikwit-Nord",127
-"91","Lusanga",101
-"92","Feshi",55
-"93","Wamba Lwadi",83
-"94","Panzi",75
-"95","Tembo",26
-"96","Moanza",124
-"97","Kimbau",42
-"98","Kenge",73
-"99","Boko",89
-"100","Viadana",17
-"101","Poko",22
-"102","Basali",66
-"103","Basoko",69
-"104","Bengamisa",107
-"105","Yakusu",89
-"106","Yahisuli",98
-"107","Yabaondo",131
-"108","Isangi",72
-"109","Yaleko",98
-"110","Banalia",124
-"111","Bafwasende",97
-"112","Bafwagbogbo",58
-"113","Buta",20
-"114","Titule",8
-"115","Ganga",23
-"116","Vanga",72
-"117","Djuma",71
-"118","Sia",71
-"119","Mungindu",58
-"120","Kimputu",68
-"121","Mosango",32
-"122","Pay Kongila",32
-"123","Matadi",78
-"124","Nzanza",0
-"125","Ndjili",177
-"126","Mont Ngafula I",228
-"127","Biyela",159
-"128","Kikimi",114
-"129","Lemba",171
-"130","Matete",91
-"131","Kisenso",243
-"132","Lingwala",54
-"133","Barumbu",113
-"134","Kinshasa",87
-"135","Limete",168
-"136","Kalamu II",53
-"137","Kalamu I",102
-"138","Bumbu",142
-"139","Makala",148
-"140","Ngaba",119
-"141","Bandalungwa",80
-"142","Selembao",277
-"143","Masina I",123
-"144","Kintambo",86
-"145","Kasa-Vubu",67
-"146","Ngiri-Ngiri",82
-"147","Binza Meteo",161
-"148","Binza Ozone",163
-"149","Kikongo",73
-"150","Mont Ngafula II",291
-"151","Sona-Bata",29
-"152","Nsele",360
-"153","Kanzala",109
-"154","Tshikapa",117
-"155","Kingasani",216
-"156","Kimbanseke",200
-"157","Bwamanda",95
-"158","Kungu",166
-"159","Loko",15
-"160","Bangabola",65
-"161","Boso Mondanda",67
-"162","Budjala",97
-"163","Binga",101
-"164","Yamaluka",249
-"165","Boso Manzi",91
-"166","Karawa",39
-"167","Bominenge",116
-"168","Gemena",265
-"169","Mbaya",80
-"170","Bulu",97
-"171","Tandala",109
-"172","Kibombo",91
-"173","Kindu",178
-"174","Alunguli",47
-"175","Kokolo",3
-"176","Police",3
-"177","Makiso-Kisangani",413
-"178","Mangobo",5
-"179","Kabondo",14
-"180","Tshopo",21
-"181","Kaniama",80
-"182","Kalemie",122
-"183","Kansimba",21
-"184","Butumba",45
-"185","Kinkondja",31
-"186","Baka",39
-"187","Kiyambi",29
-"188","Manono",28
-"189","Samba",56
-"190","Kasongo",142
-"191","Kunda",59
-"192","Saramabila",81
-"193","Kampene",149
-"194","Nyemba",140
-"195","Nyunzu",43
-"196","Kabambare",60
-"197","Pangi",58
-"198","Kalima",97
-"199","Yalimbongo",142
-"200","Aketi",20
-"201","Lolo",84
-"202","Yamongili",27
-"203","Abuzi",9
-"204","Yambuku",88
-"205","Wasolo",32
-"206","Bosondjo",69
-"207","Bumba",43
-"208","Mondombe",113
-"209","Djolu",109
-"210","Opienge",48
-"211","Obokote",35
-"212","Lowa",79
-"213","Wanierukula",52
-"214","Lubutu",92
-"215","Kitenda",54
-"216","Kasongo Lunda",41
-"217","Popokabaka",52
-"218","Kimvula",21
-"219","Maluku I",63
-"220","Kimpese",26
-"221","Nsona-Mpangu",61
-"222","Kangu",34
-"223","Kuimba",22
-"224","Kinkonzi",12
-"225","Mangembo",34
-"226","Gombe-Matadi",32
-"227","Masa",15
-"228","Bokonzi",157
-"229","Mawuya",78
-"230","Zongo",49
-"231","Libenge",134
-"232","Bili (Nord-Ubangi)",24
-"233","Gbadolite",16
-"234","Mobayi Mbongo",29
-"235","Yakoma",18
-"236","Monga",12
-"237","Bondo",14
-"238","Bili (Bas-Uele)",13
-"239","Ango",20
-"240","Opala",155
-"241","Kahemba",59
-"242","Gungu",98
-"243","Kitangwa",83
-"244","Mukedi",75
-"245","Kongolo",62
-"246","Mbulula",31
-"247","Kabalo",57
-"248","Bukama",53
-"249","Kabondo Dianda",80
-"250","Kabongo",66
-"251","Songa",66
-"252","Kayamba",54
-"253","Kitenge",21
-"254","Ankoro",44
-"255","Mulongo",36
-"256","Lwamba",66
-"257","Mukanga",54
-"258","Malemba",28
-"259","Kinda",29
-"260","Kamina",4
-"261","Kikwit-Sud",78
-"262","Kenya",4
-"263","Kamalondo",5
-"264","Tshamilemba",207
-"265","Pweto",63
-"266","Lukafu",40
-"267","Mufunga Sampwe",71
-"268","Kilwa",115
-"269","Kapolowe",66
-"270","Panda",1
-"271","Kashobwe",47
-"272","Kampemba",13
-"273","Rwashi",20
-"274","Bena Tshiadi",31
-"275","Yangala",91
-"276","Ilebo",81
-"277","Luebo",101
-"278","Bena Leka",72
-"279","Muetshi",48
-"280","Tshikula",109
-"281","Dibaya",63
-"282","Kalomba",59
-"283","Tshibala",66
-"284","Mushenge",93
-"285","Bulape",70
-"286","Masuika",96
-"287","Luiza",76
-"288","Katoka",106
-"289","Ndesha",37
-"290","Tshikaji",12
-"291","Bilomba",52
-"292","Ndekesha",85
-"293","Bunkonde",46
-"294","Mikalayi",87
-"295","Luambo",81
-"296","Katende",49
-"297","Ndjoko-Mpunda",100
-"298","Lubondaie",66
-"299","Kakenge",55
-"300","Rwampara",14
-"301","Bunia",206
-"302","Jiba",45
-"303","Linga",45
-"304","Mangala",25
-"305","Damas",41
-"306","Fataki",40
-"307","Drodro",57
-"308","Tchomia",31
-"309","Rethy",71
-"310","Nyakunde",46
-"311","Nizi",62
-"312","Bambu",53
-"313","Kilo",33
-"314","Mongbalu",92
-"315","Komanda",150
-"316","Gethy",81
-"317","Boga",28
-"318","Nia-Nia",90
-"319","Mandima",144
-"320","Lolwa",55
-"321","Lita",21
-"322","Boma-Mangbetu",87
-"323","Isiro",100
-"324","Wamba",92
-"325","Doruma",25
-"326","Pawa",83
-"327","Niangara",72
-"328","Rungu",34
-"329","Mambasa",79
-"330","Rimba",45
-"331","Logo",51
-"332","Angumu",61
-"333","Nyarambe",96
-"334","Mahagi",96
-"335","Makoro",71
-"336","Kambala",35
-"337","Biringi",56
-"338","Laybo",59
-"339","Ariwara",76
-"340","Adi",71
-"341","Aru",46
-"342","Adja",59
-"343","Aungba",60
-"344","Faradje",54
-"345","Gombari",24
-"346","Dungu",96
-"347","Watsa",69
-"348","Demba",90
-"349","Mutoto",45
-"350","Lubunga (Kasaï-Central)",37
-"351","Kananga",40
-"352","Maluku II",140
-"353","Nselo",40
-"354","Lomela",78
-"355","Nioki",116
-"356","Bolobo",64
-"357","Mushie",117
-"358","Kwamouth",84
-"359","Mokala",67
-"360","Kisanji",29
-"361","Lukonga",64
-"362","Tunda",50
-"363","Bosobolo",19
-"364","Businga",14
-"365","Boto",49
-"366","Lisala",152
-"367","Ndage",58
-"368","Mwela Lembwa",85
-"369","Kingabwa",150
-"370","Likati",14
-"371","Yahuma",138
-"372","Ikela",72
-"373","Lubunga (Tshopo)",32
-"374","Ubundu",64
-"375","Kailo",147
-"376","Ototo",32
-"377","Tshumbe",46
-"378","Lusangi",75
-"379","Bobozo",2
-"380","Punia",102
-"381","Kyondo",72
-"382","Mabalako",131
-"383","Biena",55
-"384","Masereka",15
-"385","Lubero",30
-"386","Manguredjipa",56
-"387","Mutwanga",99
-"388","Kamango",8
-"389","Oicha",55
-"390","Binza",28
-"391","Rwanguba",60
-"392","Rutshuru",39
-"393","Birambizo",13
-"394","Beni",125
-"395","Vuhovi",122
-"396","Musienene",59
-"397","Butembo",121
-"398","Katwa",224
-"399","Kayna",109
-"400","Goma",32
-"401","Karisimbi",158
-"402","Kibua",28
-"403","Masisi",27
-"404","Mweso",33
-"405","Kirotshe",29
-"406","Pinga",11
-"407","Walikale",15
-"408","Kibirizi",35
-"409","Kalunguta",127
-"410","Alimbongo",48
-"411","Nyiragongo",9
-"412","Katoyi",16
-"413","Bambo",17
-"414","Itebero",23
-"415","Mwana",25
-"416","Kaziba",16
-"417","Nyantende",17
-"418","Nyangezi",16
-"419","Kabare",24
-"420","Mubumbano",32
-"421","Walungu",52
-"422","Hauts-Plateaux",35
-"423","Kaniola",9
-"424","Kalonge",22
-"425","Bunyakiri",13
-"426","Uvira",32
-"427","Kitutu",21
-"428","Kamituga",49
-"429","Itombwe",25
-"430","Minembwe",7
-"431","Nundu",22
-"432","Ruzizi",23
-"433","Lemera",22
-"434","Fizi",56
-"435","Shabunda",30
-"436","Lulingu",20
-"437","Kalole",32
-"438","Mwenga",54
-"439","Mulungu",41
-"440","Bagira",58
-"441","Kadutu",115
-"442","Ibanda",109
-"443","Katana",27
-"444","Lualaba",643
-"445","Kafakumba",57
-"446","Kanzenze",13
-"447","Kasaji",90
-"448","Dilolo",54
-"449","Sandoa",54
-"450","Kalamba",56
-"451","Lubudi",67
-"452","Bunkeya",26
-"453","Fungurume",238
-"454","Kambove",94
-"455","Lubumbashi",1223
-"456","Kisanga",5
-"457","Katuba",1
-"458","Mumbunda",8
-"459","Kipushi",218
-"460","Sakania",187
-"461","Kafubu",69
-"462","Kilela Balanda",13
-"463","Manika",22
-"464","Vangu",2
-"465","Kowe",3
-"466","Mitwaba",98
-"467","Gombe",87
-"468","Minova",31
-"469","Kalehe",34
-"470","Miti-Murhesa",31
-"471","Idjwi",49
-"472","Aba",49
-"473","Masina II",295
-"474","Kapanga",74
-"475","Dilala",43
-"476","Mutshatsha",29
-"477","Kikula",19
-"478","Kimbi Lulenge",24
-"479","Ferekeni",30
-"480","Wapinda",10
-"481","Likasi",208
-"482","Kasenga",42
-"483","Ntandembelo",46
-"484","Yumbi",57
-"485","Tshudi Loto",113
-"486","Kiri",53
-"487","Bosanga",53
-"488","Yalifafo",70
-"489","Dekese",99
-"490","Mimia",43
-"491","Makanza",24
-"492","Bomongo",17
-"493","Lolanga Mampoko",18
-"494","Penjwa",45
-"495","Bokungu",101
-"496","Wema",77
-"497","Befale",65
-"498","Lotumbe",27
-"499","Monkoto",91
-"500","Djombo",17
-"501","Bongandanga",94
-"502","Lingomo",56
-"503","Basankusu",28
-"504","Boende",120
-"505","Mompono",30
-"506","Monieka",13
-"507","Banjow Moke",59
-"508","Inongo",111
-"509","Wangata",15
-"510","Bolenge",14
-"511","Bolomba",31
-"512","Ingende",21
-"513","Iboko",21
-"514","Irebu",5
-"515","Mbandaka",23
-"516","Lukolela",32
-"517","Bikoro",28
-"518","Ntondo",15
-"519","Lilanga Bobangi",14
+"1","Aketi",19
+"2","Ango",21
+"3","Bili (Bas-Uele)",11
+"4","Bondo",14
+"5","Buta",18
+"6","Ganga",21
+"7","Likati",12
+"8","Monga",11
+"9","Poko",21
+"10","Titule",12
+"11","Viadana",14
+"12","Aba",53
+"13","Boma Mangbetu",80
+"14","Doruma",25
+"15","Dungu",98
+"16","Faradje",50
+"17","Gombari",21
+"18","Isiro",101
+"19","Niangara",72
+"20","Pawa",92
+"21","Rungu",33
+"22","Wamba",87
+"23","Makoro",71
+"24","Watsa",70
+"25","Basankusu",29
+"26","Bikoro",28
+"27","Bolenge",11
+"28","Bolomba",33
+"29","Bomongo",16
+"30","Djombo",16
+"31","Iboko",19
+"32","Ingende",21
+"33","Irebu",8
+"34","Lilanga Bobangi",16
+"35","Lotumbe",21
+"36","Lukolela",20
+"37","Makanza",22
+"38","Mampoko",20
+"39","Mbandaka",21
+"40","Monieka",13
+"41","Ntondo",14
+"42","Wangata",16
+"43","Kambove",68
+"44","Kapolowe",98
+"45","Kikula",82
+"46","Kilela Balanda",49
+"47","Likasi",75
+"48","Mitwaba",72
+"49","Mufunga Sampwe",106
+"50","Panda",41
+"51","Kafubu",121
+"52","Kamalondo",25
+"53","Kampemba",313
+"54","Kasenga",50
+"55","Kashobwe",33
+"56","Katuba",78
+"57","Kenya",134
+"58","Kilwa",106
+"59","Kipushi",152
+"60","Kisanga",150
+"61","Kowe",12
+"62","Lubumbashi",254
+"63","Lukafu",56
+"64","Mumbunda",159
+"65","Pweto",72
+"66","Ruashi",244
+"67","Sakania",187
+"68","Tshamilemba",127
+"69","Vangu",25
+"70","Bukama",55
+"71","Butumba",37
+"72","Kabondo Dianda",71
+"73","Kinkondja",43
+"74","Lwamba",34
+"75","Malemba Nkulu",63
+"76","Mukanga",49
+"77","Mulongo",39
+"78","Baka",5
+"79","Kabongo",68
+"80","Kamina",61
+"81","Kaniama",74
+"82","Kayamba",33
+"83","Kinda",22
+"84","Kitenge",45
+"85","Songa",51
+"86","Adi",67
+"87","Adja",50
+"88","Angumu",61
+"89","Ariwara",77
+"90","Aru",47
+"91","Aungba",58
+"92","Biringi",66
+"93","Kambala",41
+"94","Laybo",62
+"95","Logo",65
+"96","Mahagi",73
+"97","Nyarambe",104
+"98","Rimba",52
+"99","Bambu",51
+"100","Boga",31
+"101","Bunia",160
+"102","Damas",44
+"103","Drodro",60
+"104","Fataki",36
+"105","Gety",69
+"106","Jiba",49
+"107","Kilo",37
+"108","Komanda",145
+"109","Linga",49
+"110","Lita",27
+"111","Lolwa",65
+"112","Mambasa",76
+"113","Mandima",140
+"114","Mangala",26
+"115","Mongbwalu",90
+"116","Nia Nia",97
+"117","Nizi",59
+"118","Nyankunde",49
+"119","Rethy",63
+"120","Rwampara",52
+"121","Tchomia",36
+"122","Bulape",67
+"123","Dekese",97
+"124","Ilebo",71
+"125","Kakenge",63
+"126","Luebo",103
+"127","Mikope",131
+"128","Mushenge",111
+"129","Mweka",73
+"130","Ndjoko Mpunda",91
+"131","Banga Lubaka",88
+"132","Kalonda Ouest",147
+"133","Kamonia",141
+"134","Kamwesha",191
+"135","Kanzala",115
+"136","Kitangwa",115
+"137","Mutena",110
+"138","Nyanga",48
+"139","Tshikapa",115
+"140","Bena Leka",67
+"141","Bena Tshadi",38
+"142","Bilomba",52
+"143","Bobozo",15
+"144","Bunkonde",44
+"145","Demba",75
+"146","Dibaya",65
+"147","Kananga",136
+"148","Katende",47
+"149","Katoka",46
+"150","Lubondaie",63
+"151","Lubunga (Kasaï-Central)",38
+"152","Lukonga",47
+"153","Mikalayi",88
+"154","Muetshi",50
+"155","Mutoto",42
+"156","Ndekesha",76
+"157","Ndesha",38
+"158","Tshikaji",58
+"159","Tshikula",60
+"160","Kalomba",60
+"161","Luambo",82
+"162","Luiza",81
+"163","Masuika",94
+"164","Tshibala",62
+"165","Yangala",90
+"166","Bibanga",68
+"167","Bipemba",81
+"168","Bonzola",67
+"169","Cilundu",102
+"170","Citenge",64
+"171","Dibindi",70
+"172","Diulu",54
+"173","Kabeya Kamwanga",113
+"174","Kansele",41
+"175","Kasansa",83
+"176","Lubilanji",67
+"177","Lukelenge",71
+"178","Miabi",48
+"179","Mpokolo",38
+"180","Mukumbi",79
+"181","Muya",46
+"182","Nzaba",73
+"183","Tshilenge",70
+"184","Tshishimbi",80
+"185","Bumbu",153
+"186","Kalamu 1",88
+"187","Kalamu 2",67
+"188","Kasa Vubu",57
+"189","Kingabwa",150
+"190","Kisenso",240
+"191","Lemba",168
+"192","Limete",171
+"193","Makala",150
+"194","Matete",94
+"195","Ngaba",120
+"196","Ngiri Ngiri",79
+"197","Biyela",158
+"198","Kikimi",137
+"199","Kimbanseke",215
+"200","Kingasani",141
+"201","Maluku 1",118
+"202","Maluku 2",62
+"203","Masina 1",230
+"204","Masina 2",185
+"205","Ndjili",181
+"206","Nsele",404
+"207","Bandalungwa",71
+"208","Barumbu",115
+"209","Binza Meteo",70
+"210","Binza Ozone",234
+"211","Gombe",72
+"212","Kinshasa",89
+"213","Kintambo",84
+"214","Kokolo",40
+"215","Lingwala",59
+"216","Mont Ngafula 1",226
+"217","Mont Ngafula 2",283
+"218","Police",30
+"219","Selembao",276
+"220","Boma",39
+"221","Boma Bungu",40
+"222","Kangu",29
+"223","Kinkonzi",16
+"224","Kitona",7
+"225","Kizu",20
+"226","Kuimba",21
+"227","Lukula",49
+"228","Muanda",16
+"229","Tshela",18
+"230","Vaku",10
+"231","Inga",32
+"232","Kibunzi",27
+"233","Luozi",23
+"234","Mangembo",40
+"235","Matadi",53
+"236","Nsona Mpangu",47
+"237","Nzanza",40
+"238","Seke Banza",29
+"239","Boko Kivulu",34
+"240","Gombe Matadi",35
+"241","Kimpangu",15
+"242","Kimpese",28
+"243","Kimvula",20
+"244","Kisantu",30
+"245","Kwilu Ngongo",39
+"246","Massa",25
+"247","Mbanza Ngungu",25
+"248","Ngidinga",44
+"249","Nselo",44
+"250","Sona Bata",18
+"251","Kahemba",52
+"252","Kajiji",62
+"253","Kisanji",31
+"254","Panzi",89
+"255","Tembo",48
+"256","Boko",74
+"257","Feshi",81
+"258","Kasongo Lunda",62
+"259","Kenge",82
+"260","Kimbao",50
+"261","Kitenda",53
+"262","Mwela Lembwa",62
+"263","Popokabaka",55
+"264","Wamba Lwadi",34
+"265","Bagata",68
+"266","Bandundu",74
+"267","Djuma",76
+"268","Kikongo",76
+"269","Sia",81
+"270","Vanga",80
+"271","Bulungu",126
+"272","Gungu",90
+"273","Idiofa",121
+"274","Ipamu",74
+"275","Kikwit Nord",130
+"276","Kikwit Sud",77
+"277","Kimputu",63
+"278","Kingandu",43
+"279","Koshibanda",87
+"280","Lusanga",110
+"281","Masi Manimba",113
+"282","Moanza",51
+"283","Mokala",84
+"284","Mosango",47
+"285","Mukedi",77
+"286","Mungindu",59
+"287","Pay Kongila",69
+"288","Yasa Bonga",126
+"289","Kabinda",118
+"290","Kalambayi Kabanga",93
+"291","Kalonda Est",77
+"292","Kamana",145
+"293","Lubao",99
+"294","Ludimbi Lukula",63
+"295","Mulumba",125
+"296","Ngandajika",79
+"297","Tshofa",70
+"298","Kalenda",121
+"299","Kamiji",57
+"300","Kanda Kanda",109
+"301","Luputa",151
+"302","Makota",50
+"303","Mweneditu",127
+"304","Wikong",46
+"305","Dilolo",54
+"306","Kafakumba",57
+"307","Kalamba",54
+"308","Kapanga",73
+"309","Kasaji",90
+"310","Sandoa",54
+"311","Bunkeya",20
+"312","Dilala",176
+"313","Fungurume",234
+"314","Kanzenze",96
+"315","Lualaba",243
+"316","Lubudi",36
+"317","Manika",216
+"318","Mutshatsha",22
+"319","Banzow Moke",57
+"320","Inongo",122
+"321","Kiri",55
+"322","Mimia",42
+"323","Ntandembelo",63
+"324","Oshwe",120
+"325","Pendjwa",51
+"326","Yumbi",75
+"327","Bokoro",130
+"328","Bolobo",68
+"329","Bosobe",71
+"330","Kwamouth",77
+"331","Mushie",88
+"332","Nioki",93
+"333","Kabambare",67
+"334","Kampene",106
+"335","Kasongo",77
+"336","Kibombo",70
+"337","Kunda",162
+"338","Lusangi",77
+"339","Saramabila",79
+"340","Tunda",68
+"341","Alunguli",50
+"342","Kailo",136
+"343","Kalima",99
+"344","Kindu",187
+"345","Pangi",66
+"346","Samba",59
+"347","Ferekeni",56
+"348","Lubutu",85
+"349","Obokote",48
+"350","Punia",89
+"351","Bumba",109
+"352","Lolo",93
+"353","Yamaluka",81
+"354","Yambuku",155
+"355","Yamongili",79
+"356","Binga",109
+"357","Bongandanga",84
+"358","Boso Manzi",85
+"359","Boso Mondanda",85
+"360","Bosondjo",90
+"361","Lisala",137
+"362","Pimu",88
+"363","Alimbongo",61
+"364","Beni",228
+"365","Biena",80
+"366","Butembo",122
+"367","Kalunguta",105
+"368","Kamango",12
+"369","Katwa",222
+"370","Kyondo",47
+"371","Lubero",37
+"372","Mabalako",108
+"373","Manguredjipa",57
+"374","Masereka",22
+"375","Musienene",76
+"376","Mutwanga",96
+"377","Oicha",54
+"378","Vuhovi",44
+"379","Bambo",15
+"380","Binza",28
+"381","Birambizo",15
+"382","Goma",32
+"383","Itebero",22
+"384","Karisimbi",137
+"385","Katoyi",22
+"386","Kayna",89
+"387","Kibirizi",25
+"388","Kibua",17
+"389","Kirotshe",30
+"390","Masisi",31
+"391","Mweso",25
+"392","Nyiragongo",30
+"393","Pinga",20
+"394","Rutshuru",22
+"395","Rwanguba",77
+"396","Walikale",18
+"397","Abuzi",16
+"398","Bili (Nord-Ubangi)",23
+"399","Bosobolo",20
+"400","Businga",20
+"401","Gbadolite",16
+"402","Karawa",28
+"403","Loko",17
+"404","Mobayi Mbongo",25
+"405","Wapinda",14
+"406","Wasolo",21
+"407","Yakoma",16
+"408","Bena Dibele",84
+"409","Djalo Ndjeka",66
+"410","Katako Kombe",115
+"411","Kole",86
+"412","Lodja",113
+"413","Lomela",93
+"414","Lusambo",83
+"415","Omendjadi",87
+"416","Ototo",81
+"417","Tshudi Loto",95
+"418","Vanga Kete",77
+"419","Dikungu",98
+"420","Minga",62
+"421","Pania Mutombo",52
+"422","Tshumbe",88
+"423","Wembo Nyama",68
+"424","Bagira",58
+"425","Bunyakiri",34
+"426","Ibanda",105
+"427","Idjwi",44
+"428","Kabare",22
+"429","Kadutu",113
+"430","Kalehe",23
+"431","Kalole",31
+"432","Kalonge",21
+"433","Kamituga",40
+"434","Kaniola",23
+"435","Katana",27
+"436","Kaziba",21
+"437","Kitutu",28
+"438","Lulingu",22
+"439","Minova",25
+"440","Miti Murhesa",33
+"441","Mubumbano",24
+"442","Mulungu",41
+"443","Mwana",27
+"444","Mwenga",55
+"445","Nyangezi",20
+"446","Nyantende",20
+"447","Shabunda",30
+"448","Walungu",40
+"449","Fizi",43
+"450","Haut Plateau",24
+"451","Itombwe",18
+"452","Kimbi Lulenge",25
+"453","Lemera",28
+"454","Minembwe",18
+"455","Nundu",26
+"456","Ruzizi",31
+"457","Uvira",31
+"458","Bangabola",72
+"459","Bogosenubea",117
+"460","Bokonzi",180
+"461","Bominenge",86
+"462","Boto",85
+"463","Budjala",81
+"464","Bulu",93
+"465","Bwamanda",78
+"466","Gemena",269
+"467","Kungu",106
+"468","Libenge",127
+"469","Mawuya",86
+"470","Mbaya",44
+"471","Ndage",87
+"472","Tandala",109
+"473","Zongo",50
+"474","Bafwagbogbo",68
+"475","Bafwasende",69
+"476","Banalia",129
+"477","Bengamisa",103
+"478","Kabondo",102
+"479","Lowa",57
+"480","Lubunga (Tshopo)",70
+"481","Makiso Kisangani",179
+"482","Mangobo",73
+"483","Opala",140
+"484","Opienge",53
+"485","Tshopo",79
+"486","Ubundu",62
+"487","Wanierukula",50
+"488","Yahisuli",100
+"489","Yakusu",85
+"490","Yaleko",112
+"491","Basali",74
+"492","Basoko",97
+"493","Isangi",100
+"494","Yabaondo",108
+"495","Yahuma",101
+"496","Yalimbongo",98
+"497","Befale",54
+"498","Boende",138
+"499","Djolu",101
+"500","Lingomo",59
+"501","Mompono",42
+"502","Monkoto",76
+"503","Wema",76
+"504","Bokungu",97
+"505","Busanga",53
+"506","Ikela",107
+"507","Mondombe",98
+"508","Yalifafu",86
+"509","Ankoro",33
+"510","Kabalo",60
+"511","Kalemie",126
+"512","Kansimba",37
+"513","Kiambi",32
+"514","Kongolo",42
+"515","Manono",32
+"516","Mbulula",49
+"517","Moba",170
+"518","Nyemba",144
+"519","Nyunzu",37
