@@ -1,8 +1,8 @@
 {
   "shapefile": "data/shapefiles/DRC_Health_zones.shp",
   "n_features": 519,
-  "built_at": "2026-07-13T21:30:18+00:00",
-  "commit": "f4aa1e8",
+  "built_at": "2026-07-14T10:51:37+00:00",
+  "commit": "bee2a54",
   "datasets": [
     {
       "folder": "ACLED_conflict",
@@ -32,6 +32,7 @@
           "metric": "individuals",
           "resolution": "monthly",
           "in_geojson": false,
+          "matrix_csv": "build/matrix/idp__individuals__monthly.matrix.csv",
           "matrix_log": "qa/matrix_log.csv"
         },
         {
@@ -41,6 +42,7 @@
           "metric": "individuals",
           "resolution": "static",
           "in_geojson": false,
+          "matrix_csv": "build/matrix/idp__individuals__static.matrix.csv",
           "matrix_log": "qa/matrix_log.csv"
         },
         {
@@ -50,6 +52,7 @@
           "metric": "individuals",
           "resolution": "weekly",
           "in_geojson": false,
+          "matrix_csv": "build/matrix/idp__individuals__weekly.matrix.csv",
           "matrix_log": "qa/matrix_log.csv"
         }
       ]
@@ -219,14 +222,24 @@
     },
     {
       "folder": "flowminder",
-      "source": "Flowminder.org mobility / population-displacement estimates from Vodacom RDC CDR data",
-      "citation": "Flowminder Foundation (2026). Estimations de population et mobilit\u00e9 \u2014 provincial reports for Ituri, Nord-Kivu, Haut-Uele, Tshopo, March 2026.",
+      "source": "Flowminder.org mobility / population-relocation estimates from Vodacom RDC CDR data",
+      "citation": "Flowminder Foundation (2026). DRC estimated relocations between health zones, March 2020\u2013April 2026 (v2.0 external); plus March 2026 provincial PDF mobility extracts for Ituri, Nord-Kivu, Haut-Uele, Tshopo. https://www.flowminder.org",
       "source_url": "https://www.flowminder.org/resources/publications-reports/drc-reports-publications",
-      "retrieved_on": "2026-05-20",
-      "license": "Flowminder reports are publicly released; cite the source organisation. See https://www.flowminder.org",
+      "retrieved_on": "2026-07-14",
+      "license": "Flowminder external data release; cite the source organisation. See https://www.flowminder.org",
       "contact": "rdc@flowminder.org",
       "status": "active",
       "outputs": [
+        {
+          "file": "flowminder__inflow_202604__static.matrix.csv",
+          "type": "matrix",
+          "dataset_token": "flowminder",
+          "metric": "inflow_202604",
+          "resolution": "static",
+          "in_geojson": false,
+          "matrix_csv": "build/matrix/flowminder__inflow_202604__static.matrix.csv",
+          "matrix_log": "qa/matrix_log.csv"
+        },
         {
           "file": "flowminder__inflow__static.matrix.csv",
           "type": "matrix",
@@ -234,6 +247,17 @@
           "metric": "inflow",
           "resolution": "static",
           "in_geojson": false,
+          "matrix_csv": "build/matrix/flowminder__inflow__static.matrix.csv",
+          "matrix_log": "qa/matrix_log.csv"
+        },
+        {
+          "file": "flowminder__outflow_202604__static.matrix.csv",
+          "type": "matrix",
+          "dataset_token": "flowminder",
+          "metric": "outflow_202604",
+          "resolution": "static",
+          "in_geojson": false,
+          "matrix_csv": "build/matrix/flowminder__outflow_202604__static.matrix.csv",
           "matrix_log": "qa/matrix_log.csv"
         },
         {
@@ -243,6 +267,7 @@
           "metric": "outflow",
           "resolution": "static",
           "in_geojson": false,
+          "matrix_csv": "build/matrix/flowminder__outflow__static.matrix.csv",
           "matrix_log": "qa/matrix_log.csv"
         }
       ]
@@ -274,6 +299,7 @@
           "metric": "ituri_subscriber_days_followup_20260608",
           "resolution": "static",
           "in_geojson": false,
+          "matrix_csv": "build/matrix/flowminder_short_trips__ituri_subscriber_days_followup_20260608__static.matrix.csv",
           "matrix_log": "qa/matrix_log.csv"
         },
         {
@@ -293,6 +319,7 @@
           "metric": "ituri_subscriber_days_prior_20260503",
           "resolution": "static",
           "in_geojson": false,
+          "matrix_csv": "build/matrix/flowminder_short_trips__ituri_subscriber_days_prior_20260503__static.matrix.csv",
           "matrix_log": "qa/matrix_log.csv"
         },
         {
@@ -312,6 +339,7 @@
           "metric": "nk_subscriber_days_followup_20260608",
           "resolution": "static",
           "in_geojson": false,
+          "matrix_csv": "build/matrix/flowminder_short_trips__nk_subscriber_days_followup_20260608__static.matrix.csv",
           "matrix_log": "qa/matrix_log.csv"
         },
         {
@@ -331,6 +359,7 @@
           "metric": "nk_subscriber_days_prior_20260503",
           "resolution": "static",
           "in_geojson": false,
+          "matrix_csv": "build/matrix/flowminder_short_trips__nk_subscriber_days_prior_20260503__static.matrix.csv",
           "matrix_log": "qa/matrix_log.csv"
         },
         {
@@ -350,6 +379,7 @@
           "metric": "outflow_20260430",
           "resolution": "static",
           "in_geojson": false,
+          "matrix_csv": "build/matrix/flowminder_short_trips__outflow_20260430__static.matrix.csv",
           "matrix_log": "qa/matrix_log.csv"
         },
         {
@@ -369,6 +399,7 @@
           "metric": "outflow_20260507",
           "resolution": "static",
           "in_geojson": false,
+          "matrix_csv": "build/matrix/flowminder_short_trips__outflow_20260507__static.matrix.csv",
           "matrix_log": "qa/matrix_log.csv"
         },
         {
@@ -388,6 +419,7 @@
           "metric": "outflow_20260514",
           "resolution": "static",
           "in_geojson": false,
+          "matrix_csv": "build/matrix/flowminder_short_trips__outflow_20260514__static.matrix.csv",
           "matrix_log": "qa/matrix_log.csv"
         },
         {
@@ -407,6 +439,7 @@
           "metric": "outflow_20260521",
           "resolution": "static",
           "in_geojson": false,
+          "matrix_csv": "build/matrix/flowminder_short_trips__outflow_20260521__static.matrix.csv",
           "matrix_log": "qa/matrix_log.csv"
         },
         {
@@ -426,6 +459,7 @@
           "metric": "outflow_20260524",
           "resolution": "static",
           "in_geojson": false,
+          "matrix_csv": "build/matrix/flowminder_short_trips__outflow_20260524__static.matrix.csv",
           "matrix_log": "qa/matrix_log.csv"
         }
       ]
@@ -877,6 +911,7 @@
           "metric": "road_distance",
           "resolution": "static",
           "in_geojson": false,
+          "matrix_csv": "build/matrix/osrm__road_distance__static.matrix.csv",
           "matrix_log": "qa/matrix_log.csv"
         },
         {
@@ -886,6 +921,7 @@
           "metric": "travel_time",
           "resolution": "static",
           "in_geojson": false,
+          "matrix_csv": "build/matrix/osrm__travel_time__static.matrix.csv",
           "matrix_log": "qa/matrix_log.csv"
         }
       ]
