@@ -44,6 +44,7 @@ def _make_stub(path: Path, body: str) -> None:
 def _seed_repo(tmp: Path) -> None:
     (tmp / "build").mkdir()
     (tmp / "build" / "long").mkdir()
+    (tmp / "build" / "matrix").mkdir()
     (tmp / "build" / "drc_health_zones.geojson").write_text(
         '{"type":"FeatureCollection","features":[]}'
     )
@@ -156,6 +157,7 @@ def test_interactive_editor_release(tmp_path):
         names = tf.getnames()
     assert "build/drc_health_zones.geojson" in names
     assert "build/manifest.json" in names
+    assert "build/matrix" in names
     assert "qa/qa_log.csv" in names
 
     description_path = tmp_path / "dist" / f"{expected_tag}.description.md"

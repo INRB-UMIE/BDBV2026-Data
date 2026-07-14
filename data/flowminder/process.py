@@ -1,4 +1,4 @@
-"""Rewrite the raw Flowminder OD matrices into contract-compliant snapshot matrices.
+"""Build April 2026 Flowminder relocation OD matrices from the HDX long table.
 
 Convention
 ----------
@@ -6,25 +6,35 @@ Processed row/column labels MUST match the canonical health-zone names defined b
 ``data/shapefiles/DRC_Health_zones.shp`` (field ``Nom``), using the same rules as
 ``tools.lib.schema``:
 
-  - unique ``Nom`` values are used as-is (e.g. ``Bunia``, ``Goma``);
-  - duplicate ``Nom`` across provinces are disambiguated as ``Nom (Province)``
-    (e.g. ``Bili (Bas-Uele)``, ``Lubunga (Tshopo)``).
+  - unique ``Nom`` values are used as-is;
+  - duplicate ``Nom`` across provinces are already disambiguated in the shapefile
+    as ``Nom (Province)`` (e.g. ``Lubunga (Tshopo)``, ``Bili (Bas-Uele)``).
 
-Resolution order for each raw Flowminder label:
+Name resolution for each Flowminder label:
 
-  1. ``data/aliases.csv`` (via ``to_canonical``) — shared repo aliases
-  2. Structural variants — roman numerals (``Kalamu 1`` → ``Kalamu I``) and
-     spaces → hyphens (``Kasa Vubu`` → ``Kasa-Vubu``)
-  3. ``LOCAL_FIXUPS`` below — Flowminder HDX typos / province disambiguation,
-     each target verified against the shapefile at import time
+  1. Strip the ``{prov_code} … Zone de Santé`` wrapper around ``from_hz_name`` /
+     ``to_hz_name`` (e.g. ``tp Lubunga Zone de Santé`` → ``Lubunga``).
+  2. Province-aware disambiguation for bare ``Lubunga`` / ``Bili`` using
+     ``from_province_name`` / ``to_province_name``.
+  3. Direct shapefile ``Nom`` match, then ``data/aliases.csv`` via ``to_canonical``
+     (includes the 2026-07 shapefile spelling migration).
+  4. Space ↔ hyphen structural variants.
 
-Labels that still do not resolve are dropped; see ``zone_resolution_log.csv``.
+Only ``est_flows_2026_04`` is written into the matrices. Companion
+``est_flows_2026_04_LB`` / ``_UB`` columns are ignored. Cells that Flowminder
+marks as ``redacted (count <15)`` are written as empty (missing), not zero.
 
 Inputs (``raw/``):
-  mobilite_od_matrix_{inflow,outflow}_mar2026_flowminder.csv
+  drc-estimated-relocations-2020_03-2026_04-v2.0-external.csv
+  drc-estimated-relocations-2020_03-2026_04-v2.0-variable-list.csv  (column docs)
 
 Outputs (``processed/``):
-  flowminder__{inflow,outflow}__static.matrix.csv  (first column header ``nom``)
+  flowminder__outflow_202604__static.matrix.csv   # origin → destination (April HDX)
+  flowminder__inflow_202604__static.matrix.csv    # destination ← origin (transpose)
+
+Also retained (not rewritten by this script):
+  flowminder__outflow__static.matrix.csv          # March 2026 PDF provincial extract
+  flowminder__inflow__static.matrix.csv
 
 Run from the data repository root:
     python -m data.flowminder.process
@@ -40,7 +50,6 @@ import sys
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
-SHAPEFILE = REPO_ROOT / "data" / "shapefiles" / "DRC_Health_zones"
 sys.path.insert(0, str(REPO_ROOT))
 
 from tools.lib.schema import canonical_noms, to_canonical  # noqa: E402
@@ -48,169 +57,162 @@ from tools.lib.schema import canonical_noms, to_canonical  # noqa: E402
 HERE = Path(__file__).resolve().parent
 RAW = HERE / "raw"
 PROCESSED = HERE / "processed"
+SHAPEFILE_RENAME_CSV = (
+    REPO_ROOT / "data" / "shapefiles" / "shapefilechange_oldnames_newnames.csv"
+)
 
-# Province disambiguation for bare labels that collide in the shapefile.
-DISAMBIGUATION: dict[str, str] = {
-    "Lubunga": "Lubunga (Tshopo)",
-    "Bili": "Bili (Bas-Uele)",
+RAW_EXTERNAL = RAW / "drc-estimated-relocations-2020_03-2026_04-v2.0-external.csv"
+FLOW_COL = "est_flows_2026_04"
+METRIC_TAG = "202604"
+
+# Bare duplicate noms → canonical Nom (Province), keyed by Flowminder province.
+LUBUNGA_BY_PROVINCE: dict[str, str] = {
+    "Tshopo": "Lubunga (Tshopo)",
+    "Kasaï-Central": "Lubunga (Kasaï-Central)",
+    "Kasai-Central": "Lubunga (Kasaï-Central)",
+}
+BILI_BY_PROVINCE: dict[str, str] = {
+    "Bas-Uele": "Bili (Bas-Uele)",
+    "Nord-Ubangi": "Bili (Nord-Ubangi)",
 }
 
-# HDX / Flowminder spelling variants verified against DRC_Health_zones.shp Nom.
-TYPO_FIXUPS: dict[str, str] = {
-    "Banzow Moke": "Banjow Moke",
-    "Bena Tshadi": "Bena Tshiadi",
-    "Bogosenubea": "Bogosenubia",
-    "Busanga": "Bosanga",
-    "Djalo Ndjeka": "Djalo Djeka",
-    "Kabeya Kamwanga": "Kabeya Kamuanga",
-    "Kimbao": "Kimbau",
-    "Malemba Nkulu": "Malemba",
-    "Mampoko": "Lolanga Mampoko",
-    "Massa": "Masa",
-    "Muanda": "Moanda",
-    "Mweneditu": "Mwene Ditu",
-    "Ruashi": "Rwashi",
-}
+_ZONE_LABEL_RE = re.compile(
+    r"^[a-z]{2}\s+(.+?)\s+Zone de Santé$",
+    re.IGNORECASE,
+)
+_REDACTED_RE = re.compile(r"redacted", re.IGNORECASE)
 
-LOCAL_FIXUPS: dict[str, str] = {**DISAMBIGUATION, **TYPO_FIXUPS}
-
-_ROMAN_RE = re.compile(r"^(.*) ([12])$")
+# March 2026 PDF-extract matrices (kept alongside April HDX snapshots).
+MARCH_PROCESSED = (
+    "flowminder__inflow__static.matrix.csv",
+    "flowminder__outflow__static.matrix.csv",
+)
 
 
-def _validate_fixup_targets() -> None:
-    canon = canonical_noms()
-    for observed, target in LOCAL_FIXUPS.items():
-        if target not in canon:
-            raise ValueError(
-                f"flowminder LOCAL_FIXUPS[{observed!r}] -> {target!r} "
-                f"is not a canonical shapefile Nom (see {SHAPEFILE})"
-            )
+def _load_shapefile_rename_map() -> dict[str, str]:
+    """old_nom → new_nom for imperfect matches after the 2026-07 shapefile update."""
+    if not SHAPEFILE_RENAME_CSV.exists():
+        return {}
+    out: dict[str, str] = {}
+    with SHAPEFILE_RENAME_CSV.open(newline="", encoding="utf-8-sig") as f:
+        for row in csv.DictReader(f):
+            old = (row.get("old_nom") or "").strip()
+            new = (row.get("new_nom") or "").strip()
+            if old and new and old != new:
+                out[old] = new
+    return out
+
+
+def _strip_flowminder_label(label: str) -> str:
+    text = label.strip()
+    m = _ZONE_LABEL_RE.match(text)
+    return m.group(1).strip() if m else text
 
 
 def _structural_variants(label: str) -> list[str]:
     out: list[str] = []
-    m = _ROMAN_RE.match(label)
-    if m:
-        base, digit = m.group(1), m.group(2)
-        roman = "I" if digit == "1" else "II"
-        out.append(f"{base} {roman}")
-        out.append(f"{base}-{roman}")
     if " " in label:
         out.append(label.replace(" ", "-"))
+    if "-" in label:
+        out.append(label.replace("-", " "))
+    # Arabic ↔ Roman numerals used in older extracts.
+    for digit, roman in (("1", "I"), ("2", "II")):
+        if label.endswith(f" {digit}"):
+            base = label[: -len(digit) - 1]
+            out.append(f"{base} {roman}")
+            out.append(f"{base}-{roman}")
+        if label.endswith(f" {roman}"):
+            base = label[: -len(roman) - 1]
+            out.append(f"{base} {digit}")
+            out.append(f"{base}-{digit}")
     return out
 
 
-def _resolve(label: str) -> str | None:
-    stripped = label.strip()
-    if not stripped:
+class ZoneResolver:
+    def __init__(self) -> None:
+        self.canon = canonical_noms()
+        self.rename = _load_shapefile_rename_map()
+        for target in (
+            *LUBUNGA_BY_PROVINCE.values(),
+            *BILI_BY_PROVINCE.values(),
+            *self.rename.values(),
+        ):
+            if target not in self.canon:
+                raise ValueError(
+                    f"flowminder: expected canonical Nom {target!r} missing from shapefile"
+                )
+
+    def resolve(self, raw_label: str, province: str) -> str | None:
+        name = _strip_flowminder_label(raw_label)
+        province = province.strip()
+
+        if name == "Lubunga":
+            target = LUBUNGA_BY_PROVINCE.get(province)
+            if target is not None:
+                return target
+        if name == "Bili":
+            target = BILI_BY_PROVINCE.get(province)
+            if target is not None:
+                return target
+
+        candidates = [name]
+        if name in self.rename:
+            candidates.append(self.rename[name])
+        candidates.extend(_structural_variants(name))
+
+        seen: set[str] = set()
+        for candidate in candidates:
+            if candidate in seen:
+                continue
+            seen.add(candidate)
+            if candidate in self.canon:
+                return candidate
+            matched = to_canonical(candidate)
+            if matched is not None:
+                return matched
         return None
 
-    candidates = [stripped]
-    if stripped in LOCAL_FIXUPS:
-        candidates.insert(0, LOCAL_FIXUPS[stripped])
-    candidates.extend(_structural_variants(stripped))
 
-    seen: set[str] = set()
-    for candidate in candidates:
-        if candidate in seen:
-            continue
-        seen.add(candidate)
-        canonical = to_canonical(candidate)
-        if canonical is not None:
-            return canonical
-    return None
-
-
-def _parse_flow(value: str) -> float:
+def _parse_flow(raw: str) -> float | None:
+    """Return a float flow, None for missing/redacted (empty matrix cell)."""
+    text = (raw or "").strip()
+    if not text or _REDACTED_RE.search(text):
+        return None
     try:
-        return float(value)
+        value = float(text)
     except ValueError:
-        return 0.0
+        return None
+    if value < 0:
+        raise ValueError(f"negative flow value: {value}")
+    return value
 
 
-def rewrite(direction: str) -> tuple[Path, list[dict[str, str]]]:
-    src = RAW / f"mobilite_od_matrix_{direction}_mar2026_flowminder.csv"
-    dst = PROCESSED / f"flowminder__{direction}__static.matrix.csv"
-    log: list[dict[str, str]] = []
-
-    with src.open(newline="", encoding="utf-8-sig") as f_in:
-        reader = csv.reader(f_in)
-        header = next(reader)
-        rows = list(reader)
-
-    if header[0] != "origin":
-        raise ValueError(f"flowminder: expected first header 'origin', got {header[0]!r}")
-
-    dest_raw = header[1:]
-    dest_canon: list[str | None] = []
-    dest_order: list[str] = []
-    dest_seen: set[str] = set()
-    for raw in dest_raw:
-        canon = _resolve(raw)
-        dest_canon.append(canon)
-        if canon is None:
-            log.append(
-                {
-                    "direction": direction,
-                    "raw_label": raw,
-                    "role": "destination",
-                    "action": "dropped",
-                    "reason": "no shapefile Nom or alias match",
-                }
-            )
-            continue
-        if canon in dest_seen:
-            log.append(
-                {
-                    "direction": direction,
-                    "raw_label": raw,
-                    "role": "destination",
-                    "action": "merged",
-                    "reason": f"duplicate of {canon!r}",
-                }
-            )
-            continue
-        dest_seen.add(canon)
-        dest_order.append(canon)
-
-    agg: dict[str, dict[str, float]] = {}
-    for row in rows:
-        if len(row) != len(header):
-            raise ValueError(f"flowminder: row width {len(row)} != header {len(header)}")
-        origin_raw = row[0]
-        origin_canon = _resolve(origin_raw)
-        if origin_canon is None:
-            log.append(
-                {
-                    "direction": direction,
-                    "raw_label": origin_raw,
-                    "role": "origin",
-                    "action": "dropped",
-                    "reason": "no shapefile Nom or alias match",
-                }
-            )
-            continue
-        if origin_canon not in agg:
-            agg[origin_canon] = {d: 0.0 for d in dest_order}
-        for raw_dest, canon, value in zip(dest_raw, dest_canon, row[1:]):
-            if canon is None or canon not in agg[origin_canon]:
-                continue
-            agg[origin_canon][canon] += _parse_flow(value)
-
-    origin_order = sorted(agg.keys())
-    dst.parent.mkdir(exist_ok=True)
-    with dst.open("w", newline="", encoding="utf-8") as f_out:
-        w = csv.writer(f_out)
-        w.writerow(["nom"] + dest_order)
-        for origin in origin_order:
-            w.writerow([origin] + [agg[origin][d] for d in dest_order])
-
-    _assert_shapefile_convention(dst)
-    return dst, log
+def _write_matrix(
+    path: Path,
+    zones: list[str],
+    cells: dict[tuple[str, str], float | None],
+) -> None:
+    """Write snapshot matrix; missing/redacted → empty cell, else number or 0."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        w.writerow(["nom"] + zones)
+        for origin in zones:
+            row: list[object] = [origin]
+            for dest in zones:
+                key = (origin, dest)
+                if key not in cells:
+                    row.append(0.0)
+                elif cells[key] is None:
+                    row.append("")
+                else:
+                    value = cells[key]
+                    # Keep integers clean when Flowminder supplies whole counts.
+                    row.append(int(value) if value == int(value) else value)
+            w.writerow(row)
 
 
 def _assert_shapefile_convention(path: Path) -> None:
-    """Every nom in a processed matrix must be a canonical shapefile label."""
     canon = canonical_noms()
     with path.open(newline="", encoding="utf-8") as f:
         reader = csv.reader(f)
@@ -228,7 +230,7 @@ def _assert_shapefile_convention(path: Path) -> None:
 
 def write_resolution_log(logs: list[dict[str, str]]) -> Path:
     path = HERE / "zone_resolution_log.csv"
-    fields = ["direction", "raw_label", "role", "action", "reason"]
+    fields = ["raw_label", "province", "role", "action", "resolved_nom", "reason"]
     with path.open("w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=fields)
         w.writeheader()
@@ -236,18 +238,130 @@ def write_resolution_log(logs: list[dict[str, str]]) -> Path:
     return path
 
 
+def build_april_2026_matrices(
+    resolver: ZoneResolver,
+) -> tuple[Path, Path, list[dict[str, str]], dict[str, int]]:
+    if not RAW_EXTERNAL.exists():
+        raise FileNotFoundError(f"Missing raw input: {RAW_EXTERNAL}")
+
+    outflow: dict[tuple[str, str], float | None] = {}
+    zones_seen: set[str] = set()
+    logs: list[dict[str, str]] = []
+    stats = {
+        "rows": 0,
+        "numeric": 0,
+        "redacted_or_empty": 0,
+        "dropped_unresolved": 0,
+    }
+
+    with RAW_EXTERNAL.open(newline="", encoding="utf-8-sig") as f:
+        reader = csv.DictReader(f)
+        if reader.fieldnames is None or FLOW_COL not in reader.fieldnames:
+            raise ValueError(
+                f"flowminder: expected column {FLOW_COL!r} in {RAW_EXTERNAL.name}"
+            )
+        for row in reader:
+            stats["rows"] += 1
+            from_raw = (row.get("from_hz_name") or "").strip()
+            to_raw = (row.get("to_hz_name") or "").strip()
+            from_prov = (row.get("from_province_name") or "").strip()
+            to_prov = (row.get("to_province_name") or "").strip()
+
+            origin = resolver.resolve(from_raw, from_prov)
+            dest = resolver.resolve(to_raw, to_prov)
+
+            if origin is None:
+                stats["dropped_unresolved"] += 1
+                logs.append(
+                    {
+                        "raw_label": from_raw,
+                        "province": from_prov,
+                        "role": "origin",
+                        "action": "dropped",
+                        "resolved_nom": "",
+                        "reason": "no shapefile Nom or alias match",
+                    }
+                )
+                continue
+            if dest is None:
+                stats["dropped_unresolved"] += 1
+                logs.append(
+                    {
+                        "raw_label": to_raw,
+                        "province": to_prov,
+                        "role": "destination",
+                        "action": "dropped",
+                        "resolved_nom": "",
+                        "reason": "no shapefile Nom or alias match",
+                    }
+                )
+                continue
+
+            zones_seen.add(origin)
+            zones_seen.add(dest)
+            value = _parse_flow(row.get(FLOW_COL, ""))
+            key = (origin, dest)
+            if value is None:
+                stats["redacted_or_empty"] += 1
+                # Keep an explicit redacted marker unless a numeric value arrives later.
+                if key not in outflow:
+                    outflow[key] = None
+                continue
+
+            stats["numeric"] += 1
+            existing = outflow.get(key)
+            if key not in outflow or existing is None:
+                outflow[key] = value
+            else:
+                outflow[key] = existing + value
+
+    zones = sorted(zones_seen)
+    inflow = {(dest, origin): value for (origin, dest), value in outflow.items()}
+
+    PROCESSED.mkdir(parents=True, exist_ok=True)
+    outflow_path = PROCESSED / f"flowminder__outflow_{METRIC_TAG}__static.matrix.csv"
+    inflow_path = PROCESSED / f"flowminder__inflow_{METRIC_TAG}__static.matrix.csv"
+    _write_matrix(outflow_path, zones, outflow)
+    _write_matrix(inflow_path, zones, inflow)
+    _assert_shapefile_convention(outflow_path)
+    _assert_shapefile_convention(inflow_path)
+
+    stats["n_zones"] = len(zones)
+    stats["n_directed_edges_stored"] = len(outflow)
+    return outflow_path, inflow_path, logs, stats
+
+
 def main() -> int:
-    _validate_fixup_targets()
-    all_logs: list[dict[str, str]] = []
-    for direction in ("inflow", "outflow"):
-        out, log = rewrite(direction)
-        all_logs.extend(log)
-        print(f"wrote {out.relative_to(REPO_ROOT)} ({out.stat().st_size} bytes)")
-    if all_logs:
-        log_path = write_resolution_log(all_logs)
-        print(f"wrote {log_path.relative_to(REPO_ROOT)} ({len(all_logs)} resolution events)")
+    resolver = ZoneResolver()
+    for name in MARCH_PROCESSED:
+        path = PROCESSED / name
+        if not path.exists():
+            print(
+                f"warning: March PDF matrix missing at {path.relative_to(REPO_ROOT)}; "
+                "restore from git if it should ship alongside April outputs",
+                file=sys.stderr,
+            )
+    outflow_path, inflow_path, logs, stats = build_april_2026_matrices(resolver)
+    for path in (outflow_path, inflow_path):
+        print(f"wrote {path.relative_to(REPO_ROOT)} ({path.stat().st_size} bytes)")
+    print(
+        "april 2026 stats: "
+        f"rows={stats['rows']} numeric={stats['numeric']} "
+        f"redacted_or_empty={stats['redacted_or_empty']} "
+        f"dropped={stats['dropped_unresolved']} "
+        f"zones={stats['n_zones']} edges={stats['n_directed_edges_stored']}"
+    )
+    if logs:
+        log_path = write_resolution_log(logs)
+        print(
+            f"wrote {log_path.relative_to(REPO_ROOT)} "
+            f"({len(logs)} unresolved label events)"
+        )
     else:
         print("all raw labels resolved to shapefile canonical Nom")
+        stale = HERE / "zone_resolution_log.csv"
+        if stale.exists():
+            stale.unlink()
     return 0
 
 

@@ -1,0 +1,222 @@
+position,name,type,isnumeric,format,vallab,varlab
+1,from_hz_id,str11,0,%11s,,"From health zone, ID (DHIS2)"
+2,from_hz_id_cd,str10,0,%10s,,"From health zone, ID (CD)"
+3,from_hz_name,str35,0,%35s,,"From health zone, name"
+4,from_province_name,str15,0,%15s,,"From province, name"
+5,to_hz_id,str11,0,%11s,,"To health zone, ID (DHIS2)"
+6,to_hz_id_cd,str10,0,%10s,,"To health zone, ID (CD)"
+7,to_hz_name,str35,0,%35s,,"To health zone, name"
+8,to_province_name,str15,0,%15s,,"To province, name"
+9,est_flows_2020_04,float,1,%20.0g,confidential,Estimated relocations 2020_03 to 2020_04
+10,est_flows_2020_05,float,1,%20.0g,confidential,Estimated relocations 2020_04 to 2020_05
+11,est_flows_2020_06,float,1,%20.0g,confidential,Estimated relocations 2020_05 to 2020_06
+12,est_flows_2020_07,float,1,%20.0g,confidential,Estimated relocations 2020_06 to 2020_07
+13,est_flows_2020_08,float,1,%20.0g,confidential,Estimated relocations 2020_07 to 2020_08
+14,est_flows_2020_09,float,1,%20.0g,confidential,Estimated relocations 2020_08 to 2020_09
+15,est_flows_2020_10,float,1,%20.0g,confidential,Estimated relocations 2020_09 to 2020_10
+16,est_flows_2020_11,float,1,%20.0g,confidential,Estimated relocations 2020_10 to 2020_11
+17,est_flows_2020_12,float,1,%20.0g,confidential,Estimated relocations 2020_11 to 2020_12
+18,est_flows_2021_01,float,1,%20.0g,confidential,Estimated relocations 2020_12 to 2021_01
+19,est_flows_2021_02,float,1,%20.0g,confidential,Estimated relocations 2021_01 to 2021_02
+20,est_flows_2021_03,float,1,%20.0g,confidential,Estimated relocations 2021_02 to 2021_03
+21,est_flows_2021_04,float,1,%20.0g,confidential,Estimated relocations 2021_03 to 2021_04
+22,est_flows_2021_05,float,1,%20.0g,confidential,Estimated relocations 2021_04 to 2021_05
+23,est_flows_2021_08,float,1,%20.0g,confidential,Estimated relocations 2021_05 to 2021_08
+24,est_flows_2021_09,float,1,%20.0g,confidential,Estimated relocations 2021_08 to 2021_09
+25,est_flows_2021_10,float,1,%20.0g,confidential,Estimated relocations 2021_09 to 2021_10
+26,est_flows_2021_11,float,1,%20.0g,confidential,Estimated relocations 2021_10 to 2021_11
+27,est_flows_2021_12,float,1,%20.0g,confidential,Estimated relocations 2021_11 to 2021_12
+28,est_flows_2022_01,float,1,%20.0g,confidential,Estimated relocations 2021_12 to 2022_01
+29,est_flows_2022_02,float,1,%20.0g,confidential,Estimated relocations 2022_01 to 2022_02
+30,est_flows_2022_03,float,1,%20.0g,confidential,Estimated relocations 2022_02 to 2022_03
+31,est_flows_2022_04,float,1,%20.0g,confidential,Estimated relocations 2022_03 to 2022_04
+32,est_flows_2022_05,float,1,%20.0g,confidential,Estimated relocations 2022_04 to 2022_05
+33,est_flows_2022_06,float,1,%20.0g,confidential,Estimated relocations 2022_05 to 2022_06
+34,est_flows_2022_07,float,1,%20.0g,confidential,Estimated relocations 2022_06 to 2022_07
+35,est_flows_2022_08,float,1,%20.0g,confidential,Estimated relocations 2022_07 to 2022_08
+36,est_flows_2022_09,float,1,%20.0g,confidential,Estimated relocations 2022_08 to 2022_09
+37,est_flows_2022_10,float,1,%20.0g,confidential,Estimated relocations 2022_09 to 2022_10
+38,est_flows_2022_11,float,1,%20.0g,confidential,Estimated relocations 2022_10 to 2022_11
+39,est_flows_2022_12,float,1,%20.0g,confidential,Estimated relocations 2022_11 to 2022_12
+40,est_flows_2023_01,float,1,%20.0g,confidential,Estimated relocations 2022_12 to 2023_01
+41,est_flows_2023_02,float,1,%20.0g,confidential,Estimated relocations 2023_01 to 2023_02
+42,est_flows_2023_03,float,1,%20.0g,confidential,Estimated relocations 2023_02 to 2023_03
+43,est_flows_2023_04,float,1,%20.0g,confidential,Estimated relocations 2023_03 to 2023_04
+44,est_flows_2023_05,float,1,%20.0g,confidential,Estimated relocations 2023_04 to 2023_05
+45,est_flows_2023_06,float,1,%20.0g,confidential,Estimated relocations 2023_05 to 2023_06
+46,est_flows_2023_07,float,1,%20.0g,confidential,Estimated relocations 2023_06 to 2023_07
+47,est_flows_2023_08,float,1,%20.0g,confidential,Estimated relocations 2023_07 to 2023_08
+48,est_flows_2023_09,float,1,%20.0g,confidential,Estimated relocations 2023_08 to 2023_09
+49,est_flows_2023_10,float,1,%20.0g,confidential,Estimated relocations 2023_09 to 2023_10
+50,est_flows_2023_11,float,1,%20.0g,confidential,Estimated relocations 2023_10 to 2023_11
+51,est_flows_2023_12,float,1,%20.0g,confidential,Estimated relocations 2023_11 to 2023_12
+52,est_flows_2024_01,float,1,%20.0g,confidential,Estimated relocations 2023_12 to 2024_01
+53,est_flows_2024_02,float,1,%20.0g,confidential,Estimated relocations 2024_01 to 2024_02
+54,est_flows_2024_03,float,1,%20.0g,confidential,Estimated relocations 2024_02 to 2024_03
+55,est_flows_2024_04,float,1,%20.0g,confidential,Estimated relocations 2024_03 to 2024_04
+56,est_flows_2024_05,float,1,%20.0g,confidential,Estimated relocations 2024_04 to 2024_05
+57,est_flows_2024_06,float,1,%20.0g,confidential,Estimated relocations 2024_05 to 2024_06
+58,est_flows_2024_07,float,1,%20.0g,confidential,Estimated relocations 2024_06 to 2024_07
+59,est_flows_2024_08,float,1,%20.0g,confidential,Estimated relocations 2024_07 to 2024_08
+60,est_flows_2024_09,float,1,%20.0g,confidential,Estimated relocations 2024_08 to 2024_09
+61,est_flows_2024_10,float,1,%20.0g,confidential,Estimated relocations 2024_09 to 2024_10
+62,est_flows_2024_11,float,1,%20.0g,confidential,Estimated relocations 2024_10 to 2024_11
+63,est_flows_2024_12,float,1,%20.0g,confidential,Estimated relocations 2024_11 to 2024_12
+64,est_flows_2025_01,float,1,%20.0g,confidential,Estimated relocations 2024_12 to 2025_01
+65,est_flows_2025_02,float,1,%20.0g,confidential,Estimated relocations 2025_01 to 2025_02
+66,est_flows_2025_03,float,1,%20.0g,confidential,Estimated relocations 2025_02 to 2025_03
+67,est_flows_2025_04,float,1,%20.0g,confidential,Estimated relocations 2025_03 to 2025_04
+68,est_flows_2025_05,float,1,%20.0g,confidential,Estimated relocations 2025_04 to 2025_05
+69,est_flows_2025_06,float,1,%20.0g,confidential,Estimated relocations 2025_05 to 2025_06
+70,est_flows_2025_07,float,1,%20.0g,confidential,Estimated relocations 2025_06 to 2025_07
+71,est_flows_2025_08,float,1,%20.0g,confidential,Estimated relocations 2025_07 to 2025_08
+72,est_flows_2025_09,float,1,%20.0g,confidential,Estimated relocations 2025_08 to 2025_09
+73,est_flows_2025_10,float,1,%20.0g,confidential,Estimated relocations 2025_09 to 2025_10
+74,est_flows_2025_11,float,1,%20.0g,confidential,Estimated relocations 2025_10 to 2025_11
+75,est_flows_2025_12,float,1,%20.0g,confidential,Estimated relocations 2025_11 to 2025_12
+76,est_flows_2026_01,float,1,%20.0g,confidential,Estimated relocations 2025_12 to 2026_01
+77,est_flows_2026_02,float,1,%20.0g,confidential,Estimated relocations 2026_01 to 2026_02
+78,est_flows_2026_03,float,1,%20.0g,confidential,Estimated relocations 2026_02 to 2026_03
+79,est_flows_2026_04,float,1,%20.0g,confidential,Estimated relocations 2026_03 to 2026_04
+80,est_flows_2020_04_LB,float,1,%20.0g,confidential,"Estimated relocations 2020_03 to 2020_04, lower bound"
+81,est_flows_2020_05_LB,float,1,%20.0g,confidential,"Estimated relocations 2020_04 to 2020_05, lower bound"
+82,est_flows_2020_06_LB,float,1,%20.0g,confidential,"Estimated relocations 2020_05 to 2020_06, lower bound"
+83,est_flows_2020_07_LB,float,1,%20.0g,confidential,"Estimated relocations 2020_06 to 2020_07, lower bound"
+84,est_flows_2020_08_LB,float,1,%20.0g,confidential,"Estimated relocations 2020_07 to 2020_08, lower bound"
+85,est_flows_2020_09_LB,float,1,%20.0g,confidential,"Estimated relocations 2020_08 to 2020_09, lower bound"
+86,est_flows_2020_10_LB,float,1,%20.0g,confidential,"Estimated relocations 2020_09 to 2020_10, lower bound"
+87,est_flows_2020_11_LB,float,1,%20.0g,confidential,"Estimated relocations 2020_10 to 2020_11, lower bound"
+88,est_flows_2020_12_LB,float,1,%20.0g,confidential,"Estimated relocations 2020_11 to 2020_12, lower bound"
+89,est_flows_2021_01_LB,float,1,%20.0g,confidential,"Estimated relocations 2020_12 to 2021_01, lower bound"
+90,est_flows_2021_02_LB,float,1,%20.0g,confidential,"Estimated relocations 2021_01 to 2021_02, lower bound"
+91,est_flows_2021_03_LB,float,1,%20.0g,confidential,"Estimated relocations 2021_02 to 2021_03, lower bound"
+92,est_flows_2021_04_LB,float,1,%20.0g,confidential,"Estimated relocations 2021_03 to 2021_04, lower bound"
+93,est_flows_2021_05_LB,float,1,%20.0g,confidential,"Estimated relocations 2021_04 to 2021_05, lower bound"
+94,est_flows_2021_08_LB,float,1,%20.0g,confidential,"Estimated relocations 2021_05 to 2021_08, lower bound"
+95,est_flows_2021_09_LB,float,1,%20.0g,confidential,"Estimated relocations 2021_08 to 2021_09, lower bound"
+96,est_flows_2021_10_LB,float,1,%20.0g,confidential,"Estimated relocations 2021_09 to 2021_10, lower bound"
+97,est_flows_2021_11_LB,float,1,%20.0g,confidential,"Estimated relocations 2021_10 to 2021_11, lower bound"
+98,est_flows_2021_12_LB,float,1,%20.0g,confidential,"Estimated relocations 2021_11 to 2021_12, lower bound"
+99,est_flows_2022_01_LB,float,1,%20.0g,confidential,"Estimated relocations 2021_12 to 2022_01, lower bound"
+100,est_flows_2022_02_LB,float,1,%20.0g,confidential,"Estimated relocations 2022_01 to 2022_02, lower bound"
+101,est_flows_2022_03_LB,float,1,%20.0g,confidential,"Estimated relocations 2022_02 to 2022_03, lower bound"
+102,est_flows_2022_04_LB,float,1,%20.0g,confidential,"Estimated relocations 2022_03 to 2022_04, lower bound"
+103,est_flows_2022_05_LB,float,1,%20.0g,confidential,"Estimated relocations 2022_04 to 2022_05, lower bound"
+104,est_flows_2022_06_LB,float,1,%20.0g,confidential,"Estimated relocations 2022_05 to 2022_06, lower bound"
+105,est_flows_2022_07_LB,float,1,%20.0g,confidential,"Estimated relocations 2022_06 to 2022_07, lower bound"
+106,est_flows_2022_08_LB,float,1,%20.0g,confidential,"Estimated relocations 2022_07 to 2022_08, lower bound"
+107,est_flows_2022_09_LB,float,1,%20.0g,confidential,"Estimated relocations 2022_08 to 2022_09, lower bound"
+108,est_flows_2022_10_LB,float,1,%20.0g,confidential,"Estimated relocations 2022_09 to 2022_10, lower bound"
+109,est_flows_2022_11_LB,float,1,%20.0g,confidential,"Estimated relocations 2022_10 to 2022_11, lower bound"
+110,est_flows_2022_12_LB,float,1,%20.0g,confidential,"Estimated relocations 2022_11 to 2022_12, lower bound"
+111,est_flows_2023_01_LB,float,1,%20.0g,confidential,"Estimated relocations 2022_12 to 2023_01, lower bound"
+112,est_flows_2023_02_LB,float,1,%20.0g,confidential,"Estimated relocations 2023_01 to 2023_02, lower bound"
+113,est_flows_2023_03_LB,float,1,%20.0g,confidential,"Estimated relocations 2023_02 to 2023_03, lower bound"
+114,est_flows_2023_04_LB,float,1,%20.0g,confidential,"Estimated relocations 2023_03 to 2023_04, lower bound"
+115,est_flows_2023_05_LB,float,1,%20.0g,confidential,"Estimated relocations 2023_04 to 2023_05, lower bound"
+116,est_flows_2023_06_LB,float,1,%20.0g,confidential,"Estimated relocations 2023_05 to 2023_06, lower bound"
+117,est_flows_2023_07_LB,float,1,%20.0g,confidential,"Estimated relocations 2023_06 to 2023_07, lower bound"
+118,est_flows_2023_08_LB,float,1,%20.0g,confidential,"Estimated relocations 2023_07 to 2023_08, lower bound"
+119,est_flows_2023_09_LB,float,1,%20.0g,confidential,"Estimated relocations 2023_08 to 2023_09, lower bound"
+120,est_flows_2023_10_LB,float,1,%20.0g,confidential,"Estimated relocations 2023_09 to 2023_10, lower bound"
+121,est_flows_2023_11_LB,float,1,%20.0g,confidential,"Estimated relocations 2023_10 to 2023_11, lower bound"
+122,est_flows_2023_12_LB,float,1,%20.0g,confidential,"Estimated relocations 2023_11 to 2023_12, lower bound"
+123,est_flows_2024_01_LB,float,1,%20.0g,confidential,"Estimated relocations 2023_12 to 2024_01, lower bound"
+124,est_flows_2024_02_LB,float,1,%20.0g,confidential,"Estimated relocations 2024_01 to 2024_02, lower bound"
+125,est_flows_2024_03_LB,float,1,%20.0g,confidential,"Estimated relocations 2024_02 to 2024_03, lower bound"
+126,est_flows_2024_04_LB,float,1,%20.0g,confidential,"Estimated relocations 2024_03 to 2024_04, lower bound"
+127,est_flows_2024_05_LB,float,1,%20.0g,confidential,"Estimated relocations 2024_04 to 2024_05, lower bound"
+128,est_flows_2024_06_LB,float,1,%20.0g,confidential,"Estimated relocations 2024_05 to 2024_06, lower bound"
+129,est_flows_2024_07_LB,float,1,%20.0g,confidential,"Estimated relocations 2024_06 to 2024_07, lower bound"
+130,est_flows_2024_08_LB,float,1,%20.0g,confidential,"Estimated relocations 2024_07 to 2024_08, lower bound"
+131,est_flows_2024_09_LB,float,1,%20.0g,confidential,"Estimated relocations 2024_08 to 2024_09, lower bound"
+132,est_flows_2024_10_LB,float,1,%20.0g,confidential,"Estimated relocations 2024_09 to 2024_10, lower bound"
+133,est_flows_2024_11_LB,float,1,%20.0g,confidential,"Estimated relocations 2024_10 to 2024_11, lower bound"
+134,est_flows_2024_12_LB,float,1,%20.0g,confidential,"Estimated relocations 2024_11 to 2024_12, lower bound"
+135,est_flows_2025_01_LB,float,1,%20.0g,confidential,"Estimated relocations 2024_12 to 2025_01, lower bound"
+136,est_flows_2025_02_LB,float,1,%20.0g,confidential,"Estimated relocations 2025_01 to 2025_02, lower bound"
+137,est_flows_2025_03_LB,float,1,%20.0g,confidential,"Estimated relocations 2025_02 to 2025_03, lower bound"
+138,est_flows_2025_04_LB,float,1,%20.0g,confidential,"Estimated relocations 2025_03 to 2025_04, lower bound"
+139,est_flows_2025_05_LB,float,1,%20.0g,confidential,"Estimated relocations 2025_04 to 2025_05, lower bound"
+140,est_flows_2025_06_LB,float,1,%20.0g,confidential,"Estimated relocations 2025_05 to 2025_06, lower bound"
+141,est_flows_2025_07_LB,float,1,%20.0g,confidential,"Estimated relocations 2025_06 to 2025_07, lower bound"
+142,est_flows_2025_08_LB,float,1,%20.0g,confidential,"Estimated relocations 2025_07 to 2025_08, lower bound"
+143,est_flows_2025_09_LB,float,1,%20.0g,confidential,"Estimated relocations 2025_08 to 2025_09, lower bound"
+144,est_flows_2025_10_LB,float,1,%20.0g,confidential,"Estimated relocations 2025_09 to 2025_10, lower bound"
+145,est_flows_2025_11_LB,float,1,%20.0g,confidential,"Estimated relocations 2025_10 to 2025_11, lower bound"
+146,est_flows_2025_12_LB,float,1,%20.0g,confidential,"Estimated relocations 2025_11 to 2025_12, lower bound"
+147,est_flows_2026_01_LB,float,1,%20.0g,confidential,"Estimated relocations 2025_12 to 2026_01, lower bound"
+148,est_flows_2026_02_LB,float,1,%20.0g,confidential,"Estimated relocations 2026_01 to 2026_02, lower bound"
+149,est_flows_2026_03_LB,float,1,%20.0g,confidential,"Estimated relocations 2026_02 to 2026_03, lower bound"
+150,est_flows_2026_04_LB,float,1,%20.0g,confidential,"Estimated relocations 2026_03 to 2026_04, lower bound"
+151,est_flows_2020_04_UB,float,1,%20.0g,confidential,"Estimated relocations 2020_03 to 2020_04, upper bound"
+152,est_flows_2020_05_UB,float,1,%20.0g,confidential,"Estimated relocations 2020_04 to 2020_05, upper bound"
+153,est_flows_2020_06_UB,float,1,%20.0g,confidential,"Estimated relocations 2020_05 to 2020_06, upper bound"
+154,est_flows_2020_07_UB,float,1,%20.0g,confidential,"Estimated relocations 2020_06 to 2020_07, upper bound"
+155,est_flows_2020_08_UB,float,1,%20.0g,confidential,"Estimated relocations 2020_07 to 2020_08, upper bound"
+156,est_flows_2020_09_UB,float,1,%20.0g,confidential,"Estimated relocations 2020_08 to 2020_09, upper bound"
+157,est_flows_2020_10_UB,float,1,%20.0g,confidential,"Estimated relocations 2020_09 to 2020_10, upper bound"
+158,est_flows_2020_11_UB,float,1,%20.0g,confidential,"Estimated relocations 2020_10 to 2020_11, upper bound"
+159,est_flows_2020_12_UB,float,1,%20.0g,confidential,"Estimated relocations 2020_11 to 2020_12, upper bound"
+160,est_flows_2021_01_UB,float,1,%20.0g,confidential,"Estimated relocations 2020_12 to 2021_01, upper bound"
+161,est_flows_2021_02_UB,float,1,%20.0g,confidential,"Estimated relocations 2021_01 to 2021_02, upper bound"
+162,est_flows_2021_03_UB,float,1,%20.0g,confidential,"Estimated relocations 2021_02 to 2021_03, upper bound"
+163,est_flows_2021_04_UB,float,1,%20.0g,confidential,"Estimated relocations 2021_03 to 2021_04, upper bound"
+164,est_flows_2021_05_UB,float,1,%20.0g,confidential,"Estimated relocations 2021_04 to 2021_05, upper bound"
+165,est_flows_2021_08_UB,float,1,%20.0g,confidential,"Estimated relocations 2021_05 to 2021_08, upper bound"
+166,est_flows_2021_09_UB,float,1,%20.0g,confidential,"Estimated relocations 2021_08 to 2021_09, upper bound"
+167,est_flows_2021_10_UB,float,1,%20.0g,confidential,"Estimated relocations 2021_09 to 2021_10, upper bound"
+168,est_flows_2021_11_UB,float,1,%20.0g,confidential,"Estimated relocations 2021_10 to 2021_11, upper bound"
+169,est_flows_2021_12_UB,float,1,%20.0g,confidential,"Estimated relocations 2021_11 to 2021_12, upper bound"
+170,est_flows_2022_01_UB,float,1,%20.0g,confidential,"Estimated relocations 2021_12 to 2022_01, upper bound"
+171,est_flows_2022_02_UB,float,1,%20.0g,confidential,"Estimated relocations 2022_01 to 2022_02, upper bound"
+172,est_flows_2022_03_UB,float,1,%20.0g,confidential,"Estimated relocations 2022_02 to 2022_03, upper bound"
+173,est_flows_2022_04_UB,float,1,%20.0g,confidential,"Estimated relocations 2022_03 to 2022_04, upper bound"
+174,est_flows_2022_05_UB,float,1,%20.0g,confidential,"Estimated relocations 2022_04 to 2022_05, upper bound"
+175,est_flows_2022_06_UB,float,1,%20.0g,confidential,"Estimated relocations 2022_05 to 2022_06, upper bound"
+176,est_flows_2022_07_UB,float,1,%20.0g,confidential,"Estimated relocations 2022_06 to 2022_07, upper bound"
+177,est_flows_2022_08_UB,float,1,%20.0g,confidential,"Estimated relocations 2022_07 to 2022_08, upper bound"
+178,est_flows_2022_09_UB,float,1,%20.0g,confidential,"Estimated relocations 2022_08 to 2022_09, upper bound"
+179,est_flows_2022_10_UB,float,1,%20.0g,confidential,"Estimated relocations 2022_09 to 2022_10, upper bound"
+180,est_flows_2022_11_UB,float,1,%20.0g,confidential,"Estimated relocations 2022_10 to 2022_11, upper bound"
+181,est_flows_2022_12_UB,float,1,%20.0g,confidential,"Estimated relocations 2022_11 to 2022_12, upper bound"
+182,est_flows_2023_01_UB,float,1,%20.0g,confidential,"Estimated relocations 2022_12 to 2023_01, upper bound"
+183,est_flows_2023_02_UB,float,1,%20.0g,confidential,"Estimated relocations 2023_01 to 2023_02, upper bound"
+184,est_flows_2023_03_UB,float,1,%20.0g,confidential,"Estimated relocations 2023_02 to 2023_03, upper bound"
+185,est_flows_2023_04_UB,float,1,%20.0g,confidential,"Estimated relocations 2023_03 to 2023_04, upper bound"
+186,est_flows_2023_05_UB,float,1,%20.0g,confidential,"Estimated relocations 2023_04 to 2023_05, upper bound"
+187,est_flows_2023_06_UB,float,1,%20.0g,confidential,"Estimated relocations 2023_05 to 2023_06, upper bound"
+188,est_flows_2023_07_UB,float,1,%20.0g,confidential,"Estimated relocations 2023_06 to 2023_07, upper bound"
+189,est_flows_2023_08_UB,float,1,%20.0g,confidential,"Estimated relocations 2023_07 to 2023_08, upper bound"
+190,est_flows_2023_09_UB,float,1,%20.0g,confidential,"Estimated relocations 2023_08 to 2023_09, upper bound"
+191,est_flows_2023_10_UB,float,1,%20.0g,confidential,"Estimated relocations 2023_09 to 2023_10, upper bound"
+192,est_flows_2023_11_UB,float,1,%20.0g,confidential,"Estimated relocations 2023_10 to 2023_11, upper bound"
+193,est_flows_2023_12_UB,float,1,%20.0g,confidential,"Estimated relocations 2023_11 to 2023_12, upper bound"
+194,est_flows_2024_01_UB,float,1,%20.0g,confidential,"Estimated relocations 2023_12 to 2024_01, upper bound"
+195,est_flows_2024_02_UB,float,1,%20.0g,confidential,"Estimated relocations 2024_01 to 2024_02, upper bound"
+196,est_flows_2024_03_UB,float,1,%20.0g,confidential,"Estimated relocations 2024_02 to 2024_03, upper bound"
+197,est_flows_2024_04_UB,float,1,%20.0g,confidential,"Estimated relocations 2024_03 to 2024_04, upper bound"
+198,est_flows_2024_05_UB,float,1,%20.0g,confidential,"Estimated relocations 2024_04 to 2024_05, upper bound"
+199,est_flows_2024_06_UB,float,1,%20.0g,confidential,"Estimated relocations 2024_05 to 2024_06, upper bound"
+200,est_flows_2024_07_UB,float,1,%20.0g,confidential,"Estimated relocations 2024_06 to 2024_07, upper bound"
+201,est_flows_2024_08_UB,float,1,%20.0g,confidential,"Estimated relocations 2024_07 to 2024_08, upper bound"
+202,est_flows_2024_09_UB,float,1,%20.0g,confidential,"Estimated relocations 2024_08 to 2024_09, upper bound"
+203,est_flows_2024_10_UB,float,1,%20.0g,confidential,"Estimated relocations 2024_09 to 2024_10, upper bound"
+204,est_flows_2024_11_UB,float,1,%20.0g,confidential,"Estimated relocations 2024_10 to 2024_11, upper bound"
+205,est_flows_2024_12_UB,float,1,%20.0g,confidential,"Estimated relocations 2024_11 to 2024_12, upper bound"
+206,est_flows_2025_01_UB,float,1,%20.0g,confidential,"Estimated relocations 2024_12 to 2025_01, upper bound"
+207,est_flows_2025_02_UB,float,1,%20.0g,confidential,"Estimated relocations 2025_01 to 2025_02, upper bound"
+208,est_flows_2025_03_UB,float,1,%20.0g,confidential,"Estimated relocations 2025_02 to 2025_03, upper bound"
+209,est_flows_2025_04_UB,float,1,%20.0g,confidential,"Estimated relocations 2025_03 to 2025_04, upper bound"
+210,est_flows_2025_05_UB,float,1,%20.0g,confidential,"Estimated relocations 2025_04 to 2025_05, upper bound"
+211,est_flows_2025_06_UB,float,1,%20.0g,confidential,"Estimated relocations 2025_05 to 2025_06, upper bound"
+212,est_flows_2025_07_UB,float,1,%20.0g,confidential,"Estimated relocations 2025_06 to 2025_07, upper bound"
+213,est_flows_2025_08_UB,float,1,%20.0g,confidential,"Estimated relocations 2025_07 to 2025_08, upper bound"
+214,est_flows_2025_09_UB,float,1,%20.0g,confidential,"Estimated relocations 2025_08 to 2025_09, upper bound"
+215,est_flows_2025_10_UB,float,1,%20.0g,confidential,"Estimated relocations 2025_09 to 2025_10, upper bound"
+216,est_flows_2025_11_UB,float,1,%20.0g,confidential,"Estimated relocations 2025_10 to 2025_11, upper bound"
+217,est_flows_2025_12_UB,float,1,%20.0g,confidential,"Estimated relocations 2025_11 to 2025_12, upper bound"
+218,est_flows_2026_01_UB,float,1,%20.0g,confidential,"Estimated relocations 2025_12 to 2026_01, upper bound"
+219,est_flows_2026_02_UB,float,1,%20.0g,confidential,"Estimated relocations 2026_01 to 2026_02, upper bound"
+220,est_flows_2026_03_UB,float,1,%20.0g,confidential,"Estimated relocations 2026_02 to 2026_03, upper bound"
+221,est_flows_2026_04_UB,float,1,%20.0g,confidential,"Estimated relocations 2026_03 to 2026_04, upper bound"
