@@ -1,15 +1,26 @@
-source: "Flowminder.org mobility / population-displacement estimates from Vodacom RDC CDR data"
-citation: "Flowminder Foundation (2026). Estimations de population et mobilité — provincial reports for Ituri, Nord-Kivu, Haut-Uele, Tshopo, March 2026."
+source: "Flowminder.org mobility / population-relocation estimates from Vodacom RDC CDR data"
+citation: "Flowminder Foundation (2026). DRC estimated relocations between health zones, March 2020–April 2026 (v2.0 external); plus March 2026 provincial PDF mobility extracts for Ituri, Nord-Kivu, Haut-Uele, Tshopo. https://www.flowminder.org"
 source_url: "https://www.flowminder.org/resources/publications-reports/drc-reports-publications"
-retrieved_on: "2026-05-20"
-license: "Flowminder reports are publicly released; cite the source organisation. See https://www.flowminder.org"
+retrieved_on: "2026-07-14"
+license: "Flowminder external data release; cite the source organisation. See https://www.flowminder.org"
 contact: "rdc@flowminder.org"
 runtime: python
-period: "2026-03"
+period: "2026-03/2026-04"
 notes: |
-  Raw OD matrix CSVs (raw/mobilite_od_matrix_*_mar2026.csv) were extracted upstream
-  from Flowminder provincial PDF reports (workflow logged in README.md). process.py
-  in this folder rewrites them into the repo's contract: column 'origin' is renamed
-  'nom', alias-only names are normalised to canonical Nom, and the bare 'Lubunga'
-  label is disambiguated to 'Lubunga (Tshopo)' using the flowminder coverage area.
-  Coverage area: Ituri, Nord-Kivu, Haut-Uele, western Tshopo (per README.md).
+  Two generation sources ship side by side:
+
+  March 2026 (provincial PDF extracts; original process workflow in README.md):
+    processed/flowminder__inflow__static.matrix.csv
+    processed/flowminder__outflow__static.matrix.csv
+    Raw: raw/mobilite_od_matrix_{inflow,outflow}_mar2026_flowminder.csv
+
+  April 2026 (national HDX long OD table; process.py):
+    raw/drc-estimated-relocations-2020_03-2026_04-v2.0-external.csv
+    raw/drc-estimated-relocations-2020_03-2026_04-v2.0-variable-list.csv
+    processed/flowminder__inflow_202604__static.matrix.csv
+    processed/flowminder__outflow_202604__static.matrix.csv
+    Built from est_flows_2026_04 only (*_LB / *_UB omitted). Redacted cells
+    ("redacted (count <15)") are empty. Labels strip "{prov_code} … Zone de
+    Santé" and map to data/shapefiles/DRC_Health_zones.shp Nom values.
+
+  tools.build_geojson stages all QA-passing matrices under build/matrix/.

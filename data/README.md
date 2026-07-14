@@ -130,7 +130,7 @@ Each per-zone vector output appears under `feature.properties.<dataset>.<metric>
 
 ### Matrix outputs
 
-Large origin–destination tables (519×519 for national sources). Not merged into `build/drc_health_zones.geojson`; use the files under `data/<dataset>/processed/` or the catalogue in [`qa/matrix_log.csv`](../qa/matrix_log.csv).
+Large origin–destination tables (519×519 for national sources). Not merged into `build/drc_health_zones.geojson`; QA-passing copies are staged under [`build/matrix/`](../build/matrix/) by `tools.build_geojson`, and remain available under `data/<dataset>/processed/` via [`qa/matrix_log.csv`](../qa/matrix_log.csv).
 
 | Folder | Output | Retrieved | Status |
 |--------|--------|-----------|--------|
@@ -141,6 +141,8 @@ Large origin–destination tables (519×519 for national sources). Not merged in
 | IDP | `idp__individuals__monthly.matrix.csv` | 2026-01-31 | active |
 | flowminder | `flowminder__inflow__static.matrix.csv` | 2026-05-20 | active |
 | flowminder | `flowminder__outflow__static.matrix.csv` | 2026-05-20 | active |
+| flowminder | `flowminder__inflow_202604__static.matrix.csv` | 2026-07-14 | active |
+| flowminder | `flowminder__outflow_202604__static.matrix.csv` | 2026-07-14 | active |
 | flowminder_short_trips | `flowminder_short_trips__outflow_20260430__static.matrix.csv` | 2026-05-28 | active |
 | flowminder_short_trips | `flowminder_short_trips__outflow_20260507__static.matrix.csv` | 2026-05-28 | active |
 | flowminder_short_trips | `flowminder_short_trips__outflow_20260514__static.matrix.csv` | 2026-05-28 | active |

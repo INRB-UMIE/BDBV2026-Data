@@ -159,6 +159,7 @@ def _pack_archive(description: str) -> tuple[str, str]:
     members: list[tuple[Path, str]] = [
         (BUILD_DIR / "drc_health_zones.geojson", "build/drc_health_zones.geojson"),
         (BUILD_DIR / "long", "build/long"),
+        (BUILD_DIR / "matrix", "build/matrix"),
         (BUILD_DIR / "manifest.json", "build/manifest.json"),
         (QA_LOG, "qa/qa_log.csv"),
         (MATRIX_LOG, "qa/matrix_log.csv"),

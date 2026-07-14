@@ -1,6 +1,43 @@
 # Flowminder.org mobility/population relocation estimates
 
-This directory contains monthly reports and the extracted data from Flowminder mobility/population relocation estimates, produced from Vodacom RDC CDR data.
+This directory contains Flowminder mobility / population-relocation estimates produced from Vodacom RDC CDR data.
+
+## Current processed outputs
+
+Two Flowminder matrix generations are kept together:
+
+### April 2026 (national HDX long table)
+
+**Source:** `raw/drc-estimated-relocations-2020_03-2026_04-v2.0-external.csv`  
+(column dictionary: `raw/drc-estimated-relocations-2020_03-2026_04-v2.0-variable-list.csv`).
+
+**Rebuild April only:**
+
+```bash
+python data/flowminder/process.py
+```
+
+| File | Meaning |
+|------|---------|
+| `processed/flowminder__outflow_202604__static.matrix.csv` | Directed relocations **from** row zone **to** column zone (`est_flows_2026_04`) |
+| `processed/flowminder__inflow_202604__static.matrix.csv` | Transpose (arrivals to row zone **from** columns) |
+
+Only the point estimate `est_flows_2026_04` is used (period: March→April 2026). Companion `_LB` / `_UB` bound columns are dropped. Zone names are aligned to `data/shapefiles/DRC_Health_zones.shp`. Cells Flowminder marks `redacted (count <15)` are left empty. March PDF matrices above are **not** deleted by this script.
+
+### March 2026 (provincial PDF extracts)
+
+| File | Meaning |
+|------|---------|
+| `processed/flowminder__outflow__static.matrix.csv` | PDF-derived departures (Ituri / Nord-Kivu / Haut-Uele / western Tshopo) |
+| `processed/flowminder__inflow__static.matrix.csv` | PDF-derived arrivals |
+
+`tools.build_geojson` copies every QA-passing matrix (March **and** April) into `build/matrix/` for the release archive.
+
+---
+
+## Historical note — March 2026 PDF provincial extracts
+
+The following section logs the earlier workflow that extracted mobility tables from Flowminder provincial PDF reports (Ituri, Nord-Kivu, Haut-Uele, Tshopo). The PDF-derived matrices remain as the undated `__static` pair above.
 
 ![outflows_plot](https://github.com/kraemer-lab/Ebola_DRC_2026/blob/main/data/flowminder/mobilite_flow_map_outflow_zoom_flowminder.png?raw=true)
 

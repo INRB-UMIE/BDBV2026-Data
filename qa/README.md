@@ -139,7 +139,7 @@ Header-only CSVs (valid header, zero data rows) **pass** QA. The build step writ
 | Missing cells (empty, `NA`, `NaN`, `NULL`, etc.) | **warn** (expected for unroutable OSRM pairs) |
 | Snapshot matrices: unique canonical origins vs destination column count ("square") | reported in logs, not a hard fail |
 
-Matrices are **never** embedded in `build/drc_health_zones.geojson`. Consumers fetch them directly from `data/<dataset>/processed/` or use `qa/matrix_log.csv` as a catalogue.
+Matrices are **never** embedded in `build/drc_health_zones.geojson`. QA-passing matrices are staged under `build/matrix/` and remain available under `data/<dataset>/processed/`; use `qa/matrix_log.csv` as a catalogue.
 
 ---
 
@@ -205,7 +205,9 @@ After QA succeeds, `python -m tools.build_geojson`:
 2. For each **vector** with `status` not equal to `fail`:
    - Attaches latest per-zone values to `build/drc_health_zones.geojson` under `feature.properties.<dataset>.<metric>`
    - Writes a long-format copy to `build/long/<dataset>__<metric>.csv`
-3. Writes `build/manifest.json` listing all datasets with passing metadata and their outputs (vectors marked `in_geojson: true`, matrices marked `in_geojson: false`)
+3. For each **matrix** with `status` not equal to `fail`:
+   - Copies the processed file to `build/matrix/<file>` (still **not** embedded in the GeoJSON)
+4. Writes `build/manifest.json` listing all datasets with passing metadata and their outputs (vectors marked `in_geojson: true` with `long_csv`; matrices marked `in_geojson: false` with `matrix_csv`)
 
 Time-series vectors use the **latest date per zone** in the build snapshot (ISO date string comparison).
 

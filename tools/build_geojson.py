@@ -15,10 +15,13 @@ Outputs:
                                      token (e.g. "cross_border", "idp"), not the folder
                                      name. See manifest.json for the folder<->token map.
   build/long/<dataset>__<metric>.csv — full long-format copy of each vector file.
+  build/matrix/<file>.matrix.csv — copies of QA-passing matrix files (not embedded in
+                                     the GeoJSON; packaged with the release archive).
   build/manifest.json — what's in the build, per-folder source metadata, build timestamp.
 
-Matrices are deliberately NOT embedded; consumers fetch them as raw CSVs using
-qa/matrix_log.csv as the catalog.
+Matrices are deliberately NOT embedded in the GeoJSON; consumers fetch them from
+``build/matrix/`` (or ``data/<dataset>/processed/``) using qa/matrix_log.csv as the
+catalog.
 
 Geometry is simplified (shapely, tolerance SIMPLIFY_TOL) and coordinates
 rounded (COORD_DECIMALS) before being embedded, regardless of the source
@@ -37,6 +40,7 @@ import argparse
 import csv
 import datetime as dt
 import json
+import shutil
 import subprocess
 import sys
 from collections import defaultdict
@@ -72,6 +76,7 @@ DATA_DIR = REPO_ROOT / "data"
 QA_LOG = REPO_ROOT / "qa" / "qa_log.csv"
 BUILD_DIR = REPO_ROOT / "build"
 LONG_DIR = BUILD_DIR / "long"
+MATRIX_DIR = BUILD_DIR / "matrix"
 GEOJSON_OUT = BUILD_DIR / "drc_health_zones.geojson"
 MANIFEST_OUT = BUILD_DIR / "manifest.json"
 
@@ -354,6 +359,7 @@ def _build_manifest(qa_rows: list[dict], attached_counts: dict[tuple[str, str], 
                 entry["long_csv"] = f"build/long/{parsed.dataset}__{parsed.metric}.csv"
             else:
                 entry["in_geojson"] = False
+                entry["matrix_csv"] = f"build/matrix/{row['file']}"
                 entry["matrix_log"] = "qa/matrix_log.csv"
             outputs.append(entry)
         datasets.append({
@@ -374,6 +380,37 @@ def _build_manifest(qa_rows: list[dict], attached_counts: dict[tuple[str, str], 
         "commit": _current_short_sha(),
         "datasets": datasets,
     }
+
+
+def _stage_matrices(qa_rows: list[dict]) -> int:
+    """Copy QA-passing matrix CSVs into build/matrix/ for the release archive.
+
+    Replaces the directory contents each run so renamed/removed matrices do not
+    linger from a prior build.
+    """
+    if MATRIX_DIR.exists():
+        shutil.rmtree(MATRIX_DIR)
+    MATRIX_DIR.mkdir(parents=True, exist_ok=True)
+
+    staged = 0
+    for row in qa_rows:
+        if row["status"] == "fail" or row["type"] != "matrix":
+            continue
+        folder = DATA_DIR / row["dataset"]
+        resolved = resolve_processed_paths(folder, row["file"])
+        if not resolved:
+            print(
+                f"skip matrix {row['file']}: no matching processed file "
+                f"(checked language variants)",
+                file=sys.stderr,
+            )
+            continue
+        for src, resolved_name in resolved:
+            dst = MATRIX_DIR / resolved_name
+            shutil.copy2(src, dst)
+            staged += 1
+            print(f"staged matrix {resolved_name}")
+    return staged
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -420,6 +457,7 @@ def main(argv: list[str] | None = None) -> int:
         attached_counts[(row["dataset"], row["file"])] = total
 
     BUILD_DIR.mkdir(exist_ok=True)
+    n_matrices = _stage_matrices(qa_rows)
     geo = {"type": "FeatureCollection", "features": features}
     GEOJSON_OUT.write_text(json.dumps(geo), encoding="utf-8")
 
@@ -431,6 +469,7 @@ def main(argv: list[str] | None = None) -> int:
         f"({len(features)} features, {GEOJSON_OUT.stat().st_size // 1024} KB)"
     )
     print(f"wrote {MANIFEST_OUT.relative_to(REPO_ROOT)}")
+    print(f"staged {n_matrices} matrix file(s) under {MATRIX_DIR.relative_to(REPO_ROOT)}")
 
     if not args.skip_readme:
         try:
