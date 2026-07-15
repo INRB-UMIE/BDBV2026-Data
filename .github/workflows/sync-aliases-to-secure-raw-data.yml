@@ -1,0 +1,61 @@
+# Keeps the alias lookup tables mirrored into BDBV2026-Secure_Raw_Data whenever
+# they change on main, so the secure repo always has the current canonical
+# name mappings alongside the raw data they were derived from.
+
+name: Sync aliases to Secure Raw Data
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/aliases.csv'
+      - 'data/province_aliases.csv'
+      - 'data/health_area_aliases.csv'
+      - '.github/workflows/sync-aliases-to-secure-raw-data.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sync-aliases-to-secure-raw-data
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout BDBV2026-Data
+        uses: actions/checkout@v4
+        with:
+          path: data-repo
+
+      - name: Checkout BDBV2026-Secure_Raw_Data
+        uses: actions/checkout@v4
+        with:
+          repository: INRB-UMIE/BDBV2026-Secure_Raw_Data
+          token: ${{ secrets.SECURE_RAW_DATA_PUSH_TOKEN }}
+          path: secure-raw-data-repo
+
+      - name: Copy alias files
+        run: |
+          set -euo pipefail
+          mkdir -p secure-raw-data-repo/data/aliases
+          cp data-repo/data/aliases.csv              secure-raw-data-repo/data/aliases/health_zone_aliases.csv
+          cp data-repo/data/health_area_aliases.csv   secure-raw-data-repo/data/aliases/health_area_aliases.csv
+          cp data-repo/data/province_aliases.csv      secure-raw-data-repo/data/aliases/province_aliases.csv
+
+      - name: Commit and push
+        working-directory: secure-raw-data-repo
+        env:
+          DATA_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/aliases/health_zone_aliases.csv data/aliases/health_area_aliases.csv data/aliases/province_aliases.csv
+          if git diff --cached --quiet; then
+            echo "No alias changes to sync."
+            exit 0
+          fi
+          git commit -m "Sync alias files from BDBV2026-Data@${DATA_SHA}"
+          git push origin HEAD:main
