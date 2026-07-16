@@ -1,6 +1,6 @@
 # QA report: insp_sitrep
 
-_Checked: 2026-07-14T10:51:26+00:00_
+_Checked: 2026-07-16T16:05:28+00:00_
 
 **Status counts:** {'pass': 32}
 
@@ -12,13 +12,13 @@ _Checked: 2026-07-14T10:51:26+00:00_
 - resolution: daily
 
 ## `insp_sitrep__cumulative_confirmed_cases__daily.csv` (vector) — **pass**
-- rows: 1438
-- zones covered: 45 / 519
+- rows: 1484
+- zones covered: 48 / 519
 - resolution: daily
 
 ## `insp_sitrep__cumulative_confirmed_deaths__daily.csv` (vector) — **pass**
-- rows: 1378
-- zones covered: 44 / 519
+- rows: 1424
+- zones covered: 47 / 519
 - resolution: daily
 
 ## `insp_sitrep__cumulative_contacts_isolated__daily.csv` (vector) — **pass**
@@ -57,22 +57,22 @@ _Checked: 2026-07-14T10:51:26+00:00_
 - resolution: daily
 
 ## `insp_sitrep__national_cumulative_confirmed_cases__daily.csv` (vector) — **pass**
-- rows: 54
+- rows: 55
 - zones covered: 0 / 519
 - resolution: daily
 
 ## `insp_sitrep__national_cumulative_confirmed_deaths__daily.csv` (vector) — **pass**
-- rows: 54
+- rows: 55
 - zones covered: 0 / 519
 - resolution: daily
 
 ## `insp_sitrep__national_cumulative_recovered_cases__daily.csv` (vector) — **pass**
-- rows: 43
+- rows: 44
 - zones covered: 0 / 519
 - resolution: daily
 
 ## `insp_sitrep__national_cumulative_suspected_cases__daily.csv` (vector) — **pass**
-- rows: 53
+- rows: 54
 - zones covered: 0 / 519
 - resolution: daily
 
@@ -82,18 +82,18 @@ _Checked: 2026-07-14T10:51:26+00:00_
 - resolution: daily
 
 ## `insp_sitrep__national_suspected_cases_in_isolation__daily.csv` (vector) — **pass**
-- rows: 40
+- rows: 41
 - zones covered: 0 / 519
 - resolution: daily
 
 ## `insp_sitrep__national_suspected_cases_under_investigation__daily.csv` (vector) — **pass**
-- rows: 4
+- rows: 5
 - zones covered: 0 / 519
 - resolution: daily
 
 ## `insp_sitrep__new_confirmed_cases__daily.csv` (vector) — **pass**
-- rows: 182
-- zones covered: 29 / 519
+- rows: 195
+- zones covered: 36 / 519
 - resolution: daily
 
 ## `insp_sitrep__new_contacts_isolated__daily.csv` (vector) — **pass**

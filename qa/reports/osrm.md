@@ -1,6 +1,6 @@
 # QA report: osrm
 
-_Checked: 2026-07-14T10:51:26+00:00_
+_Checked: 2026-07-16T16:05:28+00:00_
 
 **Status counts:** {'pass': 1, 'warn': 2}
 

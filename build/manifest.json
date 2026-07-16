@@ -1,8 +1,8 @@
 {
   "shapefile": "data/shapefiles/DRC_Health_zones.shp",
   "n_features": 519,
-  "built_at": "2026-07-14T10:51:37+00:00",
-  "commit": "bee2a54",
+  "built_at": "2026-07-16T16:05:39+00:00",
+  "commit": "a44e864",
   "datasets": [
     {
       "folder": "ACLED_conflict",
@@ -599,7 +599,7 @@
           "metric": "cumulative_confirmed_cases",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 45,
+          "zones_with_values": 48,
           "long_csv": "build/long/insp_sitrep__cumulative_confirmed_cases.csv"
         },
         {
@@ -609,7 +609,7 @@
           "metric": "cumulative_confirmed_deaths",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 44,
+          "zones_with_values": 47,
           "long_csv": "build/long/insp_sitrep__cumulative_confirmed_deaths.csv"
         },
         {
@@ -759,7 +759,7 @@
           "metric": "new_confirmed_cases",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 29,
+          "zones_with_values": 36,
           "long_csv": "build/long/insp_sitrep__new_confirmed_cases.csv"
         },
         {
@@ -1323,7 +1323,7 @@
           "metric": "provincial_epidemiological_coordination_en",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 104,
+          "zones_with_values": 118,
           "long_csv": "build/long/public_health_response__provincial_epidemiological_coordination_en.csv"
         },
         {
@@ -1333,7 +1333,7 @@
           "metric": "provincial_epidemiological_coordination_fr",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 104,
+          "zones_with_values": 118,
           "long_csv": "build/long/public_health_response__provincial_epidemiological_coordination_fr.csv"
         },
         {
@@ -1423,7 +1423,7 @@
           "metric": "provincial_epidemiological_monitoring_en",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 104,
+          "zones_with_values": 117,
           "long_csv": "build/long/public_health_response__provincial_epidemiological_monitoring_en.csv"
         },
         {
@@ -1433,7 +1433,7 @@
           "metric": "provincial_epidemiological_monitoring_fr",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 104,
+          "zones_with_values": 117,
           "long_csv": "build/long/public_health_response__provincial_epidemiological_monitoring_fr.csv"
         },
         {
