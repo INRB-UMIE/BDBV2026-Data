@@ -1,8 +1,8 @@
 {
   "shapefile": "data/shapefiles/DRC_Health_zones.shp",
   "n_features": 519,
-  "built_at": "2026-07-24T10:58:41+00:00",
-  "commit": "4abd294",
+  "built_at": "2026-07-25T11:39:32+00:00",
+  "commit": "fe2c943",
   "datasets": [
     {
       "folder": "ACLED_conflict",
@@ -599,7 +599,7 @@
           "metric": "cumulative_confirmed_cases",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 50,
+          "zones_with_values": 51,
           "long_csv": "build/long/insp_sitrep__cumulative_confirmed_cases.csv"
         },
         {
@@ -609,7 +609,7 @@
           "metric": "cumulative_confirmed_deaths",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 49,
+          "zones_with_values": 50,
           "long_csv": "build/long/insp_sitrep__cumulative_confirmed_deaths.csv"
         },
         {
