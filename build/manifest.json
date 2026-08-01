@@ -1,8 +1,8 @@
 {
   "shapefile": "data/shapefiles/DRC_Health_zones.shp",
   "n_features": 519,
-  "built_at": "2026-07-29T17:38:05+00:00",
-  "commit": "ac9834e",
+  "built_at": "2026-08-01T14:18:42+00:00",
+  "commit": "dcb25d3",
   "datasets": [
     {
       "folder": "ACLED_conflict",
@@ -577,7 +577,7 @@
       "source": "Institut National de Sant\u00e9 Publique (INSP) Situation Reports \u2014 SitRep MVE series (2026 Bundibugyo Ebolavirus outbreak)",
       "citation": "Institut National de Sant\u00e9 Publique (INSP), Democratic Republic of the Congo. Situation reports on the 2026 Bundibugyo Ebolavirus outbreak (SitRep MVE 001, 002, 004\u2013012, 2026; report 003 not committed). Health-zone geometry: DRC_Health_zones.shp (see data/shapefiles/).",
       "source_url": "https://insp.cd/",
-      "retrieved_on": "2026-07-20",
+      "retrieved_on": "2026-07-31",
       "license": "INSP outbreak sitreps; reuse with attribution to INSP and citation of the specific report number and date. Confirm distribution terms with INSP before external republication.",
       "contact": "pierre.akilimali@insp.cd",
       "status": "active",
@@ -599,7 +599,7 @@
           "metric": "cumulative_confirmed_cases",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 51,
+          "zones_with_values": 52,
           "long_csv": "build/long/insp_sitrep__cumulative_confirmed_cases.csv"
         },
         {
@@ -609,7 +609,7 @@
           "metric": "cumulative_confirmed_deaths",
           "resolution": "daily",
           "in_geojson": true,
-          "zones_with_values": 50,
+          "zones_with_values": 51,
           "long_csv": "build/long/insp_sitrep__cumulative_confirmed_deaths.csv"
         },
         {

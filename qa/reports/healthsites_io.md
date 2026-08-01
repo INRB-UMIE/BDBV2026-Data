@@ -1,6 +1,6 @@
 # QA report: healthsites_io
 
-_Checked: 2026-07-29T17:37:54+00:00_
+_Checked: 2026-08-01T14:18:32+00:00_
 
 **Status counts:** {'pass': 3}
 
