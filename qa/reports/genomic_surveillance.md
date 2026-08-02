@@ -1,6 +1,6 @@
 # QA report: genomic_surveillance
 
-_Checked: 2026-08-01T14:18:32+00:00_
+_Checked: 2026-08-02T12:39:24+00:00_
 
 **Status counts:** {'pass': 2}
 
