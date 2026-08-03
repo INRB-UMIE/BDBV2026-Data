@@ -155,6 +155,7 @@ Occasionally, health zone level data may be sent directly from INSP to INRB. Thi
 | `SitRep_MVE_074_2026.pdf` | 074    |
 | `SitRep_MVE_077_2026.pdf` | 077    |
 | `SitRep_MVE_078_2026.pdf` | 078    |
+| `SitRep_MVE_079_2026.pdf` | 079    |
 
 **Not in repo:** `SitRep_MVE_003-2026.pdf` (gap between 002 and 004).
 
