@@ -48,8 +48,11 @@ from tools.lib.schema import (
     VALID_RUNTIMES,
     canonical_noms,
     counts_as_zone_coverage,
+    is_national_rollup_nom,
     is_non_geographic_nom,
+    is_province_rollup_nom,
     parse_filename,
+    requires_zone_only_noms,
     resolve_vector_nom,
     to_canonical,
 )
@@ -192,6 +195,30 @@ def qa_vector(dataset: str, path: Path, parsed) -> FileResult:
     dup = [k for k, c in Counter(keys).items() if c > 1]
     if dup:
         reasons.append(f"{len(dup)} duplicate keys (sample: {dup[:3]})")
+
+    # Zone-level insp_sitrep files must not carry province/national roll-ups:
+    # build_geojson broadcasts them across a whole province, clobbering real
+    # per-zone counts (see requires_zone_only_noms). Checked over all rows
+    # independently of the width-mismatch skip above so a roll-up in a
+    # malformed-width row is still caught. NA / non-geographic placeholders and
+    # bare collision-zone names (e.g. "Tshopo") are intentionally not flagged.
+    if requires_zone_only_noms(dataset, parsed.metric):
+        rollups = []
+        for r in rows:
+            if len(r) <= nom_i:
+                continue
+            resolved = resolve_vector_nom(r[nom_i])
+            if resolved is not None and (
+                is_province_rollup_nom(resolved) or is_national_rollup_nom(resolved)
+            ):
+                rollups.append(r[nom_i])
+        if rollups:
+            sample = sorted(set(rollups))[:5]
+            reasons.append(
+                f"{len(rollups)} province/national roll-up nom(s) in a zone-level "
+                f"insp_sitrep file (province/national totals belong in the "
+                f"national_* files): {sample}"
+            )
 
     fatal = [r for r in reasons if not r.endswith("(warn)")]
     status = "fail" if fatal else ("warn" if reasons else "pass")
