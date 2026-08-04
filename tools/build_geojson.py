@@ -256,7 +256,8 @@ def _attach_vector(
             offenders.append(NATIONAL_ROLLUP_NOM)
         print(
             f"  WARNING: {file_name}: dropped {len(offenders)} province/national "
-            f"roll-up row(s) {offenders} — zone-level file must not carry them"
+            f"roll-up row(s) {offenders} — zone-level file must not carry them",
+            file=sys.stderr,
         )
     else:
         by_province = zones_by_province()

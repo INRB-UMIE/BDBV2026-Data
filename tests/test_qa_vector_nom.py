@@ -113,6 +113,20 @@ def test_qa_vector_allows_bare_collision_zone_in_sitrep(tmp_path):
     assert result.status == "pass"
 
 
+def test_qa_vector_allows_na_placeholder_in_zone_level_sitrep(tmp_path):
+    # The guard must not flag non-geographic placeholders (NA) — only
+    # province/national roll-ups. Explicit lock for the no-false-positive case.
+    path, parsed = _write(
+        tmp_path,
+        "insp_sitrep__cumulative_confirmed_cases__daily.csv",
+        "nom,date,cumulative_confirmed_cases\n"
+        "Bunia,2026-08-02,914\n"
+        "NA,2026-08-02,3\n",
+    )
+    result = qa_vector("insp_sitrep", path, parsed)
+    assert result.status == "pass"
+
+
 def test_qa_vector_national_file_allows_drc(tmp_path):
     path, parsed = _write(
         tmp_path,
