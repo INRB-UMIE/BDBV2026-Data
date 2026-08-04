@@ -310,3 +310,58 @@ def test_attach_vector_resolves_language_variants(tmp_path, monkeypatch):
     phr = bunia["properties"]["public_health_response"]
     assert phr["epidemiological_community_engagement_en"]["community_engagement_en"] == "en value"
     assert phr["epidemiological_community_engagement_fr"]["community_engagement_fr"] == "fr value"
+
+
+def test_attach_vector_drops_province_rollup_for_zone_level_sitrep(tmp_path, monkeypatch):
+    """A province roll-up row in a zone-level insp_sitrep file must NOT be
+    broadcast, and must NOT clobber a real per-zone value."""
+    processed = tmp_path / "insp_sitrep" / "processed"
+    long_dir = tmp_path / "long"
+    processed.mkdir(parents=True)
+    fname = "insp_sitrep__cumulative_confirmed_cases__daily.csv"
+    (processed / fname).write_text(
+        "nom,date,cumulative_confirmed_cases\n"
+        "Beni,2026-08-02,10\n"          # real per-zone value
+        "Nord-Kivu,2026-08-02,414\n",   # province roll-up (must be dropped)
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(build_geojson, "LONG_DIR", long_dir)
+
+    beni = {"properties": {}}
+    butembo = {"properties": {}}  # another Nord-Kivu zone, no row of its own
+    build_geojson._attach_vector(
+        processed / fname, fname,
+        SimpleNamespace(dataset="insp_sitrep", metric="cumulative_confirmed_cases"),
+        {"Beni": beni, "Butembo": butembo},
+    )
+
+    # Beni keeps its own value, not the province total.
+    assert beni["properties"]["insp_sitrep"]["cumulative_confirmed_cases"]["cumulative_confirmed_cases"] == 10
+    # Butembo never received the broadcast.
+    assert "insp_sitrep" not in butembo["properties"]
+
+
+def test_attach_vector_national_sitrep_still_broadcasts(tmp_path, monkeypatch):
+    """national_* insp_sitrep files are exempt: DRC still broadcasts to all zones."""
+    processed = tmp_path / "insp_sitrep" / "processed"
+    long_dir = tmp_path / "long"
+    processed.mkdir(parents=True)
+    fname = "insp_sitrep__national_cumulative_confirmed_cases__daily.csv"
+    (processed / fname).write_text(
+        "nom,date,national_cumulative_confirmed_cases\n"
+        f"{NATIONAL_ROLLUP_NOM},2026-08-02,3800\n",
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(build_geojson, "LONG_DIR", long_dir)
+
+    beni = {"properties": {}}
+    butembo = {"properties": {}}
+    build_geojson._attach_vector(
+        processed / fname, fname,
+        SimpleNamespace(dataset="insp_sitrep", metric="national_cumulative_confirmed_cases"),
+        {"Beni": beni, "Butembo": butembo},
+    )
+
+    for feat in (beni, butembo):
+        val = feat["properties"]["insp_sitrep"]["national_cumulative_confirmed_cases"]
+        assert val["national_cumulative_confirmed_cases"] == 3800
