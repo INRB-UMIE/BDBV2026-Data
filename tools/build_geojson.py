@@ -65,6 +65,7 @@ from tools.lib.schema import (
     load_zones,
     parse_filename,
     province_name_from_rollup_nom,
+    requires_zone_only_noms,
     resolve_processed_paths,
     resolve_vector_nom,
     zones_by_province,
@@ -244,23 +245,38 @@ def _attach_vector(
     for nom, r in zone_rows.items():
         _apply_row(nom, r)
 
-    by_province = zones_by_province()
-    for prov, r in province_rows.items():
-        # `prov` may carry the "(province)" disambiguation marker (see
-        # PROVINCE_ROLLUP_SUFFIX) — strip it to get the bare shapefile
-        # PROVINCE key that zones_by_province() is keyed by.
-        bare_prov = province_name_from_rollup_nom(prov)
-        for zone_nom in by_province.get(bare_prov, []):
-            _apply_row(zone_nom, r)
+    # Defense in depth: zone-level insp_sitrep files must not broadcast
+    # province/national roll-ups across zones — that clobbers real per-zone
+    # counts (QA fails such a PR; this catches anything that bypasses QA).
+    if requires_zone_only_noms(dataset_token, metric) and (
+        province_rows or national_row is not None
+    ):
+        offenders = sorted(province_rows)
+        if national_row is not None:
+            offenders.append(NATIONAL_ROLLUP_NOM)
+        print(
+            f"  WARNING: {file_name}: dropped {len(offenders)} province/national "
+            f"roll-up row(s) {offenders} — zone-level file must not carry them",
+            file=sys.stderr,
+        )
+    else:
+        by_province = zones_by_province()
+        for prov, r in province_rows.items():
+            # `prov` may carry the "(province)" disambiguation marker (see
+            # PROVINCE_ROLLUP_SUFFIX) — strip it to get the bare shapefile
+            # PROVINCE key that zones_by_province() is keyed by.
+            bare_prov = province_name_from_rollup_nom(prov)
+            for zone_nom in by_province.get(bare_prov, []):
+                _apply_row(zone_nom, r)
 
-    if national_row is not None:
-        value_obj = {c: _coerce(national_row[c]) for c in value_cols}
-        if date_col:
-            value_obj["_date"] = national_row[date_col]
-        for feat in features_by_nom.values():
-            ds_bucket = feat["properties"].setdefault(dataset_token, {})
-            ds_bucket[metric] = dict(value_obj)
-            attached += 1
+        if national_row is not None:
+            value_obj = {c: _coerce(national_row[c]) for c in value_cols}
+            if date_col:
+                value_obj["_date"] = national_row[date_col]
+            for feat in features_by_nom.values():
+                ds_bucket = feat["properties"].setdefault(dataset_token, {})
+                ds_bucket[metric] = dict(value_obj)
+                attached += 1
 
     # Long-format copy.
     LONG_DIR.mkdir(parents=True, exist_ok=True)

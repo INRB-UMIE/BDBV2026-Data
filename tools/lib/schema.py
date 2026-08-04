@@ -294,6 +294,20 @@ def resolve_vector_nom(name: str | None) -> str | None:
     return to_canonical_province(label)
 
 
+def requires_zone_only_noms(dataset: str, metric: str) -> bool:
+    """True for insp_sitrep files that must contain no province/national roll-up
+    noms.
+
+    The insp_sitrep dataset keeps national totals in separate ``national_*``
+    metrics, so a province- or national-keyed row in a non-``national_`` file is
+    always a mistake: ``build_geojson._attach_vector`` would broadcast it across
+    every zone in the province (or all zones, for national), clobbering real
+    per-zone counts. Non-geographic placeholders (e.g. ``NA``) are unaffected —
+    this only concerns province/national roll-ups.
+    """
+    return dataset == "insp_sitrep" and not metric.startswith("national_")
+
+
 def zscode_to_canonical(zscode: str | None) -> str | None:
     if not zscode:
         return None

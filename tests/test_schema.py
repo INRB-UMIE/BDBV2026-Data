@@ -261,3 +261,20 @@ def test_resolve_processed_paths_language_variants(tmp_path):
 
     exact = resolve_processed_paths(folder, en)
     assert [name for _, name in exact] == [en]
+
+
+def test_requires_zone_only_noms():
+    from tools.lib.schema import requires_zone_only_noms
+
+    # Zone-level insp_sitrep metrics: guarded.
+    assert requires_zone_only_noms("insp_sitrep", "cumulative_confirmed_cases") is True
+    assert requires_zone_only_noms("insp_sitrep", "cumulative_confirmed_deaths") is True
+    assert requires_zone_only_noms("insp_sitrep", "new_confirmed_cases") is True
+    assert requires_zone_only_noms("insp_sitrep", "hospitalised") is True
+
+    # National insp_sitrep metrics: exempt (they legitimately carry DRC).
+    assert requires_zone_only_noms("insp_sitrep", "national_cumulative_confirmed_cases") is False
+
+    # Other datasets: never guarded by this narrow rule.
+    assert requires_zone_only_noms("public_health_response", "provincial_epidemiological_coordination") is False
+    assert requires_zone_only_noms("flowminder", "inflow") is False
