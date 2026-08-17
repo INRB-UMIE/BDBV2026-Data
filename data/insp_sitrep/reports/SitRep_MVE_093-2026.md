@@ -4,10 +4,10 @@ Copy this file for each sitrep (e.g. `SitRep_MVE_015-2026.md`) and record any no
 
 | Field | Value |
 | --- | --- |
-| **Sitrep number** | 89 |
+| **Sitrep number** | 93 |
 | **Digitiser** | Patrick |
-| **Report date** | 11th August, 2026 |
-| **Digitising date** | 12th August, 2026 |
+| **Report date** | 15th August, 2026 |
+| **Digitising date** | 16th August, 2026 |
 
 ---
 
