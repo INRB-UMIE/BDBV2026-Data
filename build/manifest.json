@@ -1,8 +1,8 @@
 {
   "shapefile": "data/shapefiles/DRC_Health_zones.shp",
   "n_features": 519,
-  "built_at": "2026-08-19T08:07:52+00:00",
-  "commit": "13ed921",
+  "built_at": "2026-08-20T06:51:45+00:00",
+  "commit": "6f50205",
   "datasets": [
     {
       "folder": "ACLED_conflict",
