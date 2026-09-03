@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'data/**'
+
   workflow_dispatch:
     inputs:
       description:
@@ -22,7 +23,12 @@ concurrency:
 jobs:
   release:
     runs-on: ubuntu-latest
+
     steps:
+
+      # ============================================================
+      # 1. Vérifier le marqueur [skip release]
+      # ============================================================
       - name: Check [skip release] marker
         id: skip
         env:
@@ -35,6 +41,10 @@ jobs:
             echo "skip=false" >> "$GITHUB_OUTPUT"
           fi
 
+
+      # ============================================================
+      # 2. Checkout
+      # ============================================================
       - name: Checkout
         if: steps.skip.outputs.skip != 'true'
         uses: actions/checkout@v4
@@ -43,6 +53,54 @@ jobs:
           lfs: true
           token: ${{ secrets.GITHUB_TOKEN }}
 
+
+      # ============================================================
+      # 3. DIAGNOSTIC #1
+      # Vérifier l'état du dépôt immédiatement après checkout
+      # ============================================================
+      - name: DEBUG - Working tree after checkout
+        if: steps.skip.outputs.skip != 'true'
+        run: |
+          set -e
+
+          echo ""
+          echo "=================================================="
+          echo "DEBUG #1 - WORKING TREE AFTER CHECKOUT"
+          echo "=================================================="
+
+          echo ""
+          echo "===== Git status ====="
+          git status --short
+
+          echo ""
+          echo "===== SitRep PDF status ====="
+          git status --short -- data/insp_sitrep/raw/
+
+          echo ""
+          echo "===== Git diff name-status ====="
+          git diff --name-status -- data/insp_sitrep/raw/
+
+          echo ""
+          echo "===== Git diff summary ====="
+          git diff --summary -- data/insp_sitrep/raw/
+
+          echo ""
+          echo "===== Git LFS status ====="
+          git lfs status
+
+          echo ""
+          echo "===== Git LFS files ====="
+          git lfs ls-files data/insp_sitrep/raw/
+
+          echo ""
+          echo "=================================================="
+          echo "END DEBUG #1"
+          echo "=================================================="
+
+
+      # ============================================================
+      # 4. Python
+      # ============================================================
       - name: Set up Python
         if: steps.skip.outputs.skip != 'true'
         uses: actions/setup-python@v5
@@ -51,10 +109,19 @@ jobs:
           cache: 'pip'
           cache-dependency-path: tools/requirements.txt
 
+
+      # ============================================================
+      # 5. Installer les dépendances
+      # ============================================================
       - name: Install Python dependencies
         if: steps.skip.outputs.skip != 'true'
-        run: pip install -r tools/requirements.txt
+        run: |
+          pip install -r tools/requirements.txt
 
+
+      # ============================================================
+      # 6. Description de la release
+      # ============================================================
       - name: Resolve release description
         if: steps.skip.outputs.skip != 'true'
         env:
@@ -62,33 +129,139 @@ jobs:
           RELEASE_DESCRIPTION: ${{ github.event.inputs.description }}
         run: |
           set -euo pipefail
+
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             printf '%s\n' "$RELEASE_DESCRIPTION" > /tmp/desc.md
           else
             gh api "repos/${{ github.repository }}/commits/${{ github.sha }}/pulls" \
               -H "Accept: application/vnd.github+json" > /tmp/pulls.json
+
             python - << 'PYEOF' > /tmp/desc.md
           import json, sys
           from tools.lib.release import extract_whats_new
+
           pulls = json.load(open("/tmp/pulls.json"))
+
           if not pulls:
-              print("No PR associated with commit ${{ github.sha }}", file=sys.stderr); sys.exit(2)
+              print(
+                  "No PR associated with commit ${{ github.sha }}",
+                  file=sys.stderr
+              )
+              sys.exit(2)
+
           body = pulls[0].get("body") or ""
           print(extract_whats_new(body))
           PYEOF
           fi
+
           echo "---- description ----"
           cat /tmp/desc.md
           echo "---------------------"
 
+
+      # ============================================================
+      # 7. QA
+      # ============================================================
       - name: Run QA
         if: steps.skip.outputs.skip != 'true'
         run: python -m tools.qa
 
+
+      # ============================================================
+      # 8. DIAGNOSTIC #2
+      # Vérifier si QA a modifié les PDF
+      # ============================================================
+      - name: DEBUG - Working tree after QA
+        if: steps.skip.outputs.skip != 'true'
+        run: |
+          set -e
+
+          echo ""
+          echo "=================================================="
+          echo "DEBUG #2 - WORKING TREE AFTER QA"
+          echo "=================================================="
+
+          echo ""
+          echo "===== Git status ====="
+          git status --short
+
+          echo ""
+          echo "===== SitRep PDF status ====="
+          git status --short -- data/insp_sitrep/raw/
+
+          echo ""
+          echo "===== Git diff name-status ====="
+          git diff --name-status -- data/insp_sitrep/raw/
+
+          echo ""
+          echo "===== Git diff summary ====="
+          git diff --summary -- data/insp_sitrep/raw/
+
+          echo ""
+          echo "===== Git LFS status ====="
+          git lfs status
+
+          echo ""
+          echo "=================================================="
+          echo "END DEBUG #2"
+          echo "=================================================="
+
+
+      # ============================================================
+      # 9. Build GeoJSON
+      # ============================================================
       - name: Build GeoJSON
         if: steps.skip.outputs.skip != 'true'
         run: python -m tools.build_geojson
 
+
+      # ============================================================
+      # 10. DIAGNOSTIC #3
+      # Vérifier si build_geojson a modifié les PDF
+      # ============================================================
+      - name: DEBUG - Working tree after Build GeoJSON
+        if: steps.skip.outputs.skip != 'true'
+        run: |
+          set -e
+
+          echo ""
+          echo "=================================================="
+          echo "DEBUG #3 - WORKING TREE AFTER BUILD GEOJSON"
+          echo "=================================================="
+
+          echo ""
+          echo "===== Git status ====="
+          git status --short
+
+          echo ""
+          echo "===== SitRep PDF status ====="
+          git status --short -- data/insp_sitrep/raw/
+
+          echo ""
+          echo "===== Git diff name-status ====="
+          git diff --name-status -- data/insp_sitrep/raw/
+
+          echo ""
+          echo "===== Git diff summary ====="
+          git diff --summary -- data/insp_sitrep/raw/
+
+          echo ""
+          echo "===== Git LFS status ====="
+          git lfs status
+
+          echo ""
+          echo "===== Files marked modified ====="
+          git status --porcelain | grep 'data/insp_sitrep/raw/' || true
+
+          echo ""
+          echo "=================================================="
+          echo "END DEBUG #3"
+          echo "=================================================="
+
+
+      # ============================================================
+      # 11. Release
+      # ============================================================
       - name: Pack archive and update README
         if: steps.skip.outputs.skip != 'true'
         run: |
@@ -96,30 +269,47 @@ jobs:
             --description-file /tmp/desc.md \
             --non-interactive
 
+
+      # ============================================================
+      # 12. Commit des artefacts
+      # ============================================================
       - name: Commit build artifacts back to main
         if: steps.skip.outputs.skip != 'true'
         id: commit
         run: |
           set -euo pipefail
+
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
           git add build/ qa/qa_log.csv qa/matrix_log.csv qa/reports/ README.md
+
           if git diff --cached --quiet; then
             echo "Nothing to commit."
             echo "data_ref=${{ github.sha }}" >> "$GITHUB_OUTPUT"
             exit 0
           fi
+
           tag=$(python - << 'PYEOF'
           import json
+
           m = json.load(open('build/manifest.json'))
           date = m['built_at'].split('T',1)[0]
+
           print(f"build-{date}-{m['commit']}")
           PYEOF
           )
+
           git commit -m "CI: release ${tag} [skip release][skip ci]"
+
           git push origin HEAD:main
+
           echo "data_ref=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
+
+      # ============================================================
+      # 13. GitHub Release
+      # ============================================================
       - name: Publish GitHub Release
         if: steps.skip.outputs.skip != 'true'
         env:
@@ -127,6 +317,10 @@ jobs:
         run: |
           python -m tools.publish
 
+
+      # ============================================================
+      # 14. Dashboard rebuild
+      # ============================================================
       - name: Trigger dashboard rebuild
         if: steps.skip.outputs.skip != 'true'
         env:
@@ -134,10 +328,12 @@ jobs:
           DASHBOARD_REPO: INRB-UMIE/BDBV2026-Epidemic_Dashboard
         run: |
           set -euo pipefail
+
           if [ -z "${GH_TOKEN}" ]; then
             echo "::warning::DASHBOARD_DISPATCH_TOKEN not set; skipping dashboard dispatch."
             exit 0
           fi
+
           jq -n \
             --arg data_ref "${{ steps.commit.outputs.data_ref }}" \
             --arg sha "${{ steps.commit.outputs.data_ref }}" \
