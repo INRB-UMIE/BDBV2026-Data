@@ -27,7 +27,7 @@ jobs:
     steps:
 
       # ============================================================
-      # 1. Vérifier le marqueur [skip release]
+      # 1. Check [skip release] marker
       # ============================================================
       - name: Check [skip release] marker
         id: skip
@@ -43,7 +43,7 @@ jobs:
 
 
       # ============================================================
-      # 2. Checkout
+      # 2. Checkout repository
       # ============================================================
       - name: Checkout
         if: steps.skip.outputs.skip != 'true'
@@ -55,7 +55,7 @@ jobs:
 
 
       # ============================================================
-      # 3. DIAGNOSTIC #1
+      # 3. DEBUG #1
       # Vérifier l'état du dépôt immédiatement après checkout
       # ============================================================
       - name: DEBUG - Working tree after checkout
@@ -89,17 +89,66 @@ jobs:
           git lfs status
 
           echo ""
-          echo "===== Git LFS files ====="
-          git lfs ls-files data/insp_sitrep/raw/
-
-          echo ""
           echo "=================================================="
           echo "END DEBUG #1"
           echo "=================================================="
 
 
       # ============================================================
-      # 4. Python
+      # 4. DEBUG LFS détaillé
+      # ============================================================
+      - name: DEBUG - LFS detailed inspection
+        if: steps.skip.outputs.skip != 'true'
+        run: |
+          set -e
+
+          echo ""
+          echo "=================================================="
+          echo "DEBUG - LFS DETAILED INSPECTION"
+          echo "=================================================="
+
+          echo ""
+          echo "===== Git version ====="
+          git --version
+
+          echo ""
+          echo "===== Git LFS version ====="
+          git lfs version
+
+          echo ""
+          echo "===== Git LFS environment ====="
+          git lfs env
+
+          echo ""
+          echo "===== Git attributes ====="
+          git check-attr -a -- \
+            data/insp_sitrep/raw/SitRep_MVE_093_2026.pdf
+
+          echo ""
+          echo "===== LFS pointer in HEAD ====="
+          git show HEAD:data/insp_sitrep/raw/SitRep_MVE_093_2026.pdf | head -5
+
+          echo ""
+          echo "===== LFS pointer information ====="
+          git lfs pointer --file \
+            data/insp_sitrep/raw/SitRep_MVE_093_2026.pdf || true
+
+          echo ""
+          echo "===== LFS tracked files ====="
+          git lfs ls-files | grep 'data/insp_sitrep/raw/' || true
+
+          echo ""
+          echo "===== Git status ====="
+          git status --short
+
+          echo ""
+          echo "=================================================="
+          echo "END LFS DETAILED INSPECTION"
+          echo "=================================================="
+
+
+      # ============================================================
+      # 5. Set up Python
       # ============================================================
       - name: Set up Python
         if: steps.skip.outputs.skip != 'true'
@@ -111,7 +160,7 @@ jobs:
 
 
       # ============================================================
-      # 5. Installer les dépendances
+      # 6. Install Python dependencies
       # ============================================================
       - name: Install Python dependencies
         if: steps.skip.outputs.skip != 'true'
@@ -120,7 +169,7 @@ jobs:
 
 
       # ============================================================
-      # 6. Description de la release
+      # 7. Resolve release description
       # ============================================================
       - name: Resolve release description
         if: steps.skip.outputs.skip != 'true'
@@ -160,7 +209,7 @@ jobs:
 
 
       # ============================================================
-      # 7. QA
+      # 8. Run QA
       # ============================================================
       - name: Run QA
         if: steps.skip.outputs.skip != 'true'
@@ -168,8 +217,8 @@ jobs:
 
 
       # ============================================================
-      # 8. DIAGNOSTIC #2
-      # Vérifier si QA a modifié les PDF
+      # 9. DEBUG #2
+      # Vérifier si QA modifie les PDF
       # ============================================================
       - name: DEBUG - Working tree after QA
         if: steps.skip.outputs.skip != 'true'
@@ -208,7 +257,7 @@ jobs:
 
 
       # ============================================================
-      # 9. Build GeoJSON
+      # 10. Build GeoJSON
       # ============================================================
       - name: Build GeoJSON
         if: steps.skip.outputs.skip != 'true'
@@ -216,8 +265,8 @@ jobs:
 
 
       # ============================================================
-      # 10. DIAGNOSTIC #3
-      # Vérifier si build_geojson a modifié les PDF
+      # 11. DEBUG #3
+      # Vérifier si Build GeoJSON modifie les PDF
       # ============================================================
       - name: DEBUG - Working tree after Build GeoJSON
         if: steps.skip.outputs.skip != 'true'
@@ -260,7 +309,7 @@ jobs:
 
 
       # ============================================================
-      # 11. Release
+      # 12. Pack archive and update README
       # ============================================================
       - name: Pack archive and update README
         if: steps.skip.outputs.skip != 'true'
@@ -271,7 +320,7 @@ jobs:
 
 
       # ============================================================
-      # 12. Commit des artefacts
+      # 13. Commit build artifacts back to main
       # ============================================================
       - name: Commit build artifacts back to main
         if: steps.skip.outputs.skip != 'true'
@@ -308,7 +357,7 @@ jobs:
 
 
       # ============================================================
-      # 13. GitHub Release
+      # 14. Publish GitHub Release
       # ============================================================
       - name: Publish GitHub Release
         if: steps.skip.outputs.skip != 'true'
@@ -319,7 +368,7 @@ jobs:
 
 
       # ============================================================
-      # 14. Dashboard rebuild
+      # 15. Trigger dashboard rebuild
       # ============================================================
       - name: Trigger dashboard rebuild
         if: steps.skip.outputs.skip != 'true'
