@@ -29,6 +29,7 @@ jobs:
       # ============================================================
       # 1. Check [skip release] marker
       # ============================================================
+
       - name: Check [skip release] marker
         id: skip
         env:
@@ -45,6 +46,7 @@ jobs:
       # ============================================================
       # 2. Checkout repository
       # ============================================================
+
       - name: Checkout
         if: steps.skip.outputs.skip != 'true'
         uses: actions/checkout@v4
@@ -55,9 +57,60 @@ jobs:
 
 
       # ============================================================
-      # 3. DEBUG #1
-      # Vérifier l'état du dépôt immédiatement après checkout
+      # 3. Normalize Git LFS working tree
+      #
+      # GitHub Actions was reporting the SitRep PDFs as modified
+      # immediately after checkout even though:
+      #
+      #   Git object == File object
+      #
+      # This refreshes the LFS objects and Git index before anything
+      # else touches the repository.
       # ============================================================
+
+      - name: Normalize Git LFS working tree
+        if: steps.skip.outputs.skip != 'true'
+        run: |
+          set -euo pipefail
+
+          echo "=================================================="
+          echo "NORMALIZING GIT LFS WORKING TREE"
+          echo "=================================================="
+
+          echo "===== Git LFS version ====="
+          git lfs version
+
+          echo ""
+          echo "===== Pull LFS objects ====="
+          git lfs pull
+
+          echo ""
+          echo "===== Checkout LFS files ====="
+          git lfs checkout
+
+          echo ""
+          echo "===== Refresh Git index ====="
+          git update-index --refresh || true
+
+          echo ""
+          echo "===== Git status after normalization ====="
+          git status --short
+
+          echo ""
+          echo "===== SitRep PDF status ====="
+          git status --short -- data/insp_sitrep/raw/
+
+          echo ""
+          echo "=================================================="
+          echo "END LFS NORMALIZATION"
+          echo "=================================================="
+
+
+      # ============================================================
+      # 4. DEBUG #1
+      # Verify repository is clean immediately after checkout/LFS
+      # ============================================================
+
       - name: DEBUG - Working tree after checkout
         if: steps.skip.outputs.skip != 'true'
         run: |
@@ -67,8 +120,8 @@ jobs:
           echo "=================================================="
           echo "DEBUG #1 - WORKING TREE AFTER CHECKOUT"
           echo "=================================================="
-
           echo ""
+
           echo "===== Git status ====="
           git status --short
 
@@ -95,8 +148,9 @@ jobs:
 
 
       # ============================================================
-      # 4. DEBUG LFS détaillé
+      # 5. DEBUG LFS detailed inspection
       # ============================================================
+
       - name: DEBUG - LFS detailed inspection
         if: steps.skip.outputs.skip != 'true'
         run: |
@@ -106,8 +160,8 @@ jobs:
           echo "=================================================="
           echo "DEBUG - LFS DETAILED INSPECTION"
           echo "=================================================="
-
           echo ""
+
           echo "===== Git version ====="
           git --version
 
@@ -148,8 +202,9 @@ jobs:
 
 
       # ============================================================
-      # 5. Set up Python
+      # 6. Set up Python
       # ============================================================
+
       - name: Set up Python
         if: steps.skip.outputs.skip != 'true'
         uses: actions/setup-python@v5
@@ -160,8 +215,9 @@ jobs:
 
 
       # ============================================================
-      # 6. Install Python dependencies
+      # 7. Install Python dependencies
       # ============================================================
+
       - name: Install Python dependencies
         if: steps.skip.outputs.skip != 'true'
         run: |
@@ -169,8 +225,9 @@ jobs:
 
 
       # ============================================================
-      # 7. Resolve release description
+      # 8. Resolve release description
       # ============================================================
+
       - name: Resolve release description
         if: steps.skip.outputs.skip != 'true'
         env:
@@ -186,7 +243,9 @@ jobs:
               -H "Accept: application/vnd.github+json" > /tmp/pulls.json
 
             python - << 'PYEOF' > /tmp/desc.md
-          import json, sys
+          import json
+          import sys
+
           from tools.lib.release import extract_whats_new
 
           pulls = json.load(open("/tmp/pulls.json"))
@@ -194,7 +253,7 @@ jobs:
           if not pulls:
               print(
                   "No PR associated with commit ${{ github.sha }}",
-                  file=sys.stderr
+                  file=sys.stderr,
               )
               sys.exit(2)
 
@@ -209,17 +268,19 @@ jobs:
 
 
       # ============================================================
-      # 8. Run QA
+      # 9. Run QA
       # ============================================================
+
       - name: Run QA
         if: steps.skip.outputs.skip != 'true'
         run: python -m tools.qa
 
 
       # ============================================================
-      # 9. DEBUG #2
-      # Vérifier si QA modifie les PDF
+      # 10. DEBUG #2
+      # Check whether QA modified the PDFs
       # ============================================================
+
       - name: DEBUG - Working tree after QA
         if: steps.skip.outputs.skip != 'true'
         run: |
@@ -229,8 +290,8 @@ jobs:
           echo "=================================================="
           echo "DEBUG #2 - WORKING TREE AFTER QA"
           echo "=================================================="
-
           echo ""
+
           echo "===== Git status ====="
           git status --short
 
@@ -257,17 +318,19 @@ jobs:
 
 
       # ============================================================
-      # 10. Build GeoJSON
+      # 11. Build GeoJSON
       # ============================================================
+
       - name: Build GeoJSON
         if: steps.skip.outputs.skip != 'true'
         run: python -m tools.build_geojson
 
 
       # ============================================================
-      # 11. DEBUG #3
-      # Vérifier si Build GeoJSON modifie les PDF
+      # 12. DEBUG #3
+      # Check whether Build GeoJSON modified the PDFs
       # ============================================================
+
       - name: DEBUG - Working tree after Build GeoJSON
         if: steps.skip.outputs.skip != 'true'
         run: |
@@ -277,8 +340,8 @@ jobs:
           echo "=================================================="
           echo "DEBUG #3 - WORKING TREE AFTER BUILD GEOJSON"
           echo "=================================================="
-
           echo ""
+
           echo "===== Git status ====="
           git status --short
 
@@ -309,8 +372,9 @@ jobs:
 
 
       # ============================================================
-      # 12. Pack archive and update README
+      # 13. Pack archive and update README
       # ============================================================
+
       - name: Pack archive and update README
         if: steps.skip.outputs.skip != 'true'
         run: |
@@ -320,8 +384,9 @@ jobs:
 
 
       # ============================================================
-      # 13. Commit build artifacts back to main
+      # 14. Commit build artifacts back to main
       # ============================================================
+
       - name: Commit build artifacts back to main
         if: steps.skip.outputs.skip != 'true'
         id: commit
@@ -343,7 +408,7 @@ jobs:
           import json
 
           m = json.load(open('build/manifest.json'))
-          date = m['built_at'].split('T',1)[0]
+          date = m['built_at'].split('T', 1)[0]
 
           print(f"build-{date}-{m['commit']}")
           PYEOF
@@ -357,8 +422,9 @@ jobs:
 
 
       # ============================================================
-      # 14. Publish GitHub Release
+      # 15. Publish GitHub Release
       # ============================================================
+
       - name: Publish GitHub Release
         if: steps.skip.outputs.skip != 'true'
         env:
@@ -368,8 +434,9 @@ jobs:
 
 
       # ============================================================
-      # 15. Trigger dashboard rebuild
+      # 16. Trigger dashboard rebuild
       # ============================================================
+
       - name: Trigger dashboard rebuild
         if: steps.skip.outputs.skip != 'true'
         env:
@@ -387,5 +454,15 @@ jobs:
             --arg data_ref "${{ steps.commit.outputs.data_ref }}" \
             --arg sha "${{ steps.commit.outputs.data_ref }}" \
             --arg dashboard_branch "main" \
-            '{event_type: "data-updated", client_payload: {data_ref: $data_ref, sha: $sha, dashboard_branch: $dashboard_branch}}' \
-            | gh api --method POST "repos/${DASHBOARD_REPO}/dispatches" --input -
+            '{
+              event_type: "data-updated",
+              client_payload: {
+                data_ref: $data_ref,
+                sha: $sha,
+                dashboard_branch: $dashboard_branch
+              }
+            }' \
+            | gh api \
+                --method POST \
+                "repos/${DASHBOARD_REPO}/dispatches" \
+                --input -
