@@ -59,13 +59,9 @@ jobs:
       # ============================================================
       # 3. Normalize Git LFS working tree
       #
-      # GitHub Actions was reporting the SitRep PDFs as modified
-      # immediately after checkout even though:
-      #
-      #   Git object == File object
-      #
-      # This refreshes the LFS objects and Git index before anything
-      # else touches the repository.
+      # GitHub Actions peut parfois considérer les fichiers LFS
+      # comme modifiés immédiatement après checkout alors que leur
+      # contenu correspond exactement à HEAD.
       # ============================================================
 
       - name: Normalize Git LFS working tree
@@ -73,19 +69,25 @@ jobs:
         run: |
           set -euo pipefail
 
+          echo ""
           echo "=================================================="
           echo "NORMALIZING GIT LFS WORKING TREE"
           echo "=================================================="
 
-          echo "===== Git LFS version ====="
-          git lfs version
-
           echo ""
-          echo "===== Pull LFS objects ====="
+          echo "===== Git LFS pull ====="
           git lfs pull
 
           echo ""
-          echo "===== Checkout LFS files ====="
+          echo "===== Git LFS checkout ====="
+          git lfs checkout
+
+          echo ""
+          echo "===== Reset working tree to HEAD ====="
+          git reset --hard HEAD
+
+          echo ""
+          echo "===== Restore LFS files ====="
           git lfs checkout
 
           echo ""
@@ -93,7 +95,7 @@ jobs:
           git update-index --refresh || true
 
           echo ""
-          echo "===== Git status after normalization ====="
+          echo "===== Final Git status ====="
           git status --short
 
           echo ""
@@ -108,7 +110,7 @@ jobs:
 
       # ============================================================
       # 4. DEBUG #1
-      # Verify repository is clean immediately after checkout/LFS
+      # Vérifier l'état du dépôt immédiatement après checkout/LFS
       # ============================================================
 
       - name: DEBUG - Working tree after checkout
@@ -120,8 +122,8 @@ jobs:
           echo "=================================================="
           echo "DEBUG #1 - WORKING TREE AFTER CHECKOUT"
           echo "=================================================="
-          echo ""
 
+          echo ""
           echo "===== Git status ====="
           git status --short
 
@@ -148,7 +150,7 @@ jobs:
 
 
       # ============================================================
-      # 5. DEBUG LFS detailed inspection
+      # 5. DEBUG LFS détaillé
       # ============================================================
 
       - name: DEBUG - LFS detailed inspection
@@ -160,8 +162,8 @@ jobs:
           echo "=================================================="
           echo "DEBUG - LFS DETAILED INSPECTION"
           echo "=================================================="
-          echo ""
 
+          echo ""
           echo "===== Git version ====="
           git --version
 
@@ -253,11 +255,12 @@ jobs:
           if not pulls:
               print(
                   "No PR associated with commit ${{ github.sha }}",
-                  file=sys.stderr,
+                  file=sys.stderr
               )
               sys.exit(2)
 
           body = pulls[0].get("body") or ""
+
           print(extract_whats_new(body))
           PYEOF
           fi
@@ -278,7 +281,7 @@ jobs:
 
       # ============================================================
       # 10. DEBUG #2
-      # Check whether QA modified the PDFs
+      # Vérifier si QA modifie les PDF
       # ============================================================
 
       - name: DEBUG - Working tree after QA
@@ -290,8 +293,8 @@ jobs:
           echo "=================================================="
           echo "DEBUG #2 - WORKING TREE AFTER QA"
           echo "=================================================="
-          echo ""
 
+          echo ""
           echo "===== Git status ====="
           git status --short
 
@@ -328,7 +331,7 @@ jobs:
 
       # ============================================================
       # 12. DEBUG #3
-      # Check whether Build GeoJSON modified the PDFs
+      # Vérifier si Build GeoJSON modifie les PDF
       # ============================================================
 
       - name: DEBUG - Working tree after Build GeoJSON
@@ -340,8 +343,8 @@ jobs:
           echo "=================================================="
           echo "DEBUG #3 - WORKING TREE AFTER BUILD GEOJSON"
           echo "=================================================="
-          echo ""
 
+          echo ""
           echo "===== Git status ====="
           git status --short
 
@@ -408,6 +411,7 @@ jobs:
           import json
 
           m = json.load(open('build/manifest.json'))
+
           date = m['built_at'].split('T', 1)[0]
 
           print(f"build-{date}-{m['commit']}")
