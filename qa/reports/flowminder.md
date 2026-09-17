@@ -1,6 +1,6 @@
 # QA report: flowminder
 
-_Checked: 2026-09-15T12:10:14+00:00_
+_Checked: 2026-09-17T11:51:30+00:00_
 
 **Status counts:** {'pass': 3, 'warn': 2}
 
