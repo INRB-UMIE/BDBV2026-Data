@@ -20,7 +20,7 @@ This work is led by the Institut National de Recherche Biomédicale (INRB) Kinsh
 ### Statement on continuing work and analyses before publication
 Please note that the epidemiological data presented here is based on work in progress and should be considered preliminary. Our analyses are ongoing, and a publication communicating our findings is in preparation. Contextual data are publicly accessible; please refer to the original license when re-using these data. If you intend to use the epidemiological data prior to our publication, or have other enquiries, please contact [Prof. Placide Mbala-Kingebeni](mailto:placide.mbala@inrb.cd) (INRB, DRC), [Prof. Dav Ebengo](mailto:dav.ebengo@umie-inrb.org) (INRB, DRC), and [Pierre Akilimali](mailto:pierre.akilimali@insp.cd) (INSP).
 
-Last successful build: **19 October 2026, 09:35:35 (UTC)** — `build/` on `main` at commit [`a860481`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/a86048137212c0210f5cc3222c5c01b9cfeff472) (data snapshot [`a860481`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/a860481), see `build/manifest.json`).
+Last successful build: **19 October 2026, 12:00:24 (UTC)** — `build/` on `main` at commit [`4567efd`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/4567efd47f3ec304758f13dc92cad5115b2a2fd6) (data snapshot [`4567efd`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/4567efd), see `build/manifest.json`).
 
 # Data sources
 ### Geospatial
@@ -60,7 +60,7 @@ The current build is committed on `main` and refreshed automatically by CI on ev
 ### What's New
 
 <!-- whats-new:start -->
-add sitRep 155 V
+Add HZ data
 <!-- whats-new:end -->
 
 ### Build contents
@@ -79,6 +79,7 @@ Full tables live in [`data/README.md`](data/README.md#current-build-outputs). Ma
 <!-- past-releases:start -->
 | Tag | Date | Summary | Download |
 |-----|------|---------|----------|
+| [`build-2026-10-19-4567efd`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-10-19-4567efd) | 2026-10-19 | Add HZ data | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-10-19-4567efd) |
 | [`build-2026-10-19-a860481`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-10-19-a860481) | 2026-10-19 | add sitRep 155 V | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-10-19-a860481) |
 | [`build-2026-10-16-985d3ab`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-10-16-985d3ab) | 2026-10-16 | Add sitRep 153 | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-10-16-985d3ab) |
 | [`build-2026-10-15-d3d1074`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-10-15-d3d1074) | 2026-10-15 | Add only national level sitRep 152 | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-10-15-d3d1074) |
