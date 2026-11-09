@@ -1,6 +1,6 @@
 # QA report: aggregated_insp_linelist
 
-_Checked: 2026-11-07T12:52:50+00:00_
+_Checked: 2026-11-09T17:00:33+00:00_
 
 **Status counts:** {'pass': 3}
 
