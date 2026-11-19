@@ -20,7 +20,7 @@ This work is led by the Institut National de Recherche Biomédicale (INRB) Kinsh
 ### Statement on continuing work and analyses before publication
 Please note that the epidemiological data presented here is based on work in progress and should be considered preliminary. Our analyses are ongoing, and a publication communicating our findings is in preparation. Contextual data are publicly accessible; please refer to the original license when re-using these data. If you intend to use the epidemiological data prior to our publication, or have other enquiries, please contact [Prof. Placide Mbala-Kingebeni](mailto:placide.mbala@inrb.cd) (INRB, DRC), [Prof. Dav Ebengo](mailto:dav.ebengo@umie-inrb.org) (INRB, DRC), and [Pierre Akilimali](mailto:pierre.akilimali@insp.cd) (INSP).
 
-Last successful build: **17 November 2026, 19:57:19 (UTC)** — `build/` on `main` at commit [`57fdd6e`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/57fdd6ebb4c5d24ea757f72e6455ebbac8dbe698) (data snapshot [`57fdd6e`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/57fdd6e), see `build/manifest.json`).
+Last successful build: **19 November 2026, 16:25:44 (UTC)** — `build/` on `main` at commit [`391d858`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/391d85812f6495e7d9e6448e826219e3853bdc2e) (data snapshot [`391d858`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/391d858), see `build/manifest.json`).
 
 # Data sources
 ### Geospatial
@@ -53,14 +53,14 @@ For the latest BDBV genomic data, please visit [Pathoplexus](https://pathoplexus
 
 We are tracking pending data sources over on the [issues tab](https://github.com/kraemer-lab/Ebola_DRC_2026/issues). If you want to request a specific publicly available dataset, raise an issue (although raising an issue does not guarantee that we will incorporate a dataset).
 
-# Current build (2026-11-17)
+# Current build (2026-11-19)
 
 The current build is committed on `main` and refreshed automatically by CI on every merge that touches `data/**` — see [Release internals](#release-internals). Run `python -m tools.build_geojson` locally only if you're working on a branch with un-merged data changes.
 
 ### What's New
 
 <!-- whats-new:start -->
-Add sitRep 186
+add sitRep 187_188
 <!-- whats-new:end -->
 
 ### Build contents
@@ -79,6 +79,7 @@ Full tables live in [`data/README.md`](data/README.md#current-build-outputs). Ma
 <!-- past-releases:start -->
 | Tag | Date | Summary | Download |
 |-----|------|---------|----------|
+| [`build-2026-11-19-391d858`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-11-19-391d858) | 2026-11-19 | add sitRep 187_188 | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-11-19-391d858) |
 | [`build-2026-11-17-57fdd6e`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-11-17-57fdd6e) | 2026-11-17 | Add sitRep 186 | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-11-17-57fdd6e) |
 | [`build-2026-11-17-d796b0a`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-11-17-d796b0a) | 2026-11-17 | add sitRep 185 | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-11-17-d796b0a) |
 | [`build-2026-11-15-c5a3b86`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-11-15-c5a3b86) | 2026-11-15 | add sitRep 183 & 184 | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-11-15-c5a3b86) |
