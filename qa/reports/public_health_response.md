@@ -1,6 +1,6 @@
 # QA report: public_health_response
 
-_Checked: 2026-11-24T13:49:24+00:00_
+_Checked: 2026-11-24T14:17:07+00:00_
 
 **Status counts:** {'pass': 55}
 
@@ -97,92 +97,92 @@ _Checked: 2026-11-24T13:49:24+00:00_
 - resolution: daily
 
 ## `public_health_response__national_epidemiological_community_engagement_en__daily.csv` (vector) — **pass**
-- rows: 75
+- rows: 76
 - zones covered: 0 / 519
 - resolution: daily
 
 ## `public_health_response__national_epidemiological_community_engagement_fr__daily.csv` (vector) — **pass**
-- rows: 75
+- rows: 76
 - zones covered: 0 / 519
 - resolution: daily
 
 ## `public_health_response__national_epidemiological_coordination_en__daily.csv` (vector) — **pass**
-- rows: 92
+- rows: 93
 - zones covered: 0 / 519
 - resolution: daily
 
 ## `public_health_response__national_epidemiological_coordination_fr__daily.csv` (vector) — **pass**
-- rows: 92
+- rows: 93
 - zones covered: 0 / 519
 - resolution: daily
 
 ## `public_health_response__national_epidemiological_infection_prevention_controle_en__daily.csv` (vector) — **pass**
-- rows: 73
+- rows: 74
 - zones covered: 0 / 519
 - resolution: daily
 
 ## `public_health_response__national_epidemiological_infection_prevention_controle_fr__daily.csv` (vector) — **pass**
-- rows: 73
+- rows: 74
 - zones covered: 0 / 519
 - resolution: daily
 
 ## `public_health_response__national_epidemiological_laboratory_en__daily.csv` (vector) — **pass**
-- rows: 73
+- rows: 74
 - zones covered: 0 / 519
 - resolution: daily
 
 ## `public_health_response__national_epidemiological_laboratory_fr__daily.csv` (vector) — **pass**
-- rows: 73
+- rows: 74
 - zones covered: 0 / 519
 - resolution: daily
 
 ## `public_health_response__national_epidemiological_logistics_en__daily.csv` (vector) — **pass**
-- rows: 75
+- rows: 76
 - zones covered: 0 / 519
 - resolution: daily
 
 ## `public_health_response__national_epidemiological_logistics_fr__daily.csv` (vector) — **pass**
-- rows: 75
+- rows: 76
 - zones covered: 0 / 519
 - resolution: daily
 
 ## `public_health_response__national_epidemiological_management_en__daily.csv` (vector) — **pass**
-- rows: 76
+- rows: 77
 - zones covered: 0 / 519
 - resolution: daily
 
 ## `public_health_response__national_epidemiological_management_fr__daily.csv` (vector) — **pass**
-- rows: 76
+- rows: 77
 - zones covered: 0 / 519
 - resolution: daily
 
 ## `public_health_response__national_epidemiological_monitoring_en__daily.csv` (vector) — **pass**
-- rows: 82
+- rows: 83
 - zones covered: 0 / 519
 - resolution: daily
 
 ## `public_health_response__national_epidemiological_monitoring_fr__daily.csv` (vector) — **pass**
-- rows: 73
+- rows: 74
 - zones covered: 0 / 519
 - resolution: daily
 
 ## `public_health_response__national_epidemiological_protection_sexual_exploitation_abuse_en__daily.csv` (vector) — **pass**
-- rows: 72
+- rows: 73
 - zones covered: 0 / 519
 - resolution: daily
 
 ## `public_health_response__national_epidemiological_protection_sexual_exploitation_abuse_fr__daily.csv` (vector) — **pass**
-- rows: 72
+- rows: 73
 - zones covered: 0 / 519
 - resolution: daily
 
 ## `public_health_response__national_epidemiological_security_en__daily.csv` (vector) — **pass**
-- rows: 72
+- rows: 73
 - zones covered: 0 / 519
 - resolution: daily
 
 ## `public_health_response__national_epidemiological_security_fr__daily.csv` (vector) — **pass**
-- rows: 72
+- rows: 73
 - zones covered: 0 / 519
 - resolution: daily
 
