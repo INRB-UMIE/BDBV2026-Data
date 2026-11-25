@@ -15,6 +15,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: read
 
 concurrency:
   group: release-main
@@ -234,41 +235,47 @@ jobs:
         if: steps.skip.outputs.skip != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          EVENT_NAME: ${{ github.event_name }}
           RELEASE_DESCRIPTION: ${{ github.event.inputs.description }}
+          COMMIT_MSG: ${{ github.event.head_commit.message }}
+          COMMIT_SHA: ${{ github.sha }}
         run: |
           set -euo pipefail
 
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
             printf '%s\n' "$RELEASE_DESCRIPTION" > /tmp/desc.md
           else
-            gh api "repos/${{ github.repository }}/commits/${{ github.sha }}/pulls" \
+            gh api "repos/${GITHUB_REPOSITORY}/commits/${COMMIT_SHA}/pulls" \
               -H "Accept: application/vnd.github+json" > /tmp/pulls.json
 
             python - << 'PYEOF' > /tmp/desc.md
           import json
-          import sys
+          import os
 
           from tools.lib.release import extract_whats_new
 
-          pulls = json.load(open("/tmp/pulls.json"))
+          with open("/tmp/pulls.json", encoding="utf-8") as f:
+              pulls = json.load(f)
 
-          if not pulls:
-              print(
-                  "No PR associated with commit ${{ github.sha }}",
-                  file=sys.stderr
-              )
-              sys.exit(2)
+          description = ""
 
-          body = pulls[0].get("body") or ""
+          if pulls:
+              body = pulls[0].get("body") or ""
+              description = extract_whats_new(body).strip()
 
-          print(extract_whats_new(body))
+          if not description:
+              description = os.environ.get("COMMIT_MSG", "").strip()
+
+          if not description:
+              description = f"Data update ({os.environ['COMMIT_SHA'][:7]})"
+
+          print(description)
           PYEOF
           fi
 
-          echo "---- description ----"
+          echo "---- Release description ----"
           cat /tmp/desc.md
-          echo "---------------------"
-
+          echo "------------------------------"
 
       # ============================================================
       # 9. Run QA
