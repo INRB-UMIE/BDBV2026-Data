@@ -382,7 +382,39 @@ jobs:
 
 
       # ============================================================
-      # 13. Pack archive and update README
+      # 13. Diagnose modified SitRep PDFs before release
+      # This step is intentionally read-only: it does not reset,
+      # checkout, delete, or overwrite any source PDF.
+      # ============================================================
+
+      - name: Diagnose modified SitRep PDFs
+        if: steps.skip.outputs.skip != 'true'
+        run: |
+          set -u
+
+          echo "===== Git status (SitRep PDFs) ====="
+          git status --short -- data/insp_sitrep/raw/
+
+          echo "===== Git diff name-status ====="
+          git diff --name-status -- data/insp_sitrep/raw/
+
+          echo "===== Git diff summary ====="
+          git diff --stat -- data/insp_sitrep/raw/
+
+          echo "===== Git LFS status ====="
+          git lfs status
+
+          echo "===== Git attributes ====="
+          git check-attr filter diff merge -- data/insp_sitrep/raw/
+
+          echo "===== LFS tracked SitRep PDFs ====="
+          git lfs ls-files -- data/insp_sitrep/raw/ || true
+
+          echo "===== End SitRep diagnostics ====="
+
+
+      # ============================================================
+      # 14. Pack archive and update README
       # ============================================================
 
       - name: Pack archive and update README
@@ -394,7 +426,7 @@ jobs:
 
 
       # ============================================================
-      # 14. Commit build artifacts back to main
+      # 15. Commit build artifacts back to main
       # ============================================================
 
       - name: Commit build artifacts back to main
@@ -433,7 +465,7 @@ jobs:
 
 
       # ============================================================
-      # 15. Publish GitHub Release
+      # 16. Publish GitHub Release
       # ============================================================
 
       - name: Publish GitHub Release
@@ -445,7 +477,7 @@ jobs:
 
 
       # ============================================================
-      # 16. Trigger dashboard rebuild
+      # 17. Trigger dashboard rebuild
       # ============================================================
 
       - name: Trigger dashboard rebuild
