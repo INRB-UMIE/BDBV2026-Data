@@ -20,7 +20,7 @@ This work is led by the Institut National de Recherche Biomédicale (INRB) Kinsh
 ### Statement on continuing work and analyses before publication
 Please note that the epidemiological data presented here is based on work in progress and should be considered preliminary. Our analyses are ongoing, and a publication communicating our findings is in preparation. Contextual data are publicly accessible; please refer to the original license when re-using these data. If you intend to use the epidemiological data prior to our publication, or have other enquiries, please contact [Prof. Placide Mbala-Kingebeni](mailto:placide.mbala@inrb.cd) (INRB, DRC), [Prof. Dav Ebengo](mailto:dav.ebengo@umie-inrb.org) (INRB, DRC), and [Pierre Akilimali](mailto:pierre.akilimali@insp.cd) (INSP).
 
-Last successful build: **26 November 2026, 11:02:11 (UTC)** — `build/` on `main` at commit [`a102f3f`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/a102f3f58839f576c9cced31acc8ccab85e093e6) (data snapshot [`a102f3f5`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/a102f3f5), see `build/manifest.json`).
+Last successful build: **26 November 2026, 12:43:56 (UTC)** — `build/` on `main` at commit [`65b307d`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/65b307d410988d69b27e2310d4d86199bb8f1584) (data snapshot [`65b307d4`](https://github.com/INRB-UMIE/Ebola_DRC_2026/commit/65b307d4), see `build/manifest.json`).
 
 # Data sources
 ### Geospatial
@@ -79,6 +79,7 @@ Full tables live in [`data/README.md`](data/README.md#current-build-outputs). Ma
 <!-- past-releases:start -->
 | Tag | Date | Summary | Download |
 |-----|------|---------|----------|
+| [`build-2026-11-26-65b307d4`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-11-26-65b307d4) | 2026-11-26 | correct error | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-11-26-65b307d4) |
 | [`build-2026-11-26-a102f3f5`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-11-26-a102f3f5) | 2026-11-26 | correct error | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-11-26-a102f3f5) |
 | [`build-2026-11-26-05e40b60`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-11-26-05e40b60) | 2026-11-26 | execute | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-11-26-05e40b60) |
 | [`build-2026-11-24-fc157d13`](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-11-24-fc157d13) | 2026-11-24 | Add sitRep 191 | [release](https://github.com/INRB-UMIE/Ebola_DRC_2026/releases/tag/build-2026-11-24-fc157d13) |
